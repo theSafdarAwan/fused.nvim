@@ -1,9 +1,9 @@
-local utils = require("safdar.core.utils")
-local vim = utils.vim
+local M = {}
+local vim = vim
 local Colors = require("fused.pallete")
 -- TODO: lsp utilities borders
 
-local function FusedNvim()
+M.set_colors = function()
     vim.opt.background = "dark"
 
     local hl = function(highlightGroup, opts)
@@ -567,7 +567,7 @@ local function FusedNvim()
     -- <++
 end
 
-FusedNvim()
+return M
 
 -- TODO: you know what to do
 

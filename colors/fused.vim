@@ -1,2 +1,7 @@
 let colors_name = "fused"
-lua require("fused")
+
+hi clear Normal
+
+set background=dark
+
+lua require("fused").setup()
