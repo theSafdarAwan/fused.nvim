@@ -569,111 +569,185 @@ end
 
 return M
 
--- TODO: you know what to do
+-- #### Misc
+-- @comment  ; line and block comments
+-- @error    ; syntax/parser errors
+-- @none     ; completely disable the highlight
+-- @preproc  ; various preprocessor directives & shebangs
+-- @define   ; preprocessor definition directives
+-- @operator ; symbolic operators (e.g. `+` / `*`)
 
+-- #### Punctuation
+-- @punctuation.delimiter ; delimiters (e.g. `;` / `.` / `,`)
+-- @punctuation.bracket   ; brackets (e.g. `()` / `{}` / `[]`)
+-- @punctuation.special   ; special symbols (e.g. `{}` in string interpolation)
+
+-- #### Literals
+-- @string            ; string literals
+-- @string.regex      ; regular expressions
+-- @string.escape     ; escape sequences
+-- @string.special    ; other special strings (e.g. dates)
+
+-- @character         ; character literals
+-- @character.special ; special characters (e.g. wildcards)
+
+-- @boolean           ; boolean literals
+-- @number            ; numeric literals
+-- @float             ; floating-point number literals
+
+-- #### Functions
+-- @function         ; function definitions
+-- @function.builtin ; built-in functions
+-- @function.call    ; function calls
+-- @function.macro   ; preprocessor macros
+
+-- @method           ; method definitions
+-- @method.call      ; method calls
+
+-- @constructor      ; constructor calls and definitions
+-- @parameter        ; parameters of a function
+
+-- #### Keywords
+-- @keyword          ; various keywords
+-- @keyword.function ; keywords that define a function (e.g. `func` in Go, `def` in Python)
+-- @keyword.operator ; operators that are English words (e.g. `and` / `or`)
+-- @keyword.return   ; keywords like `return` and `yield`
+
+-- @conditional      ; keywords related to conditionals (e.g. `if` / `else`)
+-- @repeat           ; keywords related to loops (e.g. `for` / `while`)
+-- @debug            ; keywords related to debugging
+-- @label            ; GOTO and other labels (e.g. `label:` in C)
+-- @include          ; keywords for including modules (e.g. `import` / `from` in Python)
+-- @exception        ; keywords related to exceptions (e.g. `throw` / `catch`)
+
+-- #### Types
+-- @type                  ; type or class definitions and annotations
+-- @type.builtin          ; built-in types
+-- @type.definition       ; type definitions (e.g. `typedef` in C)
+-- @type.qualifier        ; type qualifiers (e.g. `const`)
+
+-- @storageclass          ; visibility/life-time modifiers
+-- @storageclass.lifetime ; life-time modifiers (e.g. `static`)
+-- @attribute             ; attribute annotations (e.g. Python decorators)
+-- @field                 ; object and struct fields
+-- @property              ; similar to `@field`
+
+-- #### Identifiers
+-- @variable         ; various variable names
+-- @variable.builtin ; built-in variable names (e.g. `this`)
+
+-- @constant          ; constant identifiers
+-- @constant.builtin  ; built-in constant values
+-- @constant.macro    ; constants defined by the preprocessor
+
+-- @namespace        ; modules or namespaces
+-- @symbol           ; symbols or atoms
+
+-- #### Text
+-- Mainly for markup languages.
+-- @text                  ; non-structured text
+-- @text.strong           ; bold text
+-- @text.emphasis         ; text with emphasis
+-- @text.underline        ; underlined text
+-- @text.strike           ; strikethrough text
+-- @text.title            ; text that is part of a title
+-- @text.literal          ; literal or verbatim text
+-- @text.uri              ; URIs (e.g. hyperlinks)
+-- @text.math             ; math environments (e.g. `$ ... $` in LaTeX)
+-- @text.environment      ; text environments of markup languages
+-- @text.environment.name ; text indicating the type of an environment
+-- @text.reference        ; text references, footnotes, citations, etc.
+
+-- @text.todo             ; todo notes
+-- @text.note             ; info notes
+-- @text.warning          ; warning notes
+-- @text.danger           ; danger/error notes
+
+-- @text.diff.add         ; added text (for diff files)
+-- @text.diff.delete      ; deleted text (for diff files)
+
+-- #### Tags
+-- Used for XML-like tags.
+-- @tag           ; XML tag names
+-- @tag.attribute ; XML tag attributes
+-- @tag.delimiter ; XML tag delimiters
+
+-- #### Conceal
+-- @conceal ; for captures that are only used for concealing
+
+-- `@conceal` must be followed by `(#set! conceal "")`.
+
+-- #### Spell
+-- @spell ; for defining regions to be spellchecked
+
+-- #### Non-standard
+-- These captures are used by some languages but don't have any default highlights.
+-- They fall back to the parent capture if they are not manually defined.
+-- @variable.global
+
+-- ### Locals
+-- @definition            ; various definitions
+-- @definition.constant   ; constants
+-- @definition.function   ; functions
+-- @definition.method     ; methods
+-- @definition.var        ; variables
+-- @definition.parameter  ; parameters
+-- @definition.macro      ; preprocessor macros
+-- @definition.type       ; types or classes
+-- @definition.field      ; fields or properties
+-- @definition.enum       ; enumerations
+-- @definition.namespace  ; modules or namespaces
+-- @definition.import     ; imported names
+-- @definition.associated ; the associated type of a variable
+
+-- @scope                 ; scope block
+-- @reference             ; identifier reference
+
+-- #### Definition Scope
+-- You can set the scope of a definition by setting the `scope` property on the definition.
 --
--- ["annotation"] = "TSAnnotation",
---
---  ["attribute"] = "TSAttribute",
---
---  ["boolean"] = "TSBoolean",
---
---  ["character"] = "TSCharacter",
---  ["character.special"] = "TSCharacterSpecial",
---
---  ["comment"] = "TSComment",
---
---  ["conditional"] = "TSConditional",
---
---  ["constant"] = "TSConstant",
---  ["constant.builtin"] = "TSConstBuiltin",
---  ["constant.macro"] = "TSConstMacro",
---
---  ["constructor"] = "TSConstructor",
---
---  ["debug"] = "TSDebug",
---  ["define"] = "TSDefine",
---
---  ["error"] = "TSError",
---  ["exception"] = "TSException",
---
---  ["field"] = "TSField",
---
---  ["float"] = "TSFloat",
---
---  ["function"] = "TSFunction",
---  ["function.call"] = "TSFunctionCall",
---  ["function.builtin"] = "TSFuncBuiltin",
---  ["function.macro"] = "TSFuncMacro",
---
---  ["include"] = "TSInclude",
---
---  ["keyword"] = "TSKeyword",
---  ["keyword.function"] = "TSKeywordFunction",
---  ["keyword.operator"] = "TSKeywordOperator",
---  ["keyword.return"] = "TSKeywordReturn",
---
---  ["label"] = "TSLabel",
---
---  ["method"] = "TSMethod",
---  ["method.call"] = "TSMethodCall",
---
---  ["namespace"] = "TSNamespace",
---
---  ["none"] = "TSNone",
---  ["number"] = "TSNumber",
---
---  ["operator"] = "TSOperator",
---
---  ["parameter"] = "TSParameter",
---  ["parameter.reference"] = "TSParameterReference",
---
---  ["preproc"] = "TSPreProc",
---
---  ["property"] = "TSProperty",
---
---  ["punctuation.delimiter"] = "TSPunctDelimiter",
---  ["punctuation.bracket"] = "TSPunctBracket",
---  ["punctuation.special"] = "TSPunctSpecial",
---
---  ["repeat"] = "TSRepeat",
---
---  ["storageclass"] = "TSStorageClass",
---
---  ["string"] = "TSString",
---  ["string.regex"] = "TSStringRegex",
---  ["string.escape"] = "TSStringEscape",
---  ["string.special"] = "TSStringSpecial",
---
---  ["symbol"] = "TSSymbol",
---
---  ["tag"] = "TSTag",
---  ["tag.attribute"] = "TSTagAttribute",
---  ["tag.delimiter"] = "TSTagDelimiter",
---
---  ["text"] = "TSText",
---  ["text.strong"] = "TSStrong",
---  ["text.emphasis"] = "TSEmphasis",
---  ["text.underline"] = "TSUnderline",
---  ["text.strike"] = "TSStrike",
---  ["text.title"] = "TSTitle",
---  ["text.literal"] = "TSLiteral",
---  ["text.uri"] = "TSURI",
---  ["text.math"] = "TSMath",
---  ["text.reference"] = "TSTextReference",
---  ["text.environment"] = "TSEnvironment",
---  ["text.environment.name"] = "TSEnvironmentName",
---
---  ["text.note"] = "TSNote",
---  ["text.warning"] = "TSWarning",
---  ["text.danger"] = "TSDanger",
---
---  ["todo"] = "TSTodo",
---
---  ["type"] = "TSType",
---  ["type.builtin"] = "TSTypeBuiltin",
---  ["type.qualifier"] = "TSTypeQualifier",
---  ["type.definition"] = "TSTypeDefinition",
---
---  ["variable"] = "TSVariable",
---  ["variable.builtin"] = "TSVariableBuiltin",
+-- For example, a javascript function declaration creates a scope. The function name is captured as the definition.
+-- This means that the function definition would only be available WITHIN the scope of the function, which is not the case.
+-- The definition can be used in the scope the function was defined in.
+
+-- function doSomething() {}
+-- doSomething(); // Should point to the declaration as the definition
+
+-- (function_declaration
+--   ((identifier) @definition.var)
+--    (#set! "definition.var.scope" "parent"))
+
+-- Possible scope values are:
+
+-- - `parent`: The definition is valid in the containing scope and one more scope above that scope
+-- - `global`: The definition is valid in the root scope
+-- - `local`: The definition is valid in the containing scope. This is the default behavior
+
+-- ### Folds
+-- ```scheme
+-- @fold ; fold this node
+-- If the `fold.scm` query is not present, this will fallback to the `@scope` captures in the `locals`
+-- query.
+
+-- ### Injections
+-- Some captures are related to language injection (like markdown code blocks). They are used in `injections.scm`.
+-- You can directly use the name of the language that you want to inject (e.g. `@html` to inject html).
+
+-- If you want to dynamically detect the language (e.g. for Markdown blocks) use the `@language` to capture
+-- the node describing the language and `@content` to describe the injection region.
+
+-- @{lang}   ; e.g. @html to describe a html region
+
+-- @language ; dynamic detection of the injection language (i.e. the text of the captured node describes the language)
+-- @content  ; region for the dynamically detected language
+-- @combined ; combine all matches of a pattern as one single block of content
+
+-- ### Indents
+-- @indent         ; indent children when matching this node
+-- @indent_end     ; marks the end of indented block
+-- @aligned_indent ; behaves like python aligned/hanging indent
+-- @dedent         ; dedent children when matching this node
+-- @branch         ; dedent itself when matching this node
+-- @ignore         ; do not indent in this node
+-- @auto           ; behaves like 'autoindent' buffer option
+-- @zero_indent    ; sets this node at position 0 (no indent)
