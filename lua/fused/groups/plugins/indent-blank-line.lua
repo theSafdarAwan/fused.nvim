@@ -1,7 +1,7 @@
 local M = {}
 
 M.set_indent_blank_line_hl = function(hl, cp)
-    hl("IndentBlanklineChar", { fg = cp.cp4 })
+    hl("IndentBlanklineChar", { fg = cp.cp0 })
     hl("IndentBlanklineSpaceChar", { link = "IndentBlanklineChar" })
     hl("IndentBlanklineSpaceCharBlankline", { link = "IndentBlanklineChar" })
     hl("IndentBlanklineContextChar", { fg = cp.cp1 })

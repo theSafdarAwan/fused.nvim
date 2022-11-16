@@ -7,10 +7,10 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@none", {}) -- completely disable the highlight
     hl("@preproc", { fg = cp.sky_blue }) -- various preprocessor directives & shebangs
     hl("@define", { fg = cp.blue }) -- preprocessor definition directives
-    hl("@operator", { fg = cp.sky_blue }) -- symbolic operators (e.g. `+` / `*`)
+    hl("@operator", { fg = cp.white }) -- symbolic operators (e.g. `+` / `*`)
 
     -- Punctuation
-    hl("@punctuation.delimiter", { fg = cp.radish_pink }) -- delimiters (e.g. `;` / `.` / `,`)
+    hl("@punctuation.delimiter", { fg = cp.white }) -- delimiters (e.g. `;` / `.` / `,`)
     hl("@punctuation.bracket", { fg = cp.dyellow }) -- brackets (e.g. `()` / `{}` / `[]`)
     hl("@punctuation.special", { fg = cp.wred }) -- special symbols (e.g. `{}` in string interpolation)
 
@@ -28,8 +28,8 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@float", { fg = cp.dyellow }) -- floating-point number literals
 
     -- Functions
-    hl("@function", { fg = cp.dmagenta }) -- function definitions
-    hl("@function.builtin", { fg = cp.lgreen }) -- built-in functions
+    hl("@function", { fg = cp.wmagenta }) -- function definitions
+    hl("@function.builtin", { link = "@function" }) -- built-in functions
     hl("@function.call", { link = "@function" }) -- function calls
     hl("@function.macro", { fg = cp.magenta }) -- preprocessor macros
 
@@ -37,13 +37,12 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@method.call", { link = "@function.call" }) -- method calls
 
     hl("@constructor", { fg = cp.teal }) -- constructor calls and definitions
-    hl("@parameter", { fg = cp.dyellow }) -- parameters of a function
+    hl("@parameter", { fg = cp.radish_pink }) -- parameters of a function
 
     -- Keywords
     hl("@keyword", { fg = cp.magenta }) -- various keywords
     hl("@keyword.function", { link = "@keyword" }) -- keywords that define a function (e.g. `func` in Go, `def` in Python)
-    hl("@keyword.operator", { link = "@keyword" }) -- operators that are English words (e.g. `and` / `or`)
-    hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
+    hl("@keyword.operator", { link = "@keyword" }) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
 
     hl("@conditional", { link = "@keyword" }) -- keywords related to conditionals (e.g. `if` / `else`)
     hl("@repeat", { link = "@keyword" }) -- keywords related to loops (e.g. `for` / `while`)
@@ -65,7 +64,7 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@property", { link = "@field" }) -- similar to `@field`
 
     -- #### Identifiers
-    hl("@variable", { fg = cp.white }) -- various variable names
+    hl("@variable", { fg = cp.sky_blue }) -- various variable names
     hl("@variable.builtin", { fg = cp.sky }) -- built-in variable names (e.g. `this`)
 
     hl("@constant", { fg = cp.white }) -- constant identifiers
@@ -88,7 +87,7 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@text.math", { fg = cp.string }) -- math environments (e.g. `$ ... $` in LaTeX)
     hl("@text.environment", { fg = cp.text }) -- text environments of markup languages
     hl("@text.environment.name", { fg = cp.text }) -- text indicating the type of an environment
-    hl("@text.reference", { fg = cp.text, standout = true }) -- text references, footnotes, citations, etc.
+    hl("@text.reference", { fg = cp.text, undercurl = true }) -- text references, footnotes, citations, etc.
 
     hl("@text.todo", { fg = cp.sky_blue }) -- todo notes
     hl("@text.note", { fg = cp.sky }) -- info notes

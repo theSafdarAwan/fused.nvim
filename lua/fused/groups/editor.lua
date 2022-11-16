@@ -73,9 +73,9 @@ M.set_editor_hl = function(hl, cp)
     -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     hl("QuickFixLine", { bg = cp.dark, bold = true })
     -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand oucp.
-    hl("Search", { bg = cp.cp1 })
+    hl("Search", { bg = cp.cp0 })
     -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-    hl("IncSearch", { bg = cp.cp1 })
+    hl("IncSearch", { bg = cp.cp0 })
     -- 'cursearch' highlighting: highlights the current search you're on differently
     hl("CurSearch", { bg = cp.dark })
     -- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' textspace. |hl-Whitespace|
@@ -118,7 +118,7 @@ M.set_editor_hl = function(hl, cp)
     -- diff mode: Added line |diff.txt|
     hl("DiffAdd", { fg = cp.green })
     -- diff mode: Changed line |diff.txt|
-    hl("DiffChange", { fg = cp.yellow })
+    hl("DiffChange", { fg = cp.radish_pink })
     -- diff mode: Deleted line |diff.txt|
     hl("DiffDelete", { fg = cp.wred })
 end

@@ -22,6 +22,7 @@ local colors = {
     very_light_malachite_green = "#71F094",
     one_dark_green = "#98C379",
     teal = "#1abc9c",
+    blue = "#948AE3",
 
     canary = "#FFFFA5",
     yellow = "#FCCF6C",
