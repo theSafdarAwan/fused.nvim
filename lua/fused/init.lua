@@ -1,13 +1,19 @@
 local M = {}
 
-M.setup = function(ok)
-    -- for the moment do it hardocore value but in future will be accepted from
-    -- setup config
+M.setup = function(tbl)
+    -- maybe in future will accept multiple flavours
     local flavour = require("fused.palletes").dark_pallete
     require("fused.groups").set(flavour)
 
-    if ok then
+    if tbl["enable_plugins"] then
         require("fused.groups").set_plugins(flavour)
     end
+end
+
+M.load_theme = function()
+    -- maybe in future will accept multiple flavours
+    local flavour = require("fused.palletes").dark_pallete
+    require("fused.groups").set(flavour)
+    require("fused.groups").set_plugins(flavour)
 end
 return M

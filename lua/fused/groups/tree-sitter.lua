@@ -2,7 +2,7 @@ local M = {}
 
 M.set_tree_sitter_hl = function(hl, cp)
     -- Misc
-    hl("@comment", { fg = cp.cp1 }) -- line and block comments
+    hl("@comment", { fg = cp.cp1, italic = true }) -- line and block comments
     hl("@error", { fg = cp.red }) -- syntax/parser errors
     hl("@none", {}) -- completely disable the highlight
     hl("@preproc", { fg = cp.sky_blue }) -- various preprocessor directives & shebangs
@@ -48,11 +48,11 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@repeat", { link = "@keyword" }) -- keywords related to loops (e.g. `for` / `while`)
     hl("@debug", { link = "@keyword" }) -- keywords related to debugging
     hl("@label", { link = "@keyword" }) -- GOTO and other labels (e.g. `label:` in C)
-    hl("@include", { fg = cp.dyellow }) -- keywords for including modules (e.g. `import` / `from` in Python)
+    hl("@include", { fg = cp.green, italic = true }) -- keywords for including modules (e.g. `import` / `from` in Python)
     hl("@exception", { link = "@keyword" }) -- keywords related to exceptions (e.g. `throw` / `catch`)
 
     -- Types
-    hl("@type", { fg = cp.radish_pink }) -- type or class definitions and annotations
+    hl("@type", { fg = cp.magenta }) -- type or class definitions and annotations
     hl("@type.builtin", { link = "@type" }) -- built-in types
     hl("@type.definition", { link = "@type" }) -- type definitions (e.g. `typedef` in C)
     hl("@type.qualifier", { link = "@type" }) -- type qualifiers (e.g. `const`)

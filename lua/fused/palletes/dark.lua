@@ -43,6 +43,7 @@ local colors = {
     compliment3 = "#373844",
     compliment4 = "#282A36",
     compliment5 = "#6272A4",
+    compliment6 = "#181926",
 }
 
 return colors
