@@ -1,8 +1,6 @@
 local M = {}
-local cp = require("fused.palletes").dark_pallete
-local hl = require("fused.utils").get
 
-M.set_todo_comments_hl = function()
+M.set_todo_comments_hl = function(hl, cp)
     hl("@todocomment.error", { fg = cp.red })
     hl("@todocomment.warn", { fg = cp.dyellow })
     hl("@todocomment.info", { fg = cp.green })

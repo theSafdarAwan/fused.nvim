@@ -1,8 +1,6 @@
 local M = {}
-local hl = require("fused.utils").get
-local cp = require("fused.palletes").dark_pallete
 
-M.set_trouble_hl = function()
+M.set_trouble_hl = function(hl, cp)
     -- TroubleCount
     -- TroubleError
     -- TroubleNormal

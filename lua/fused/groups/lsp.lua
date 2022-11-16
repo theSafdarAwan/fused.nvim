@@ -1,8 +1,6 @@
 local M = {}
-local cp = require("fused.palletes").dark_pallete
-local hl = require("fused.utils").get
 
-M.set_lsp_hl = function()
+M.set_lsp_hl = function(hl, cp)
     hl("LspReferenceText", { bg = cp.wred, bold = true }) -- used for highlighting "text" references
     hl("LspReferenceRead", { bg = cp.wred, bold = true }) -- used for highlighting "read" references
     hl("LspReferenceWrite", { bg = cp.wred, bold = true }) -- used for highlighting "write" references

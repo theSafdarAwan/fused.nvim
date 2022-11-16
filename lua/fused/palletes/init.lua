@@ -6,7 +6,7 @@ M.dark_pallete = {
     dark = d.dark,
     white = d.white,
     text = d.text,
-    string = d.ceil,
+    string = d.compliment5,
     cp0 = d.compliment0,
     cp1 = d.compliment1,
     cp2 = d.compliment2,
@@ -25,11 +25,11 @@ M.dark_pallete = {
     lgreen = d.one_dark_green,
     lyellow = d.canary,
     yellow = d.yellow,
-    dyellow = d.earth_yellow,
+    dyellow = d.orange,
     radish_pink = d.big_foot_feet,
     blue = d.aero,
     sky = d.sky,
-    wblue = d.baby_blue,
+    wblue = d.cyan,
     sky_blue = d.french_sky_blue,
 }
 

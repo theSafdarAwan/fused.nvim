@@ -1,8 +1,6 @@
 local M = {}
-local cp = require("fused.palletes").dark_pallete
-local hl = require("fused.utils").get
 
-M.set_cmp_hl = function()
+M.set_cmp_hl = function(hl, cp)
     -- TODO: CmpItemKind%
     hl("CmpItemAbbr", { fg = cp.white })
     hl("CmpItemAbbrDeprecated", { fg = cp.cp2 })

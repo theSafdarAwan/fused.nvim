@@ -1,8 +1,6 @@
 local M = {}
-local cp = require("fused.palletes").dark_pallete
-local hl = require("fused.utils").get
 
-M.set_syntax_hl = function()
+M.set_syntax_hl = function(hl, cp)
     hl("Constant", { link = "@constant" }) -- (preferred) any constant
     hl("String", { link = "@string" }) --   a string constant: "this is a string"
     hl("Character", { link = "@character" }) --  a character constant: 'c', '\n'

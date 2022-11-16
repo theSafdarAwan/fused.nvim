@@ -13,9 +13,11 @@ local colors = {
     candy_pink = "#e4717a",
     baker_miller_pink = "#ff91af",
     pink_red = "#ff5370",
+    red = "#FF5555",
     cinnabar = "#e34234",
 
     lavender_magenta = "#ee82ee",
+    pink = "#FF79C6",
     magenta_dark = "#BD93F9",
     very_light_malachite_green = "#71F094",
     one_dark_green = "#98C379",
@@ -23,6 +25,7 @@ local colors = {
 
     canary = "#FFFFA5",
     yellow = "#FCCF6C",
+    orange = "#FFB86C",
     earth_yellow = "#D19A66",
     big_foot_feet = "#e88e5a",
 
@@ -30,6 +33,7 @@ local colors = {
     sky = "#0FCFFF",
 
     baby_blue = "#89cff0",
+    cyan = "#8BE9FD",
     french_sky_blue = "#77b5fe",
 
     compliment0 = "#292e42",
@@ -37,6 +41,7 @@ local colors = {
     compliment2 = "#7F849C",
     compliment3 = "#373844",
     compliment4 = "#282A36",
+    compliment5 = "#6272A4",
 }
 
 return colors

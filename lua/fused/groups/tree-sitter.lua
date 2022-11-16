@@ -1,8 +1,6 @@
 local M = {}
-local cp = require("fused.palletes").dark_pallete
-local hl = require("fused.utils").get
 
-M.set_tree_sitter_hl = function()
+M.set_tree_sitter_hl = function(hl, cp)
     -- Misc
     hl("@comment", { fg = cp.cp1 }) -- line and block comments
     hl("@error", { fg = cp.red }) -- syntax/parser errors

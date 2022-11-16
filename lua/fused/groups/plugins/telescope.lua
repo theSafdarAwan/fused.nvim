@@ -1,8 +1,6 @@
 local M = {}
-local hl = require("fused.utils").get
-local cp = require("fused.palletes").dark_pallete
 
-M.set_telescope_hl = function()
+M.set_telescope_hl = function(hl, cp)
     hl("TelescopeSelection", { bg = cp.dark })
     hl("TelescopeSelectionCaret", { fg = cp.yellow })
     hl("TelescopeMultiSelection", { fg = cp.dark })

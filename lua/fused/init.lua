@@ -1,10 +1,13 @@
 local M = {}
 
 M.setup = function(ok)
-    require("fused.groups").set()
+    -- for the moment do it hardocore value but in future will be accepted from
+    -- setup config
+    local flavour = require("fused.palletes").dark_pallete
+    require("fused.groups").set(flavour)
 
-    if ok == true then
-        require("fused.groups").set_plugins()
+    if ok then
+        require("fused.groups").set_plugins(flavour)
     end
 end
 return M

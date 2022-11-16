@@ -1,8 +1,6 @@
 local M = {}
-local cp = require("fused.palletes").dark_pallete
-local hl = require("fused.utils").get
 
-M.set_nvim_tree_hl = function()
+M.set_nvim_tree_hl = function(hl, cp)
     hl("NvimTreeGitDirty", { fg = cp.red })
     hl("NvimTreeGitStaged", { fg = cp.green })
     hl("NvimTreeGitNew", { fg = cp.red })

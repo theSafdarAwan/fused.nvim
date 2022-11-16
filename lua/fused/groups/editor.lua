@@ -1,8 +1,6 @@
 local M = {}
-local cp = require("fused.palletes").dark_pallete
-local hl = require("fused.utils").get
 
-M.set_editor_hl = function()
+M.set_editor_hl = function(hl, cp)
     -- used for the columns set with 'colorcolumn'
     hl("ColorColumn", { bg = cp.string })
     -- placeholder characters substituted for concealed text (see 'conceallevel')

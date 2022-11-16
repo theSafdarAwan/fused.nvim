@@ -1,13 +1,10 @@
 local M = {}
-local cp = require("fused.palletes").dark_pallete
-local hl = require("fused.utils").get
 
-M.set_indent_blank_line_hl = function()
-    --> (IndentBlankline)
-    hl("IndentBlanklineChar", { fg = cp.cp2 })
+M.set_indent_blank_line_hl = function(hl, cp)
+    hl("IndentBlanklineChar", { fg = cp.cp4 })
     hl("IndentBlanklineSpaceChar", { link = "IndentBlanklineChar" })
     hl("IndentBlanklineSpaceCharBlankline", { link = "IndentBlanklineChar" })
-    hl("IndentBlanklineContextChar", { fg = cp.cp3 })
+    hl("IndentBlanklineContextChar", { fg = cp.cp1 })
     hl("IndentBlanklineContextSpaceChar", { link = "IndentBlanklineChar" })
     hl("IndentBlanklineContextStart", { link = "IndentBlanklineChar" })
 end
