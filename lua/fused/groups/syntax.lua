@@ -8,7 +8,7 @@ M.set_syntax_hl = function(hl, cp)
     hl("Boolean", { link = "@boolean" }) --  a boolean constant: TRUE, false
     hl("Float", { link = "@float" }) --    a floating point constant: 2.3e10
 
-    hl("Identifier", { fg = cp.sky }) -- (preferred) any variable name
+    hl("Identifier", { fg = cp.variable }) -- (preferred) any variable name
     hl("Function", { link = "@function" }) -- function name (also: methods for classes)
 
     hl("Statement", { fg = cp.light_pink }) -- (preferred) any statement
@@ -26,7 +26,7 @@ M.set_syntax_hl = function(hl, cp)
     hl("PreCondit", { link = "@conditional" }) --  preprocessor #if, #else, #endif, etc.
 
     hl("Type", { link = "@type" }) -- (preferred) int, long, char, etc.
-    hl("StorageClass", { fg = cp.sky }) -- static, register, volatile, etc.
+    hl("StorageClass", { link = "@field" }) -- static, register, volatile, etc.
     hl("Structure", { fg = cp.light_pink }) --  struct, union, enum, etc.
     hl("Typedef", { fg = cp.light_pink }) --  A typedef
 
@@ -40,8 +40,8 @@ M.set_syntax_hl = function(hl, cp)
     -- ("Ignore", below, may be invisible...)
     -- Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-    hl("Error", { fg = cp.error_red, bg = cp.base, bold = true }) -- (preferred) any erroneous construct
+    hl("Error", { fg = cp.err_sev, bg = cp.base, bold = true }) -- (preferred) any erroneous construct
 
-    hl("Todo", { fg = cp.yellow, bg = cp.base, bold = true }) -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    hl("Todo", { fg = cp.warn, bg = cp.base, bold = true }) -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 end
 return M

@@ -2,7 +2,7 @@ local M = {}
 
 M.set_neorg_hl = function(hl, cp)
     local norg_colors = {
-        ["h1"] = cp.sky,
+        ["h1"] = cp.property,
         ["h2"] = cp.magenta,
         ["h3"] = cp.sky_blue,
         ["h4"] = cp.string,
@@ -10,7 +10,7 @@ M.set_neorg_hl = function(hl, cp)
         ["h5"] = cp.magenta,
         ["qc"] = cp.string,
         ["desc"] = cp.string,
-        ["superscript"] = cp.yellow,
+        ["superscript"] = cp.warn,
         ["subscript"] = cp.wmagenta,
         ["code_block"] = cp.cp6,
     }

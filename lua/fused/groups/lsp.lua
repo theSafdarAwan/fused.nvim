@@ -5,20 +5,20 @@ M.set_lsp_hl = function(hl, cp)
     hl("LspReferenceRead", { bg = cp.wred, bold = true }) -- used for highlighting "read" references
     hl("LspReferenceWrite", { bg = cp.wred, bold = true }) -- used for highlighting "write" references
 
-    hl("DiagnosticVirtualTextError", { fg = cp.error_red })
-    hl("DiagnosticVirtualTextWarn", { fg = cp.yellow })
-    hl("DiagnosticVirtualTextHint", { fg = cp.blue })
-    hl("DiagnosticVirtualTextInfo", { fg = cp.sky })
+    hl("DiagnosticVirtualTextError", { fg = cp.err_sev, bg = cp.bg_windows })
+    hl("DiagnosticVirtualTextWarn", { fg = cp.warn, bg = cp.bg_windows })
+    hl("DiagnosticVirtualTextHint", { fg = cp.blue, bg = cp.bg_windows })
+    hl("DiagnosticVirtualTextInfo", { fg = cp.property, bg = cp.bg_windows })
 
-    hl("DiagnosticFloatingError", { fg = cp.error_red })
-    hl("DiagnosticFloatingWarn", { fg = cp.yellow })
-    hl("DiagnosticFloatingHint", { fg = cp.blue })
-    hl("DiagnosticFloatingInfo", { fg = cp.sky })
+    hl("DiagnosticFloatingError", { fg = cp.err_sev, bg = cp.bg_windows })
+    hl("DiagnosticFloatingWarn", { fg = cp.warn, bg = cp.bg_windows })
+    hl("DiagnosticFloatingHint", { fg = cp.blue, bg = cp.bg_windows })
+    hl("DiagnosticFloatingInfo", { fg = cp.property, bg = cp.bg_windows })
 
-    hl("DiagnosticSignError", { fg = cp.error_red })
-    hl("DiagnosticSignWarn", { fg = cp.yellow })
+    hl("DiagnosticSignError", { fg = cp.err_sev })
+    hl("DiagnosticSignWarn", { fg = cp.warn })
     hl("DiagnosticSignHint", { fg = cp.blue })
-    hl("DiagnosticSignInfo", { fg = cp.sky })
+    hl("DiagnosticSignInfo", { link = "@field" })
 
     hl(
         "DiagnosticUnderlineError",
