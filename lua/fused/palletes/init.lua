@@ -2,7 +2,8 @@ local M = {}
 local d = require("fused.palletes.dark")
 
 M.dark_pallete = {
-    bg_windows = d.surface2,
+    bg_windows = d.surface,
+    bg_windows2 = d.surface2,
     bg = d.background,
     dark = d.dark,
     white = d.white,
@@ -47,6 +48,13 @@ M.dark_pallete = {
     blue = d.aero,
     wblue = d.cyan,
     sky_blue = d.french_sky_blue,
+
+    -- @brackets pairs colors
+    ts_aqua = d.ts_rainbow_aqua,
+    ts_deep_yellow = d.big_foot_feet,
+    ts_purple = d.ts_rainbow_purple,
+    ts_yellow = d.yellow,
+    ts_cyan = d.sky,
 }
 
 return M

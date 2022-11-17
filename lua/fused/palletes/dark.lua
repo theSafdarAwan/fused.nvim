@@ -1,5 +1,5 @@
 local colors = {
-    -- surface = "#1C1D26",
+    surface = "#181825",
     background = "#1a1b26",
     surface2 = "#24283b",
     dark = "#2B2D39",
@@ -50,6 +50,11 @@ local colors = {
     compliment4 = "#282A36",
     compliment5 = "#6272A4",
     compliment6 = "#181926",
+
+    -- ts-rainbow brackets pair colors
+    ts_rainbow_aqua =    "#8ec07c",
+    ts_rainbow_pruple =  "#d3869b",
+    ts_rainbow_blue =    "#83a598",
 }
 
 return colors

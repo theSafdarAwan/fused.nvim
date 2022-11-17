@@ -23,5 +23,6 @@ M.set_plugins = function(cp)
     require("fused.groups.plugins.trouble").set_trouble_hl(hl, cp)
     require("fused.groups.plugins.telescope").set_telescope_hl(hl, cp)
     require("fused.groups.plugins.diffview").set_diffview_hl(hl, cp)
+    require("fused.groups.plugins.ts-rainbow").set_ts_rainbow_hl(hl, cp)
 end
 return M

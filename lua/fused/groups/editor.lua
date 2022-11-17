@@ -14,7 +14,7 @@ M.set_editor_hl = function(hl, cp)
     -- Screen-column at the cursor, when 'cursorcolumn' is secp.
     hl("CursorColumn", { bg = cp.string })
     -- Screen-line at the cursor, when 'cursorline' is secp.  Low-priority if forecrust (ctermfg OR guifg) is not secp.
-    hl("CursorLine", { bg = cp.bg_windows })
+    hl("CursorLine", { bg = cp.bg_windows2 })
     -- directory names (and other special names in listings)
     hl("Directory", { fg = cp.blue })
     -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
@@ -24,7 +24,7 @@ M.set_editor_hl = function(hl, cp)
     -- the column separating vertically split windows
     hl("VertSplit", { fg = cp.text })
     -- line used for closed folds
-    hl("Folded", { fg = cp.folds, bg = cp.bg_windows })
+    hl("Folded", { fg = cp.folds, bg = cp.bg_windows2 })
     -- 'foldcolumn'
     hl("FoldColumn", { link = "Folded" })
     -- column where |signs| are displayed
@@ -61,11 +61,11 @@ M.set_editor_hl = function(hl, cp)
     -- Normal text in floating windows.
     hl("FloatBorder", { fg = cp.border })
     -- Popup menu: normal item.
-    hl("Pmenu", { bg = cp.bg_windows, fg = cp.string })
+    hl("Pmenu", { bg = cp.bg_windows2, fg = cp.string })
     -- Popup menu: selected item.
     hl("PmenuSel", { fg = cp.dark, bg = cp.dyellow, bold = true })
     -- Popup menu: scrollbar.
-    hl("PmenuSbar", { bg = cp.bg_windows })
+    hl("PmenuSbar", { bg = cp.bg_windows2 })
     -- Popup menu: Thumb of the scrollbar.
     hl("PmenuThumb", { bg = cp.warn })
     -- |hit-enter| prompt and yes/no questions
@@ -73,7 +73,7 @@ M.set_editor_hl = function(hl, cp)
     -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
     hl("QuickFixLine", { bg = cp.dark, bold = true })
     -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand oucp.
-    hl("Search", { fg = cp.search, bg = cp.bg_windows })
+    hl("Search", { fg = cp.search, bg = cp.bg_windows2 })
     -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
     hl("IncSearch", { bg = cp.cp0 })
     -- 'cursearch' highlighting: highlights the current search you're on differently
@@ -101,7 +101,7 @@ M.set_editor_hl = function(hl, cp)
     -- titles for output from ":set all", ":autocmd" etcp.
     hl("Title", { fg = cp.warn, bold = true })
     -- Visual mode selection
-    hl("Visual", { bg = cp.bg_windows })
+    hl("Visual", { bg = cp.bg_windows2 })
     -- Visual mode selection when vim is "Not Owning the Selection".
     hl("VisualNOS", { bg = cp.dark })
     -- warning messages
