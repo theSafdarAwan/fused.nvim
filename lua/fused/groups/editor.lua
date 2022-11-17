@@ -51,7 +51,7 @@ M.set_editor_hl = function(hl, cp)
     -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     hl("NonText", { fg = cp.string })
     -- normal text
-    hl("Normal", { fg = cp.text })
+    hl("Normal", { fg = cp.text, bg = cp.bg })
     -- normal text
     hl("NormalNC", { fg = cp.text })
     -- normal text
@@ -89,9 +89,9 @@ M.set_editor_hl = function(hl, cp)
     -- Word that is recognized by the spellchecker as one that is hardly ever used.  |spell| Combined with the highlighting used otherwise.
     hl("SpellRare", { fg = cp.search, undercurl = true })
     -- status line of current window
-    hl("StatusLine", { fg = cp.text, bg = cp.dark })
+    hl("StatusLine", { fg = cp.text, bg = cp.bg_windows })
     -- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    hl("StatusLineNC", { fg = cp.text, bg = cp.bg })
+    hl("StatusLineNC", { fg = cp.text, bg = cp.dark })
     -- tab pages line, not active tab page label
     hl("TabLine", { bg = cp.dark, fg = cp.string })
     -- tab pages line, where there are no labels
@@ -118,9 +118,9 @@ M.set_editor_hl = function(hl, cp)
     -- diff mode: Added line |diff.txt|
     hl("DiffAdd", { fg = cp.search })
     -- diff mode: Changed line |diff.txt|
-    hl("DiffChange", { fg = cp.dgreen })
+    hl("DiffChange", { fg = cp.warn })
     -- diff mode: Deleted line |diff.txt|
-    hl("DiffDelete", { fg = cp.wred })
+    hl("DiffDelete", { fg = cp.err })
 end
 
 return M
