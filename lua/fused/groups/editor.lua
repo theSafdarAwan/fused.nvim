@@ -118,7 +118,7 @@ M.set_editor_hl = function(hl, cp)
     -- diff mode: Added line |diff.txt|
     hl("DiffAdd", { fg = cp.green })
     -- diff mode: Changed line |diff.txt|
-    hl("DiffChange", { fg = cp.radish_pink })
+    hl("DiffChange", { fg = cp.dgreen })
     -- diff mode: Deleted line |diff.txt|
     hl("DiffDelete", { fg = cp.wred })
 end

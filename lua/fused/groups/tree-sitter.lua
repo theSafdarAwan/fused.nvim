@@ -40,9 +40,10 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@parameter", { fg = cp.radish_pink }) -- parameters of a function
 
     -- Keywords
-    hl("@keyword", { fg = cp.magenta }) -- various keywords
-    hl("@keyword.function", { link = "@keyword" }) -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+    hl("@keyword", { fg = cp.magenta, italic = true }) -- various keywords
+    hl("@keyword.function", { fg = cp.magenta }) -- keywords that define a function (e.g. `func` in Go, `def` in Python)
     hl("@keyword.operator", { link = "@keyword" }) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
+    hl("@keyword.return", { link = "@keyword.function"}) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
 
     hl("@conditional", { link = "@keyword" }) -- keywords related to conditionals (e.g. `if` / `else`)
     hl("@repeat", { link = "@keyword" }) -- keywords related to loops (e.g. `for` / `while`)

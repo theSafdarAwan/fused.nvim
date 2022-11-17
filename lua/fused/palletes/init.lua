@@ -2,6 +2,7 @@ local M = {}
 local d = require("fused.palletes.dark")
 
 M.dark_pallete = {
+    black2 = d.surface2,
     black = d.surface,
     dark = d.dark,
     white = d.white,
@@ -26,7 +27,8 @@ M.dark_pallete = {
     green = d.very_light_malachite_green,
     teal = d.teal,
     lgreen = d.one_dark_green,
-    lyellow = d.canary,
+    dgreen = d.limerick_green,
+    lyellow = d.flax,
     yellow = d.yellow,
     dyellow = d.orange,
     radish_pink = d.big_foot_feet,

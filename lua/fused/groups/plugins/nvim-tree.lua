@@ -1,6 +1,7 @@
 local M = {}
 
 M.set_nvim_tree_hl = function(hl, cp)
+    hl("NvimTreeNormal", { bg = cp.black2 })
     hl("NvimTreeGitDirty", { fg = cp.red })
     hl("NvimTreeGitStaged", { fg = cp.green })
     hl("NvimTreeGitNew", { fg = cp.red })

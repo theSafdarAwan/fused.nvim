@@ -1,5 +1,6 @@
 local colors = {
     surface = "#1C1D26",
+    surface2 = "#24283b",
     dark = "#2B2D39",
 
     columbia_blue = "#D3F1F0",
@@ -21,10 +22,11 @@ local colors = {
     magenta_dark = "#BD93F9",
     very_light_malachite_green = "#71F094",
     one_dark_green = "#98C379",
+    limerick_green = "#9FC131",
     teal = "#1abc9c",
     blue = "#948AE3",
 
-    canary = "#FFFFA5",
+    flax = "#D6D58E",
     yellow = "#FCCF6C",
     orange = "#FFB86C",
     earth_yellow = "#D19A66",
