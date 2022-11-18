@@ -13,6 +13,7 @@ end
 M.set_plugins = function(cp)
     require("fused.groups.plugins.todo-comments").set_todo_comments_hl(hl, cp)
     require("fused.groups.plugins.neorg").set_neorg_hl(hl, cp)
+    require("fused.groups.plugins.lspsaga").set_lspsaga_hl(hl, cp)
     require("fused.groups.plugins.nvim-tree").set_nvim_tree_hl(hl, cp)
     require("fused.groups.plugins.cmp").set_cmp_hl(hl, cp)
     require("fused.groups.plugins.indent-blank-line").set_indent_blank_line_hl(

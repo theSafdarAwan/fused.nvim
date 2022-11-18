@@ -33,6 +33,7 @@ M.dark_pallete = {
     cp6 = d.compliment6,
 
     pink = d.china_pink,
+    pink2 = d.pink,
     light_pink = d.baker_miller_pink,
     wred = d.candy_pink,
     deep_pink = d.cyclamen,

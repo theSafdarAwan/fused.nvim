@@ -8,7 +8,8 @@ M.set_neorg_hl = function(hl, cp)
         ["h4"] = cp.string,
         ["h6"] = cp.teal,
         ["h5"] = cp.magenta,
-        ["qc"] = cp.string,
+        ["qc_fg"] = cp.variable,
+        ["qc_bg"] = cp.bg_windows,
         ["desc"] = cp.string,
         ["superscript"] = cp.warn,
         ["subscript"] = cp.wmagenta,
@@ -40,7 +41,10 @@ M.set_neorg_hl = function(hl, cp)
     hl("@neorg.links.description", { fg = norg_colors["desc"] })
     hl("@neorg.markup.superscript", { fg = norg_colors["superscript"] })
     hl("@neorg.markup.subscript", { fg = norg_colors["subscript"] })
-    hl("@neorg.quotes.1.content", { fg = norg_colors["qc"] })
+    hl(
+        "@neorg.quotes.1.content",
+        { fg = norg_colors["qc_fg"], bg = norg_colors["qc_bg"], italic = true }
+    )
     hl(
         "@neorg.tags.ranged_verbatim.code_block",
         { bg = norg_colors["code_block"] }

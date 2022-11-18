@@ -82,8 +82,8 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@text.emphasis", { fg = cp.text, italic = true }) -- text with emphasis
     hl("@text.underline", { fg = cp.text, underline = true }) -- underlined text
     hl("@text.strike", { fg = cp.text, strikethrough = true }) -- strikethrough text
-    hl("@text.title", { link = "@text.strong" }) -- text that is part of a title
-    hl("@text.literal", { fg = cp.text, undercurl = true }) -- literal or verbatim text
+    hl("@text.title", { fg = cp.warn }) -- text that is part of a title
+    hl("@text.literal", { fg = cp.cp1 }) -- literal or verbatim text
     hl("@text.uri", { link = "@text.underline" }) -- URIs (e.g. hyperlinks)
     hl("@text.math", { fg = cp.string }) -- math environments (e.g. `$ ... $` in LaTeX)
     hl("@text.environment", { fg = cp.text }) -- text environments of markup languages

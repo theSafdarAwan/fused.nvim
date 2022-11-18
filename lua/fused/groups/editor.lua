@@ -49,7 +49,7 @@ M.set_editor_hl = function(hl, cp)
     -- |more-prompt|
     hl("MoreMsg", { fg = cp.warn })
     -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    hl("NonText", { fg = cp.string })
+    hl("NonText", { fg = cp.cp1 })
     -- normal text
     hl("Normal", { fg = cp.text, bg = cp.bg })
     -- normal text
