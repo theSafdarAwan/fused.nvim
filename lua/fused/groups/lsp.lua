@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_lsp_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     hl("LspReferenceText", { bg = cp.wred, bold = true }) -- used for highlighting "text" references
     hl("LspReferenceRead", { bg = cp.wred, bold = true }) -- used for highlighting "read" references
     hl("LspReferenceWrite", { bg = cp.wred, bold = true }) -- used for highlighting "write" references

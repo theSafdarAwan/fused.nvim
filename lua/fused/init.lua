@@ -1,21 +1,19 @@
 local M = {}
 
+local defaults = require("fused.utils").default_config
+
 M.setup = function(tbl)
-    -- maybe in future will accept multiple flavours
-    local flavour = tbl["flavour"] or "dark"
-    local pallete = require("fused.pallets." .. flavour).pallete
-
-    require("fused.groups").set(pallete)
-
-    if tbl["enable_plugins"] then
-        require("fused.groups").set_plugins(pallete)
+    local conf
+    if tbl.flavour or tbl.plugins_integration then
+        conf = tbl
+    else
+        conf = defaults
     end
+    require("fused.utils").set_theme(conf)
 end
 
 M.load_theme = function()
-    -- maybe in future will accept multiple flavours
-    local flavour = require("fused.pallets").dark
-    require("fused.groups").set(flavour)
-    require("fused.groups").set_plugins(flavour)
+    M.setup(defaults)
 end
+
 return M

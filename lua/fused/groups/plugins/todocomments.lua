@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_todo_comments_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     hl("@todocomment.error", { fg = cp.err })
     hl("@todocomment.warn", { fg = cp.dyellow })
     hl("@todocomment.info", { fg = cp.search })

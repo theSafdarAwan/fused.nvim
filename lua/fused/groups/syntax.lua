@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_syntax_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     hl("Constant", { link = "@constant" }) -- (preferred) any constant
     hl("String", { link = "@string" }) --   a string constant: "this is a string"
     hl("Character", { link = "@character" }) --  a character constant: 'c', '\n'

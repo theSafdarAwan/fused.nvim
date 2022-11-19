@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_nvim_tree_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     hl("NvimTreeNormal", { bg = cp.bg })
     hl("NvimTreeGitDirty", { fg = cp.err })
     hl("NvimTreeGitStaged", { fg = cp.search })

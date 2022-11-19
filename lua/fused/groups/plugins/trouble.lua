@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_trouble_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     -- TroubleCount
     -- TroubleError
     -- TroubleNormal

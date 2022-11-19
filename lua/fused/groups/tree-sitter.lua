@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_tree_sitter_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     -- Misc
     hl("@comment", { fg = cp.cp1, italic = true }) -- line and block comments
     hl("@error", { fg = cp.err }) -- syntax/parser errors
@@ -71,7 +71,7 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@variable.builtin", { fg = cp.key }) -- built-in variable names (e.g. `this`)
 
     hl("@constant", { fg = cp.const }) -- constant identifiers
-    hl("@constant.builtin", { link = "@variable.builtin" }) -- built-in constant values
+    hl("@constant.builtin", { fg = cp.keywords }) -- built-in constant values
     hl("@constant.macro", { link = "@define" }) -- constants defined by the preprocessor
 
     -- @namespace        -- modules or namespaces

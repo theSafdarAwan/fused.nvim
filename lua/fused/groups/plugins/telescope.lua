@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_telescope_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     hl("TelescopeSelection", { bg = cp.dark })
     hl("TelescopeSelectionCaret", { fg = cp.warn })
     hl("TelescopeMultiSelection", { fg = cp.dark })

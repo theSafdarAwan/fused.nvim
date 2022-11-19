@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_lspsaga_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     -- code action
     hl("LspSagaCodeActionTitle", { fg = cp.magenta, bold = true })
     hl("LspSagaCodeActionBorder", { link = "FloatBorder" })

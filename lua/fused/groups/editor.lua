@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_editor_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     -- used for the columns set with 'colorcolumn'
     hl("ColorColumn", { bg = cp.string })
     -- placeholder characters substituted for concealed text (see 'conceallevel')

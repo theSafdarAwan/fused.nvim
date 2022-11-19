@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_neorg_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     local norg_colors = {
         ["h1"] = cp.property,
         ["h2"] = cp.red,

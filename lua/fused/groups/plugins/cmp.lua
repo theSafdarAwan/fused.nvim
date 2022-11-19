@@ -1,6 +1,6 @@
 local M = {}
 
-M.set_cmp_hl = function(hl, cp)
+M.load_hl = function(hl, cp)
     -- TODO: CmpItemKind%
     hl("CmpItemAbbr", { fg = cp.white })
     hl("CmpItemAbbrDeprecated", { fg = cp.cp2 })
