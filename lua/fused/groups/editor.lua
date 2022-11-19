@@ -118,7 +118,7 @@ M.set_editor_hl = function(hl, cp)
     -- diff mode: Added line |diff.txt|
     hl("DiffAdd", { fg = cp.search })
     -- diff mode: Changed line |diff.txt|
-    hl("DiffChange", { fg = cp.warn })
+    hl("DiffChange", { fg = cp.property })
     -- diff mode: Deleted line |diff.txt|
     hl("DiffDelete", { fg = cp.err })
 end
