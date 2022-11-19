@@ -33,8 +33,8 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@function.call", { link = "@function" }) -- function calls
     hl("@function.macro", { fg = cp.magenta }) -- preprocessor macros
 
-    hl("@method", { link = "@function" }) -- method definitions
-    hl("@method.call", { link = "@function.call" }) -- method calls
+    hl("@method", { fg = cp.method }) -- method definitions
+    hl("@method.call", { link = "@method" }) -- method calls
 
     hl("@constructor", { fg = cp.teal }) -- constructor calls and definitions
     hl("@parameter", { fg = cp.radish_pink, italic = true }) -- parameters of a function
@@ -54,6 +54,7 @@ M.set_tree_sitter_hl = function(hl, cp)
 
     -- Types
     hl("@type", { fg = cp.magenta }) -- type or class definitions and annotations
+    hl("@type.tag", { fg = cp.err }) -- type or class definitions and annotations
     hl("@type.builtin", { link = "@type" }) -- built-in types
     hl("@type.definition", { link = "@type" }) -- type definitions (e.g. `typedef` in C)
     hl("@type.qualifier", { link = "@type" }) -- type qualifiers (e.g. `const`)
@@ -63,6 +64,7 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@attribute", {}) -- attribute annotations (e.g. Python decorators)
     hl("@field", { fg = cp.property }) -- object and struct fields
     hl("@property", { link = "@field" }) -- similar to `@field`
+    hl("@property.class", { fg = cp.radish_pink }) -- similar to `@field`
 
     -- #### Identifiers
     hl("@variable", { fg = cp.variable }) -- various variable names
@@ -82,9 +84,9 @@ M.set_tree_sitter_hl = function(hl, cp)
     hl("@text.emphasis", { fg = cp.text, italic = true }) -- text with emphasis
     hl("@text.underline", { fg = cp.text, underline = true }) -- underlined text
     hl("@text.strike", { fg = cp.text, strikethrough = true }) -- strikethrough text
-    hl("@text.title", { fg = cp.warn }) -- text that is part of a title
+    hl("@text.title", { fg = cp.search, bold = true }) -- text that is part of a title
     hl("@text.literal", { fg = cp.cp1 }) -- literal or verbatim text
-    hl("@text.uri", { link = "@text.underline" }) -- URIs (e.g. hyperlinks)
+    hl("@text.uri", { fg = cp.cp5, underline = true }) -- URIs (e.g. hyperlinks)
     hl("@text.math", { fg = cp.string }) -- math environments (e.g. `$ ... $` in LaTeX)
     hl("@text.environment", { fg = cp.text }) -- text environments of markup languages
     hl("@text.environment.name", { fg = cp.text }) -- text indicating the type of an environment
@@ -100,9 +102,9 @@ M.set_tree_sitter_hl = function(hl, cp)
 
     -- #### Tags
     -- Used for XML-like tags.
-    hl("@tag", { fg = cp.dyellow }) -- XML tag names
-    hl("@tag.attribute", { fg = cp.magenta }) -- XML tag attributes
-    hl("@tag.delimiter", { fg = cp.radish_pink }) -- XML tag delimiters
+    hl("@tag", { fg = cp.wred }) -- XML tag names
+    hl("@tag.attribute", { fg = cp.variable }) -- XML tag attributes
+    hl("@tag.delimiter", { fg = cp.cp1 }) -- XML tag delimiters
 
     -- #### Conceal
     hl("@conceal", { fg = cp.cp0 }) -- for captures that are only used for concealing

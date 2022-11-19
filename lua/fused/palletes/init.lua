@@ -18,9 +18,10 @@ M.dark_pallete = {
     folds = d.ceil,
     search = d.very_light_malachite_green,
 
-    func = d.lavender_magenta,
+    func = d.red,
     property = d.sky,
     variable = d.french_sky_blue,
+    method = d.lavender_magenta,
     keywords = d.blue,
     const = d.big_foot_feet,
 
@@ -35,6 +36,7 @@ M.dark_pallete = {
     pink = d.china_pink,
     pink2 = d.pink,
     light_pink = d.baker_miller_pink,
+    red = d.red,
     wred = d.candy_pink,
     deep_pink = d.cyclamen,
     magenta = d.lavender_magenta,

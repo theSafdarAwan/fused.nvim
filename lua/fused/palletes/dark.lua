@@ -1,8 +1,8 @@
 local colors = {
-    surface = "#181825",
-    background = "#1a1b26",
-    surface2 = "#24283b",
-    dark = "#2B2D39",
+    surface = "#101521",
+    background = "#0F111A",
+    surface2 = "#1a1b26",
+    dark = "#1a1b26",
 
     columbia_blue = "#D3F1F0",
     antique_white = "#faebd7",
@@ -15,8 +15,9 @@ local colors = {
     cyclamen = "#f56fa1",
     candy_pink = "#e4717a",
     baker_miller_pink = "#ff91af",
+    red = "#E78284",
     pink_red = "#ff5370",
-    cinnabar = "#e34234",
+    cinnabar = "#fa4824",
 
     lavender_magenta = "#ee82ee",
     magenta_dark = "#BD93F9",
