@@ -42,21 +42,24 @@ use({ "TheSafdarAwan/fused" })
 
 ##### Some notes written in neorg
 
+<details>
+<summary>Click here to expand notes pictures</summary>
 <img width="900" src="./assets/images/norg.png" alt="Screenshot" />
 <img width="900" src="./assets/images/norg2.png" alt="Screenshot" />
 <img width="900" src="./assets/images/norg3.png" alt="Screenshot" />
+</details>
 
 ### ⚙️ Configuration:
 
 ```lua
 require("fused").setup({
-    -- currently only one flavour is available but Pr is welcome
-    flavour = "dark",
-    --[[
-    Enable these plugins if not then set it to false or remove the whole table
-    and set the plugins_integration to false.
-    ]]
-    plugins_integration = {
+        -- currently only one flavour is available but Pr is welcome
+        flavour = "dark",
+        --[[
+        Enable these plugins if not then set it to false or remove the whole table
+        and set the plugins_integration to false.
+        ]]
+        plugins_integration = {
         -- @names of the plugins
         cmp = true,
         diffview = true,
@@ -69,12 +72,13 @@ require("fused").setup({
         todocomments = true,
         trouble = true,
         tsrainbow = true,
-    },
-    --[[
-    Add you custom highlights here by adding the highlight group name as key and providing a table as its value for its
-    Configuration.
-    ]]
-    custom = {},
+        },
+        custom = {
+            --[[
+                Add you custom highlights here by adding the highlight group name as key and providing a table as its value for its
+                    Configuration.
+            ]]
+        },
 })
 ```
 
