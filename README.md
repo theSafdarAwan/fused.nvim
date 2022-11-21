@@ -17,6 +17,11 @@ A 🌈 colorscheme fused between different color schemes
 ## html
 <img width="900" src="./assets/images/html.png" alt="Screenshot" />
 
+## Neorg
+<img width="900" src="./assets/images/norg.png" alt="Screenshot" />
+<img width="900" src="./assets/images/norg2.png" alt="Screenshot" />
+<img width="900" src="./assets/images/norg3.png" alt="Screenshot" />
+
 You can install this theme using any plugin manager you use:
 
 Using Plug
