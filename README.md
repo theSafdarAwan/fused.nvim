@@ -52,7 +52,7 @@ require("fused").setup({
         tsrainbow = true,
     },
     --[[
-    add you highlights here by adding the highlight and providing a table for its
+    add you highlights here by adding the highlight group name and providing a table for its
     Configuration
     ]]
     custom = {
