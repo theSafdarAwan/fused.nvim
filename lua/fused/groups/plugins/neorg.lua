@@ -2,6 +2,7 @@ local M = {}
 
 M.load_hl = function(hl, cp)
     local norg_colors = {
+        ["white"] = cp.white,
         ["h1"] = cp.property,
         ["h2"] = cp.red,
         ["h3"] = cp.sky_blue,
@@ -36,15 +37,23 @@ M.load_hl = function(hl, cp)
         -- headings links location
         local ll = "@neorg.links.location.heading." .. v
         hl(ll, { fg = hc, underdotted = true })
+
+        -- quotes
+        local qp = "@neorg.quotes." .. v .. ".prefix"
+        local qc = "@neorg.quotes." .. v .. ".content"
+        hl(qp, {
+            fg = norg_colors["white"],
+        })
+        hl(qc, {
+            fg = norg_colors["qc_fg"],
+            bg = norg_colors["qc_bg"],
+            italic = true,
+        })
     end
 
     hl("@neorg.links.description", { fg = norg_colors["desc"] })
     hl("@neorg.markup.superscript", { fg = norg_colors["superscript"] })
     hl("@neorg.markup.subscript", { fg = norg_colors["subscript"] })
-    hl(
-        "@neorg.quotes.1.content",
-        { fg = norg_colors["qc_fg"], bg = norg_colors["qc_bg"], italic = true }
-    )
     hl(
         "@neorg.tags.ranged_verbatim.code_block",
         { bg = norg_colors["code_block"] }
