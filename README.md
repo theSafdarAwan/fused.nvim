@@ -60,10 +60,28 @@ require("fused").setup({
     add you highlights here by adding the highlight group name and providing a table for its
     Configuration
     ]]
-    custom = {
-        DamianConway = { bg = "Red" },
-    },
+    custom = {},
 })
+```
+
+### custom highlights example
+I have this autocmd which i got from the **Damian Conway** on vim to highlight line like the `:h colorcolumn`
+but it only highlights it if it exceeds the 81 character limit.
+```lua
+create_autocmd({ "BufEnter" }, {
+    group = autocmds_augroup,
+    command = "call matchadd('DamianConway', '\\%80v')",
+})
+```
+So to color this new group that I named `DamianConway` i can add the following
+option inside the `fused.nvim` config.
+```lua
+require("fused").setup({
+        ...
+        custom = {
+                DamianConway = { bg = "Gray" }
+            }
+    })
 ```
 
 ## TO-DO
