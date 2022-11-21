@@ -1,33 +1,9 @@
 # fused.nvim
 
 > <a style="color: Yellow;">NOTE</a>: This plugin is under development i have yet to
-> implement other a lot of features but feel free to use it.
+> implement a lot of features but feel free to use it.
 
 A 🌈 colorscheme fused between different color schemes
-
-## lua
-
-<img width="900" src="./assets/images/lua.png" alt="Screenshot" />
-
-## js
-
-<img width="900" src="./assets/images/js.png" alt="Screenshot" />
-
-## css
-
-<img width="900" src="./assets/images/css.png" alt="Screenshot" />
-
-## html
-
-<img width="900" src="./assets/images/html.png" alt="Screenshot" />
-
-## Neorg
-
-<img width="900" src="./assets/images/norg.png" alt="Screenshot" />
-<img width="300" src="./assets/images/norg0.png" alt="Screenshot" />
-<img width="300" src="./assets/images/norg1.png" alt="Screenshot" />
-<img width="900" src="./assets/images/norg2.png" alt="Screenshot" />
-<img width="900" src="./assets/images/norg3.png" alt="Screenshot" />
 
 You can install this theme using any plugin manager you use:
 
@@ -42,6 +18,33 @@ Using packer
 ```lua
 use({ "TheSafdarAwan/fused" })
 ```
+
+## lua
+
+<img width="900" src="./assets/images/lua.png" alt="Screenshot" />
+
+## javascript
+
+<img width="900" src="./assets/images/js.png" alt="Screenshot" />
+
+## css
+
+<img width="900" src="./assets/images/css.png" alt="Screenshot" />
+
+## html
+
+<img width="900" src="./assets/images/html.png" alt="Screenshot" />
+
+## Neorg
+
+<img width="900" src="./assets/images/norg0.png" alt="Screenshot" />
+<img width="500" src="./assets/images/norg1.png" alt="Screenshot" />
+
+##### Some notes written in neorg
+
+<img width="900" src="./assets/images/norg.png" alt="Screenshot" />
+<img width="900" src="./assets/images/norg2.png" alt="Screenshot" />
+<img width="900" src="./assets/images/norg3.png" alt="Screenshot" />
 
 ### ⚙️ Configuration:
 
@@ -77,12 +80,8 @@ require("fused").setup({
 
 ### custom highlights example
 
-I have this autocmd which i got from the **Damian Conway** from his vim talk to highlight line like the `:h colorcolumn`
-but it only highlights it if it exceeds the 81 character limit.
-
 ```lua
 require("fused").setup({
-        ...
         custom = {
             --[[ You can specify the setting for the highlight groups same as you
             would using the `vim.api.nvim_set_hl` function. ]]
@@ -91,9 +90,12 @@ require("fused").setup({
             whatever you wan't.
             But don't do it like here i am doing it's just an example. ]]
             LineNr = { fg = "Red", bg = "Gray", italic = true, bold = false},
-            }
+        }
     })
 ```
+
+I have this autocmd which i got from the **Damian Conway** from his vim talk to highlight line like the `:h colorcolumn`
+but it only highlights it if it exceeds the 81 character limit.
 
 ```lua
 local autocmds_augroup =
@@ -109,16 +111,63 @@ option inside the `fused.nvim` config.
 
 ```lua
 require("fused").setup({
-        ...
         custom = {
                 DamianConway = { bg = "Gray" }
-            }
+        }
     })
 ```
 
 ## ⚙️ Font's Configuration:
 
 I am using two font's `Victor Mono Nerd Font` for italic's font and `FiraCode Nerd Font` for normal font.
+
+#### wezterm
+
+I use [wezterm](https://github.com/wez/wezterm/) terminal so here is my configuration
+
+<details>
+<summary>Click to Expand</summary>
+
+```lua
+-- add these variables and function on top of wezterm.lua
+local italic_font = "Victor Mono Nerd Font"
+local normal_font = "FiraCode Nerd Font"
+local default_font_name = normal_font
+local function font_with_fallback(name, params)
+    local names = { name, "Apple Color Emoji", "azuki_font" }
+    return font_with_fallback(names, params)
+end
+
+return {
+    -- Add this into your wezterm config
+    font_size = 10.0,
+    font = font_with_fallback(default_font_name),
+    font_rules = {
+        {
+            italic = true,
+            font = font_with_fallback(italic_font, { italic = true }),
+        },
+        {
+            italic = true,
+            intensity = "Bold",
+            font = font_with_fallback(
+                italic_font,
+                { italic = true, bold = true }
+            ),
+        },
+        {
+            italic = false,
+            intensity = "Normal",
+            font = font_with_fallback(
+                default_font_name,
+                { weight = "Regular", italic = false }
+            ),
+        },
+    },
+}
+```
+
+</details>
 
 ## TO-DO
 
@@ -133,5 +182,5 @@ I am using two font's `Victor Mono Nerd Font` for italic's font and `FiraCode Ne
 
 ## Contribution
 
-Well i created this theme on my own. If you want to contribute the create a PR. I
+Well i created this theme on my own. If you want to contribute then create a PR. I
 would love that.

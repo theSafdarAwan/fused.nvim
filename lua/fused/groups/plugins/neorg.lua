@@ -2,6 +2,7 @@ local M = {}
 
 M.load_hl = function(hl, cp)
     local norg_colors = {
+        ["red"] = cp.err,
         ["white"] = cp.white,
         ["h1"] = cp.property,
         ["h2"] = cp.red,
@@ -58,6 +59,15 @@ M.load_hl = function(hl, cp)
         "@neorg.tags.ranged_verbatim.code_block",
         { bg = norg_colors["code_block"] }
     )
+    -- neorg markers
+    hl("@neorg.markers.title", { fg = norg_colors["h2"] })
+    hl("@neorg.markers.prefix", { fg = norg_colors["h2"] })
+    -- neorg definitions
+    hl("@neorg.definitions.title", { fg = norg_colors["h6"]})
+    hl("@neorg.definitions.prefix", { fg = norg_colors["h6"]})
+    -- neorg footnotes
+    hl("@neorg.footnotes.title", { fg = norg_colors["h3"]})
+    hl("@neorg.footnotes.prefix", { fg = norg_colors["h3"]})
 end
 
 return M
