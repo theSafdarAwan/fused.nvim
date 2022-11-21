@@ -94,7 +94,7 @@ require("fused").setup({
     })
 ```
 
-I have this autocmd which i got from the **Damian Conway** from his vim talk to highlight line like the `:h colorcolumn`
+I have this autocmd which i got from the **Damian Conway** from his vim [talk](https://youtu.be/aHm36-na4-4?t=245) to highlight line like the `:h colorcolumn`
 but it only highlights it if it exceeds the 81 character limit.
 
 ```lua
