@@ -1,3 +1,4 @@
+local vim = vim
 local M = {}
 
 M.default_config = {
@@ -7,6 +8,7 @@ M.default_config = {
         cmp = true,
         diffview = true,
         harpoon = true,
+        neogit = true,
         indentblankline = true,
         lspsaga = true,
         neorg = true,
@@ -41,10 +43,13 @@ M.set_theme = function(conf)
     elseif type(conf.plugins_integration) == "nil" then
         require("fused.groups").set_plugins(default_pluigns)
     else
-        local plugins_tbl = {}
+        -- create a copy of the default_plugins table and check if a plugin
+        -- config was supplied from the user then delete that plugin from the
+        -- stack
+        local plugins_tbl = vim.deepcopy(M.default_config.plugins_integration)
         for k, v in pairs(conf.plugins_integration) do
-            if v then
-                plugins_tbl[k] = v
+            if not v then
+                plugins_tbl[k] = nil
             end
         end
         require("fused.groups").set_plugins(plugins_tbl)

@@ -93,6 +93,7 @@ M.pallete = {
 
     pink = colors.china_pink,
     pink2 = colors.pink,
+    lpink = colors.light_blue,
     light_pink = colors.baker_miller_pink,
     red = colors.red,
     wred = colors.candy_pink,
