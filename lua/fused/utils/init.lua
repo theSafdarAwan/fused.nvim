@@ -45,7 +45,7 @@ M.set_theme = function(conf)
     else
         -- create a copy of the default_plugins table and check if a plugin
         -- config was supplied from the user then delete that plugin from the
-        -- stack
+        -- stack if its value was false or nil
         local plugins_tbl = vim.deepcopy(M.default_config.plugins_integration)
         for k, v in pairs(conf.plugins_integration) do
             if not v then

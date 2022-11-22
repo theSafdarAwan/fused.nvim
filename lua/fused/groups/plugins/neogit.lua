@@ -37,7 +37,7 @@ M.load_hl = function(hl, cp)
     hl("NeogitUntrackedfiles", { fg = cp.err })
     -- unmegedchangs
     hl("NeogitUnmergedchanges", { fg = cp.red })
-    -- don't know what it highlights so add the ugliest colors so that i will
+    -- TODO: don't know what it highlights so add the ugliest colors so that i will
     -- notice if i see this highlight in neogit
     -- local suffer = { fg = cp.err, bg = cp.err_sev }
     -- hl("NeogitHunkHeaderHighlight", suffer)

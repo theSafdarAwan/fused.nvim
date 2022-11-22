@@ -177,7 +177,6 @@ return {
 
 - Add more flavors
 - Add Highlights
-  - Diffview
   - Packer
   - cmp(add the remaining highlights)
   - vim-matchup
