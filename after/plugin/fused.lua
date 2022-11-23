@@ -8,12 +8,12 @@ local api = vim.api
 local au_fused = api.nvim_create_augroup("fused", { clear = true })
 
 local function neorg_opts()
-    local hl = require("fused.utils.lib.higlighter").set_hl
-    hl("@conceal", {})
+	local hl = require("fused.utils.lib.higlighter").set_hl
+	hl("@conceal", {})
 end
 
 api.nvim_create_autocmd({ "FileType" }, {
-    group = au_fused,
-    pattern = "norg",
-    callback = neorg_opts,
+	group = au_fused,
+	pattern = "norg",
+	callback = neorg_opts,
 })
