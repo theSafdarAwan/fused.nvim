@@ -59,7 +59,7 @@ local colors = {
     ts_rainbow_blue = "#83a598",
 }
 
--- a new table of colors should be exported with the same names as these so that
+-- @Spec a new table of colors should be exported with the same names as these so that
 -- we can define a new color and give it in here to the key that is being use in
 -- the whole color scheme without the need to change color scheme's other
 -- components and altering colors behaviour in different themes for different
@@ -75,13 +75,16 @@ M.pallete = {
     string = colors.ceil,
     border = colors.dark,
 
+    -- colors most commonly used for Lsp errors and warnings and other lsp plugins
     warn = colors.yellow,
     err = colors.pink_red,
     err_sev = colors.cinnabar,
 
+    -- editor colors
     folds = colors.ceil,
     search = colors.very_light_malachite_green,
 
+    -- language lsp symbols
     func = colors.red,
     property = colors.sky,
     variable = colors.french_sky_blue,
@@ -89,6 +92,7 @@ M.pallete = {
     keywords = colors.blue,
     const = colors.big_foot_feet,
 
+    -- compliment colors not important but useful
     cp0 = colors.compliment0,
     cp1 = colors.compliment1,
     cp2 = colors.compliment2,
@@ -97,6 +101,7 @@ M.pallete = {
     cp5 = colors.compliment5,
     cp6 = colors.compliment6,
 
+    -- colors by names
     pink = colors.china_pink,
     pink2 = colors.pink,
     lpink = colors.light_blue,
@@ -112,12 +117,11 @@ M.pallete = {
     dgreen = colors.limerick_green,
     lyellow = colors.flax,
     dyellow = colors.orange,
-    radish_pink = colors.big_foot_feet,
     blue = colors.aero,
     wblue = colors.cyan,
     sky_blue = colors.french_sky_blue,
 
-    -- @brackets pairs colors
+    -- brackets pairs colors
     ts_aqua = colors.ts_rainbow_aqua,
     ts_deep_yellow = colors.big_foot_feet,
     ts_purple = colors.ts_rainbow_purple,

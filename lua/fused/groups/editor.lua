@@ -32,7 +32,7 @@ M.load_hl = function(hl, cp)
     -- column where |signs| are displayed
     hl("SignColumnSB", { bg = cp.bg })
     -- |:substitute| replacement text highlighting
-    hl("Substitute", { bg = cp.dark, fg = cp.radish_pink })
+    hl("Substitute", { bg = cp.dark, fg = cp.const })
     -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is secp.
     hl("LineNr", { fg = cp.cp1 })
     -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.

@@ -37,7 +37,7 @@ M.load_hl = function(hl, cp)
     hl("@method.call", { link = "@method" }) -- method calls
 
     hl("@constructor", { fg = cp.teal }) -- constructor calls and definitions
-    hl("@parameter", { fg = cp.radish_pink, italic = true }) -- parameters of a function
+    hl("@parameter", { fg = cp.const, italic = true }) -- parameters of a function
 
     -- Keywords
     hl("@keyword", { fg = cp.keywords, italic = true }) -- various keywords
@@ -62,9 +62,9 @@ M.load_hl = function(hl, cp)
     hl("@storageclass", {}) -- visibility/life-time modifiers
     hl("@storageclass.lifetime", {}) -- life-time modifiers (e.g. `static`)
     hl("@attribute", {}) -- attribute annotations (e.g. Python decorators)
-    hl("@field", { fg = cp.property }) -- object and struct fields
-    hl("@property", { link = "@field" }) -- similar to `@field`
-    hl("@property.class", { fg = cp.radish_pink }) -- similar to `@field`
+    hl("@field", { link = "@property" }) -- object and struct fields
+    hl("@property", { fg = cp.property }) -- similar to `@field`
+    hl("@property.class", { fg = cp.const }) -- similar to `@field`
 
     -- #### Identifiers
     hl("@variable", { fg = cp.variable }) -- various variable names

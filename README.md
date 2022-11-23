@@ -92,29 +92,9 @@ require("fused").setup({
             whatever you wan't.
             But don't do it like here i am doing it's just an example. ]]
             LineNr = { fg = "Red", bg = "Gray", italic = true, bold = false},
-        }
-    })
-```
-
-I have this autocmd which i got from the **Damian Conway** from his vim [talk](https://youtu.be/aHm36-na4-4?t=245) to highlight line like the `:h colorcolumn`
-but it only highlights it if it exceeds the 81 character limit.
-
-```lua
-local autocmds_augroup =
-api.nvim_create_augroup("autocmds.lua", { clear = true })
-create_autocmd({ "BufEnter" }, {
-    group = autocmds_augroup,
-    command = "call matchadd('DamianConway', '\\%80v')",
-})
-```
-
-So to color this new group that I named `DamianConway` i can add the following
-option inside the `fused.nvim` config.
-
-```lua
-require("fused").setup({
-        custom = {
-                DamianConway = { bg = "Gray" }
+            -- examples
+            Foo = { bg = "Gray" }
+            Bar = { fg = "Red", bold = true, italic = false }
         }
     })
 ```
@@ -175,8 +155,6 @@ return {
 
 - Add more flavors
 - Add Highlights
-  - Packer
-  - cmp(add the remaining highlights)
   - vim-matchup
 - Add the style option
 
