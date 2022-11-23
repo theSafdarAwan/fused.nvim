@@ -1,8 +1,5 @@
 # fused.nvim
 
-> <a style="color: Yellow;">NOTE</a>: This plugin is under development i have yet to
-> implement a lot of features but feel free to use it.
-
 A 🌈 colorscheme fused between different color schemes
 
 You can install this theme using any plugin manager you use:
@@ -60,18 +57,19 @@ require("fused").setup({
         and set the plugins_integration to false.
         ]]
         plugins_integration = {
-        -- @names of the plugins
-        cmp = true,
-        diffview = true,
-        harpoon = true,
-        indentblankline = true,
-        lspsaga = true,
-        neorg = true,
-        nvimtree = true,
-        telescope = true,
-        todocomments = true,
-        trouble = true,
-        tsrainbow = true,
+            -- @names of the plguins
+            cmp = true,
+            diffview = true,
+            harpoon = true,
+            neogit = true,
+            indentblankline = true,
+            lspsaga = true,
+            neorg = true,
+            nvimtree = true,
+            telescope = true,
+            todocomments = true,
+            trouble = true,
+            tsrainbow = true,
         },
         custom = {
             --[[

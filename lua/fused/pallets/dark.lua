@@ -1,3 +1,4 @@
+-- colors should be defined here
 local colors = {
     surface = "#101521",
     background = "#0F111A",
@@ -58,6 +59,11 @@ local colors = {
     ts_rainbow_blue = "#83a598",
 }
 
+-- a new table of colors should be exported with the same names as these so that
+-- we can define a new color and give it in here to the key that is being use in
+-- the whole color scheme without the need to change color scheme's other
+-- components and altering colors behaviour in different themes for different
+-- symbols. Therefore altering the hierarchy.
 local M = {}
 M.pallete = {
     bg_windows = colors.surface,
