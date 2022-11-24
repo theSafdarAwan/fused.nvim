@@ -150,15 +150,3 @@ return {
 ```
 
 </details>
-
-## TO-DO
-
-- Add more flavors
-- Add Highlights
-  - vim-matchup
-- Add the style option
-
-## Contribution
-
-Well i created this theme on my own. If you want to contribute then create a PR. I
-would love that.
