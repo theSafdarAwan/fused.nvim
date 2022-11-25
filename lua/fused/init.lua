@@ -4,13 +4,14 @@ local defaults = require("fused.utils").default_config
 
 M.setup = function(tbl)
 	if tbl then
-		local conf
-		if tbl.flavour or tbl.plugins_integration or tbl.custom then
-			conf = tbl
-		else
-			conf = defaults
+		for k, _ in pairs(tbl) do
+			if defaults[k] then
+				require("fused.utils").set_theme(tbl)
+				return
+			else
+				require("fused.utils").set_theme(defaults)
+			end
 		end
-		require("fused.utils").set_theme(conf)
 	end
 end
 

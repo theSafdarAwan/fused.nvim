@@ -52,6 +52,9 @@ use({ "TheSafdarAwan/fused" })
 require("fused").setup({
         -- currently only one flavour is available but Pr is welcome
         flavour = "dark",
+        -- set the background to transparent default false
+        -- transparent background is not recommended for this color scheme
+        bg_transparent = false,
         --[[
         Enable these plugins if not then set it to false or remove the whole table
         and set the plugins_integration to false.

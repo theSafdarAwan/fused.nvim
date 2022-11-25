@@ -3,6 +3,7 @@ local M = {}
 
 M.default_config = {
 	flavour = "dark",
+	bg_transparent = false,
 	plugins_integration = {
 		-- @names of the plguins
 		cmp = true,
@@ -28,6 +29,9 @@ M.set_theme = function(conf)
 
 	-- setting the pallete for the theme not a clean way but works
 	M.pallete = require("fused.pallets." .. flavour).pallete
+
+	-- set the background to transparent
+	M.bg_transparent = conf.bg_transparent
 
 	-- default plugins if not plugins table was provided
 	local default_pluigns = M.default_config.plugins_integration

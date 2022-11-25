@@ -1,6 +1,9 @@
 local M = {}
 
 M.load_hl = function(hl, cp)
+	-- get the background setting
+	local tr_bg = require("fused.utils").bg_transparent
+
 	-- used for the columns set with 'colorcolumn'
 	hl("ColorColumn", { bg = cp.string })
 	-- placeholder characters substituted for concealed text (see 'conceallevel')
@@ -51,7 +54,7 @@ M.load_hl = function(hl, cp)
 	-- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 	hl("NonText", { fg = cp.cp1 })
 	-- normal text
-	hl("Normal", { fg = cp.text, bg = cp.bg })
+	hl("Normal", { fg = cp.text, bg = tr_bg and "NONE" or cp.bg })
 	-- normal text
 	hl("NormalNC", { fg = cp.text })
 	-- normal text
