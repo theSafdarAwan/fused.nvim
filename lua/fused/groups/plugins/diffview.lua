@@ -50,6 +50,9 @@ M.load_hl = function(hl, cp)
 
 	hl("DiffviewStatusCopied", { fg = cp.warn })
 
+	-- highlights the staged deleted content when diffing
+	hl("DiffviewDiffAddAsDelete", { link = "DiffDelete" })
+
 	-- TODO: figure out these highlights
 	-- local curse = { fg = cp.bg, bg = cp.white }
 	-- hl("DiffviewStatusBroken", curse)
@@ -59,7 +62,6 @@ M.load_hl = function(hl, cp)
 	-- hl("DiffviewDim1", curse)
 	-- hl("DiffviewReference", curse)
 	-- hl("DiffviewSecondary", curse)
-	-- hl("DiffviewDiffAddAsDelete", curse)
 	-- hl("DiffviewStatusTypeChange", curse)
 end
 
