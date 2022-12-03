@@ -32,10 +32,10 @@ M.load_hl = function(hl, cp)
 
 	hl("Special", { fg = cp.light_pink }) -- (preferred) any special symbol
 	hl("SpecialChar", { fg = cp.magenta }) --  special character in a constant
-	hl("Tag", { fg = cp.wred }) --    you can use CTRL-] on this
+	hl("Tag", { fg = cp.red2 }) --    you can use CTRL-] on this
 	hl("Delimiter", { fg = cp.magenta }) --  character that needs attention
 	hl("SpecialComment", { fg = cp.string }) -- special things inside a comment
-	hl("Debug", { fg = cp.wred }) --    debugging statements
+	hl("Debug", { fg = cp.red2 }) --    debugging statements
 
 	-- ("Ignore", below, may be invisible...)
 	-- Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|

@@ -66,7 +66,7 @@ M.load_hl = function(hl, cp)
 	-- Popup menu: normal item.
 	hl("Pmenu", { bg = cp.bg_windows2, fg = cp.string })
 	-- Popup menu: selected item.
-	hl("PmenuSel", { fg = cp.dark, bg = cp.dyellow, bold = true })
+	hl("PmenuSel", { fg = cp.dark, bg = cp.orange, bold = true })
 	-- Popup menu: scrollbar.
 	hl("PmenuSbar", { bg = cp.bg_windows2 })
 	-- Popup menu: Thumb of the scrollbar.
@@ -78,7 +78,7 @@ M.load_hl = function(hl, cp)
 	-- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand oucp.
 	hl("Search", { fg = cp.search, bg = cp.bg_windows2 })
 	-- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-	hl("IncSearch", { bg = cp.cp0 })
+	hl("IncSearch", { bg = cp.cp4 })
 	-- 'cursearch' highlighting: highlights the current search you're on differently
 	hl("CurSearch", { bg = cp.dark })
 	-- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' textspace. |hl-Whitespace|

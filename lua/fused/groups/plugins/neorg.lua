@@ -6,7 +6,7 @@ M.load_hl = function(hl, cp)
 		["white"] = cp.white,
 		["h1"] = cp.property,
 		["h2"] = cp.red,
-		["h3"] = cp.sky_blue,
+		["h3"] = cp.variable,
 		["h4"] = cp.string,
 		["h6"] = cp.teal,
 		["h5"] = cp.magenta,
@@ -14,7 +14,7 @@ M.load_hl = function(hl, cp)
 		["qc_bg"] = cp.bg_windows,
 		["desc"] = cp.string,
 		["superscript"] = cp.warn,
-		["subscript"] = cp.wmagenta,
+		["subscript"] = cp.magenta2,
 		["code_block"] = cp.cp6,
 	}
 

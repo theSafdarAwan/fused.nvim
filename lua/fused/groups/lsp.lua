@@ -1,9 +1,9 @@
 local M = {}
 
 M.load_hl = function(hl, cp)
-	hl("LspReferenceText", { bg = cp.wred, bold = true }) -- used for highlighting "text" references
-	hl("LspReferenceRead", { bg = cp.wred, bold = true }) -- used for highlighting "read" references
-	hl("LspReferenceWrite", { bg = cp.wred, bold = true }) -- used for highlighting "write" references
+	hl("LspReferenceText", { bg = cp.red2, bold = true }) -- used for highlighting "text" references
+	hl("LspReferenceRead", { bg = cp.red2, bold = true }) -- used for highlighting "read" references
+	hl("LspReferenceWrite", { bg = cp.red2, bold = true }) -- used for highlighting "write" references
 
 	hl("DiagnosticVirtualTextError", { fg = cp.err_sev, bg = cp.bg_windows2 })
 	hl("DiagnosticVirtualTextWarn", { fg = cp.warn, bg = cp.bg_windows2 })

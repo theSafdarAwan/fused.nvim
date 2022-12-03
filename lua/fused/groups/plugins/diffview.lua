@@ -34,7 +34,7 @@ M.load_hl = function(hl, cp)
 	-- counter show after the titles
 	hl("DiffviewFilePanelCounter", { fg = cp.warn })
 	-- root path title name
-	hl("DiffviewFilePanelRootPath", { fg = cp.lpink })
+	hl("DiffviewFilePanelRootPath", { fg = cp.light_pink })
 	-- deletion and insertion counter after the file name
 	hl("DiffviewFilePanelDeletions", { link = "DiffDelete" })
 	hl("DiffviewFilePanelInsertions", { link = "DiffAdd" })

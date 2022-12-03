@@ -5,27 +5,27 @@ M.load_hl = function(hl, cp)
 	hl("@comment", { fg = cp.cp1, italic = true }) -- line and block comments
 	hl("@error", { fg = cp.err }) -- syntax/parser errors
 	hl("@none", {}) -- completely disable the highlight
-	hl("@preproc", { fg = cp.sky_blue }) -- various preprocessor directives & shebangs
+	hl("@preproc", { fg = cp.variable }) -- various preprocessor directives & shebangs
 	hl("@define", { fg = cp.blue }) -- preprocessor definition directives
 	hl("@operator", { fg = cp.white }) -- symbolic operators (e.g. `+` / `*`)
 
 	-- Punctuation
 	hl("@punctuation.delimiter", { fg = cp.white }) -- delimiters (e.g. `;` / `.` / `,`)
-	hl("@punctuation.bracket", { fg = cp.dyellow }) -- brackets (e.g. `()` / `{}` / `[]`)
-	hl("@punctuation.special", { fg = cp.wred }) -- special symbols (e.g. `{}` in string interpolation)
+	hl("@punctuation.bracket", { fg = cp.orange }) -- brackets (e.g. `()` / `{}` / `[]`)
+	hl("@punctuation.special", { fg = cp.red2 }) -- special symbols (e.g. `{}` in string interpolation)
 
 	-- Literals
 	hl("@string", { fg = cp.string }) -- string literals
-	hl("@string.regex", { fg = cp.dyellow }) -- regular expressions
+	hl("@string.regex", { fg = cp.orange }) -- regular expressions
 	hl("@string.escape", { fg = cp.light_pink }) -- escape sequences
 	hl("@string.special", { fg = cp.text }) -- other special strings (e.g. dates)
 
-	hl("@character", { fg = cp.deep_pink }) -- character literals
-	hl("@character.special", { fg = cp.dyellow }) -- special characters (e.g. wildcards)
+	hl("@character", { fg = cp.magenta }) -- character literals
+	hl("@character.special", { fg = cp.orange }) -- special characters (e.g. wildcards)
 
 	hl("@boolean", { fg = cp.warn }) -- boolean literals
-	hl("@number", { fg = cp.dyellow }) -- numeric literals
-	hl("@float", { fg = cp.dyellow }) -- floating-point number literals
+	hl("@number", { fg = cp.orange }) -- numeric literals
+	hl("@float", { fg = cp.orange }) -- floating-point number literals
 
 	-- Functions
 	hl("@function", { fg = cp.func }) -- function definitions
@@ -42,7 +42,7 @@ M.load_hl = function(hl, cp)
 	-- Keywords
 	hl("@keyword", { fg = cp.keywords, italic = true }) -- various keywords
 	hl("@keyword.function", { fg = cp.keywords }) -- keywords that define a function (e.g. `func` in Go, `def` in Python)
-	hl("@keyword.operator", { link = "@keyword" }) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
+	hl("@keyword.operator", { link = "@keyword" }) -- operators that are English words (e.g. `and` / `or`)
 	hl("@keyword.return", { link = "@keyword.function" }) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
 
 	hl("@conditional", { link = "@keyword" }) -- keywords related to conditionals (e.g. `if` / `else`)
@@ -92,22 +92,22 @@ M.load_hl = function(hl, cp)
 	hl("@text.environment.name", { fg = cp.text }) -- text indicating the type of an environment
 	hl("@text.reference", { fg = cp.text, undercurl = true }) -- text references, footnotes, citations, etc.
 
-	hl("@text.todo", { fg = cp.sky_blue }) -- todo notes
+	hl("@text.todo", { fg = cp.variable }) -- todo notes
 	hl("@text.note", { link = "@field" }) -- info notes
 	hl("@text.warning", { fg = cp.warn }) -- warning notes
 	hl("@text.danger", { fg = cp.err }) -- danger/error notes
 
 	hl("@text.diff.add", { fg = cp.search }) -- added text (for diff files)
-	hl("@text.diff.delete", { fg = cp.wred }) -- deleted text (for diff files)
+	hl("@text.diff.delete", { fg = cp.red2 }) -- deleted text (for diff files)
 
 	-- #### Tags
 	-- Used for XML-like tags.
-	hl("@tag", { fg = cp.wred }) -- XML tag names
+	hl("@tag", { fg = cp.red2 }) -- XML tag names
 	hl("@tag.attribute", { fg = cp.variable }) -- XML tag attributes
 	hl("@tag.delimiter", { fg = cp.cp1 }) -- XML tag delimiters
 
 	-- #### Conceal
-	hl("@conceal", { fg = cp.cp0 }) -- for captures that are only used for concealing
+	hl("@conceal", { fg = cp.cp4 }) -- for captures that are only used for concealing
 
 	-- `@conceal` must be followed by `(#set! conceal "")`.
 

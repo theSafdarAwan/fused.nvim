@@ -17,7 +17,7 @@ M.load_hl = function(hl, cp)
 	hl("CmpItemKindEnum", { link = "CmpItemKindText" })
 	hl("CmpItemKindMethod", { link = "@method" })
 	hl("CmpItemKindConstructor", { link = "@constructor" })
-	hl("CmpItemKindFolder", { fg = cp.lyellow })
+	hl("CmpItemKindFolder", { fg = cp.warn })
 	hl("CmpItemKindModule", { fg = cp.warn })
 	hl("CmpItemKindConstant", { link = "@constant" })
 	hl("CmpItemKindProperty", { link = "@property" })
@@ -33,7 +33,7 @@ M.load_hl = function(hl, cp)
 	hl("CmpItemKindEvent", { fg = cp.blue })
 	hl("CmpItemKindOperator", { fg = cp.white })
 	hl("CmpItemKindTypeParameter", { fg = cp.const })
-	hl("CmpItemKindCopilot", { fg = cp.wblue })
+	hl("CmpItemKindCopilot", { fg = cp.blue2 })
 end
 
 return M

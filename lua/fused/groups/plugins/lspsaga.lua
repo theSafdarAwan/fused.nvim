@@ -25,7 +25,7 @@ M.load_hl = function(hl, cp)
 	-- --finder spinner
 	hl("FinderSpinnerBorder", { link = "FloatBorder" })
 	hl("FinderSpinnerTitle", { fg = cp.warn, bold = true })
-	hl("FinderSpinner", { fg = cp.dyellow, bold = true })
+	hl("FinderSpinner", { fg = cp.orange, bold = true })
 	hl("FinderPreviewSearch", { link = "Search" })
 	-- definition
 	hl("DefinitionBorder", { link = "FloatBorder" })
@@ -66,8 +66,8 @@ M.load_hl = function(hl, cp)
 	hl("LspSagaBorderTitle", { link = "Title" })
 	-- Outline
 	hl("LSOutlinePreviewBorder", { link = "FloatBorder" })
-	hl("OutlineIndentEvn", { fg = cp.pink })
-	hl("OutlineIndentOdd", { fg = cp.dyellow })
+	hl("OutlineIndentEvn", { fg = cp.magenta })
+	hl("OutlineIndentOdd", { fg = cp.orange })
 	hl("OutlineFoldPrefix", { fg = cp.magenta })
 	hl("OutlineDetail", { fg = cp.white })
 	-- all floatwindow of lspsaga

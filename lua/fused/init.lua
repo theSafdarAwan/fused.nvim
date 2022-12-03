@@ -1,3 +1,5 @@
+-- TODO: implet the italic option if user want's to disable them for all or for
+-- any of the group value
 local M = {}
 
 local defaults = require("fused.utils").default_config

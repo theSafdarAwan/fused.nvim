@@ -18,7 +18,7 @@ M.load_hl = function(hl, cp)
 	-- branch name header
 	hl("NeogitBranch", { fg = cp.func })
 	-- remote branch name
-	hl("NeogitRemote", { fg = cp.lpink })
+	hl("NeogitRemote", { fg = cp.light_pink })
 
 	hl("NeogitDiffAdd", { link = "DiffAdd" })
 	hl("NeogitDiffDelete", { link = "DiffDelete" })
