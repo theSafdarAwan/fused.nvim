@@ -51,7 +51,7 @@ use({ "TheSafdarAwan/fused" })
 ```lua
 require("fused").setup({
         -- currently only two flavour's are available but Pr is welcome
-        flavour = "dark", -- dark | catppuccin
+        flavour = "catppuccin", -- dark | catppuccin
         -- set the background to transparent default false
         -- transparent background is not recommended for this color scheme
         bg_transparent = false,

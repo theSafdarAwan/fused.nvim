@@ -1,7 +1,7 @@
 local M = {}
 
 M.default_config = {
-	flavour = "dark",
+	flavour = "catppuccin",
 	italics = true,
 	bg_transparent = false,
 	plugins_integration = {
@@ -25,7 +25,7 @@ M.default_config = {
 
 M.set_theme = function(conf)
 	-- maybe in future will accept multiple flavours
-	local flavour = conf["flavour"] or "dark"
+	local flavour = conf["flavour"] or M.default_config["flavour"]
 
 	-- setting the pallete for the theme not a clean way but works
 	M.pallete = require("fused.pallets." .. flavour).pallete
