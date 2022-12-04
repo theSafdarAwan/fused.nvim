@@ -1,7 +1,7 @@
 local M = {}
 
 M.load_hl = function(hl, cp)
-	hl("TelescopeSelection", { bg = cp.dark })
+	hl("TelescopeSelection", { bg = cp.bg_windows2 })
 	hl("TelescopeSelectionCaret", { fg = cp.warn })
 	hl("TelescopeMultiSelection", { fg = cp.dark })
 	hl("TelescopeMatching", { fg = cp.search })

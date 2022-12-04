@@ -23,7 +23,7 @@ local colors = {
 	overlay1 = "#44475a",
 	subtext0 = "#A6ADC8",
 	surface0 = "#313244",
-	surface1 = "#45475A",
+	surface1 = "#323243",
 	overlay2 = "#9399B2",
 	surface2 = "#191828",
 

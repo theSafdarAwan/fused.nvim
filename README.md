@@ -1,6 +1,6 @@
 # fused.nvim
 
-A 🌈 colorscheme fused between different color schemes
+🌈 Colorscheme collection fused between different color schemes
 
 You can install this theme using any plugin manager you use:
 
@@ -15,37 +15,6 @@ Using packer
 ```lua
 use({ "TheSafdarAwan/fused" })
 ```
-
-## lua
-
-<img width="900" src="./assets/images/lua.png" alt="Screenshot" />
-
-## javascript
-
-<img width="900" src="./assets/images/js.png" alt="Screenshot" />
-
-## css
-
-<img width="900" src="./assets/images/css.png" alt="Screenshot" />
-
-## html
-
-<img width="900" src="./assets/images/html.png" alt="Screenshot" />
-
-## Neorg
-
-<img width="900" src="./assets/images/norg0.png" alt="Screenshot" />
-<img width="500" src="./assets/images/norg1.png" alt="Screenshot" />
-
-##### Some notes written in neorg
-
-<details>
-<summary>Click here to expand notes pictures</summary>
-<img width="900" src="./assets/images/norg.png" alt="Screenshot" />
-<img width="900" src="./assets/images/norg2.png" alt="Screenshot" />
-<img width="900" src="./assets/images/norg3.png" alt="Screenshot" />
-</details>
-
 ### ⚙️ Configuration:
 
 ```lua

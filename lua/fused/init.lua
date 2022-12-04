@@ -1,3 +1,4 @@
+-- TODO: add the previews
 local M = {}
 
 local defaults = require("fused.utils").default_config
