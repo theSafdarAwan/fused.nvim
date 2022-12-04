@@ -1,4 +1,5 @@
 -- TODO: add the previews
+-- TODO: add the option for adding the autocmds that are defined in after
 local M = {}
 
 local defaults = require("fused.utils").default_config

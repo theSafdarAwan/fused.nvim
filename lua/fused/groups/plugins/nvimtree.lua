@@ -1,3 +1,4 @@
+-- TODO: add the remaining highlights
 local M = {}
 
 M.load_hl = function(hl, cp)

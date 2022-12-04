@@ -78,6 +78,7 @@ M.load_hl = function(hl, cp)
 	-- @namespace        -- modules or namespaces
 	hl("@symbol", { link = "@field" }) -- symbols or atoms
 
+	hl("@label", { fg = cp.orange }) -- symbols or atoms
 	-- #### Text
 	-- Mainly for markup languages.
 	hl("@text", { fg = cp.text }) -- non-structured text
