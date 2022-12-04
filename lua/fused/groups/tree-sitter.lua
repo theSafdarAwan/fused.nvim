@@ -1,8 +1,9 @@
 local M = {}
+local utils = require("fused.utils")
 
 M.load_hl = function(hl, cp)
 	-- Misc
-	hl("@comment", { fg = cp.cp1, italic = true }) -- line and block comments
+	hl("@comment", { fg = cp.cp1, italic = utils.italics }) -- line and block comments
 	hl("@error", { fg = cp.err }) -- syntax/parser errors
 	hl("@none", {}) -- completely disable the highlight
 	hl("@preproc", { fg = cp.variable }) -- various preprocessor directives & shebangs
@@ -37,10 +38,10 @@ M.load_hl = function(hl, cp)
 	hl("@method.call", { link = "@method" }) -- method calls
 
 	hl("@constructor", { fg = cp.teal }) -- constructor calls and definitions
-	hl("@parameter", { fg = cp.const, italic = true }) -- parameters of a function
+	hl("@parameter", { fg = cp.const, italic = utils.italics }) -- parameters of a function
 
 	-- Keywords
-	hl("@keyword", { fg = cp.keywords, italic = true }) -- various keywords
+	hl("@keyword", { fg = cp.keywords, italic = utils.italics }) -- various keywords
 	hl("@keyword.function", { fg = cp.keywords }) -- keywords that define a function (e.g. `func` in Go, `def` in Python)
 	hl("@keyword.operator", { link = "@keyword" }) -- operators that are English words (e.g. `and` / `or`)
 	hl("@keyword.return", { link = "@keyword.function" }) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
@@ -49,7 +50,7 @@ M.load_hl = function(hl, cp)
 	hl("@repeat", { link = "@keyword" }) -- keywords related to loops (e.g. `for` / `while`)
 	hl("@debug", { link = "@keyword" }) -- keywords related to debugging
 	hl("@label", { link = "@keyword" }) -- GOTO and other labels (e.g. `label:` in C)
-	hl("@include", { fg = cp.search, italic = true }) -- keywords for including modules (e.g. `import` / `from` in Python)
+	hl("@include", { fg = cp.search, italic = utils.italics }) -- keywords for including modules (e.g. `import` / `from` in Python)
 	hl("@exception", { link = "@keyword" }) -- keywords related to exceptions (e.g. `throw` / `catch`)
 
 	-- Types
@@ -81,7 +82,7 @@ M.load_hl = function(hl, cp)
 	-- Mainly for markup languages.
 	hl("@text", { fg = cp.text }) -- non-structured text
 	hl("@text.strong", { fg = cp.text, bold = true }) -- bold text
-	hl("@text.emphasis", { fg = cp.text, italic = true }) -- text with emphasis
+	hl("@text.emphasis", { fg = cp.text, italic = utils.italics }) -- text with emphasis
 	hl("@text.underline", { fg = cp.text, underline = true }) -- underlined text
 	hl("@text.strike", { fg = cp.text, strikethrough = true }) -- strikethrough text
 	hl("@text.title", { fg = cp.search, bold = true }) -- text that is part of a title

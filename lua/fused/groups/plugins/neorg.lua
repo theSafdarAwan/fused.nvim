@@ -1,4 +1,5 @@
 local M = {}
+local utils = require("fused.utils")
 
 M.load_hl = function(hl, cp)
 	local norg_colors = {
@@ -48,7 +49,7 @@ M.load_hl = function(hl, cp)
 		hl(qc, {
 			fg = norg_colors["qc_fg"],
 			bg = norg_colors["qc_bg"],
-			italic = true,
+			italic = utils.italics,
 		})
 	end
 

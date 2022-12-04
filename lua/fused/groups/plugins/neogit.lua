@@ -1,5 +1,7 @@
 local M = {}
 
+local utils = require("fused.utils")
+
 M.load_hl = function(hl, cp)
 	hl("NeogitNotificationInfo", { link = "@field" })
 	hl("NeogitNotificationWarning", { link = "DiagnosticSignWarn" })
@@ -24,7 +26,7 @@ M.load_hl = function(hl, cp)
 	hl("NeogitDiffDelete", { link = "DiffDelete" })
 	hl("NeogitFilePath", { fg = cp.white, underline = true })
 	-- comment id or object id whatever
-	hl("NeogitObjectId", { fg = cp.variable, italic = true })
+	hl("NeogitObjectId", { fg = cp.variable, italic = utils.italics })
 	-- file names
 	hl("NeogitDiffHeader", { fg = cp.white, bg = cp.bg_windows2 })
 	-- recent commit header

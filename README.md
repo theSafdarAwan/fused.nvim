@@ -50,11 +50,13 @@ use({ "TheSafdarAwan/fused" })
 
 ```lua
 require("fused").setup({
-        -- currently only one flavour is available but Pr is welcome
-        flavour = "dark",
+        -- currently only two flavour's are available but Pr is welcome
+        flavour = "dark", -- dark | catppuccin
         -- set the background to transparent default false
         -- transparent background is not recommended for this color scheme
         bg_transparent = false,
+        -- if you want to disable italics then set this to false
+        italics = true, -- default true
         --[[
         Enable these plugins if not then set it to false or remove the whole table
         and set the plugins_integration to false.

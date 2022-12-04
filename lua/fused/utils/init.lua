@@ -1,8 +1,8 @@
-local vim = vim
 local M = {}
 
 M.default_config = {
 	flavour = "dark",
+	italics = true,
 	bg_transparent = false,
 	plugins_integration = {
 		-- @names of the plguins
@@ -32,6 +32,14 @@ M.set_theme = function(conf)
 
 	-- set the background to transparent
 	M.bg_transparent = conf.bg_transparent
+
+	-- set the italics
+	if conf.italics == false then
+		M.italics = false
+	else
+		-- if no setting provided set to the default
+		M.italics = M.default_config.italics
+	end
 
 	-- default plugins if not plugins table was provided
 	local default_pluigns = M.default_config.plugins_integration
