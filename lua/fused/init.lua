@@ -1,5 +1,8 @@
 -- TODO: add the previews
+
 -- TODO: add the option for adding the autocmds that are defined in after
+
+-- TODO: work on the onedark and aquarium theme colors
 local M = {}
 
 local defaults = require("fused.utils").default_config

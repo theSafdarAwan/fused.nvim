@@ -1,5 +1,5 @@
 local M = {}
 
-M.dark = require("fused.palletes.dark").pallete
+-- nothing lives here
 
 return M

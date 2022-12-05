@@ -24,15 +24,13 @@ local colors = {
 	big_foot_feet = "#e88e5a",
 	aero = "#4FC1FF",
 	sky = "#0FCFFF",
-	cyan = "#8BE9FD",
 	french_sky_blue = "#88a5fe",
 
 	compliment1 = "#494D64",
 	compliment2 = "#7F849C",
 	compliment3 = "#373844",
 	compliment4 = "#292e42",
-	compliment5 = "#6272A4",
-	compliment6 = "#181926",
+	compliment5 = "#181926",
 
 	-- ts-rainbow brackets pair colors
 	ts_rainbow_aqua = "#8ec07c",
@@ -79,7 +77,6 @@ M.pallete = {
 	cp3 = colors.compliment3,
 	cp4 = colors.compliment4,
 	cp5 = colors.compliment5,
-	cp6 = colors.compliment6,
 
 	-- colors by names
 	light_pink = colors.light_pink,
@@ -90,7 +87,6 @@ M.pallete = {
 	teal = colors.teal,
 	orange = colors.orange,
 	blue = colors.aero,
-	blu2 = colors.cyan,
 
 	-- brackets pairs colors
 	ts_aqua = colors.ts_rainbow_aqua,

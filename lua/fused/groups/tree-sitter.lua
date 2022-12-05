@@ -88,7 +88,7 @@ M.load_hl = function(hl, cp)
 	hl("@text.strike", { fg = cp.text, strikethrough = true }) -- strikethrough text
 	hl("@text.title", { fg = cp.search, bold = true }) -- text that is part of a title
 	hl("@text.literal", { fg = cp.cp1 }) -- literal or verbatim text
-	hl("@text.uri", { fg = cp.cp5, underline = true }) -- URIs (e.g. hyperlinks)
+	hl("@text.uri", { fg = cp.cp2, underline = true }) -- URIs (e.g. hyperlinks)
 	hl("@text.math", { fg = cp.string }) -- math environments (e.g. `$ ... $` in LaTeX)
 	hl("@text.environment", { fg = cp.text }) -- text environments of markup languages
 	hl("@text.environment.name", { fg = cp.text }) -- text indicating the type of an environment

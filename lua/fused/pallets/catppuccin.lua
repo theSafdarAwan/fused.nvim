@@ -2,7 +2,7 @@
 local colors = {
 	white = "#abb2bf",
 	flamingo = "#F2CDCD",
-	pink = "#F5C2E7",
+	pink = "#FFB86C",
 	mauve = "#CBA6F7",
 	red = "#ED8796",
 	red2 = "#F38BA8",
@@ -13,7 +13,6 @@ local colors = {
 	green = "#A6E3A1",
 	teal = "#94E2D5",
 	sky = "#89DCEB",
-	sapphire = "#74C7EC",
 	blue = "#89B4FA",
 	blue2 = "#948AE3",
 	lavender = "#B4BEFE",
@@ -75,8 +74,7 @@ M.pallete = {
 	cp2 = colors.subtext0,
 	cp3 = colors.surface0,
 	cp4 = colors.surface1,
-	cp5 = colors.overlay2,
-	cp6 = colors.surface2,
+	cp5 = colors.surface2,
 
 	-- colors by names
 	light_pink = colors.light_pink,
@@ -87,7 +85,6 @@ M.pallete = {
 	teal = colors.teal,
 	orange = colors.peach,
 	blue = colors.sky,
-	blu2 = colors.sapphire,
 
 	-- brackets pairs colors
 	ts_aqua = colors.ts_rainbow_aqua,

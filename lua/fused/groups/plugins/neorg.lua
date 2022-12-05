@@ -16,7 +16,7 @@ M.load_hl = function(hl, cp)
 		["desc"] = cp.string,
 		["superscript"] = cp.warn,
 		["subscript"] = cp.magenta2,
-		["code_block"] = cp.cp6,
+		["code_block"] = cp.cp5,
 	}
 
 	local heading_level = {
