@@ -90,4 +90,13 @@ M.set_theme = function(conf)
 	end
 end
 
+M.load_plugin_hl = function(name)
+	vim.schedule(function()
+		require("fused.groups.plugins." .. name).load_hl(
+			require("fused.utils.lib.higlighter").set_hl,
+			M.pallete
+		)
+	end)
+end
+
 return M

@@ -25,6 +25,10 @@ M.setup = function(tbl)
 	end
 end
 
+M.lazy_load = function(name)
+	require("fused.utils").load_plugin_hl(name)
+end
+
 M.load_theme = function()
 	require("fused.utils").set_theme(defaults)
 end
