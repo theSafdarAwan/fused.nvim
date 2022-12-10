@@ -26,6 +26,8 @@ local colors = {
 	sky = "#0FCFFF",
 	french_sky_blue = "#88a5fe",
 
+	bg_context = "#181926",
+
 	compliment1 = "#494D64",
 	compliment2 = "#7F849C",
 	compliment3 = "#373844",
@@ -70,6 +72,8 @@ M.pallete = {
 	method = colors.magenta,
 	keywords = colors.blue,
 	const = colors.big_foot_feet,
+
+	bg_context = colors.bg_context,
 
 	-- compliment colors not important but useful
 	cp1 = colors.compliment1,

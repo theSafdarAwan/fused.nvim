@@ -26,6 +26,8 @@ local colors = {
 	overlay2 = "#9399B2",
 	surface2 = "#191828",
 
+	bg_context = "#1E1E2E",
+
 	base = "#1E1E2E",
 	mantle = "#181825",
 	crust = "#11111B",
@@ -68,6 +70,8 @@ M.pallete = {
 	method = colors.pink,
 	keywords = colors.mauve,
 	const = colors.peach,
+
+	bg_context = colors.bg_context,
 
 	-- compliment colors not important but useful
 	cp1 = colors.overlay1,

@@ -6,7 +6,7 @@ M.load_hl = function(hl, cp)
 	hl("IndentBlanklineSpaceCharBlankline", { link = "IndentBlanklineChar" })
 	hl("IndentBlanklineContextChar", { fg = cp.cp1 })
 	hl("IndentBlanklineContextSpaceChar", { link = "IndentBlanklineChar" })
-	hl("IndentBlanklineContextStart", { link = "IndentBlanklineChar" })
+	hl("IndentBlanklineContextStart", { bg = cp.bg_context })
 end
 
 return M

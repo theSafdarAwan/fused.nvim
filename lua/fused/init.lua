@@ -3,7 +3,12 @@
 -- TODO: add the option for adding the autocmds that are defined in after
 
 -- TODO: work on the onedark and aquarium theme colors
+
+-- TODO: add the markdown treesitter highlights
 local M = {}
+
+-- HACK:  add a key to the config so that auto loading colors for plugins is disabled
+-- and only enabled when we lazy_load the config
 
 local defaults = require("fused.utils").default_config
 
