@@ -18,6 +18,7 @@ M.default_config = {
 		todocomments = true,
 		trouble = true,
 		tsrainbow = true,
+		renamer = true,
 	},
 	-- accepts table of custom higlights
 	custom = {},

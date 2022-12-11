@@ -43,6 +43,7 @@ require("fused").setup({
             telescope = true,
             todocomments = true,
             trouble = true,
+            renamer = true,
             tsrainbow = true,
         },
         custom = {
