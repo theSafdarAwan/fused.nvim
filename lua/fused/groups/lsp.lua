@@ -23,17 +23,17 @@ M.load_hl = function(hl, cp)
 	hl(
 		"DiagnosticUnderlineError",
 		-- { fg = Colors.error_red, bg = Colors.color_2, underline = true }
-		{ underline = true }
+		{ undercurl = true }
 	)
 	hl(
 		"DiagnosticUnderlineWarn",
 		-- { fg = Colors.color_20, bg = Colors.color_2, underline = true }
-		{ underline = true }
+		{ undercurl = true }
 	)
 	hl(
 		"DiagnosticUnderlineInfo",
 		-- { fg = Colors.color_21, bg = Colors.color_2, underline = true }
-		{ underline = true }
+		{ undercurl = true }
 	)
 	hl(
 		"DiagnosticUnderlineHint",
