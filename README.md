@@ -39,6 +39,7 @@ require("fused").setup({
             indentblankline = true,
             lspsaga = true,
             neorg = true,
+            devicons = true,
             nvimtree = true,
             telescope = true,
             todocomments = true,
