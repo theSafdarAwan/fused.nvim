@@ -1,6 +1,9 @@
 local M = {}
 
 M.load_hl = function(hl, cp)
+	-- NOTE: for some reasons cmp uses this for border
+	hl("TelescopeBorder", { fg = cp.border })
+
 	hl("CmpItemAbbr", { fg = cp.white })
 	hl("CmpItemAbbrDeprecated", { fg = cp.cp2 })
 	hl("CmpItemAbbrMatch", { fg = cp.search })
