@@ -7,7 +7,6 @@ M.set = function()
 	require("fused.groups.editor").load_hl(hl, cp)
 	require("fused.groups.syntax").load_hl(hl, cp)
 
-	require("fused.groups.tree-sitter").load_hl(hl, cp)
 	require("fused.groups.lsp").load_hl(hl, cp)
 end
 
