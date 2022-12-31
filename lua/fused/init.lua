@@ -1,5 +1,7 @@
 -- TODO: add the previews
 
+-- TODO: change the plugins names to the names of the plugins from todocomments todo-comments.nvim
+
 -- TODO: add the option for adding the autocmds that are defined in after
 
 -- TODO: work on the onedark and aquarium theme colors
