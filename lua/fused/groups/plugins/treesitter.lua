@@ -3,7 +3,7 @@ local utils = require("fused.utils")
 
 M.load_hl = function(hl, cp)
 	-- Misc
-	hl("@comment", { fg = cp.cp1, italic = utils.italics }) -- line and block comments
+	hl("@comment", { link = "Comment" }) -- line and block comments
 	hl("@error", { fg = cp.err }) -- syntax/parser errors
 	hl("@none", {}) -- completely disable the highlight
 	hl("@preproc", { fg = cp.variable }) -- various preprocessor directives & shebangs

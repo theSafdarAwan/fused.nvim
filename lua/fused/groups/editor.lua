@@ -1,11 +1,15 @@
 local M = {}
 
+local utils = require("fused.utils")
+
 M.load_hl = function(hl, cp)
 	-- get the background setting
 	local tr_bg = require("fused.utils").bg_transparent
 
 	-- used for the columns set with 'colorcolumn'
 	hl("ColorColumn", { bg = cp.string })
+	-- comments
+	hl("Comment", { fg = cp.cp1, italic = utils.italics })
 	-- placeholder characters substituted for concealed text (see 'conceallevel')
 	hl("Conceal", { fg = cp.string })
 	-- character under the cursor
