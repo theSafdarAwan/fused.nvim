@@ -8,7 +8,7 @@ M.load_hl = function(hl, cp)
 	hl("@none", {}) -- completely disable the highlight
 	hl("@preproc", { fg = cp.variable }) -- various preprocessor directives & shebangs
 	hl("@define", { fg = cp.blue }) -- preprocessor definition directives
-	hl("@operator", { fg = cp.white }) -- symbolic operators (e.g. `+` / `*`)
+	hl("@operator", { link = "Operator" }) -- symbolic operators (e.g. `+` / `*`)
 
 	-- Punctuation
 	hl("@punctuation.delimiter", { fg = cp.white }) -- delimiters (e.g. `;` / `.` / `,`)
@@ -16,20 +16,20 @@ M.load_hl = function(hl, cp)
 	hl("@punctuation.special", { fg = cp.red2 }) -- special symbols (e.g. `{}` in string interpolation)
 
 	-- Literals
-	hl("@string", { fg = cp.string }) -- string literals
+	hl("@string", { link = "String" }) -- string literals
 	hl("@string.regex", { fg = cp.orange }) -- regular expressions
 	hl("@string.escape", { fg = cp.light_pink }) -- escape sequences
 	hl("@string.special", { fg = cp.text }) -- other special strings (e.g. dates)
 
-	hl("@character", { fg = cp.magenta }) -- character literals
+	hl("@character", { link = "Character" }) -- character literals
 	hl("@character.special", { fg = cp.orange }) -- special characters (e.g. wildcards)
 
-	hl("@boolean", { fg = cp.warn }) -- boolean literals
-	hl("@number", { fg = cp.orange }) -- numeric literals
-	hl("@float", { fg = cp.orange }) -- floating-point number literals
+	hl("@boolean", { link = "Boolean" }) -- boolean literals
+	hl("@number", { link = "Number" }) -- numeric literals
+	hl("@float", { link = "Float" }) -- floating-point number literals
 
 	-- Functions
-	hl("@function", { fg = cp.func }) -- function definitions
+	hl("@function", { link = "Function" }) -- function definitions
 	hl("@function.builtin", { link = "@function" }) -- built-in functions
 	hl("@function.call", { link = "@function" }) -- function calls
 	hl("@function.macro", { fg = cp.magenta }) -- preprocessor macros
@@ -41,37 +41,37 @@ M.load_hl = function(hl, cp)
 	hl("@parameter", { fg = cp.const, italic = utils.italics }) -- parameters of a function
 
 	-- Keywords
-	hl("@keyword", { fg = cp.keywords, italic = utils.italics }) -- various keywords
+	hl("@keyword", { link = "Label" }) -- various keywords
 	hl("@keyword.function", { fg = cp.keywords }) -- keywords that define a function (e.g. `func` in Go, `def` in Python)
-	hl("@keyword.operator", { link = "@keyword" }) -- operators that are English words (e.g. `and` / `or`)
+	hl("@keyword.operator", { link = "Label" }) -- operators that are English words (e.g. `and` / `or`)
 	hl("@keyword.return", { link = "@keyword.function" }) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
 
-	hl("@conditional", { link = "@keyword" }) -- keywords related to conditionals (e.g. `if` / `else`)
-	hl("@repeat", { link = "@keyword" }) -- keywords related to loops (e.g. `for` / `while`)
-	hl("@debug", { link = "@keyword" }) -- keywords related to debugging
-	hl("@label", { link = "@keyword" }) -- GOTO and other labels (e.g. `label:` in C)
+	hl("@conditional", { link = "Label" }) -- keywords related to conditionals (e.g. `if` / `else`)
+	hl("@repeat", { link = "Lable" }) -- keywords related to loops (e.g. `for` / `while`)
+	hl("@debug", { link = "Label" }) -- keywords related to debugging
+	hl("@label", { link = "Label" }) -- GOTO and other labels (e.g. `label:` in C)
 	hl("@include", { fg = cp.search, italic = utils.italics }) -- keywords for including modules (e.g. `import` / `from` in Python)
-	hl("@exception", { link = "@keyword" }) -- keywords related to exceptions (e.g. `throw` / `catch`)
+	hl("@exception", { link = "Label" }) -- keywords related to exceptions (e.g. `throw` / `catch`)
 
 	-- Types
-	hl("@type", { fg = cp.magenta }) -- type or class definitions and annotations
+	hl("@type", { link = "Type" }) -- type or class definitions and annotations
 	hl("@type.tag", { fg = cp.err }) -- type or class definitions and annotations
-	hl("@type.builtin", { link = "@type" }) -- built-in types
-	hl("@type.definition", { link = "@type" }) -- type definitions (e.g. `typedef` in C)
-	hl("@type.qualifier", { link = "@type" }) -- type qualifiers (e.g. `const`)
+	hl("@type.builtin", { link = "Type" }) -- built-in types
+	hl("@type.definition", { link = "Type" }) -- type definitions (e.g. `typedef` in C)
+	hl("@type.qualifier", { link = "Type" }) -- type qualifiers (e.g. `const`)
 
 	hl("@storageclass", {}) -- visibility/life-time modifiers
 	hl("@storageclass.lifetime", {}) -- life-time modifiers (e.g. `static`)
 	hl("@attribute", {}) -- attribute annotations (e.g. Python decorators)
-	hl("@field", { link = "@property" }) -- object and struct fields
-	hl("@property", { fg = cp.property }) -- similar to `@field`
+	hl("@property", { link = "Field" }) -- similar to `@field`
+	hl("@field", { link = "Field" }) -- object and struct fields
 	hl("@property.class", { fg = cp.const }) -- similar to `@field`
 
 	-- #### Identifiers
 	hl("@variable", { fg = cp.variable }) -- various variable names
 	hl("@variable.builtin", { fg = cp.key }) -- built-in variable names (e.g. `this`)
 
-	hl("@constant", { fg = cp.const }) -- constant identifiers
+	hl("@constant", { link = "Constant" }) -- constant identifiers
 	hl("@constant.builtin", { fg = cp.keywords }) -- built-in constant values
 	hl("@constant.macro", { link = "@define" }) -- constants defined by the preprocessor
 
@@ -104,7 +104,7 @@ M.load_hl = function(hl, cp)
 
 	-- #### Tags
 	-- Used for XML-like tags.
-	hl("@tag", { fg = cp.red2 }) -- XML tag names
+	hl("@tag", { link = "Tag" }) -- XML tag names
 	hl("@tag.attribute", { fg = cp.variable }) -- XML tag attributes
 	hl("@tag.delimiter", { fg = cp.cp1 }) -- XML tag delimiters
 
