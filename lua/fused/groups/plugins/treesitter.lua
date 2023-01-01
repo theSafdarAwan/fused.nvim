@@ -63,8 +63,8 @@ M.load_hl = function(hl, cp)
 	hl("@storageclass", {}) -- visibility/life-time modifiers
 	hl("@storageclass.lifetime", {}) -- life-time modifiers (e.g. `static`)
 	hl("@attribute", {}) -- attribute annotations (e.g. Python decorators)
-	hl("@property", { link = "Field" }) -- similar to `@field`
-	hl("@field", { link = "Field" }) -- object and struct fields
+	hl("@property", { fg = cp.property }) -- similar to `@field`
+	hl("@field", { link = "@property" }) -- object and struct fields
 	hl("@property.class", { fg = cp.const }) -- similar to `@field`
 
 	-- #### Identifiers
