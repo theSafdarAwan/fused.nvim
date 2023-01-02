@@ -1,7 +1,5 @@
 local M = {}
 
-local utils = require("fused.utils")
-
 M.load_hl = function(hl, cp)
 	hl("Constant", { fg = cp.const }) -- (preferred) any constant
 	hl("String", { fg = cp.string }) --   a string constant: "this is a string"
@@ -16,7 +14,7 @@ M.load_hl = function(hl, cp)
 	hl("Statement", { fg = cp.light_pink }) -- (preferred) any statement
 	hl("Conditional", { fg = cp.light_pink }) --  if, then, else, endif, switch, etc.
 	hl("Repeat", { fg = cp.light_pink }) --   for, do, while, etc.
-	hl("Label", { fg = cp.keywords, italic = utils.italics }) --    case, default, etc.
+	hl("Label", { fg = cp.orange }) --    case, default, etc.
 	hl("Operator", { fg = cp.white }) -- "sizeof", "+", "*", etc.
 	hl("Keyword", { link = "Label" }) --  any other keyword
 	hl("Exception", { link = "Label" }) --  try, catch, throw

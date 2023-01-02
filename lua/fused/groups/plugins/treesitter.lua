@@ -41,17 +41,17 @@ M.load_hl = function(hl, cp)
 	hl("@parameter", { fg = cp.const, italic = utils.italics }) -- parameters of a function
 
 	-- Keywords
-	hl("@keyword", { link = "Label" }) -- various keywords
+	hl("@keyword", { fg = cp.keywords, italic = utils.italics }) -- various keywords
 	hl("@keyword.function", { fg = cp.keywords }) -- keywords that define a function (e.g. `func` in Go, `def` in Python)
-	hl("@keyword.operator", { link = "Label" }) -- operators that are English words (e.g. `and` / `or`)
+	hl("@keyword.operator", { link = "@keyword" }) -- operators that are English words (e.g. `and` / `or`)
 	hl("@keyword.return", { link = "@keyword.function" }) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
 
-	hl("@conditional", { link = "Label" }) -- keywords related to conditionals (e.g. `if` / `else`)
-	hl("@repeat", { link = "Label" }) -- keywords related to loops (e.g. `for` / `while`)
-	hl("@debug", { link = "Label" }) -- keywords related to debugging
-	hl("@label", { link = "Label" }) -- GOTO and other labels (e.g. `label:` in C)
+	hl("@conditional", { link = "@keyword" }) -- keywords related to conditionals (e.g. `if` / `else`)
+	hl("@repeat", { link = "@keyword" }) -- keywords related to loops (e.g. `for` / `while`)
+	hl("@debug", { link = "@keyword" }) -- keywords related to debugging
+	hl("@label", { link = "@keyword" }) -- GOTO and other labels (e.g. `label:` in C)
 	hl("@include", { fg = cp.search, italic = utils.italics }) -- keywords for including modules (e.g. `import` / `from` in Python)
-	hl("@exception", { link = "Label" }) -- keywords related to exceptions (e.g. `throw` / `catch`)
+	hl("@exception", { link = "@keyword" }) -- keywords related to exceptions (e.g. `throw` / `catch`)
 
 	-- Types
 	hl("@type", { link = "Type" }) -- type or class definitions and annotations
