@@ -47,7 +47,7 @@ M.load_hl = function(hl, cp)
 	hl("@keyword.return", { link = "@keyword.function" }) -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
 
 	hl("@conditional", { link = "Label" }) -- keywords related to conditionals (e.g. `if` / `else`)
-	hl("@repeat", { link = "Lable" }) -- keywords related to loops (e.g. `for` / `while`)
+	hl("@repeat", { link = "Label" }) -- keywords related to loops (e.g. `for` / `while`)
 	hl("@debug", { link = "Label" }) -- keywords related to debugging
 	hl("@label", { link = "Label" }) -- GOTO and other labels (e.g. `label:` in C)
 	hl("@include", { fg = cp.search, italic = utils.italics }) -- keywords for including modules (e.g. `import` / `from` in Python)
