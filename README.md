@@ -33,6 +33,7 @@ require("fused").setup({
         plugins_integration = {
             -- @names of the plguins
             cmp = true,
+            notify = true,
             diffview = true,
             harpoon = true,
             neogit = true,
