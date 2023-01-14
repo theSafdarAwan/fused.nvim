@@ -92,7 +92,7 @@ M.pallete = {
 
 	-- brackets pairs colors
 	ts_aqua = colors.ts_rainbow_aqua,
-	ts_deep_yellow = colors.big_foot_feet,
+	ts_deep_yellow = colors.pink,
 	ts_purple = colors.ts_rainbow_purple,
 	ts_yellow = colors.yellow,
 	ts_cyan = colors.sky,

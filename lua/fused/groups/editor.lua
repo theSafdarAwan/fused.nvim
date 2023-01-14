@@ -122,6 +122,9 @@ M.load_hl = function(hl, cp)
 	-- windows seperator color
 	hl("WinSeparator", { fg = cp.dark })
 
+	-- border for hover popup
+	hl("HoverBorder", { fg = cp.border })
+
 	-- diff mode: Added line |diff.txt|
 	hl("DiffAdd", { fg = cp.search })
 	-- diff mode: Changed line |diff.txt|
