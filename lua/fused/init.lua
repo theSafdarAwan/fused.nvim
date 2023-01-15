@@ -1,3 +1,5 @@
+-- TODO: custom highlights is not working
+
 -- TODO: add the previews
 
 -- TODO: change the plugins names to the names of the plugins from todocomments todo-comments.nvim
