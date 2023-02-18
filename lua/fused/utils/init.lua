@@ -9,6 +9,7 @@ M.default_config = {
 		cmp = true,
 		notify = true,
 		treesitter = true,
+		treesitter_context = true,
 		diffview = true,
 		harpoon = true,
 		neogit = true,
