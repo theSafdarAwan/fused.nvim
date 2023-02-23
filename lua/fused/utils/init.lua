@@ -7,6 +7,7 @@ M.default_config = {
 	plugins_integration = {
 		-- @names of the plguins
 		cmp = true,
+		navic = true,
 		notify = true,
 		treesitter = true,
 		treesitter_context = true,
