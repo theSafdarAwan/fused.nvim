@@ -15,6 +15,7 @@ Using packer
 ```lua
 use({ "TheSafdarAwan/fused" })
 ```
+
 ### ⚙️ Configuration:
 
 ```lua
@@ -33,6 +34,7 @@ require("fused").setup({
         plugins_integration = {
             -- @names of the plguins
             cmp = true,
+            navic = true,
             notify = true,
             diffview = true,
             harpoon = true,
