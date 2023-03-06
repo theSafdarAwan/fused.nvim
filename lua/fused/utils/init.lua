@@ -1,13 +1,18 @@
---
--- @module set config
+--- Description: loads the theme highlight groups.
 local M = {}
 
+---@table default_config default configuration for theme.
+---@field flavour string name of the theme.
+---@field italics boolean to enable or disable italic font.
+---@field bg_transparent boolean to enable or disable transparent background.
+---@field custom table of custom higlight groups.
+---@field plugins_integration table of plugin names (name = boolean)
 M.default_config = {
 	flavour = "catppuccin",
 	italics = true,
 	bg_transparent = false,
+	custom = {},
 	plugins_integration = {
-		-- names of the plguins
 		cmp = true,
 		navic = true,
 		notify = true,
@@ -26,11 +31,11 @@ M.default_config = {
 		trouble = true,
 		tsrainbow = true,
 		renamer = true,
-	},
-	--- @field fiedl of custom higlights
-	custom = {},
+	}, -- table of plugins with the boolean values to enable or disable plugin.
 }
 
+--- loads theme based on configuration table passed.
+---@param conf table of theme configuration.
 M.set_theme = function(conf)
 	-- maybe in future will accept multiple flavours
 	local flavour = conf["flavour"] or M.default_config["flavour"]
@@ -75,7 +80,7 @@ M.set_theme = function(conf)
 		require("fused.groups").load_plugins_hl(plugins_tbl)
 	end
 
-	-- @custom set highlights for custom groups set by user
+	-- set highlights for custom groups set by user
 	if conf.custom then
 		local hl = require("fused.utils.lib.higlighter").set_hl
 		-- local i = 1
@@ -98,6 +103,8 @@ M.set_theme = function(conf)
 	end
 end
 
+--- Loads single plugin specified as parameter.
+---@param name string name of the plugin.
 M.load_plugin_hl = function(name)
 	vim.schedule(function()
 		require("fused.groups").load_plugins_hl({ [name] = {} })
