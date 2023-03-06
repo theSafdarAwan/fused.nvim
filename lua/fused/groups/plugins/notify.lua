@@ -1,4 +1,4 @@
-local function load_hl(hl, cp)
+local function load_hl(cp)
 	return {
 		NotifyLogTitle = { fg = cp.white },
 		NotifyLogTime = { fg = cp.err_sev },

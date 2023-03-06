@@ -98,10 +98,12 @@ end
 
 M.load_plugin_hl = function(name)
 	vim.schedule(function()
-		require("fused.groups.plugins." .. name).load_hl(
-			require("fused.utils.lib.higlighter").set_hl,
-			M.pallete
-		)
+		local hl = require("fused.utils.lib.higlighter").set_hl
+		local plugin_name = "fused.groups.plugins." .. name
+		local hls_tbl = require(plugin_name).load_hl(M.pallete)
+		for hl_name, hl_val in pairs(hls_tbl) do
+			hl(tostring(hl_name), hl_val)
+		end
 	end)
 end
 

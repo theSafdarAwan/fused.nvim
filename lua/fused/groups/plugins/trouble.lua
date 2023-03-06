@@ -1,6 +1,7 @@
 local M = {}
 
 M.load_hl = function(cp)
+	return {}
 	-- TroubleCount = {},
 	-- TroubleError = {},
 	-- TroubleNormal = {},
