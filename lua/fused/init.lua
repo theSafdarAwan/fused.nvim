@@ -1,26 +1,17 @@
--- TODO: custom highlights is not working
+--- Description.
+-- Exposes function's to load the theme in multiple ways.
 
--- TODO: add the previews
-
--- TODO: change the plugins names to the names of the plugins from todocomments todo-comments.nvim
-
--- TODO: add the option for adding the autocmds that are defined in after
-
--- TODO: work on the onedark and aquarium theme colors
-
--- TODO: add the markdown treesitter highlights
 local M = {}
 
--- HACK:  add a key to the config so that auto loading colors for plugins is disabled
--- and only enabled when we lazy_load the config
-
+--- @table defaults
 local defaults = require("fused.utils").default_config
 
-M.setup = function(tbl)
-	if tbl then
-		for k, _ in pairs(tbl) do
+--- @param user_configuration table|nil table of configuration for theme
+M.setup = function(user_configuration)
+	if user_configuration then
+		for k, _ in pairs(user_configuration) do
 			if defaults[k] then
-				require("fused.utils").set_theme(tbl)
+				require("fused.utils").set_theme(user_configuration)
 				return
 			end
 		end
@@ -29,10 +20,12 @@ M.setup = function(tbl)
 	end
 end
 
+--- @param name string loads plugin
 M.lazy_load = function(name)
 	require("fused.utils").load_plugin_hl(name)
 end
 
+-- TODO: remove this junk and clean this module
 M.load_theme = function()
 	require("fused.utils").set_theme(defaults)
 end

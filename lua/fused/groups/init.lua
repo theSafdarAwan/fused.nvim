@@ -14,7 +14,7 @@ M.set = function()
 	end
 end
 
-M.set_plugins = function(plugins_tbl)
+M.load_plugins_hl = function(plugins_tbl)
 	local plugins_hl_tbls = {}
 	for k, _ in pairs(plugins_tbl) do
 		local hl_tbl = require("fused.groups.plugins." .. k).load_hl(cp)

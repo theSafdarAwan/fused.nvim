@@ -1,3 +1,5 @@
+--
+-- @module set config
 local M = {}
 
 M.default_config = {
@@ -5,7 +7,7 @@ M.default_config = {
 	italics = true,
 	bg_transparent = false,
 	plugins_integration = {
-		-- @names of the plguins
+		-- names of the plguins
 		cmp = true,
 		navic = true,
 		notify = true,
@@ -25,7 +27,7 @@ M.default_config = {
 		tsrainbow = true,
 		renamer = true,
 	},
-	-- accepts table of custom higlights
+	--- @field fiedl of custom higlights
 	custom = {},
 }
 
@@ -55,11 +57,11 @@ M.set_theme = function(conf)
 
 	-- @plugins set highlights for the plugins
 	if conf.plugins_integration == true then
-		require("fused.groups").set_plugins(default_pluigns)
+		require("fused.groups").load_plugins_hl(default_pluigns)
 	elseif conf.plugins_integration == false then
 		return
 	elseif type(conf.plugins_integration) == "nil" then
-		require("fused.groups").set_plugins(default_pluigns)
+		require("fused.groups").load_plugins_hl(default_pluigns)
 	else
 		-- create a copy of the default_plugins table and check if a plugin
 		-- config was supplied from the user then delete that plugin from the
@@ -70,7 +72,7 @@ M.set_theme = function(conf)
 				plugins_tbl[k] = nil
 			end
 		end
-		require("fused.groups").set_plugins(plugins_tbl)
+		require("fused.groups").load_plugins_hl(plugins_tbl)
 	end
 
 	-- @custom set highlights for custom groups set by user
@@ -98,7 +100,7 @@ end
 
 M.load_plugin_hl = function(name)
 	vim.schedule(function()
-		require("fused.groups").set_plugins({ [name] = {} })
+		require("fused.groups").load_plugins_hl({ [name] = {} })
 	end)
 end
 
