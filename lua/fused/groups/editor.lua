@@ -2,7 +2,7 @@ local M = {}
 
 local utils = require("fused.utils")
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	-- get the background setting
 	local tr_bg = require("fused.utils").bg_transparent
 	return {

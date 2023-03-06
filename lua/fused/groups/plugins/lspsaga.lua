@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	-- general
 	return {
 		TitleString = { bg = cp.white, fg = cp.dark, bold = true },

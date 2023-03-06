@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	return {
 		rainbowcol1 = { fg = cp.ts_yellow },
 		rainbowcol2 = { fg = cp.ts_deep_yellow },

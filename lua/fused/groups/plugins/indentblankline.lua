@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	return {
 		IndentBlanklineChar = { fg = cp.cp4 },
 		IndentBlanklineSpaceChar = { link = "IndentBlanklineChar" },

@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	return {
 		DevIconDefault = { fg = cp.red },
 		DevIconc = { fg = cp.property },

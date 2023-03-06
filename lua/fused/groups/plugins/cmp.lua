@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	return {
 		-- FIX: telescope border is being used by cmp fix this
 		TelescopeBorder = { fg = cp.border },

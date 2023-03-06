@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(_)
+M.get_hl_groups = function(_)
 	return {
 		HarpoonBorder = { link = "TelescopeBorder" },
 		HarpoonWindow = { link = "@string" },

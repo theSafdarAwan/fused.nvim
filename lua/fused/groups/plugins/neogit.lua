@@ -2,7 +2,7 @@ local M = {}
 
 local utils = require("fused.utils")
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	return {
 		NeogitNotificationInfo = { link = "@field" },
 		NeogitNotificationWarning = { link = "DiagnosticSignWarn" },

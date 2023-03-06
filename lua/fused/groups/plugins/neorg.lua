@@ -1,7 +1,7 @@
 local M = {}
 local utils = require("fused.utils")
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	local hl_tbl = {}
 	local norg_colors = {
 		["red"] = cp.err,

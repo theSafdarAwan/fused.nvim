@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	return {
 		Constant = { fg = cp.const }, -- (preferred) any constant
 		String = { fg = cp.string }, --   a string constant: "this is a string"

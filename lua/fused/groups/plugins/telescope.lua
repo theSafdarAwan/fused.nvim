@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	return {
 		TelescopeSelection = { bg = cp.bg_windows2 },
 		TelescopeSelectionCaret = { fg = cp.warn },

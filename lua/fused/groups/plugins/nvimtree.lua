@@ -1,7 +1,7 @@
 -- TODO: add the remaining highlights
 local M = {}
 
-M.load_hl = function(cp)
+M.get_hl_groups = function(cp)
 	return {
 		NvimTreeNormal = { bg = cp.bg },
 		NvimTreeGitDirty = { fg = cp.err },
