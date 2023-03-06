@@ -1,6 +1,6 @@
 local M = {}
 
-M.load_hl = function(hl, cp)
+M.load_hl = function(cp)
 	return {
 		LspReferenceText = { fg = cp.white, italic = true, underline = true }, -- used for highlighting "text" references
 		LspReferenceRead = { fg = cp.warn, italic = true, underline = true }, -- used for highlighting "read" references
