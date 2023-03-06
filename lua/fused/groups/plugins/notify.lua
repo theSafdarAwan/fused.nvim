@@ -1,33 +1,33 @@
 local function load_hl(hl, cp)
-	hl("NotifyLogTitle", { fg = cp.white })
-	hl("NotifyLogTime", { fg = cp.err_sev })
+	return {
+		NotifyLogTitle = { fg = cp.white },
+		NotifyLogTime = { fg = cp.err_sev },
 
-	hl("NotifyERRORBorder", { fg = cp.err })
+		NotifyINFOTitle = { fg = cp.search, bold = true },
+		NotifyINFOBody = { fg = cp.white },
+		NotifyINFOIcon = { link = "NotifyINFOTitle" },
+		NotifyINFOBorder = { link = "NotifyINFOTitle" },
 
-	hl("NotifyINFOTitle", { fg = cp.search, bold = true })
-	hl("NotifyINFOBody", { fg = cp.white })
-	hl("NotifyINFOIcon", { link = "NotifyINFOTitle" })
-	hl("NotifyINFOBorder", { link = "NotifyINFOTitle" })
+		NotifyWARNTitle = { fg = cp.warn },
+		NotifyWARNBody = { fg = cp.white },
+		NotifyWARNIcon = { link = "NotifyWARNTitle" },
+		NotifyWARNBorder = { link = "NotifyWARNTitle" },
 
-	hl("NotifyWARNTitle", { fg = cp.warn })
-	hl("NotifyWARNBody", { fg = cp.white })
-	hl("NotifyWARNIcon", { link = "NotifyWARNTitle" })
-	hl("NotifyWARNBorder", { link = "NotifyWARNTitle" })
+		NotifyDEBUGTitle = { fg = cp.variable },
+		NotifyDEBUGBody = { fg = cp.white },
+		NotifyDEBUGIcon = { link = "NotifyDEBUGTitle" },
+		NotifyDEBUGBorder = { link = "NotifyDEBUGTitle" },
 
-	hl("NotifyDEBUGTitle", { fg = cp.variable })
-	hl("NotifyDEBUGBody", { fg = cp.white })
-	hl("NotifyDEBUGIcon", { link = "NotifyDEBUGTitle" })
-	hl("NotifyDEBUGBorder", { link = "NotifyDEBUGTitle" })
+		NotifyERRORTitle = { fg = cp.err },
+		NotifyERRORBody = { fg = cp.white },
+		NotifyERRORIcon = { link = "NotifyERRORTitle" },
+		NotifyERRORBorder = { link = "NotifyERRORTitle" },
 
-	hl("NotifyERRORTitle", { fg = cp.err })
-	hl("NotifyERRORBody", { fg = cp.white })
-	hl("NotifyERRORIcon", { link = "NotifyERRORTitle" })
-	hl("NotifyERRORBorder", { link = "NotifyERRORTitle" })
-
-	hl("NotifyTRACETitle", { fg = cp.blue })
-	hl("NotifyTRACEBody", { fg = cp.white })
-	hl("NotifyTRACEIcon", { link = "NotifyTRACETitle" })
-	hl("NotifyTRACEBorder", { link = "NotifyTRACETitle" })
+		NotifyTRACETitle = { fg = cp.blue },
+		NotifyTRACEBody = { fg = cp.white },
+		NotifyTRACEIcon = { link = "NotifyTRACETitle" },
+		NotifyTRACEBorder = { link = "NotifyTRACETitle" },
+	}
 end
 
 return { load_hl = load_hl }

@@ -1,42 +1,43 @@
 local M = {}
 
-M.load_hl = function(hl, cp)
-	-- NOTE: for some reasons cmp uses this for border
-	hl("TelescopeBorder", { fg = cp.border })
-
-	hl("CmpItemAbbr", { fg = cp.white })
-	hl("CmpItemAbbrDeprecated", { fg = cp.cp2 })
-	hl("CmpItemAbbrMatch", { fg = cp.search })
-	hl("CmpItemAbbrMatchFuzzy", { fg = cp.warn })
-	hl("CmpItemMenu", { fg = cp.cp3 })
-	hl("CmpItemKindSnippet", { fg = cp.search })
-	-- Item kind
-	hl("CmpItemKind", { fg = cp.property })
-	hl("CmpItemKindText", { link = "@text" })
-	hl("CmpItemKindFunction", { link = "@function" })
-	hl("CmpItemKindKeyword", { link = "@keyword" })
-	hl("CmpItemKindField", { link = "@field" })
-	hl("CmpItemKindVariable", { link = "@variable" })
-	hl("CmpItemKindEnum", { link = "CmpItemKindText" })
-	hl("CmpItemKindMethod", { link = "@method" })
-	hl("CmpItemKindConstructor", { link = "@constructor" })
-	hl("CmpItemKindFolder", { fg = cp.warn })
-	hl("CmpItemKindModule", { fg = cp.warn })
-	hl("CmpItemKindConstant", { link = "@constant" })
-	hl("CmpItemKindProperty", { link = "@property" })
-	hl("CmpItemKindUnit", { fg = cp.const })
-	hl("CmpItemKindClass", { link = "@constructor" })
-	hl("CmpItemKindFile", { fg = cp.const })
-	hl("CmpItemKindInterface", { fg = cp.warn })
-	hl("CmpItemKindColor", { fg = cp.white })
-	hl("CmpItemKindReference", { fg = cp.search })
-	hl("CmpItemKindEnumMember", { fg = cp.const })
-	hl("CmpItemKindStruct", { link = "@constructor" })
-	hl("CmpItemKindValue", { fg = cp.const })
-	hl("CmpItemKindEvent", { fg = cp.blue })
-	hl("CmpItemKindOperator", { fg = cp.white })
-	hl("CmpItemKindTypeParameter", { fg = cp.const })
-	hl("CmpItemKindCopilot", { fg = cp.blue2 })
+M.load_hl = function(cp)
+	return {
+		-- FIX: telescope border is being used by cmp fix this
+		TelescopeBorder = { fg = cp.border },
+		CmpItemAbbr = { fg = cp.white },
+		CmpItemAbbrDeprecated = { fg = cp.cp2 },
+		CmpItemAbbrMatch = { fg = cp.search },
+		CmpItemAbbrMatchFuzzy = { fg = cp.warn },
+		CmpItemMenu = { fg = cp.cp3 },
+		CmpItemKindSnippet = { fg = cp.search },
+		-- Item kind
+		CmpItemKind = { fg = cp.property },
+		CmpItemKindText = { link = "@text" },
+		CmpItemKindFunction = { link = "@function" },
+		CmpItemKindKeyword = { link = "@keyword" },
+		CmpItemKindField = { link = "@field" },
+		CmpItemKindVariable = { link = "@variable" },
+		CmpItemKindEnum = { link = "CmpItemKindText" },
+		CmpItemKindMethod = { link = "@method" },
+		CmpItemKindConstructor = { link = "@constructor" },
+		CmpItemKindFolder = { fg = cp.warn },
+		CmpItemKindModule = { fg = cp.warn },
+		CmpItemKindConstant = { link = "@constant" },
+		CmpItemKindProperty = { link = "@property" },
+		CmpItemKindUnit = { fg = cp.const },
+		CmpItemKindClass = { link = "@constructor" },
+		CmpItemKindFile = { fg = cp.const },
+		CmpItemKindInterface = { fg = cp.warn },
+		CmpItemKindColor = { fg = cp.white },
+		CmpItemKindReference = { fg = cp.search },
+		CmpItemKindEnumMember = { fg = cp.const },
+		CmpItemKindStruct = { link = "@constructor" },
+		CmpItemKindValue = { fg = cp.const },
+		CmpItemKindEvent = { fg = cp.blue },
+		CmpItemKindOperator = { fg = cp.white },
+		CmpItemKindTypeParameter = { fg = cp.const },
+		CmpItemKindCopilot = { fg = cp.blue2 },
+	}
 end
 
 return M

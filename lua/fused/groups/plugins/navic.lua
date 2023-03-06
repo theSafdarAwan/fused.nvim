@@ -1,34 +1,36 @@
 local M = {}
 
-M.load_hl = function(hl, cp)
-	hl("NavicIconsFile", { link = "CmpItemKindFile" })
-	hl("NavicIconsModule", { link = "CmpItemKindModule" })
-	hl("NavicIconsNamespace", { link = "String" })
-	hl("NavicIconsPackage", { link = "CmpItemKindModule" })
-	hl("NavicIconsClass", { link = "CmpItemKindClass" })
-	hl("NavicIconsMethod", { link = "CmpItemKindMethod" })
-	hl("NavicIconsProperty", { link = "CmpItemKindProperty" })
-	hl("NavicIconsField", { link = "CmpItemKindField" })
-	hl("NavicIconsConstructor", { link = "CmpItemKindConstructor" })
-	hl("NavicIconsEnum", { link = "CmpItemKindEnum" })
-	hl("NavicIconsInterface", { link = "CmpItemKindInterface" })
-	hl("NavicIconsFunction", { link = "CmpItemKindFunction" })
-	hl("NavicIconsVariable", { link = "CmpItemKindVariable" })
-	hl("NavicIconsConstant", { link = "CmpItemKindConstant" })
-	hl("NavicIconsString", { link = "String" })
-	hl("NavicIconsNumber", { link = "CmpItemKindEnum" })
-	hl("NavicIconsBoolean", { link = "@field" })
-	hl("NavicIconsObject", { link = "@field" })
-	hl("NavicIconsKey", { link = "@field" })
-	hl("NavicIconsNull", { link = "String" })
-	hl("NavicIconsEnumMember", { link = "CmpItemKindEnumMember" })
-	hl("NavicIconsStruct", { link = "CmpItemKindStruct" })
-	hl("NavicIconsEvent", { link = "CmpItemKindEvent" })
-	hl("NavicIconsOperator", { link = "CmpItemKindOperator" })
-	hl("NavicIconsTypeParameter", { link = "CmpItemKindTypeParameter" })
-	hl("NavicText", { link = "String" })
-	hl("NavicSeparator", { link = "String" })
-	hl("NavicIconsArray", { link = "NavicIconsObject" })
+M.load_ = function(_)
+	return {
+		NavicIconsFile = { link = "CmpItemKindFile" },
+		NavicIconsModule = { link = "CmpItemKindModule" },
+		NavicIconsNamespace = { link = "String" },
+		NavicIconsPackage = { link = "CmpItemKindModule" },
+		NavicIconsClass = { link = "CmpItemKindClass" },
+		NavicIconsMethod = { link = "CmpItemKindMethod" },
+		NavicIconsProperty = { link = "CmpItemKindProperty" },
+		NavicIconsField = { link = "CmpItemKindField" },
+		NavicIconsConstructor = { link = "CmpItemKindConstructor" },
+		NavicIconsEnum = { link = "CmpItemKindEnum" },
+		NavicIconsInterface = { link = "CmpItemKindInterface" },
+		NavicIconsFunction = { link = "CmpItemKindFunction" },
+		NavicIconsVariable = { link = "CmpItemKindVariable" },
+		NavicIconsConstant = { link = "CmpItemKindConstant" },
+		NavicIconsString = { link = "String" },
+		NavicIconsNumber = { link = "CmpItemKindEnum" },
+		NavicIconsBoolean = { link = "@field" },
+		NavicIconsObject = { link = "@field" },
+		NavicIconsKey = { link = "@field" },
+		NavicIconsNull = { link = "String" },
+		NavicIconsEnumMember = { link = "CmpItemKindEnumMember" },
+		NavicIconsStruct = { link = "CmpItemKindStruct" },
+		NavicIconsEvent = { link = "CmpItemKindEvent" },
+		NavicIconsOperator = { link = "CmpItemKindOperator" },
+		NavicIconsTypeParameter = { link = "CmpItemKindTypeParameter" },
+		NavicText = { link = "String" },
+		NavicSeparator = { link = "String" },
+		NavicIconsArray = { link = "NavicIconsObject" },
+	}
 end
 
 return M
