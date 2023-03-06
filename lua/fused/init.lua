@@ -4,32 +4,23 @@ local M = {}
 
 --- default configuration for the theme.
 ---@table defaults
-local defaults = require("fused.utils").default_config
+local default_config = require("fused.utils").default_config
 
 --- Loads the theme.
----@param user_configuration table|nil table of configuration for theme.
+---@param user_configuration table|nil configuration for theme.
 M.setup = function(user_configuration)
-	if user_configuration then
-		for k, _ in pairs(user_configuration) do
-			if defaults[k] then
-				require("fused.utils").set_theme(user_configuration)
-				return
-			end
-		end
-	else
-		require("fused.utils").set_theme(defaults)
-	end
+	--- merge default_config and user_configuration
+	local config = vim.tbl_extend("force", default_config, user_configuration or {})
+	config.plugins_integration =
+		vim.tbl_extend("force", default_config.plugins_integration, config.plugins_integration or {})
+	require("fused.utils").set_theme(config)
 end
 
---- Lazy Loads plugin highlight groups.
---- @param name string name of the plugin.
+--- Can be used to lazy load plugins highlight groups with plugins configuration when
+--  plugins get loaded.
+---@param name string name of the plugin.
 M.lazy_load = function(name)
 	require("fused.utils").load_plugin_hl(name)
-end
-
--- TODO: remove this junk and clean this module
-M.load_theme = function()
-	require("fused.utils").set_theme(defaults)
 end
 
 return M
