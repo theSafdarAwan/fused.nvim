@@ -39,7 +39,7 @@ local colors = {}
 --- options like italics, bg_transparent, etc.
 local opts = {}
 
---- Loads the theme.
+--- setup function to load the theme on startup.
 ---@param user_configuration table|nil configuration for theme.
 M.setup = function(user_configuration)
 	--- merge default_config and user_configuration
