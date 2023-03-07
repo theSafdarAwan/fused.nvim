@@ -46,6 +46,7 @@ M.setup = function(user_configuration)
 	local config = vim.tbl_extend("force", default_config, user_configuration or {})
 	config.plugins_integration =
 		vim.tbl_extend("force", default_config.plugins_integration, config.plugins_integration or {})
+	config.custom = user_configuration and vim.deepcopy(user_configuration.custom)
 
 	-- theme name
 	local flavour = config["flavour"]
@@ -65,28 +66,20 @@ M.setup = function(user_configuration)
 	-- load highlights for the plugins
 	if user_configuration and user_configuration.plugins_integration then
 		require("fused.groups").load_plugins_hl(plugins, flavour)
-	elseif user_configuration and not user_configuration.plugins_integration then
-		return
 	end
 
 	-- set highlights for custom groups set by user
 	if config.custom then
 		local hl = require("fused.utils").set_hl
-		for k, v in pairs(config.custom) do
-			-- TODO: work on the style thing
-			-- check if the styles are available then set the styles
-			-- if type(k.styles) == "string" then
-			--     local st = require("fused.utils").style(k.styles)
-			--     for _, st_name in pairs(st) do
-			--         k[st_name] = true
-			--     end
-			--     table.remove(k.styles, i)
-			--     hl(tostring(k), v)
-			-- else
-			-- hl(tostring(k), v)
-			-- end
-			-- i = 1 + i
-			hl(tostring(k), v)
+		for hl_group_name, hl_opts in pairs(config.custom) do
+			hl_group_name = tostring(hl_group_name)
+			if hl_opts.styles then
+				local styles = hl_opts.styles
+				styles = require("fused.utils").format_styles(styles)
+				hl_opts = vim.tbl_extend("force", hl_opts, styles)
+				hl_opts.styles = nil
+			end
+			hl(hl_group_name, hl_opts)
 		end
 	end
 end

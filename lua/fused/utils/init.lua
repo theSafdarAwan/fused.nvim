@@ -19,19 +19,27 @@ end
 
 --- Converts styles from a string to a table and returns it.
 ---@return table of styles
-M.style = function(str)
-	local st = {}
-	local styles_tbl = vim.split(str, ",", { plain = true, trimempty = true })
-	for _, v in pairs(styles_tbl) do
-		st[v] = true
+M.format_styles = function(styles_str)
+	local styles_strs = vim.split(styles_str, ",", { plain = true, trimempty = true })
+	local styles = {}
+	for idx, style in ipairs(styles_strs) do
+		local is_false = string.find(style, "no")
+		if is_false then
+			style = string.sub(style, 3, -1)
+			styles[style] = false
+		elseif not is_false then
+			styles[style] = true
+		end
+		styles_strs[idx] = nil
 	end
-	return st
+	return styles
 end
 
 --- Replaces the . char in plugin name with -
 ---@param name string plugin name to format
 ---@return string formatted plugin name.
 M.format_plugin_name = function(name)
+	-- TODO: use gsub in a loop rather then this
 	local replacable_chars_idx_tbl = {}
 	local pattern_last_idx = replacable_chars_idx_tbl[#replacable_chars_idx_tbl] or 1
 	while true do
