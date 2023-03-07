@@ -63,11 +63,10 @@ M.setup = function(user_configuration)
 	-- set normal highlights
 	require("fused.groups").load_normal_higlights(colors)
 
-	local load_plugins = plugins == nil or plugins
-	-- plugins set highlights for the plugins
-	if load_plugins then
+	-- load highlights for the plugins
+	if user_configuration and user_configuration.plugins_integration then
 		require("fused.groups").load_plugins_hl(plugins, flavour)
-	elseif not plugins then
+	elseif user_configuration and not user_configuration.plugins_integration then
 		return
 	end
 

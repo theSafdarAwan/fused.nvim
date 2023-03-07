@@ -1,4 +1,4 @@
---- Utility function
+--- Adds Utility functions.
 local vim = vim
 local M = {}
 
