@@ -28,7 +28,7 @@ M.style = function(str)
 	return st
 end
 
---- Replaces the - and . chars in plugin name with _
+--- Replaces the . char in plugin name with -
 ---@param name string plugin name to format
 ---@return string formatted plugin name.
 M.format_plugin_name = function(name)

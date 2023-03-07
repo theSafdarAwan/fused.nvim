@@ -72,7 +72,6 @@ M.setup = function(user_configuration)
 	-- set highlights for custom groups set by user
 	if config.custom then
 		local hl = require("fused.utils").set_hl
-		-- local i = 1
 		for k, v in pairs(config.custom) do
 			-- TODO: work on the style thing
 			-- check if the styles are available then set the styles
