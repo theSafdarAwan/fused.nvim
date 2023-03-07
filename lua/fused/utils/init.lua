@@ -5,6 +5,13 @@ M.set_hl = function(group, hls)
 	vim.api.nvim_set_hl(0, group, hls)
 end
 
+---@param opts table opts like bg_transparent, italics, etc.
+M.load_opts = function(opts)
+	for opt, val in pairs(opts) do
+		M[opt] = val
+	end
+end
+
 ---@return table of styles
 M.style = function(str)
 	local st = {}
