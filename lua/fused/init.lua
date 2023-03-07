@@ -1,7 +1,8 @@
---- Description: Exposedse's function api's to load theme in multiple ways.
+--- Description: Expose's function api's to load theme in multiple ways.
 local M = {}
 
----@table default_config default configuration for theme.
+--- configuration for theme.
+---@table Config
 ---@field flavour string name of the theme.
 ---@field italics boolean to enable or disable italic font.
 ---@field bg_transparent boolean to enable or disable transparent background.
@@ -93,10 +94,9 @@ M.setup = function(user_configuration)
 	end
 end
 
---- Loads single plugin specified as parameter. After the theme is loaded you
--- can load plugin by passing plugin name as a parameter. Can be used in plugins
--- configuration to load plugin Highlight groups only when plugin is loaded. Can
--- act as a lazy loader.
+--- This lets you Load single plugin specified as parameter after the theme is loaded.
+-- Can be used in plugin configuration to load plugin Highlight groups only when 
+-- plugin is loaded. Can act as a lazy loader.
 ---@param name string name of the plugin.
 M.load_plugin = function(name)
 	vim.schedule(function()
