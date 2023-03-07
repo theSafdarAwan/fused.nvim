@@ -7,7 +7,9 @@ local M = {}
 ---@field italics boolean to enable or disable italic font.
 ---@field bg_transparent boolean to enable or disable transparent background.
 ---@field custom table of custom higlight groups.
----@field plugins_integration table of plugin names (name = boolean)
+---@field plugins_integration table of plugin names (name = boolean) .Accepts full
+-- names of the plugins. If plugin name includes characters like `.` or `-` then
+-- use the string key like (["nvim-tree.lua"] = true).
 local default_config = {
 	flavour = "catppuccin",
 	italics = true,
