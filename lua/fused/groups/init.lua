@@ -5,7 +5,7 @@ local hl = require("fused.utils").set_hl
 
 --- loads higlights for editor builtin highlight groups including editor, syntax and lsp
 ---@param colors table theme colors.
-M.load_normal_higlights = function(colors)
+M.load_builtin_hl = function(colors)
 	local hls = {}
 	hls = vim.tbl_extend("force", hls, require("fused.groups.editor").get_hl_groups(colors))
 	hls = vim.tbl_extend("force", hls, require("fused.groups.syntax").get_hl_groups(colors))

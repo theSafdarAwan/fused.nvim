@@ -60,7 +60,7 @@ M.setup = function(user_configuration)
 	local plugins = config.plugins_integration
 
 	-- set normal highlights
-	require("fused.groups").load_normal_higlights(colors)
+	require("fused.groups").load_builtin_hl(colors)
 
 	-- load highlights for the plugins
 	if user_configuration and user_configuration.plugins_integration then
