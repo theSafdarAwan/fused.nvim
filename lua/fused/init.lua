@@ -55,7 +55,7 @@ M.setup = function(user_configuration)
 	opts.bg_transparent = config.bg_transparent
 	-- italic font config
 	opts.italics = config.italics
-	require("fused.utils").load_opts(opts)
+	require("fused.utils").export_opts(opts)
 
 	-- plugins table to load
 	local plugins = config.plugins_integration
