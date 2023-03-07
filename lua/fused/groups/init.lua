@@ -3,9 +3,12 @@ local M = {}
 
 local hl = require("fused.utils").set_hl
 
+--- table of colors
+---@table colors
+local colors = require("fused.utils").colors
+
 --- loads higlights for editor builtin highlight groups including editor, syntax and lsp
----@param colors table theme colors.
-M.load_builtin_hl = function(colors)
+M.load_builtin_hl = function()
 	local hls = {}
 	hls = vim.tbl_extend("force", hls, require("fused.groups.editor").get_hl_groups(colors))
 	hls = vim.tbl_extend("force", hls, require("fused.groups.syntax").get_hl_groups(colors))
@@ -18,8 +21,7 @@ end
 
 --- loads higlight for the editor plugins highlight groups.
 ---@param plugins_tbl table plugins table to load group highlights for.
----@param colors table theme colors.
-M.load_plugins_hl = function(plugins_tbl, colors)
+M.load_plugins_hl = function(plugins_tbl)
 	local plugins_hl_tbls = {}
 	for plugin_name, _ in pairs(plugins_tbl) do
 		-- replace the . and - chars with _

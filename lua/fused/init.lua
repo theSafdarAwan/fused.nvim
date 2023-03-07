@@ -34,8 +34,6 @@ local default_config = {
 	},
 }
 
---- colors table for theme
-local colors = {}
 --- options like italics, bg_transparent, etc.
 local opts = {}
 
@@ -48,20 +46,20 @@ M.setup = function(user_configuration)
 		vim.tbl_extend("force", default_config.plugins_integration, config.plugins_integration or {})
 	config.custom = user_configuration and vim.deepcopy(user_configuration.custom)
 
-	-- theme name
-	local flavour = config["flavour"]
-	colors = require("fused.pallets." .. flavour).pallete
+	-- theme colors
+	local colors = require("fused.pallets." .. config["flavour"]).pallete
 	-- set the background to transparent
 	opts.bg_transparent = config.bg_transparent
 	-- italic font config
 	opts.italics = config.italics
+	opts.colors = colors
 	require("fused.utils").export_opts(opts)
 
 	-- plugins table to load
 	local plugins = config.plugins_integration
 
 	-- set normal highlights
-	require("fused.groups").load_builtin_hl(colors)
+	require("fused.groups").load_builtin_hl()
 
 	-- load highlights for the plugins
 	if user_configuration and user_configuration.plugins_integration then
@@ -90,7 +88,7 @@ end
 ---@param name string name of the plugin.
 M.load_plugin = function(name)
 	vim.schedule(function()
-		require("fused.groups").load_plugins_hl({ [name] = {} }, colors)
+		require("fused.groups").load_plugins_hl({ [name] = {} })
 	end)
 end
 
