@@ -45,9 +45,9 @@ M.format_plugin_name = function(name)
 		if not idx then
 			break
 		end
-		local str_strt = string.sub(name, 1, idx - 1)
+		local str_start = string.sub(name, 1, idx - 1)
 		local str_finish = string.sub(name, idx + 1, -1)
-		name = str_strt .. "-" .. str_finish
+		name = str_start .. "-" .. str_finish
 	end
 	return name
 end

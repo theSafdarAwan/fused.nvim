@@ -84,9 +84,9 @@ M.setup = function(user_configuration)
 	end
 end
 
---- This lets you Load single plugin specified as parameter after the theme is loaded.
--- Can be used in plugin configuration to load plugin Highlight groups only when
--- plugin is loaded. Can act as a lazy loader.
+--- This function lets you Load single plugin specified as parameter after the theme
+-- is loaded. Can be used in plugin configuration to load plugin Highlight groups only
+-- when plugin is loaded. Can act as a lazy loader.
 ---@param name string name of the plugin.
 M.load_plugin = function(name)
 	vim.schedule(function()
