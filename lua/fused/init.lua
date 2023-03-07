@@ -16,7 +16,7 @@ local default_config = {
 	plugins_integration = {
 		-- TODO: add plugins full names using string key
 		cmp = true,
-		navic = true,
+		["nvim-navic"] = true,
 		notify = true,
 		treesitter = true,
 		treesitter_context = true,
@@ -95,7 +95,7 @@ M.setup = function(user_configuration)
 end
 
 --- This lets you Load single plugin specified as parameter after the theme is loaded.
--- Can be used in plugin configuration to load plugin Highlight groups only when 
+-- Can be used in plugin configuration to load plugin Highlight groups only when
 -- plugin is loaded. Can act as a lazy loader.
 ---@param name string name of the plugin.
 M.load_plugin = function(name)

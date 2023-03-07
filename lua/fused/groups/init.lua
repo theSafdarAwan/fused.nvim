@@ -21,8 +21,12 @@ end
 ---@param colors table theme colors.
 M.load_plugins_hl = function(plugins_tbl, colors)
 	local plugins_hl_tbls = {}
-	for k, _ in pairs(plugins_tbl) do
-		local hl_tbl = require("fused.groups.plugins." .. k).get_hl_groups(colors)
+	for plugin_name, _ in pairs(plugins_tbl) do
+		-- replace the . and - chars with _
+		if type(plugin_name) == "string" then
+			plugin_name = require("fused.utils").format_plugin_name(plugin_name)
+		end
+		local hl_tbl = require("fused.groups.plugins." .. plugin_name).get_hl_groups(colors)
 		plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, hl_tbl)
 	end
 
