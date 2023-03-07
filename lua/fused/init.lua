@@ -63,7 +63,7 @@ M.setup = function(user_configuration)
 
 	-- load highlights for the plugins
 	if user_configuration and user_configuration.plugins_integration then
-		require("fused.groups").load_plugins_hl(plugins, flavour)
+		require("fused.groups").load_plugins_hl(plugins)
 	end
 
 	-- set highlights for custom groups set by user
