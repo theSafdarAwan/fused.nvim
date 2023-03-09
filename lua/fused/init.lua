@@ -48,13 +48,18 @@ M.setup = function(user_configuration)
 		vim.tbl_extend("force", default_config.plugins_integration, config.plugins_integration or {})
 	config.custom = user_configuration and vim.deepcopy(user_configuration.custom)
 
+	local theme = require("fused.pallets." .. config["flavour"])
 	-- theme colors
-	local colors = require("fused.pallets." .. config["flavour"]).pallete
+	local colors = theme.pallete
 	-- set the background to transparent
 	opts.bg_transparent = config.bg_transparent
 	-- italic font config
 	opts.italics = config.italics
 	opts.colors = colors
+	-- polish function to override some highlights
+	if theme.polish then
+		opts.polish = theme.polish
+	end
 	require("fused.utils").export_opts(opts)
 
 	-- plugins table to load

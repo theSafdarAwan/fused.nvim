@@ -60,4 +60,10 @@ M.pallete = {
 	base23 = colors.color_23,
 }
 
+M.polish = function()
+	return {
+		["@function"] = { fg = M.pallete.base17 }, -- function definitions
+	}
+end
+
 return M

@@ -2,7 +2,7 @@ local M = {}
 
 M.get_hl_groups = function(cp)
 	return {
-		Constant = { fg = cp.base12 }, -- (preferred) any constant
+		Constant = { fg = cp.base17 }, -- (preferred) any constant
 		String = { fg = cp.base18 }, --   a string constant: "this is a string"
 		Character = { fg = cp.base14 }, --  a character constant: 'c', '\n'
 		Number = { fg = cp.base12 }, --   a number constant: 234, 0xff
