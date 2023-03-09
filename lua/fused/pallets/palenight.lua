@@ -9,22 +9,22 @@ local colors = {
 
 	color_8 = "#f07178",
 	color_9 = "#FFCB6B",
-	color_10 = "#82AAFF",
+	color_10 = "#89DDFF",
 
 	color_11 = "#ff5572",
-	color_12 = "#e2b93d",
+	color_12 = "#ffa282",
 	color_13 = "#89ffe6",
 
 	color_14 = "#d1aaff",
-	color_15 = "#7e57c2",
+	color_15 = "#C3E88D",
 	color_16 = "#ffcb8b",
 	color_17 = "#8fb7ff",
-	color_18 = "#C3E88D",
+	color_18 = "#e2b93d",
 
 	color_19 = "#9CCC65",
 	color_20 = "#64B5F6",
-	color_21 = "#ffa282",
-	color_22 = "#89DDFF",
+	color_21 = "#7e57c2",
+	color_22 = "#82AAFF",
 	color_23 = "#EF5350",
 }
 
