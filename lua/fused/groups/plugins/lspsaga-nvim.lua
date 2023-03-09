@@ -3,11 +3,11 @@ local M = {}
 M.get_hl_groups = function(cp)
 	-- general
 	return {
-		TitleString = { bg = cp.white, fg = cp.dark, bold = true },
-		TitleSymbol = { fg = cp.white, bg = cp.dark },
-		TitleIcon = { fg = cp.dark, bg = cp.white },
-		TitleFileIcon = { fg = cp.dark, bg = cp.white },
-		SagaBorder = { fg = cp.border, bg = cp.bg },
+		TitleString = { bg = cp.base06, fg = cp.base04, bold = true },
+		TitleSymbol = { fg = cp.base06, bg = cp.base04 },
+		TitleIcon = { fg = cp.base04, bg = cp.base06 },
+		TitleFileIcon = { fg = cp.base04, bg = cp.base06 },
+		SagaBorder = { fg = cp.base04, bg = cp.bg },
 		SagaExpand = { fg = cp.err },
 		SagaCollapse = { fg = cp.err },
 		SagaBeacon = { bg = cp.magenta },
@@ -30,7 +30,7 @@ M.get_hl_groups = function(cp)
 		FinderSpinner = { fg = cp.const, bold = true },
 		FinderPreviewSearch = { link = "Search" },
 		FinderVirtText = { fg = cp.err },
-		FinderNormal = { fg = cp.white },
+		FinderNormal = { fg = cp.base06 },
 		FinderBorder = { link = "SagaBorder" },
 		FinderPreviewBorder = { link = "SagaBorder" },
 		-- definition
@@ -52,8 +52,8 @@ M.get_hl_groups = function(cp)
 		DiagnosticWarnBorder = { link = "SagaBorder" },
 		DiagnosticHintBorder = { link = "SagaBorder" },
 		DiagnosticInfoBorder = { link = "SagaBorder" },
-		DiagnosticPos = { fg = cp.white },
-		DiagnosticWord = { fg = cp.white },
+		DiagnosticPos = { fg = cp.base06 },
+		DiagnosticWord = { fg = cp.base06 },
 		-- Call Hierachry
 		CallHierarchyNormal = { link = "SagaBorder" },
 		CallHierarchyBorder = { link = "SagaBorder" },
@@ -62,7 +62,7 @@ M.get_hl_groups = function(cp)
 		-- lightbulb
 		LspSagaLightBulb = { link = "DiagnosticSignHint" },
 		-- shadow
-		SagaShadow = { bg = cp.dark },
+		SagaShadow = { bg = base04 },
 		-- Outline
 		OutlineIndent = { fg = cp.magenta },
 		OutlinePreviewBorder = { link = "SagaBorder" },

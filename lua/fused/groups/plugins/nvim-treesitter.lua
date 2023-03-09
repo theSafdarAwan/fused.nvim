@@ -12,15 +12,15 @@ M.get_hl_groups = function(cp)
 		["@operator"] = { link = "Operator" }, -- symbolic operators (e.g. `+` / `*`)
 
 		-- Punctuation
-		["@punctuation.delimiter"] = { fg = cp.white }, -- delimiters (e.g. `;` / `.` / `,`)
+		["@punctuation.delimiter"] = { fg = cp.base06 }, -- delimiters (e.g. `;` / `.` / `,`)
 		["@punctuation.bracket"] = { fg = cp.orange }, -- brackets (e.g. `()` / `{}` / `[]`)
-		["@punctuation.special"] = { fg = cp.red2 }, -- special symbols (e.g. `{}` in string interpolation)
+		["@punctuation.special"] = { fg = cp.red }, -- special symbols (e.g. `{}` in string interpolation)
 
 		-- Literals
 		["@string"] = { link = "String" }, -- string literals
 		["@string.regex"] = { fg = cp.orange }, -- regular expressions
 		["@string.escape"] = { fg = cp.light_pink }, -- escape sequences
-		["@string.special"] = { fg = cp.text }, -- other special strings (e.g. dates)
+		["@string.special"] = { fg = cp.base07 }, -- other special strings (e.g. dates)
 
 		["@character"] = { link = "Character" }, -- character literals
 		["@character.special"] = { fg = cp.orange }, -- special characters (e.g. wildcards)
@@ -82,18 +82,18 @@ M.get_hl_groups = function(cp)
 		-- ["@label"] = { fg = cp.orange }, -- symbols or atoms
 		-- #### Text
 		-- Mainly for markup languages.
-		["@text"] = { fg = cp.text }, -- non-structured text
-		["@text.strong"] = { fg = cp.text, bold = true }, -- bold text
-		["@text.emphasis"] = { fg = cp.text, italic = utils.italics }, -- text with emphasis
-		["@text.underline"] = { fg = cp.text, underline = true }, -- underlined text
-		["@text.strike"] = { fg = cp.text, strikethrough = true }, -- strikethrough text
+		["@text"] = { fg = cp.base07 }, -- non-structured text
+		["@text.strong"] = { fg = cp.base07, bold = true }, -- bold text
+		["@text.emphasis"] = { fg = cp.base07, italic = utils.italics }, -- text with emphasis
+		["@text.underline"] = { fg = cp.base07, underline = true }, -- underlined text
+		["@text.strike"] = { fg = cp.base07, strikethrough = true }, -- strikethrough text
 		["@text.title"] = { fg = cp.search, bold = true }, -- text that is part of a title
-		["@text.literal"] = { fg = cp.cp1 }, -- literal or verbatim text
-		["@text.uri"] = { fg = cp.cp2, underline = true }, -- URIs (e.g. hyperlinks)
+		["@text.literal"] = { fg = cp.base05 }, -- literal or verbatim text
+		["@text.uri"] = { fg = cp.base06, underline = true }, -- URIs (e.g. hyperlinks)
 		["@text.math"] = { fg = cp.string }, -- math environments (e.g. `$ ... $` in LaTeX)
-		["@text.environment"] = { fg = cp.text }, -- text environments of markup languages
-		["@text.environment.name"] = { fg = cp.text }, -- text indicating the type of an environment
-		["@text.reference"] = { fg = cp.text, undercurl = true }, -- text references, footnotes, citations, etc.
+		["@text.environment"] = { fg = cp.base07 }, -- text environments of markup languages
+		["@text.environment.name"] = { fg = cp.base07 }, -- text indicating the type of an environment
+		["@text.reference"] = { fg = cp.base07, undercurl = true }, -- text references, footnotes, citations, etc.
 
 		["@text.todo"] = { fg = cp.variable }, -- todo notes
 		["@text.note"] = { link = "@field" }, -- info notes
@@ -101,13 +101,13 @@ M.get_hl_groups = function(cp)
 		["@text.danger"] = { fg = cp.err }, -- danger/error notes
 
 		["@text.diff.add"] = { fg = cp.search }, -- added text (for diff files)
-		["@text.diff.delete"] = { fg = cp.red2 }, -- deleted text (for diff files)
+		["@text.diff.delete"] = { fg = cp.red }, -- deleted text (for diff files)
 
 		-- #### Tags
 		-- Used for XML-like tags.
 		["@tag"] = { link = "Tag" }, -- XML tag names
 		["@tag.attribute"] = { fg = cp.variable }, -- XML tag attributes
-		["@tag.delimiter"] = { fg = cp.cp1 }, -- XML tag delimiters
+		["@tag.delimiter"] = { fg = cp.base05 }, -- XML tag delimiters
 
 		-- #### Conceal
 		["@conceal"] = { fg = cp.cp4 }, -- for captures that are only used for concealing

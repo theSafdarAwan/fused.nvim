@@ -3,12 +3,12 @@ local M = {}
 M.get_hl_groups = function(cp)
 	return {
 		-- FIX: telescope border is being used by cmp fix this
-		TelescopeBorder = { fg = cp.border },
-		CmpItemAbbr = { fg = cp.white },
-		CmpItemAbbrDeprecated = { fg = cp.cp2 },
+		TelescopeBorder = { fg = cp.base04 },
+		CmpItemAbbr = { fg = cp.base06 },
+		CmpItemAbbrDeprecated = { fg = cp.base06 },
 		CmpItemAbbrMatch = { fg = cp.search },
 		CmpItemAbbrMatchFuzzy = { fg = cp.warn },
-		CmpItemMenu = { fg = cp.cp3 },
+		CmpItemMenu = { fg = cp.base04 },
 		CmpItemKindSnippet = { fg = cp.search },
 		-- Item kind
 		CmpItemKind = { fg = cp.property },
@@ -28,13 +28,13 @@ M.get_hl_groups = function(cp)
 		CmpItemKindClass = { link = "@constructor" },
 		CmpItemKindFile = { fg = cp.const },
 		CmpItemKindInterface = { fg = cp.warn },
-		CmpItemKindColor = { fg = cp.white },
+		CmpItemKindColor = { fg = cp.base06 },
 		CmpItemKindReference = { fg = cp.search },
 		CmpItemKindEnumMember = { fg = cp.const },
 		CmpItemKindStruct = { link = "@constructor" },
 		CmpItemKindValue = { fg = cp.const },
 		CmpItemKindEvent = { fg = cp.blue },
-		CmpItemKindOperator = { fg = cp.white },
+		CmpItemKindOperator = { fg = cp.base06 },
 		CmpItemKindTypeParameter = { fg = cp.const },
 		CmpItemKindCopilot = { fg = cp.blue2 },
 	}

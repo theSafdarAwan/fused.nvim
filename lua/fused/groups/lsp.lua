@@ -2,19 +2,19 @@ local M = {}
 
 M.get_hl_groups = function(cp)
 	return {
-		LspReferenceText = { fg = cp.white, italic = true, underline = true }, -- used for highlighting "text" references
+		LspReferenceText = { fg = cp.base06, italic = true, underline = true }, -- used for highlighting "text" references
 		LspReferenceRead = { fg = cp.warn, italic = true, underline = true }, -- used for highlighting "read" references
 		LspReferenceWrite = { fg = cp.err, italic = true, underline = true }, -- used for highlighting "write" references
 
-		DiagnosticVirtualTextError = { fg = cp.err_sev, bg = cp.bg_windows2 },
-		DiagnosticVirtualTextWarn = { fg = cp.warn, bg = cp.bg_windows2 },
-		DiagnosticVirtualTextHint = { fg = cp.blue, bg = cp.bg_windows2 },
-		DiagnosticVirtualTextInfo = { fg = cp.property, bg = cp.bg_windows2 },
+		DiagnosticVirtualTextError = { fg = cp.err_sev, bg = cp.base02 },
+		DiagnosticVirtualTextWarn = { fg = cp.warn, bg = cp.base02 },
+		DiagnosticVirtualTextHint = { fg = cp.blue, bg = cp.base02 },
+		DiagnosticVirtualTextInfo = { fg = cp.property, bg = cp.base02 },
 
-		DiagnosticFloatingError = { fg = cp.err_sev, bg = cp.bg_windows2 },
-		DiagnosticFloatingWarn = { fg = cp.warn, bg = cp.bg_windows2 },
-		DiagnosticFloatingHint = { fg = cp.blue, bg = cp.bg_windows2 },
-		DiagnosticFloatingInfo = { fg = cp.property, bg = cp.bg_windows2 },
+		DiagnosticFloatingError = { fg = cp.err_sev, bg = cp.base02 },
+		DiagnosticFloatingWarn = { fg = cp.warn, bg = cp.base02 },
+		DiagnosticFloatingHint = { fg = cp.blue, bg = cp.base02 },
+		DiagnosticFloatingInfo = { fg = cp.property, bg = cp.base02 },
 
 		DiagnosticSignError = { fg = cp.err_sev },
 		DiagnosticSignWarn = { fg = cp.warn },

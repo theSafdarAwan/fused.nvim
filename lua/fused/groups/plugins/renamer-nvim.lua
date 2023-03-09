@@ -4,7 +4,7 @@ local M = {}
 M.get_hl_groups = function(cp)
 	return {
 		RenamerNormal = { fg = cp.err },
-		RenamerBorder = { fg = cp.border },
+		RenamerBorder = { fg = cp.base04 },
 		RenamerTitle = { fg = cp.warn },
 	}
 end

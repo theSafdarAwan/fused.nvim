@@ -4,7 +4,7 @@ local colors = {
 	pink = "#FFB86C",
 	mauve = "#CBA6F7",
 	red = "#ED8796",
-	red2 = "#F38BA8",
+	-- red = "#F38BA8",
 	maroon = "#EBA0AC",
 	light_pink = "#ff75a0",
 	peach = "#FAB387",
@@ -18,14 +18,9 @@ local colors = {
 
 	text = "#CDD6F4",
 
-	overlay1 = "#44475a",
 	subtext0 = "#A6ADC8",
+	overlay1 = "#44475a",
 	surface0 = "#313244",
-	surface1 = "#323243",
-	overlay2 = "#9399B2",
-	surface2 = "#191828",
-
-	bg_context = "#1E1E2E",
 
 	base = "#1E1E2E",
 	mantle = "#181825",
@@ -39,14 +34,15 @@ local colors = {
 
 local M = {}
 M.pallete = {
-	bg_windows = colors.base,
-	bg_windows2 = colors.mantle,
-	bg = colors.crust,
-	dark = colors.surface0,
-	white = colors.white,
-	text = colors.text,
+	base01 = colors.crust,
+	base02 = colors.mantle,
+	base03 = colors.base,
+	base04 = colors.surface0,
+	base05 = colors.overlay1,
+	base06 = colors.base06,
+	base07 = colors.text,
+
 	string = colors.lavender,
-	border = colors.surface0,
 
 	-- colors most commonly used for Lsp errors and warnings and other lsp plugins
 	warn = colors.yellow,
@@ -65,19 +61,11 @@ M.pallete = {
 	keywords = colors.mauve,
 	const = colors.peach,
 
-	bg_context = colors.bg_context,
-
-	-- compliment colors
-	cp1 = colors.overlay1,
-	cp2 = colors.subtext0,
-	cp3 = colors.surface0,
-	cp4 = colors.surface1,
-	cp5 = colors.surface2,
+	bg_conbase07 = colors.bg_context,
 
 	-- colors by names
 	light_pink = colors.light_pink,
 	red = colors.red,
-	red2 = colors.red2,
 	magenta = colors.mauve,
 	magenta2 = colors.blue2,
 	teal = colors.teal,

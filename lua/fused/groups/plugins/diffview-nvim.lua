@@ -4,14 +4,14 @@ M.get_hl_groups = function(cp)
 	return {
 		DiffviewNormal = { fg = cp.property, bg = cp.bg },
 		-- like the > marker for folder
-		DiffviewNonText = { fg = cp.white },
+		DiffviewNonText = { fg = cp.base06 },
 		-- current line hig ,
-		DiffviewCursorLine = { bg = cp.bg_windows2 },
+		DiffviewCursorLine = { bg = cp.base02 },
 
 		DiffviewDiffDelete = { link = "DiffDelete" },
 		-- folders names
-		DiffviewFolderName = { fg = cp.white },
-		DiffviewFolderSign = { fg = cp.white },
+		DiffviewFolderName = { fg = cp.base06 },
+		DiffviewFolderSign = { fg = cp.base06 },
 		DiffviewFilePanelFileName = { link = "DiffviewFolderName" },
 		-- file path when using flattern dir tree option
 		DiffviewFilePanelPath = { link = "DiffviewFolderName" },
@@ -20,7 +20,7 @@ M.get_hl_groups = function(cp)
 		DiffviewStatusLineNC = { link = "StatusLineNC" },
 		DiffviewEndOfBuffer = {}, -- end of the files buffer
 		-- separator
-		DiffviewWinSeparator = { fg = cp.border },
+		DiffviewWinSeparator = { fg = cp.base04 },
 
 		DiffviewStatusUnknown = { fg = cp.red },
 
@@ -55,7 +55,7 @@ M.get_hl_groups = function(cp)
 	}
 
 	-- TODO: figure out these highlights
-	-- local curse = { fg = cp.bg, bg = cp.white }
+	-- local curse = { fg = cp.base01 bg = cp.base06 }
 	-- hl("DiffviewStatusBroken", curse)
 	-- hl("DiffviewStatusIgnored", curse)
 	-- hl("DiffviewSignColumn", curse)

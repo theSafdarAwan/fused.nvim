@@ -16,7 +16,7 @@ M.get_hl_groups = function(cp)
 		Conditional = { fg = cp.light_pink }, --  if, then, else, endif, switch, etc.
 		Repeat = { fg = cp.light_pink }, --   for, do, while, etc.
 		Label = { fg = cp.orange }, --    case, default, etc.
-		Operator = { fg = cp.white }, -- "sizeof", "+", "*", etc.
+		Operator = { fg = cp.base06 }, -- "sizeof", "+", "*", etc.
 		Keyword = { link = "Label" }, --  any other keyword
 		Exception = { link = "Label" }, --  try, catch, throw
 
@@ -33,10 +33,10 @@ M.get_hl_groups = function(cp)
 
 		Special = { fg = cp.light_pink }, -- (preferred) any special symbol
 		SpecialChar = { fg = cp.magenta }, --  special character in a constant
-		Tag = { fg = cp.red2 }, --    you can use CTRL-] on this
+		Tag = { fg = cp.red }, --    you can use CTRL-] on this
 		Delimiter = { fg = cp.magenta }, --  character that needs attention
 		SpecialComment = { fg = cp.string }, -- special things inside a comment
-		Debug = { fg = cp.red2 }, --    debugging statements
+		Debug = { fg = cp.red }, --    debugging statements
 
 		-- ("Ignore", below, may be invisible...)
 		-- Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
