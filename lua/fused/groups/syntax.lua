@@ -26,7 +26,7 @@ M.get_hl_groups = function(cp)
 		Macro = { fg = cp.base11 }, --    same as Define
 		PreCondit = { link = "Label" }, --  preprocessor #if, #else, #endif, etc.
 
-		Type = { fg = cp.base14 }, -- (preferred) int, long, char, etc.
+		Type = { fg = cp.base13 }, -- (preferred) int, long, char, etc.
 		StorageClass = { fg = cp.base10 }, -- static, register, volatile, etc.
 		Structure = { fg = cp.base11 }, --  struct, union, enum, etc.
 		Typedef = { fg = cp.base11 }, --  A typedef

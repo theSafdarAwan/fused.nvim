@@ -1,5 +1,5 @@
 local colors = {
-	color_1 = "#232738",
+	color_1 = "#232635",
 	color_2 = "#333748",
 	color_3 = "#3c4051",
 	color_4 = "#4c5374",
@@ -12,14 +12,14 @@ local colors = {
 	color_10 = "#89DDFF",
 
 	color_11 = "#ff5572",
-	color_12 = "#ffa282",
+	color_12 = "#ffcb8b",
 	color_13 = "#89ffe6",
 
-	color_14 = "#d1aaff",
+	color_14 = "#C792EA",
 	color_15 = "#C3E88D",
-	color_16 = "#ffcb8b",
-	color_17 = "#8fb7ff",
-	color_18 = "#e2b93d",
+	color_16 = "#8fb7ff",
+	color_17 = "#e2b93d",
+	color_18 = "#ffa282",
 
 	color_19 = "#9CCC65",
 	color_20 = "#64B5F6",
@@ -60,10 +60,13 @@ M.pallete = {
 	base23 = colors.color_23,
 }
 
-M.polish = function()
-	return {
+M.polish = {
+	["nvim-treesitter"] = {
 		["@function"] = { fg = M.pallete.base17 }, -- function definitions
-	}
-end
+		["@string"] = { fg = M.pallete.base15 }, -- string
+		["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
+		["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
+	},
+}
 
 return M

@@ -106,7 +106,7 @@ M.get_hl_groups = function(cp)
 		-- #### Tags
 		-- Used for XML-like tags.
 		["@tag"] = { link = "Tag" }, -- XML tag names
-		["@tag.attribute"] = { fg = cp.base17 }, -- XML tag attributes
+		["@tag.attribute"] = { fg = cp.base16 }, -- XML tag attributes
 		["@tag.delimiter"] = { fg = cp.base05 }, -- XML tag delimiters
 
 		-- #### Conceal
