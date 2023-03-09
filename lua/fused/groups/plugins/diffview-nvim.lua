@@ -2,7 +2,7 @@ local M = {}
 
 M.get_hl_groups = function(cp)
 	return {
-		DiffviewNormal = { fg = cp.base10, bg = cp.bg },
+		DiffviewNormal = { fg = cp.base10, bg = cp.base01 },
 		-- like the > marker for folder
 		DiffviewNonText = { fg = cp.base06 },
 		-- current line hig ,

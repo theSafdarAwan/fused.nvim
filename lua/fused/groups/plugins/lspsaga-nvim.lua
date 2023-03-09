@@ -7,14 +7,14 @@ M.get_hl_groups = function(cp)
 		TitleSymbol = { fg = cp.base06, bg = cp.base04 },
 		TitleIcon = { fg = cp.base04, bg = cp.base06 },
 		TitleFileIcon = { fg = cp.base04, bg = cp.base06 },
-		SagaBorder = { fg = cp.base04, bg = cp.bg },
+		SagaBorder = { fg = cp.base04, bg = cp.base01 },
 		SagaExpand = { fg = cp.base11 },
 		SagaCollapse = { fg = cp.base11 },
 		SagaBeacon = { bg = cp.base14 },
 		-- code action
 		ActionPreviewNormal = { link = "SagaBorder" },
 		ActionPreviewBorder = { link = "SagaBorder" },
-		ActionPreviewTitle = { fg = cp.base14, bg = cp.bg },
+		ActionPreviewTitle = { fg = cp.base14, bg = cp.base01 },
 		CodeActionNormal = { link = "SagaBorder" },
 		CodeActionBorder = { link = "SagaBorder" },
 		CodeActionText = { fg = cp.base09 },
@@ -42,7 +42,7 @@ M.get_hl_groups = function(cp)
 		HoverBorder = { link = "SagaBorder" },
 		-- rename
 		RenameBorder = { link = "SagaBorder" },
-		RenameNormal = { fg = cp.base12, bg = cp.bg },
+		RenameNormal = { fg = cp.base12, bg = cp.base01 },
 		RenameMatch = { link = "Search" },
 		-- diagnostic
 		DiagnosticSource = { fg = "gray" },

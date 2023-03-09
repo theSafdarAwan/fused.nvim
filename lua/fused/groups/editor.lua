@@ -35,9 +35,9 @@ M.get_hl_groups = function(cp)
 		-- 'foldcolumn'
 		FoldColumn = { link = "Folded" },
 		-- column where |signs| are displayed
-		SignColumn = { bg = cp.bg },
+		SignColumn = { bg = cp.base01 },
 		-- column where |signs| are displayed
-		SignColumnSB = { bg = cp.bg },
+		SignColumnSB = { bg = cp.base01 },
 		-- |:substitute| replacement text highlighting
 		Substitute = { bg = cp.base04, fg = cp.base12 },
 		-- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is secp.
@@ -58,13 +58,13 @@ M.get_hl_groups = function(cp)
 		-- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		NonText = { fg = cp.base05 },
 		-- normal text
-		Normal = { fg = cp.base07, bg = tr_bg and "NONE" or cp.bg },
+		Normal = { fg = cp.base07, bg = tr_bg and "NONE" or cp.base01 },
 		-- normal text
 		NormalNC = { fg = cp.base07 },
 		-- normal text
 		NormalSB = { fg = cp.base07, bg = cp.base04 },
 		-- Normal text in floating windows.
-		NormalFloat = { fg = cp.base06, bg = cp.bg },
+		NormalFloat = { fg = cp.base06, bg = cp.base01 },
 		-- Normal text in floating windows.
 		FloatBorder = { fg = cp.base04 },
 		-- Popup menu: normal item.
