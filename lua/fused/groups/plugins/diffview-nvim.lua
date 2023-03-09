@@ -2,7 +2,7 @@ local M = {}
 
 M.get_hl_groups = function(cp)
 	return {
-		DiffviewNormal = { fg = cp.property, bg = cp.bg },
+		DiffviewNormal = { fg = cp.base10, bg = cp.bg },
 		-- like the > marker for folder
 		DiffviewNonText = { fg = cp.base06 },
 		-- current line hig ,
@@ -22,33 +22,33 @@ M.get_hl_groups = function(cp)
 		-- separator
 		DiffviewWinSeparator = { fg = cp.base04 },
 
-		DiffviewStatusUnknown = { fg = cp.red },
+		DiffviewStatusUnknown = { fg = cp.base11 },
 
 		-- panel titles
-		DiffviewFilePanelTitle = { fg = cp.red },
+		DiffviewFilePanelTitle = { fg = cp.base11 },
 		-- modified files sign in front of file
-		DiffviewStatusModified = { fg = cp.red },
+		DiffviewStatusModified = { fg = cp.base11 },
 		-- for renamed files sign in front of file
-		DiffviewStatusRenamed = { fg = cp.search },
-		DiffviewStatusUntracked = { fg = cp.search },
+		DiffviewStatusRenamed = { fg = cp.base15 },
+		DiffviewStatusUntracked = { fg = cp.base15 },
 		-- counter show after the titles
-		DiffviewFilePanelCounter = { fg = cp.warn },
+		DiffviewFilePanelCounter = { fg = cp.base09 },
 		-- root path title name
-		DiffviewFilePanelRootPath = { fg = cp.light_pink },
+		DiffviewFilePanelRootPath = { fg = cp.base11 },
 		-- deletion and insertion counter after the file name
 		DiffviewFilePanelDeletions = { link = "DiffDelete" },
 		DiffviewFilePanelInsertions = { link = "DiffAdd" },
 
 		-- new files
-		DiffviewStatusAdded = { fg = cp.red },
+		DiffviewStatusAdded = { fg = cp.base11 },
 		-- deleted fiels
-		DiffviewStatusDeleted = { fg = cp.err },
+		DiffviewStatusDeleted = { fg = cp.base11 },
 		-- unmerged during the conflicts
-		DiffviewStatusUnmerged = { fg = cp.warn },
+		DiffviewStatusUnmerged = { fg = cp.base09 },
 		-- conflicts counter in front of the file
-		DiffviewFilePanelConflicts = { fg = cp.red },
+		DiffviewFilePanelConflicts = { fg = cp.base11 },
 
-		DiffviewStatusCopied = { fg = cp.warn },
+		DiffviewStatusCopied = { fg = cp.base09 },
 
 		-- hig =s the staged deleted content when diffin,
 		DiffviewDiffAddAsDelete = { link = "DiffDelete" },

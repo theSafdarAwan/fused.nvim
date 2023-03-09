@@ -8,8 +8,8 @@ M.get_hl_groups = function(cp)
 		NeogitNotificationWarning = { link = "DiagnosticSignWarn" },
 		NeogitNotificationError = { link = "DiagnosticSignError" },
 
-		NeogitDiffAddHighlight = { fg = cp.search },
-		NeogitDiffDeleteHighlight = { bg = cp.err_sev },
+		NeogitDiffAddHighlight = { fg = cp.base15 },
+		NeogitDiffDeleteHighlight = { bg = cp.base08 },
 		-- highlights current highlights
 		NeogitDiffContextHighlight = { bg = cp.base02 },
 		-- hunk information header like `@@ -5,7 +5,7`
@@ -19,31 +19,31 @@ M.get_hl_groups = function(cp)
 		-- highlight for the neogit in diff comment header
 		NeogitCommitViewHeader = { fg = cp.base02, bg = cp.base06 },
 		-- branch name header
-		NeogitBranch = { fg = cp.func },
+		NeogitBranch = { fg = cp.base11 },
 		-- remote branch name
-		NeogitRemote = { fg = cp.light_pink },
+		NeogitRemote = { fg = cp.base11 },
 
 		NeogitDiffAdd = { link = "DiffAdd" },
 		NeogitDiffDelete = { link = "DiffDelete" },
 		NeogitFilePath = { fg = cp.base06, underline = true },
 		-- comment id or object id whatever
-		NeogitObjectId = { fg = cp.variable, italic = utils.italics },
+		NeogitObjectId = { fg = cp.base17, italic = utils.italics },
 		-- file names
 		NeogitDiffHeader = { fg = cp.base06, bg = cp.base02 },
 		-- recent commit header
-		NeogitRecentcommits = { fg = cp.magenta },
+		NeogitRecentcommits = { fg = cp.base14 },
 		-- Staged Changes Header
-		NeogitStagedchanges = { fg = cp.red },
+		NeogitStagedchanges = { fg = cp.base11 },
 		-- unstaged changes header
-		NeogitUnStagedchanges = { fg = cp.warn },
+		NeogitUnStagedchanges = { fg = cp.base09 },
 		--untraced files header
-		NeogitUntrackedfiles = { fg = cp.err },
+		NeogitUntrackedfiles = { fg = cp.base11 },
 		-- unmegedchangs
-		NeogitUnmergedchanges = { fg = cp.red },
+		NeogitUnmergedchanges = { fg = cp.base11 },
 	}
 	-- TODO: don't know what it highlights so add the ugliest colors so that i will
 	-- notice if i see this highlight in neogit
-	-- local suffer = { fg = cp.err, bg = cp.err_sev }
+	-- local suffer = { fg = cp.base11, bg = cp.base08 }
 	-- hl("NeogitHunkHeaderHighlight", suffer)
 	-- hl("NeogitStash", suffer)
 	-- hl("NeogitStashes", suffer)

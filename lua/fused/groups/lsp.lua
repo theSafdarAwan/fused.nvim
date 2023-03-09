@@ -3,22 +3,22 @@ local M = {}
 M.get_hl_groups = function(cp)
 	return {
 		LspReferenceText = { fg = cp.base06, italic = true, underline = true }, -- used for highlighting "text" references
-		LspReferenceRead = { fg = cp.warn, italic = true, underline = true }, -- used for highlighting "read" references
-		LspReferenceWrite = { fg = cp.err, italic = true, underline = true }, -- used for highlighting "write" references
+		LspReferenceRead = { fg = cp.base09, italic = true, underline = true }, -- used for highlighting "read" references
+		LspReferenceWrite = { fg = cp.base11, italic = true, underline = true }, -- used for highlighting "write" references
 
-		DiagnosticVirtualTextError = { fg = cp.err_sev, bg = cp.base02 },
-		DiagnosticVirtualTextWarn = { fg = cp.warn, bg = cp.base02 },
-		DiagnosticVirtualTextHint = { fg = cp.blue, bg = cp.base02 },
-		DiagnosticVirtualTextInfo = { fg = cp.property, bg = cp.base02 },
+		DiagnosticVirtualTextError = { fg = cp.base08, bg = cp.base02 },
+		DiagnosticVirtualTextWarn = { fg = cp.base09, bg = cp.base02 },
+		DiagnosticVirtualTextHint = { fg = cp.base10, bg = cp.base02 },
+		DiagnosticVirtualTextInfo = { fg = cp.base10, bg = cp.base02 },
 
-		DiagnosticFloatingError = { fg = cp.err_sev, bg = cp.base02 },
-		DiagnosticFloatingWarn = { fg = cp.warn, bg = cp.base02 },
-		DiagnosticFloatingHint = { fg = cp.blue, bg = cp.base02 },
-		DiagnosticFloatingInfo = { fg = cp.property, bg = cp.base02 },
+		DiagnosticFloatingError = { fg = cp.base08, bg = cp.base02 },
+		DiagnosticFloatingWarn = { fg = cp.base09, bg = cp.base02 },
+		DiagnosticFloatingHint = { fg = cp.base10, bg = cp.base02 },
+		DiagnosticFloatingInfo = { fg = cp.base10, bg = cp.base02 },
 
-		DiagnosticSignError = { fg = cp.err_sev },
-		DiagnosticSignWarn = { fg = cp.warn },
-		DiagnosticSignHint = { fg = cp.blue },
+		DiagnosticSignError = { fg = cp.base08 },
+		DiagnosticSignWarn = { fg = cp.base09 },
+		DiagnosticSignHint = { fg = cp.base10 },
 		DiagnosticSignInfo = { link = "@field" },
 
 		DiagnosticUnderlineError = { undercurl = true },

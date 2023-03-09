@@ -5,25 +5,25 @@ M.get_hl_groups = function(cp)
 	-- Misc
 	return {
 		["@comment"] = { link = "Comment" }, -- line and block comments
-		["@error"] = { fg = cp.err }, -- syntax/parser errors
+		["@error"] = { fg = cp.base11 }, -- syntax/parser errors
 		["@none"] = {}, -- completely disable the highlight
-		["@preproc"] = { fg = cp.variable }, -- various preprocessor directives & shebangs
-		["@define"] = { fg = cp.blue }, -- preprocessor definition directives
+		["@preproc"] = { fg = cp.base17 }, -- various preprocessor directives & shebangs
+		["@define"] = { fg = cp.base10 }, -- preprocessor definition directives
 		["@operator"] = { link = "Operator" }, -- symbolic operators (e.g. `+` / `*`)
 
 		-- Punctuation
 		["@punctuation.delimiter"] = { fg = cp.base06 }, -- delimiters (e.g. `;` / `.` / `,`)
-		["@punctuation.bracket"] = { fg = cp.orange }, -- brackets (e.g. `()` / `{}` / `[]`)
-		["@punctuation.special"] = { fg = cp.red }, -- special symbols (e.g. `{}` in string interpolation)
+		["@punctuation.bracket"] = { fg = cp.base12 }, -- brackets (e.g. `()` / `{}` / `[]`)
+		["@punctuation.special"] = { fg = cp.base11 }, -- special symbols (e.g. `{}` in string interpolation)
 
 		-- Literals
 		["@string"] = { link = "String" }, -- string literals
-		["@string.regex"] = { fg = cp.orange }, -- regular expressions
-		["@string.escape"] = { fg = cp.light_pink }, -- escape sequences
+		["@string.regex"] = { fg = cp.base12 }, -- regular expressions
+		["@string.escape"] = { fg = cp.base11 }, -- escape sequences
 		["@string.special"] = { fg = cp.base07 }, -- other special strings (e.g. dates)
 
 		["@character"] = { link = "Character" }, -- character literals
-		["@character.special"] = { fg = cp.orange }, -- special characters (e.g. wildcards)
+		["@character.special"] = { fg = cp.base12 }, -- special characters (e.g. wildcards)
 
 		["@boolean"] = { link = "Boolean" }, -- boolean literals
 		["@number"] = { link = "Number" }, -- numeric literals
@@ -33,17 +33,17 @@ M.get_hl_groups = function(cp)
 		["@function"] = { link = "Function" }, -- function definitions
 		["@function.builtin"] = { link = "@function" }, -- built-in functions
 		["@function.call"] = { link = "@function" }, -- function calls
-		["@function.macro"] = { fg = cp.magenta }, -- preprocessor macros
+		["@function.macro"] = { fg = cp.base14 }, -- preprocessor macros
 
-		["@method"] = { fg = cp.method }, -- method definitions
+		["@method"] = { fg = cp.base16 }, -- method definitions
 		["@method.call"] = { link = "@method" }, -- method calls
 
-		["@constructor"] = { fg = cp.teal }, -- constructor calls and definitions
-		["@parameter"] = { fg = cp.const, italic = utils.italics }, -- parameters of a function
+		["@constructor"] = { fg = cp.base13 }, -- constructor calls and definitions
+		["@parameter"] = { fg = cp.base12, italic = utils.italics }, -- parameters of a function
 
 		-- Keywords
-		["@keyword"] = { fg = cp.keywords, italic = utils.italics }, -- various keywords
-		["@keyword.function"] = { fg = cp.keywords }, -- keywords that define a function (e.g. `func` in Go, `def` in Python)
+		["@keyword"] = { fg = cp.base14, italic = utils.italics }, -- various keywords
+		["@keyword.function"] = { fg = cp.base14 }, -- keywords that define a function (e.g. `func` in Go, `def` in Python)
 		["@keyword.operator"] = { link = "@keyword" }, -- operators that are English words (e.g. `and` / `or`)
 		["@keyword.return"] = { link = "@keyword.function" }, -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
 
@@ -51,12 +51,12 @@ M.get_hl_groups = function(cp)
 		["@repeat"] = { link = "@keyword" }, -- keywords related to loops (e.g. `for` / `while`)
 		["@debug"] = { link = "@keyword" }, -- keywords related to debugging
 		["@label"] = { link = "@keyword" }, -- GOTO and other labels (e.g. `label:` in C)
-		["@include"] = { fg = cp.search, italic = utils.italics }, -- keywords for including modules (e.g. `import` / `from` in Python)
+		["@include"] = { fg = cp.base15, italic = utils.italics }, -- keywords for including modules (e.g. `import` / `from` in Python)
 		["@exception"] = { link = "@keyword" }, -- keywords related to exceptions (e.g. `throw` / `catch`)
 
 		-- Types
 		["@type"] = { link = "Type" }, -- type or class definitions and annotations
-		["@type.tag"] = { fg = cp.err }, -- type or class definitions and annotations
+		["@type.tag"] = { fg = cp.base11 }, -- type or class definitions and annotations
 		["@type.builtin"] = { link = "Type" }, -- built-in types
 		["@type.definition"] = { link = "Type" }, -- type definitions (e.g. `typedef` in C)
 		["@type.qualifier"] = { link = "Type" }, -- type qualifiers (e.g. `const`)
@@ -64,22 +64,22 @@ M.get_hl_groups = function(cp)
 		["@storageclass"] = {}, -- visibility/life-time modifiers
 		["@storageclass.lifetime"] = {}, -- life-time modifiers (e.g. `static`)
 		["@attribute"] = {}, -- attribute annotations (e.g. Python decorators)
-		["@property"] = { fg = cp.property }, -- similar to `@field`
+		["@property"] = { fg = cp.base10 }, -- similar to `@field`
 		["@field"] = { link = "@property" }, -- object and struct fields
-		["@property.class"] = { fg = cp.const }, -- similar to `@field`
+		["@property.class"] = { fg = cp.base12 }, -- similar to `@field`
 
 		-- #### Identifiers
-		["@variable"] = { fg = cp.variable }, -- various variable names
+		["@variable"] = { fg = cp.base17 }, -- various variable names
 		["@variable.builtin"] = { fg = cp.key }, -- built-in variable names (e.g. `this`)
 
 		["@constant"] = { link = "Constant" }, -- constant identifiers
-		["@constant.builtin"] = { fg = cp.keywords }, -- built-in constant values
+		["@constant.builtin"] = { fg = cp.base14 }, -- built-in constant values
 		["@constant.macro"] = { link = "@define" }, -- constants defined by the preprocessor
 
 		-- @namespace        -- modules or namespaces
 		["@symbol"] = { link = "@field" }, -- symbols or atoms
 
-		-- ["@label"] = { fg = cp.orange }, -- symbols or atoms
+		-- ["@label"] = { fg = cp.base12 }, -- symbols or atoms
 		-- #### Text
 		-- Mainly for markup languages.
 		["@text"] = { fg = cp.base07 }, -- non-structured text
@@ -87,26 +87,26 @@ M.get_hl_groups = function(cp)
 		["@text.emphasis"] = { fg = cp.base07, italic = utils.italics }, -- text with emphasis
 		["@text.underline"] = { fg = cp.base07, underline = true }, -- underlined text
 		["@text.strike"] = { fg = cp.base07, strikethrough = true }, -- strikethrough text
-		["@text.title"] = { fg = cp.search, bold = true }, -- text that is part of a title
+		["@text.title"] = { fg = cp.base15, bold = true }, -- text that is part of a title
 		["@text.literal"] = { fg = cp.base05 }, -- literal or verbatim text
 		["@text.uri"] = { fg = cp.base06, underline = true }, -- URIs (e.g. hyperlinks)
-		["@text.math"] = { fg = cp.string }, -- math environments (e.g. `$ ... $` in LaTeX)
+		["@text.math"] = { fg = cp.base18 }, -- math environments (e.g. `$ ... $` in LaTeX)
 		["@text.environment"] = { fg = cp.base07 }, -- text environments of markup languages
 		["@text.environment.name"] = { fg = cp.base07 }, -- text indicating the type of an environment
 		["@text.reference"] = { fg = cp.base07, undercurl = true }, -- text references, footnotes, citations, etc.
 
-		["@text.todo"] = { fg = cp.variable }, -- todo notes
+		["@text.todo"] = { fg = cp.base17 }, -- todo notes
 		["@text.note"] = { link = "@field" }, -- info notes
-		["@text.warning"] = { fg = cp.warn }, -- warning notes
-		["@text.danger"] = { fg = cp.err }, -- danger/error notes
+		["@text.warning"] = { fg = cp.base09 }, -- warning notes
+		["@text.danger"] = { fg = cp.base11 }, -- danger/error notes
 
-		["@text.diff.add"] = { fg = cp.search }, -- added text (for diff files)
-		["@text.diff.delete"] = { fg = cp.red }, -- deleted text (for diff files)
+		["@text.diff.add"] = { fg = cp.base15 }, -- added text (for diff files)
+		["@text.diff.delete"] = { fg = cp.base11 }, -- deleted text (for diff files)
 
 		-- #### Tags
 		-- Used for XML-like tags.
 		["@tag"] = { link = "Tag" }, -- XML tag names
-		["@tag.attribute"] = { fg = cp.variable }, -- XML tag attributes
+		["@tag.attribute"] = { fg = cp.base17 }, -- XML tag attributes
 		["@tag.delimiter"] = { fg = cp.base05 }, -- XML tag delimiters
 
 		-- #### Conceal

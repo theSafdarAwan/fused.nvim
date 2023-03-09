@@ -1,83 +1,63 @@
 local colors = {
-	white = "#abb2bf",
-	flamingo = "#F2CDCD",
-	pink = "#FFB86C",
-	mauve = "#CBA6F7",
-	red = "#ED8796",
-	-- red = "#F38BA8",
-	maroon = "#EBA0AC",
-	light_pink = "#ff75a0",
-	peach = "#FAB387",
-	yellow = "#F9E2AF",
-	green = "#A6E3A1",
-	teal = "#94E2D5",
-	sky = "#89DCEB",
-	blue = "#89B4FA",
-	blue2 = "#948AE3",
-	lavender = "#B4BEFE",
-
-	text = "#CDD6F4",
-
-	subtext0 = "#A6ADC8",
-	overlay1 = "#44475a",
-	surface0 = "#313244",
-
-	base = "#1E1E2E",
-	mantle = "#181825",
 	crust = "#11111B",
-
+	mantle = "#181825",
+	base = "#1E1E2E",
+	surface0 = "#313244",
+	overlay1 = "#44475a",
+	white = "#abb2bf",
+	text = "#CDD6F4",
+	-- lsp diagnostics colors
+	red_washed = "#EBA0AC",
+	yellow = "#F9E2AF",
+	sky = "#89DCEB",
+	-- add next pair of dark colors wit the lsp diagnostics but in same order
+	red = "#ED8796",
+	peach = "#FAB387",
+	teal = "#94E2D5",
+	-- now replace these colors with the colors that you want these colors to be
+	-- replaced with
+	mauve = "#CBA6F7", -- for things like keywords,etc.
+	green = "#A6E3A1", -- for search, match, title, etc
+	orange_light = "#FFB86C",
+	blue = "#89B4FA", -- for variable name etc.
+	lavender = "#B4BEFE", -- color for string
 	-- ts-rainbow brackets pair colors
+	-- TODO: add new colors for ts-rainbow
 	ts_rainbow_aqua = "#8ec07c",
 	ts_rainbow_pruple = "#d3869b",
 	ts_rainbow_blue = "#83a598",
 }
 
 local M = {}
+
 M.pallete = {
 	base01 = colors.crust,
 	base02 = colors.mantle,
 	base03 = colors.base,
 	base04 = colors.surface0,
 	base05 = colors.overlay1,
-	base06 = colors.base06,
+	base06 = colors.white,
 	base07 = colors.text,
 
-	string = colors.lavender,
+	base08 = colors.red_washed,
+	base09 = colors.yellow,
+	base10 = colors.sky,
 
-	-- colors most commonly used for Lsp errors and warnings and other lsp plugins
-	warn = colors.yellow,
-	err = colors.red,
-	err_sev = colors.maroon,
+	base11 = colors.red,
+	base12 = colors.peach,
+	base13 = colors.teal,
 
-	-- editor colors
-	folds = colors.lavender,
-	search = colors.green,
+	base14 = colors.mauve,
+	base15 = colors.green,
+	base16 = colors.orange_light,
+	base17 = colors.blue,
+	base18 = colors.lavender,
 
-	-- lsp symbols
-	func = colors.red,
-	property = colors.sky,
-	variable = colors.blue,
-	method = colors.pink,
-	keywords = colors.mauve,
-	const = colors.peach,
-
-	bg_conbase07 = colors.bg_context,
-
-	-- colors by names
-	light_pink = colors.light_pink,
-	red = colors.red,
-	magenta = colors.mauve,
-	magenta2 = colors.blue2,
-	teal = colors.teal,
-	orange = colors.peach,
-	blue = colors.sky,
-
-	-- brackets pairs colors
-	ts_aqua = colors.ts_rainbow_aqua,
-	ts_deep_yellow = colors.pink,
-	ts_purple = colors.ts_rainbow_purple,
-	ts_yellow = colors.yellow,
-	ts_cyan = colors.sky,
+	base19 = colors.ts_rainbow_aqua,
+	base20 = colors.orange_light,
+	base21 = colors.ts_rainbow_purple,
+	base22 = colors.yellow,
+	base23 = colors.sky,
 }
 
 return M
