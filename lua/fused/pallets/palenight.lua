@@ -1,3 +1,4 @@
+--- palenight-mild-contrast theme
 local colors = {
 	color_1 = "#232635",
 	color_2 = "#333748",
@@ -9,11 +10,11 @@ local colors = {
 
 	color_8 = "#f07178",
 	color_9 = "#FFCB6B",
-	color_10 = "#89DDFF",
+	color_10 = "#89ffe6",
 
 	color_11 = "#ff5572",
 	color_12 = "#ffcb8b",
-	color_13 = "#89ffe6",
+	color_13 = "#89DDFF",
 
 	color_14 = "#C792EA",
 	color_15 = "#C3E88D",
@@ -60,13 +61,22 @@ M.pallete = {
 	base23 = colors.color_23,
 }
 
-M.polish = {
-	["nvim-treesitter"] = {
-		["@function"] = { fg = M.pallete.base17 }, -- function definitions
-		["@string"] = { fg = M.pallete.base15 }, -- string
-		["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
-		["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
-	},
-}
+--- Returns a table which contains tables of highlight groups for plugins.
+---@return table
+M.polish = function()
+	return {
+		builtin = {
+			["MatchParen"] = { bg = M.pallete.base02 },
+		},
+		["nvim-treesitter"] = {
+			["@tag.attribute"] = { fg = M.pallete.base09 }, -- XML tag attributes
+			["@function"] = { fg = M.pallete.base17 }, -- function definitions
+			["@string"] = { fg = M.pallete.base15 }, -- string
+			["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
+			["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
+			["@parameter"] = { fg = M.pallete.base18, italic = require("fused.utils").italics }, -- parameters of a function
+		},
+	}
+end
 
 return M

@@ -18,6 +18,7 @@ M.get_hl_groups = function(cp)
 
 		-- Literals
 		["@string"] = { link = "String" }, -- string literals
+		["@string.plain"] = { fg = cp.base13 }, -- css property, etcc
 		["@string.regex"] = { fg = cp.base12 }, -- regular expressions
 		["@string.escape"] = { fg = cp.base11 }, -- escape sequences
 		["@string.special"] = { fg = cp.base07 }, -- other special strings (e.g. dates)
@@ -33,7 +34,7 @@ M.get_hl_groups = function(cp)
 		["@function"] = { link = "Function" }, -- function definitions
 		["@function.builtin"] = { link = "@function" }, -- built-in functions
 		["@function.call"] = { link = "@function" }, -- function calls
-		["@function.macro"] = { fg = cp.base14 }, -- preprocessor macros
+		["@function.macro"] = { fg = cp.base13 }, -- preprocessor macros
 
 		["@method"] = { fg = cp.base16 }, -- method definitions
 		["@method.call"] = { link = "@method" }, -- method calls

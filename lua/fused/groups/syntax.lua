@@ -28,7 +28,7 @@ M.get_hl_groups = function(cp)
 
 		Type = { fg = cp.base13 }, -- (preferred) int, long, char, etc.
 		StorageClass = { fg = cp.base10 }, -- static, register, volatile, etc.
-		Structure = { fg = cp.base11 }, --  struct, union, enum, etc.
+		Structure = { link = "Type" }, --  struct, union, enum, etc.
 		Typedef = { fg = cp.base11 }, --  A typedef
 
 		Special = { fg = cp.base11 }, -- (preferred) any special symbol

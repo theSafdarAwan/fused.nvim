@@ -9,7 +9,7 @@ M.get_hl_groups = function(cp)
 		-- used for the columns set with 'colorcolumn'
 		ColorColumn = { bg = cp.base18 },
 		-- comments
-		Comment = { fg = cp.base05, italic = utils.italics },
+		Comment = { fg = cp.base04, italic = utils.italics },
 		-- placeholder characters substituted for concealed text (see 'conceallevel')
 		Conceal = { fg = cp.base18 },
 		-- character under the cursor
@@ -114,7 +114,7 @@ M.get_hl_groups = function(cp)
 		-- warning messages
 		WarningMsg = { fg = cp.base09 },
 		-- "nbsp", "space", "tab" and "trail" in 'listchars'
-		base06space = { fg = cp.base05 },
+		space = { fg = cp.base05 },
 		-- current match in 'wildmenu' completion
 		WildMenu = { bg = cp.base04 },
 		--
