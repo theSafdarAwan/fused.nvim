@@ -3,7 +3,7 @@ local colors = {
 	color_1 = "#232635",
 	color_2 = "#333748",
 	color_3 = "#3c4051",
-	color_4 = "#4c5374",
+	color_4 = "#394b70",
 	color_5 = "#606475",
 	color_6 = "#929ac9",
 	color_7 = "#bfc7d5",
@@ -14,19 +14,19 @@ local colors = {
 
 	color_11 = "#ff5572",
 	color_12 = "#ffcb8b",
-	color_13 = "#89DDFF",
+	color_13 = "#5AD4E6",
 
 	color_14 = "#C792EA",
 	color_15 = "#C3E88D",
 	color_16 = "#8fb7ff",
-	color_17 = "#e2b93d",
-	color_18 = "#ffa282",
+	color_17 = "#ffa282",
+	color_18 = "#e2b93d",
 
 	color_19 = "#9CCC65",
 	color_20 = "#64B5F6",
 	color_21 = "#7e57c2",
 	color_22 = "#82AAFF",
-	color_23 = "#EF5350",
+	color_23 = "#f07178",
 }
 
 local M = {}
@@ -67,6 +67,7 @@ M.polish = function()
 	return {
 		builtin = {
 			["MatchParen"] = { bg = M.pallete.base02 },
+			["WinSeparator"] = { fg = M.pallete.base02 },
 		},
 		["nvim-treesitter"] = {
 			["@tag.attribute"] = { fg = M.pallete.base09 }, -- XML tag attributes
@@ -74,7 +75,10 @@ M.polish = function()
 			["@string"] = { fg = M.pallete.base15 }, -- string
 			["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
-			["@parameter"] = { fg = M.pallete.base18, italic = require("fused.utils").italics }, -- parameters of a function
+			["@parameter"] = { fg = M.pallete.base20, italic = require("fused.utils").italics }, -- parameters of a function
+		},
+		["nvim-web-devicons"] = {
+			["DevIconcss"] = { fg = M.pallete.base16 },
 		},
 	}
 end

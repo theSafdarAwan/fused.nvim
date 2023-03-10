@@ -71,7 +71,7 @@ M.get_hl_groups = function(cp)
 
 		-- #### Identifiers
 		["@variable"] = { fg = cp.base17 }, -- various variable names
-		["@variable.builtin"] = { fg = cp.key }, -- built-in variable names (e.g. `this`)
+		["@variable.builtin"] = { fg = cp.base20 }, -- built-in variable names (e.g. `this`)
 
 		["@constant"] = { link = "Constant" }, -- constant identifiers
 		["@constant.builtin"] = { fg = cp.base14 }, -- built-in constant values
