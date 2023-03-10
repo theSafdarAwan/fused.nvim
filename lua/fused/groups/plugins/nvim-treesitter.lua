@@ -111,7 +111,7 @@ M.get_hl_groups = function(cp)
 		["@tag.delimiter"] = { fg = cp.base05 }, -- XML tag delimiters
 
 		-- #### Conceal
-		["@conceal"] = { fg = cp.cp4 }, -- for captures that are only used for concealing
+		["@conceal"] = { fg = cp.base04 }, -- for captures that are only used for concealing
 
 		-- `@conceal` must be followed by `(#set! conceal "")`.
 

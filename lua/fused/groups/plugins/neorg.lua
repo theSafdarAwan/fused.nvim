@@ -17,7 +17,7 @@ M.get_hl_groups = function(cp)
 		["desc"] = cp.base18,
 		["superscript"] = cp.base09,
 		["subscript"] = cp.base14,
-		["code_block"] = cp.cp5,
+		["code_block"] = cp.base04,
 	}
 
 	local heading_level = {

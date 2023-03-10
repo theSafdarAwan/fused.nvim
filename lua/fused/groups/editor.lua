@@ -82,7 +82,7 @@ M.get_hl_groups = function(cp)
 		-- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand oucp.
 		Search = { fg = cp.base15, bg = cp.base02 },
 		-- 'incsearch' highlighting; also used for the text replaced with ":s///c"
-		IncSearch = { bg = cp.cp4 },
+		IncSearch = { bg = cp.base04 },
 		-- 'cursearch' highlighting: highlights the current search you're on differently
 		CurSearch = { bg = cp.base04 },
 		-- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' textspace. |hl-base06space|
