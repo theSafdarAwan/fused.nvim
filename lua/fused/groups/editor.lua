@@ -84,7 +84,7 @@ M.get_hl_groups = function(cp)
 		-- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		IncSearch = { bg = cp.base04 },
 		-- 'cursearch' highlighting: highlights the current search you're on differently
-		CurSearch = { bg = cp.base04 },
+		CurSearch = { fg = cp.base15, bg = cp.base04 },
 		-- Unprintable characters: text displayed differently from what it really is.  But not 'listchars' textspace. |hl-base06space|
 		SpecialKey = { fg = cp.base11 },
 		-- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.

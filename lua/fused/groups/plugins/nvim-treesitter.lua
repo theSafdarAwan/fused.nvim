@@ -67,7 +67,7 @@ M.get_hl_groups = function(cp)
 		["@attribute"] = {}, -- attribute annotations (e.g. Python decorators)
 		["@property"] = { fg = cp.base10 }, -- similar to `@field`
 		["@field"] = { link = "@property" }, -- object and struct fields
-		["@property.class"] = { fg = cp.base12 }, -- similar to `@field`
+		["@property.class"] = { fg = cp.base12 }, -- similar to `@field` for css class etc
 
 		-- #### Identifiers
 		["@variable"] = { fg = cp.base17 }, -- various variable names

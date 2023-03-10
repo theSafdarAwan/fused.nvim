@@ -1,7 +1,6 @@
 --- palenight-mild-contrast theme
 local colors = {
 	color_1 = "#292D3E",
-	-- color_1 = "#232635",
 	color_2 = "#333748",
 	color_3 = "#3c4051",
 	color_4 = "#394b70",
@@ -65,20 +64,24 @@ M.pallete = {
 --- Returns a table which contains tables of highlight groups for plugins.
 ---@return table
 M.polish = function()
+	local utils = require("fused.utils")
 	return {
 		builtin = {
 			MatchParen = { bg = M.pallete.base02 },
 			WinSeparator = { fg = M.pallete.base02 },
 		},
 		["nvim-treesitter"] = {
+			["@comment"] = { fg = "#697098" }, -- line and block comments
 			["@tag.attribute"] = { fg = M.pallete.base09 }, -- XML tag attributes
 			["@function"] = { fg = M.pallete.base16 }, -- function definitions
 			["@string"] = { fg = M.pallete.base15 }, -- string
 			["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
-			["@parameter"] = { fg = M.pallete.base17, italic = require("fused.utils").italics }, -- parameters of a function
+			["@parameter"] = { fg = M.pallete.base17, italic = utils.italics }, -- parameters of a function
 			["@property"] = { fg = M.pallete.base16 }, -- similar to `@field`
 			["@field"] = { fg = M.pallete.base16 }, -- object and struct fields
+			["@number"] = { fg = M.pallete.base17 }, -- numeric literals
+			["@property.class"] = { fg = M.pallete.base09, italic = utils.italics }, -- similar to `@field` for css class etc
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallete.base16 },
