@@ -1,0 +1,2 @@
+;; extends
+(doctype) @html.doctype

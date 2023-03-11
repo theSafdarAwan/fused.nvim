@@ -64,8 +64,16 @@ M.polish = function()
 		builtin = {
 			MatchParen = { bg = M.pallete.base02 },
 			WinSeparator = { fg = M.pallete.base02 },
+			Pmenu = { fg = M.pallete.base16, bg = M.pallete.base01 },
+			-- Popup menu: selected item.
+			PmenuSel = { fg = M.pallete.base16, bg = M.pallete.base02 },
+			-- Popup menu: scrollbar.
+			PmenuSbar = { bg = M.pallete.base02 },
+			-- Popup menu: Thumb of the scrollbar.
+			PmenuThumb = { bg = M.pallete.base05 },
 		},
 		["nvim-treesitter"] = {
+			["@html.doctype"] = { fg = M.pallete.base10 }, -- XML tag attributes
 			["@tag.attribute"] = { fg = M.pallete.base09 }, -- XML tag attributes
 			["@function"] = { fg = M.pallete.base12 }, -- function definitions
 			["@string"] = { fg = M.pallete.base19 }, -- string
@@ -75,16 +83,17 @@ M.polish = function()
 			["@method"] = { fg = M.pallete.base12 }, -- method definitions
 			["@method.call"] = { fg = M.pallete.base12 }, -- similar to `@field`
 			["@field"] = { fg = M.pallete.base16 }, -- object and struct fields
+			["@constant"] = { fg = M.pallete.base07 }, -- constant identifiers
 			["@boolean"] = { fg = M.pallete.base21 }, -- boolean literals
 			["@number"] = { fg = M.pallete.base21 }, -- numeric literals
 			["@operator"] = { fg = M.pallete.base14 }, -- numeric literals
-			["@constant"] = { fg = M.pallete.base10 }, -- constant identifiers
 			["@text.title"] = { fg = M.pallete.base07 }, -- text that is part of a title
 			["@tag"] = { fg = M.pallete.base10 }, -- XML tag names
 			-- css
 			["@property.class"] = { fg = M.pallete.base09 }, -- similar to `@field` for css class etc
 			["@type.tag"] = { fg = M.pallete.base13 }, -- type or class definitions and annotations
 			["@string.plain"] = { fg = M.pallete.base14, italic = utils.italics }, -- css property, etcc
+			["@unit"] = { fg = M.pallete.base14 },
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallete.base16 },
