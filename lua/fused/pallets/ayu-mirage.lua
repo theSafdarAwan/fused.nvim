@@ -1,17 +1,17 @@
 local colors = {
 	color_1 = "#1f2430",
-	color_2 = "#2b2e34",
-	color_3 = "#33363c",
-	color_4 = "#46494f",
-	color_5 = "#565b66",
-	color_6 = "#686868",
+	color_2 = "#33363c",
+	color_3 = "#46494f",
+	color_4 = "#565b66",
+	color_5 = "#686868",
+	color_6 = "#697098",
 	color_7 = "#c7c7c7",
 	color_8 = "#f27983",
 	color_9 = "#ffcc66",
-	color_10 = "#90e1c6",
+	color_10 = "#5ccfe6",
 	color_11 = "#ff6666",
 	color_12 = "#ffd173",
-	color_13 = "#5ccfe6",
+	color_13 = "#90e1c6",
 	color_14 = "#f29e74",
 	color_15 = "#87d96c",
 	color_16 = "#80bfff",
@@ -66,17 +66,25 @@ M.polish = function()
 			WinSeparator = { fg = M.pallete.base02 },
 		},
 		["nvim-treesitter"] = {
-			["@comment"] = { fg = "#697098" }, -- line and block comments
 			["@tag.attribute"] = { fg = M.pallete.base09 }, -- XML tag attributes
-			["@function"] = { fg = M.pallete.base16 }, -- function definitions
-			["@string"] = { fg = M.pallete.base15 }, -- string
+			["@function"] = { fg = M.pallete.base12 }, -- function definitions
+			["@string"] = { fg = M.pallete.base19 }, -- string
 			["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
-			["@parameter"] = { fg = M.pallete.base17, italic = utils.italics }, -- parameters of a function
-			["@property"] = { fg = M.pallete.base16 }, -- similar to `@field`
+			["@parameter"] = { fg = M.pallete.base21 }, -- parameters of a function
+			["@method"] = { fg = M.pallete.base12 }, -- method definitions
+			["@method.call"] = { fg = M.pallete.base12 }, -- similar to `@field`
 			["@field"] = { fg = M.pallete.base16 }, -- object and struct fields
-			["@number"] = { fg = M.pallete.base17 }, -- numeric literals
-			["@property.class"] = { fg = M.pallete.base09, italic = utils.italics }, -- similar to `@field` for css class etc
+			["@boolean"] = { fg = M.pallete.base21 }, -- boolean literals
+			["@number"] = { fg = M.pallete.base21 }, -- numeric literals
+			["@operator"] = { fg = M.pallete.base14 }, -- numeric literals
+			["@constant"] = { fg = M.pallete.base10 }, -- constant identifiers
+			["@text.title"] = { fg = M.pallete.base07 }, -- text that is part of a title
+			["@tag"] = { fg = M.pallete.base10 }, -- XML tag names
+			-- css
+			["@property.class"] = { fg = M.pallete.base09 }, -- similar to `@field` for css class etc
+			["@type.tag"] = { fg = M.pallete.base13 }, -- type or class definitions and annotations
+			["@string.plain"] = { fg = M.pallete.base14, italic = utils.italics }, -- css property, etcc
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallete.base16 },

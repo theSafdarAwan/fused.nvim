@@ -11,7 +11,7 @@ M.get_hl_groups = function(cp)
 		NvimTreeRootFolder = { fg = cp.base10 },
 		NvimTreeIndentMarker = { fg = cp.base05 },
 		NvimTreeSymlink = { link = "@field" },
-		NvimTreeFolderName = { fg = cp.base06 },
+		NvimTreeFolderName = { fg = cp.base07 },
 		NvimTreeFolderIcon = { link = "NvimTreeFolderName" },
 		NvimTreeEmptyFolderName = { fg = cp.base06 },
 		NvimTreeOpenedFolderName = { link = "NvimTreeFolderName" },

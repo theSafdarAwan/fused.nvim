@@ -9,7 +9,7 @@ M.get_hl_groups = function(cp)
 		-- used for the columns set with 'colorcolumn'
 		ColorColumn = { bg = cp.base18 },
 		-- comments
-		Comment = { fg = cp.base04, italic = utils.italics },
+		Comment = { fg = cp.base05, italic = utils.italics },
 		-- placeholder characters substituted for concealed text (see 'conceallevel')
 		Conceal = { fg = cp.base18 },
 		-- character under the cursor

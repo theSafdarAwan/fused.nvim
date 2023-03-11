@@ -36,7 +36,7 @@ M.get_hl_groups = function(cp)
 		["@function.call"] = { link = "@function" }, -- function calls
 		["@function.macro"] = { fg = cp.base13 }, -- preprocessor macros
 
-		["@method"] = { fg = cp.base16 }, -- method definitions
+		["@method"] = { fg = cp.base07 }, -- method definitions
 		["@method.call"] = { link = "@method" }, -- method calls
 
 		["@constructor"] = { fg = cp.base13 }, -- constructor calls and definitions
