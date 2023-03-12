@@ -30,7 +30,8 @@ M.get_hl_groups = function(cp)
 		DiagnosticUnderlineHint = { underline = true },
 		-- { fg = Colors.fl_color_6, bg = Colors.color_2, underline = true }
 
-		["@lsp.type.class"] = { link = "@constructor" },
+		-- syntax tokens
+		["@lsp.type.class"] = { link = "@type" },
 		["@lsp.type.decorator"] = { link = "@function" },
 		["@lsp.type.enum"] = { link = "Structure" },
 		["@lsp.type.enumMember"] = { link = "Constant" },

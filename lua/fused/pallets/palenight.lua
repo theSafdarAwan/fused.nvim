@@ -1,4 +1,6 @@
 --- palenight theme
+
+-- TODO: replicate the complete theme from the vscode palenight-opeatator
 local colors = {
 	color_1 = "#292D3E",
 	color_2 = "#333748",
@@ -79,6 +81,8 @@ M.polish = function()
 			["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
 			["@parameter"] = { fg = M.pallete.base17, italic = utils.italics }, -- parameters of a function
 			["@property"] = { fg = M.pallete.base16 }, -- similar to `@field`
+			["@type"] = { fg = M.pallete.base09 }, -- type or class definitions and annotations
+			["@method.call"] = { fg = M.pallete.base16 }, -- method calls
 			["@field"] = { fg = M.pallete.base16 }, -- object and struct fields
 			["@number"] = { fg = M.pallete.base17 }, -- numeric literals
 			["@property.class"] = { fg = M.pallete.base09, italic = utils.italics }, -- similar to `@field` for css class etc

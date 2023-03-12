@@ -82,7 +82,7 @@ M.polish = function()
 			["@parameter"] = { fg = M.pallete.base21 }, -- parameters of a function
 			["@method"] = { fg = M.pallete.base12 }, -- method definitions
 			["@method.call"] = { fg = M.pallete.base12 }, -- similar to `@field`
-			["@field"] = { fg = M.pallete.base16 }, -- object and struct fields
+			["@field"] = { fg = M.pallete.base10 }, -- object and struct fields
 			["@constant"] = { fg = M.pallete.base07 }, -- constant identifiers
 			["@boolean"] = { fg = M.pallete.base21 }, -- boolean literals
 			["@number"] = { fg = M.pallete.base21 }, -- numeric literals
