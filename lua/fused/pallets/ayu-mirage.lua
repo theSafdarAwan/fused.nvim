@@ -93,7 +93,9 @@ M.polish = function()
 			["@property.class"] = { fg = M.pallete.base09 }, -- similar to `@field` for css class etc
 			["@type.tag"] = { fg = M.pallete.base13 }, -- type or class definitions and annotations
 			["@string.plain"] = { fg = M.pallete.base14, italic = utils.italics }, -- css property, etcc
-			["@unit"] = { fg = M.pallete.base14 },
+			["@css.unit"] = { fg = M.pallete.base14 },
+			["@css.query"] = { fg = M.pallete.base17 },
+			["@html.paren"] = { fg = "#216977" },
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallete.base16 },

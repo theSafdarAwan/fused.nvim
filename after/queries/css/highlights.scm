@@ -1,2 +1,3 @@
 ;; extends
-(unit) @unit
+(unit) @css.unit
+(keyword_query) @css.query
