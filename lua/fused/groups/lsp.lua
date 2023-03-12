@@ -29,6 +29,22 @@ M.get_hl_groups = function(cp)
 		-- { fg = Colors.color_21, bg = Colors.color_2, underline = true }
 		DiagnosticUnderlineHint = { underline = true },
 		-- { fg = Colors.fl_color_6, bg = Colors.color_2, underline = true }
+
+		["@lsp.type.class"] = { link = "@constructor" },
+		["@lsp.type.decorator"] = { link = "@function" },
+		["@lsp.type.enum"] = { link = "Structure" },
+		["@lsp.type.enumMember"] = { link = "Constant" },
+		["@lsp.type.function"] = { link = "@function" },
+		["@lsp.type.interface"] = { link = "Structure" },
+		["@lsp.type.macro"] = { link = "Macro" },
+		["@lsp.type.method"] = { link = "@method" },
+		["@lsp.type.namespace"] = { link = "Structure" },
+		["@lsp.type.parameter"] = { link = "@parameter" },
+		["@lsp.type.property"] = { link = "@property" },
+		["@lsp.type.struct"] = { link = "@structure" },
+		["@lsp.type.type"] = { link = "@type" },
+		["@lsp.type.typeParameter"] = { link = "Identifier" },
+		["@lsp.type.variable"] = { link = "@variable" },
 	}
 end
 
