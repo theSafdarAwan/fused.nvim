@@ -11,7 +11,7 @@ local M = {}
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
 -- use the string key like (["nvim-tree"] = true).
 local default_config = {
-	flavour = "palenight",
+	flavour = "catppuccin-mocha",
 	italics = true,
 	bg_transparent = false,
 	custom = {},
