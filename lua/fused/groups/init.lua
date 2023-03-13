@@ -7,6 +7,10 @@ local hl = require("fused.utils").set_hl
 ---@table exposes utils
 local utils = require("fused.utils")
 
+--- All available highlight groups. This is kind of a utility.
+---@table available_hl_groups
+local available_hl_groups = {}
+
 --- loads higlights for editor builtin highlight groups including editor, syntax and lsp
 M.load_builtin_hl = function()
 	--- table of colors
@@ -21,6 +25,7 @@ M.load_builtin_hl = function()
 	if utils.polish and utils.polish.builtin then
 		hls = vim.tbl_extend("force", hls, utils.polish.builtin)
 	end
+	available_hl_groups = vim.tbl_extend("force", available_hl_groups, hls)
 	for hl_name, hl_val in pairs(hls) do
 		hl(tostring(hl_name), hl_val)
 	end
@@ -48,8 +53,17 @@ M.load_plugins_hl = function(plugins_tbl)
 		end
 	end
 
+	available_hl_groups = vim.tbl_extend("force", available_hl_groups, plugins_hl_tbls)
+
 	for hl_name, hl_val in pairs(plugins_hl_tbls) do
-		hl(tostring(hl_name), hl_val)
+		hl_name = tostring(hl_name)
+		-- remove italic style from linked value and only do that if its not a
+		-- treesitter hl_group
+		if hl_val.link and available_hl_groups[hl_name] and not string.find(hl_name, "@") then
+			hl_val = available_hl_groups[hl_val.link]
+			hl_val.italic = nil
+		end
+		hl(hl_name, hl_val)
 	end
 end
 return M

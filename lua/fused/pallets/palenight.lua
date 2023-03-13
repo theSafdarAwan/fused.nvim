@@ -1,6 +1,5 @@
 --- palenight theme
 
--- TODO: replicate the complete theme from the vscode palenight-opeatator
 local colors = {
 	color_1 = "#292D3E",
 	color_2 = "#333748",
@@ -74,18 +73,28 @@ M.polish = function()
 		},
 		["nvim-treesitter"] = {
 			["@comment"] = { fg = "#697098" }, -- line and block comments
-			["@tag.attribute"] = { fg = M.pallete.base09 }, -- XML tag attributes
+			["@tag.attribute"] = { fg = M.pallete.base09, italic = utils.italics }, -- XML tag attributes
 			["@function"] = { fg = M.pallete.base16 }, -- function definitions
-			["@string"] = { fg = M.pallete.base15 }, -- string
+			["@string"] = { fg = M.pallete.base15, italic = utils.italics }, -- string
 			["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
 			["@parameter"] = { fg = M.pallete.base17, italic = utils.italics }, -- parameters of a function
-			["@property"] = { fg = M.pallete.base16 }, -- similar to `@field`
+			["@property"] = { fg = "#89DDFF" }, -- similar to `@field`
 			["@type"] = { fg = M.pallete.base09 }, -- type or class definitions and annotations
+			["@method"] = { fg = M.pallete.base16, italic = utils.italics }, -- method definitions
 			["@method.call"] = { fg = M.pallete.base16 }, -- method calls
 			["@field"] = { fg = M.pallete.base16 }, -- object and struct fields
-			["@number"] = { fg = M.pallete.base17 }, -- numeric literals
+			["@number"] = { fg = "#F78C6C" }, -- numeric literals
 			["@property.class"] = { fg = M.pallete.base09, italic = utils.italics }, -- similar to `@field` for css class etc
+			["@html.doctype"] = { link = "@tag" },
+			["@html.paren"] = { link = "@string.plain" },
+			["@boolean"] = { fg = "#FF5874", italic = utils.italics }, -- boolean literals
+			["@operator"] = { link = "@property" }, -- numeric literals
+			["@text.title"] = { fg = M.pallete.base07 }, -- text that is part of a title
+			-- css
+			["@type.tag"] = { fg = M.pallete.base11 }, -- type or class definitions and annotations
+			["@css.query"] = { fg = M.pallete.base10 }, -- type or class definitions and annotations
+			["@css.unit"] = { fg = "#FFEB95" }, -- type or class definitions and annotations
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallete.base16 },
