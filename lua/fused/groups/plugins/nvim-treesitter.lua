@@ -58,7 +58,7 @@ M.get_hl_groups = function(cp)
 		-- Types
 		["@type"] = { link = "Type" }, -- type or class definitions and annotations
 		["@type.tag"] = { fg = cp.base11 }, -- type or class definitions and annotations
-		["@type.builtin"] = { link = "Type" }, -- built-in types
+		["@type.builtin"] = { link = "@keyword" }, -- built-in types
 		["@type.definition"] = { link = "Type" }, -- type definitions (e.g. `typedef` in C)
 		["@type.qualifier"] = { link = "Type" }, -- type qualifiers (e.g. `const`)
 

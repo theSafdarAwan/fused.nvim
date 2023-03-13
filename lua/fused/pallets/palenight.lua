@@ -95,6 +95,9 @@ M.polish = function()
 			["@type.tag"] = { fg = M.pallete.base11 }, -- type or class definitions and annotations
 			["@css.query"] = { fg = M.pallete.base10 }, -- type or class definitions and annotations
 			["@css.unit"] = { fg = "#FFEB95" }, -- type or class definitions and annotations
+			-- c lang
+			["@include"] = { link = "@keyword" },
+			["@include.path"] = { fg = M.pallete.base15, italic = utils.italics },
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallete.base16 },
