@@ -1,10 +1,11 @@
 local M = {}
 
 M.get_hl_groups = function(cp)
+	local utils = require("fused.utils")
 	return {
-		LspReferenceText = { fg = cp.base06, italic = true, underline = true }, -- used for highlighting "text" references
-		LspReferenceRead = { fg = cp.base09, italic = true, underline = true }, -- used for highlighting "read" references
-		LspReferenceWrite = { fg = cp.base11, italic = true, underline = true }, -- used for highlighting "write" references
+		LspReferenceText = { fg = cp.base06, italic = utils.italics, underline = true }, -- used for highlighting "text" references
+		LspReferenceRead = { fg = cp.base09, italic = utils.italics, underline = true }, -- used for highlighting "read" references
+		LspReferenceWrite = { fg = cp.base11, italic = utils.italics, underline = true }, -- used for highlighting "write" references
 
 		DiagnosticVirtualTextError = { fg = cp.base08, bg = cp.base02 },
 		DiagnosticVirtualTextWarn = { fg = cp.base09, bg = cp.base02 },

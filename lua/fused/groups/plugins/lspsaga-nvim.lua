@@ -1,6 +1,7 @@
 local M = {}
 
 M.get_hl_groups = function(cp)
+	local utils = require("fused.utils")
 	-- general
 	return {
 		TitleString = { bg = cp.base06, fg = cp.base04, bold = true },
@@ -21,7 +22,7 @@ M.get_hl_groups = function(cp)
 		CodeActionConceal = { fg = cp.base15 },
 		-- finder
 		FinderSelection = { fg = cp.base10 },
-		FinderFileName = { fg = cp.base14, italic = true },
+		FinderFileName = { fg = cp.base14, italic = utils.italics },
 		FinderCount = { link = "Title" },
 		FinderIcon = { fg = cp.base11 },
 		FinderType = { fg = cp.base12 },
@@ -62,7 +63,7 @@ M.get_hl_groups = function(cp)
 		-- lightbulb
 		LspSagaLightBulb = { link = "DiagnosticSignHint" },
 		-- shadow
-		SagaShadow = { bg = base04 },
+		SagaShadow = { bg = cp.base04 },
 		-- Outline
 		OutlineIndent = { fg = cp.base14 },
 		OutlinePreviewBorder = { link = "SagaBorder" },
