@@ -32,7 +32,7 @@ local colors = {
 
 local M = {}
 
-M.pallete = {
+M.pallet = {
 	base01 = colors.color_1,
 	base02 = colors.color_2,
 	base03 = colors.color_3,
@@ -68,39 +68,39 @@ M.polish = function()
 	local utils = require("fused.utils")
 	return {
 		builtin = {
-			MatchParen = { bg = M.pallete.base02 },
-			WinSeparator = { fg = M.pallete.base02 },
+			MatchParen = { bg = M.pallet.base02 },
+			WinSeparator = { fg = M.pallet.base02 },
 		},
 		["nvim-treesitter"] = {
 			["@comment"] = { fg = "#697098" }, -- line and block comments
-			["@tag.attribute"] = { fg = M.pallete.base09, italic = utils.italics }, -- XML tag attributes
-			["@function"] = { fg = M.pallete.base16 }, -- function definitions
-			["@string"] = { fg = M.pallete.base15, italic = utils.italics }, -- string
-			["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
-			["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
-			["@parameter"] = { fg = M.pallete.base17, italic = utils.italics }, -- parameters of a function
+			["@tag.attribute"] = { fg = M.pallet.base09, italic = utils.italics }, -- XML tag attributes
+			["@function"] = { fg = M.pallet.base16 }, -- function definitions
+			["@string"] = { fg = M.pallet.base15, italic = utils.italics }, -- string
+			["@variable"] = { fg = M.pallet.base07 }, -- builtin variable
+			["@variable.builtin"] = { fg = M.pallet.base07 }, -- builtin variable
+			["@parameter"] = { fg = M.pallet.base17, italic = utils.italics }, -- parameters of a function
 			["@property"] = { fg = "#89DDFF" }, -- similar to `@field`
-			["@type"] = { fg = M.pallete.base09 }, -- type or class definitions and annotations
-			["@method"] = { fg = M.pallete.base16, italic = utils.italics }, -- method definitions
-			["@method.call"] = { fg = M.pallete.base16 }, -- method calls
-			["@field"] = { fg = M.pallete.base16 }, -- object and struct fields
+			["@type"] = { fg = M.pallet.base09 }, -- type or class definitions and annotations
+			["@method"] = { fg = M.pallet.base16, italic = utils.italics }, -- method definitions
+			["@method.call"] = { fg = M.pallet.base16 }, -- method calls
+			["@field"] = { fg = M.pallet.base16 }, -- object and struct fields
 			["@number"] = { fg = "#F78C6C" }, -- numeric literals
-			["@property.class"] = { fg = M.pallete.base09, italic = utils.italics }, -- similar to `@field` for css class etc
+			["@property.class"] = { fg = M.pallet.base09, italic = utils.italics }, -- similar to `@field` for css class etc
 			["@html.doctype"] = { link = "@tag" },
 			["@html.paren"] = { link = "@string.plain" },
 			["@boolean"] = { fg = "#FF5874", italic = utils.italics }, -- boolean literals
 			["@operator"] = { link = "@property" }, -- numeric literals
-			["@text.title"] = { fg = M.pallete.base07 }, -- text that is part of a title
+			["@text.title"] = { fg = M.pallet.base07 }, -- text that is part of a title
 			-- css
-			["@type.tag"] = { fg = M.pallete.base11 }, -- type or class definitions and annotations
-			["@css.query"] = { fg = M.pallete.base10 }, -- type or class definitions and annotations
+			["@type.tag"] = { fg = M.pallet.base11 }, -- type or class definitions and annotations
+			["@css.query"] = { fg = M.pallet.base10 }, -- type or class definitions and annotations
 			["@css.unit"] = { fg = "#FFEB95" }, -- type or class definitions and annotations
 			-- c lang
 			["@include"] = { link = "@keyword" },
-			["@include.path"] = { fg = M.pallete.base15, italic = utils.italics },
+			["@include.path"] = { fg = M.pallet.base15, italic = utils.italics },
 		},
 		["nvim-web-devicons"] = {
-			["DevIconcss"] = { fg = M.pallete.base16 },
+			["DevIconcss"] = { fg = M.pallet.base16 },
 		},
 		["nvim-navic"] = {
 			NavicText = { link = "@variable" },

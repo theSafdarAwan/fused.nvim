@@ -26,7 +26,7 @@ local colors = {
 
 local M = {}
 
-M.pallete = {
+M.pallet = {
 	base01 = colors.color_1,
 	base02 = colors.color_2,
 	base03 = colors.color_3,
@@ -62,43 +62,43 @@ M.polish = function()
 	local utils = require("fused.utils")
 	return {
 		builtin = {
-			MatchParen = { bg = M.pallete.base02 },
-			WinSeparator = { fg = M.pallete.base02 },
-			Pmenu = { fg = M.pallete.base16, bg = M.pallete.base01 },
+			MatchParen = { bg = M.pallet.base02 },
+			WinSeparator = { fg = M.pallet.base02 },
+			Pmenu = { fg = M.pallet.base16, bg = M.pallet.base01 },
 			-- Popup menu: selected item.
-			PmenuSel = { fg = M.pallete.base16, bg = M.pallete.base02 },
+			PmenuSel = { fg = M.pallet.base16, bg = M.pallet.base02 },
 			-- Popup menu: scrollbar.
-			PmenuSbar = { bg = M.pallete.base02 },
+			PmenuSbar = { bg = M.pallet.base02 },
 			-- Popup menu: Thumb of the scrollbar.
-			PmenuThumb = { bg = M.pallete.base05 },
+			PmenuThumb = { bg = M.pallet.base05 },
 		},
 		["nvim-treesitter"] = {
-			["@html.doctype"] = { fg = M.pallete.base10 }, -- XML tag attributes
-			["@tag.attribute"] = { fg = M.pallete.base09 }, -- XML tag attributes
-			["@function"] = { fg = M.pallete.base12 }, -- function definitions
-			["@string"] = { fg = M.pallete.base19 }, -- string
-			["@variable"] = { fg = M.pallete.base07 }, -- builtin variable
-			["@variable.builtin"] = { fg = M.pallete.base07 }, -- builtin variable
-			["@parameter"] = { fg = M.pallete.base21 }, -- parameters of a function
-			["@method"] = { fg = M.pallete.base12 }, -- method definitions
-			["@method.call"] = { fg = M.pallete.base12 }, -- similar to `@field`
-			["@field"] = { fg = M.pallete.base10 }, -- object and struct fields
-			["@constant"] = { fg = M.pallete.base07 }, -- constant identifiers
-			["@boolean"] = { fg = M.pallete.base21 }, -- boolean literals
-			["@number"] = { fg = M.pallete.base21 }, -- numeric literals
-			["@operator"] = { fg = M.pallete.base14 }, -- numeric literals
-			["@text.title"] = { fg = M.pallete.base07 }, -- text that is part of a title
-			["@tag"] = { fg = M.pallete.base10 }, -- XML tag names
+			["@html.doctype"] = { fg = M.pallet.base10 }, -- XML tag attributes
+			["@tag.attribute"] = { fg = M.pallet.base09 }, -- XML tag attributes
+			["@function"] = { fg = M.pallet.base12 }, -- function definitions
+			["@string"] = { fg = M.pallet.base19 }, -- string
+			["@variable"] = { fg = M.pallet.base07 }, -- builtin variable
+			["@variable.builtin"] = { fg = M.pallet.base07 }, -- builtin variable
+			["@parameter"] = { fg = M.pallet.base21 }, -- parameters of a function
+			["@method"] = { fg = M.pallet.base12 }, -- method definitions
+			["@method.call"] = { fg = M.pallet.base12 }, -- similar to `@field`
+			["@field"] = { fg = M.pallet.base10 }, -- object and struct fields
+			["@constant"] = { fg = M.pallet.base07 }, -- constant identifiers
+			["@boolean"] = { fg = M.pallet.base21 }, -- boolean literals
+			["@number"] = { fg = M.pallet.base21 }, -- numeric literals
+			["@operator"] = { fg = M.pallet.base14 }, -- numeric literals
+			["@text.title"] = { fg = M.pallet.base07 }, -- text that is part of a title
+			["@tag"] = { fg = M.pallet.base10 }, -- XML tag names
 			-- css
-			["@property.class"] = { fg = M.pallete.base09 }, -- similar to `@field` for css class etc
-			["@type.tag"] = { fg = M.pallete.base13 }, -- type or class definitions and annotations
-			["@string.plain"] = { fg = M.pallete.base14, italic = utils.italics }, -- css property, etcc
-			["@css.unit"] = { fg = M.pallete.base14 },
-			["@css.query"] = { fg = M.pallete.base17 },
+			["@property.class"] = { fg = M.pallet.base09 }, -- similar to `@field` for css class etc
+			["@type.tag"] = { fg = M.pallet.base13 }, -- type or class definitions and annotations
+			["@string.plain"] = { fg = M.pallet.base14, italic = utils.italics }, -- css property, etcc
+			["@css.unit"] = { fg = M.pallet.base14 },
+			["@css.query"] = { fg = M.pallet.base17 },
 			["@html.paren"] = { fg = "#216977" },
 		},
 		["nvim-web-devicons"] = {
-			["DevIconcss"] = { fg = M.pallete.base16 },
+			["DevIconcss"] = { fg = M.pallet.base16 },
 		},
 		["nvim-navic"] = {
 			NavicText = { link = "@variable" },

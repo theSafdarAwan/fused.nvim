@@ -1,8 +1,5 @@
-- [ ] custom highlights is not working
 - [ ] add the previews
-- [ ] change the plugins names to the names of the plugins from todocomments todo-comments.nvim
 - [ ] add the option for adding the autocmds that are defined in after
-- [ ] work on the onedark and aquarium theme colors
 - [ ] add the markdown treesitter highlights
 - [ ] add a key to the config so that auto loading colors for plugins is disabled
   and only enabled when we lazy_load the config

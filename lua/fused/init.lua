@@ -50,7 +50,7 @@ M.setup = function(user_configuration)
 
 	local theme = require("fused.pallets." .. config["flavour"])
 	-- theme colors
-	local colors = theme.pallete
+	local colors = theme.pallet
 	-- set the background to transparent
 	opts.bg_transparent = config.bg_transparent
 	-- italic font config

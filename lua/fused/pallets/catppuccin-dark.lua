@@ -1,7 +1,7 @@
 local colors = {
 	crust = "#11111B",
-	mantle = "#181825",
-	base = "#1E1E2E",
+	mantle = "#1E1E2E",
+	base = "#181825",
 	surface0 = "#313244",
 	overlay1 = "#44475a",
 	white = "#abb2bf",
@@ -30,7 +30,7 @@ local colors = {
 
 local M = {}
 
-M.pallete = {
+M.pallet = {
 	base01 = colors.crust,
 	base02 = colors.mantle,
 	base03 = colors.base,
