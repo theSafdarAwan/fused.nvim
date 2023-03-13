@@ -7,19 +7,19 @@ local hl = require("fused.utils").set_hl
 ---@table exposes utils
 local utils = require("fused.utils")
 
---- table of colors
----@table colors
-local colors = utils.colors
-
 --- loads higlights for editor builtin highlight groups including editor, syntax and lsp
 M.load_builtin_hl = function()
+	--- table of colors
+	---@table colors
+	local colors = utils.colors
+
 	local hls = {}
 	hls = vim.tbl_extend("force", hls, require("fused.groups.editor").get_hl_groups(colors))
 	hls = vim.tbl_extend("force", hls, require("fused.groups.syntax").get_hl_groups(colors))
 
 	hls = vim.tbl_extend("force", hls, require("fused.groups.lsp").get_hl_groups(colors))
-	if utils.polish and utils.polish().builtin then
-		hls = vim.tbl_extend("force", hls, utils.polish().builtin)
+	if utils.polish and utils.polish.builtin then
+		hls = vim.tbl_extend("force", hls, utils.polish.builtin)
 	end
 	for hl_name, hl_val in pairs(hls) do
 		hl(tostring(hl_name), hl_val)
@@ -29,6 +29,10 @@ end
 --- loads higlight for the editor plugins highlight groups.
 ---@param plugins_tbl table plugins table to load group highlights for.
 M.load_plugins_hl = function(plugins_tbl)
+	--- table of colors
+	---@table colors
+	local colors = utils.colors
+
 	local plugins_hl_tbls = {}
 	for plugin_name, _ in pairs(plugins_tbl) do
 		local previous_name = nil
@@ -39,8 +43,8 @@ M.load_plugins_hl = function(plugins_tbl)
 		end
 		local hl_tbl = require("fused.groups.plugins." .. plugin_name).get_hl_groups(colors)
 		plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, hl_tbl)
-		if utils.polish and utils.polish()[previous_name] then
-			plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, utils.polish()[previous_name])
+		if utils.polish and utils.polish[previous_name] then
+			plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, utils.polish[previous_name])
 		end
 	end
 

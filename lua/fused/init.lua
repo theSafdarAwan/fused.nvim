@@ -9,7 +9,7 @@ local M = {}
 ---@field custom table|function returns table of custom higlight groups.
 ---@field plugins_integration table of plugin names (name = boolean) .Accepts full
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
--- use the string key like (["nvim-tree.lua"] = true).
+-- use the string key like (["nvim-tree"] = true).
 local default_config = {
 	flavour = "palenight",
 	italics = true,
@@ -58,7 +58,9 @@ M.setup = function(user_configuration)
 	opts.colors = colors
 	-- polish function to override some highlights
 	if theme.polish then
-		opts.polish = theme.polish
+		opts.polish = theme.polish()
+	else
+		opts.polish = {}
 	end
 	require("fused.utils").export_opts(opts)
 
@@ -69,7 +71,7 @@ M.setup = function(user_configuration)
 	require("fused.groups").load_builtin_hl()
 
 	-- load highlights for the plugins
-	if user_configuration and user_configuration.plugins_integration then
+	if not user_configuration or user_configuration and not user_configuration.plugins_integration then
 		require("fused.groups").load_plugins_hl(plugins)
 	end
 
