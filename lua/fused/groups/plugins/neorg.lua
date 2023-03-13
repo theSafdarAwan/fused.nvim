@@ -13,11 +13,11 @@ M.get_hl_groups = function(cp)
 		["h6"] = cp.base13,
 		["h5"] = cp.base14,
 		["qc_fg"] = cp.base17,
-		["qc_bg"] = cp.base03,
+		["qc_bg"] = cp.base02,
 		["desc"] = cp.base18,
 		["superscript"] = cp.base09,
 		["subscript"] = cp.base14,
-		["code_block"] = cp.base04,
+		["code_block"] = cp.base02,
 	}
 
 	local heading_level = {
