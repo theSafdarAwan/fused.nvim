@@ -57,12 +57,12 @@ function M.__load(user_configuration)
 	local theme = require("fused.pallets." .. config["flavour"])
 	-- theme colors
 	local colors = theme.pallet
-	-- set the background to transparent
+	-- transparent background opt
 	opts.bg_transparent = config.bg_transparent
-	-- italic font config
+	-- italic opt
 	opts.italics = config.italics
 	opts.colors = colors
-	-- polish function to override some highlights
+	-- override default highlight groups
 	local override_hl_groups
 	if type(config.override) == "function" then
 		override_hl_groups = config.override()[config.flavour]
