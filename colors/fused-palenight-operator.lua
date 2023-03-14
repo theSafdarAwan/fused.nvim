@@ -6,4 +6,4 @@ end
 
 vim.o.termguicolors = true
 
-require("fused").setup({ flavour = "palenight" })
+require("fused").setup({ flavour = "palenight-operator" })
