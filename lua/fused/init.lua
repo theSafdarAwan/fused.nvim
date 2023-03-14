@@ -49,9 +49,7 @@ local opts = {}
 ---@param user_configuration table|nil configuration for theme.
 M.setup = function(user_configuration)
 	--- merge default_config and user_configuration
-	local config = vim.tbl_extend("force", default_config, user_configuration or {})
-	config.plugins = vim.tbl_extend("force", default_config.plugins, config.plugins or {})
-	config.custom = user_configuration and vim.deepcopy(user_configuration.custom)
+	local config = vim.tbl_deep_extend("force", default_config, user_configuration or {})
 
 	local theme = require("fused.pallets." .. config["flavour"])
 	-- theme colors

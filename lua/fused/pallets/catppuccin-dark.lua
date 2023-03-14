@@ -72,13 +72,12 @@ M.polish = function()
 			["@tag.attribute"] = { fg = M.pallet.base09, italic = utils.italics }, -- XML tag attributes
 			["@variable"] = { fg = M.pallet.base17 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallet.base17 }, -- builtin variable
-			["@operator"] = { fg = M.pallet.base12 },
 			-- c lang
 			["@include"] = { link = "@keyword" },
 			["@include.path"] = { fg = M.pallet.base15, italic = utils.italics },
 			-- css
 			["@css.query"] = { fg = M.pallet.base13 },
-			["@css.query_keyword"] = { fg = M.pallet.base14 },
+			["@css.keyword"] = { fg = M.pallet.base14 },
 			["@css.unit"] = { fg = M.pallet.base15 },
 			-- html
 			["@html.doctype"] = { link = "@tag" },

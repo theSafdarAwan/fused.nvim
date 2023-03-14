@@ -53,4 +53,12 @@ M.format_plugin_name = function(name)
 	return name
 end
 
+--- Overrides the default highlight groups
+---@param hl_groups table of highlight groups
+M.override = function(hl_groups)
+	local polished = require("fused.utils").polish()
+	local tbl = vim.tbl_deep_extend("force", polished, hl_groups)
+	return tbl
+end
+
 return M
