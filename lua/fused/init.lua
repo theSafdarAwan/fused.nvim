@@ -7,7 +7,7 @@ local M = {}
 ---@field italics boolean to enable or disable italic font.
 ---@field bg_transparent boolean to enable or disable transparent background.
 ---@field custom table|function returns table of custom higlight groups.
----@field plugins_integration table of plugin names (name = boolean) .Accepts full
+---@field plugins table of plugin names (name = boolean) .Accepts full
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
 -- use the string key like (["nvim-tree"] = true).
 local default_config = {
@@ -21,7 +21,7 @@ local default_config = {
 	italics = true,
 	bg_transparent = false,
 	custom = {},
-	plugins_integration = {
+	plugins = {
 		harpoon = true,
 		neogit = true,
 		neorg = true,
@@ -50,8 +50,7 @@ local opts = {}
 M.setup = function(user_configuration)
 	--- merge default_config and user_configuration
 	local config = vim.tbl_extend("force", default_config, user_configuration or {})
-	config.plugins_integration =
-		vim.tbl_extend("force", default_config.plugins_integration, config.plugins_integration or {})
+	config.plugins = vim.tbl_extend("force", default_config.plugins, config.plugins or {})
 	config.custom = user_configuration and vim.deepcopy(user_configuration.custom)
 
 	local theme = require("fused.pallets." .. config["flavour"])
@@ -73,13 +72,13 @@ M.setup = function(user_configuration)
 	require("fused.utils").export_opts(opts)
 
 	-- plugins table to load
-	local plugins = config.plugins_integration
+	local plugins = config.plugins
 
 	-- set normal highlights
 	require("fused.groups").load_builtin_hl()
 
 	-- load highlights for the plugins
-	if not user_configuration or user_configuration and not user_configuration.plugins_integration then
+	if not user_configuration or user_configuration and not user_configuration.plugins then
 		require("fused.groups").load_plugins_hl(plugins)
 	end
 
