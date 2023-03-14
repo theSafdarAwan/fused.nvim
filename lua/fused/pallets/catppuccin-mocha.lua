@@ -15,6 +15,14 @@ M.pallet = pallet
 
 ---@function Polish
 ---@return table of polished color groups
-M.polish = require("fused.pallets.catppuccin-dark").polish
+M.polish = function()
+	local dark_polish = require("fused.pallets.catppuccin-dark").polish()
+	return vim.tbl_extend("force", dark_polish, {
+		builtin = {
+			MatchParen = { bg = M.pallet.base03 },
+			WinSeparator = { fg = M.pallet.base02 },
+		},
+	})
+end
 
 return M

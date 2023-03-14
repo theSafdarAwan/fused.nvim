@@ -65,10 +65,6 @@ M.pallet = {
 M.polish = function()
 	local utils = require("fused.utils")
 	return {
-		builtin = {
-			MatchParen = { bg = M.pallet.base02 },
-			WinSeparator = { fg = M.pallet.base02 },
-		},
 		["nvim-treesitter"] = {
 			["@method"] = { fg = M.pallet.base12 }, -- method definitions
 			["@method.call"] = { link = "@method" }, -- method calls
@@ -77,9 +73,14 @@ M.polish = function()
 			["@variable"] = { fg = M.pallet.base17 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallet.base17 }, -- builtin variable
 			["@html.doctype"] = { link = "@tag" },
+			["@operator"] = { fg = M.pallet.base12 },
 			-- c lang
 			["@include"] = { link = "@keyword" },
 			["@include.path"] = { fg = M.pallet.base15, italic = utils.italics },
+			-- css
+			["@css.query"] = { fg = M.pallet.base13 },
+			["@css.query_keyword"] = { fg = M.pallet.base14 },
+			["@css.unit"] = { fg = M.pallet.base15 },
 		},
 	}
 end
