@@ -13,4 +13,8 @@ pallet = vim.tbl_extend("force", pallet, accent_colors)
 
 M.pallet = pallet
 
+---@function Polish
+---@return table of polished color groups
+M.polish = require("fused.pallets.catppuccin-dark").polish
+
 return M

@@ -58,9 +58,11 @@ M.setup = function(user_configuration)
 	opts.colors = colors
 	-- polish function to override some highlights
 	if theme.polish then
-		opts.polish = theme.polish()
+		opts.polish = theme.polish
 	else
-		opts.polish = {}
+		opts.polish = function()
+			return {}
+		end
 	end
 	require("fused.utils").export_opts(opts)
 

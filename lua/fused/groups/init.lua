@@ -22,8 +22,8 @@ M.load_builtin_hl = function()
 	hls = vim.tbl_extend("force", hls, require("fused.groups.syntax").get_hl_groups(colors))
 
 	hls = vim.tbl_extend("force", hls, require("fused.groups.lsp").get_hl_groups(colors))
-	if utils.polish and utils.polish.builtin then
-		hls = vim.tbl_extend("force", hls, utils.polish.builtin)
+	if utils.polish and utils.polish().builtin then
+		hls = vim.tbl_extend("force", hls, utils.polish().builtin)
 	end
 	available_hl_groups = vim.tbl_extend("force", available_hl_groups, hls)
 	for hl_name, hl_val in pairs(hls) do
@@ -48,8 +48,8 @@ M.load_plugins_hl = function(plugins_tbl)
 		end
 		local hl_tbl = require("fused.groups.plugins." .. plugin_name).get_hl_groups(colors)
 		plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, hl_tbl)
-		if utils.polish and utils.polish[previous_name] then
-			plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, utils.polish[previous_name])
+		if utils.polish and utils.polish()[previous_name] then
+			plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, utils.polish()[previous_name])
 		end
 	end
 

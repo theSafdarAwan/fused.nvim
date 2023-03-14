@@ -36,11 +36,11 @@ M.get_hl_groups = function(cp)
 		["@function.call"] = { link = "@function" }, -- function calls
 		["@function.macro"] = { fg = cp.base13 }, -- preprocessor macros
 
-		["@method"] = { fg = cp.base07 }, -- method definitions
+		["@method"] = { fg = cp.base17 }, -- method definitions
 		["@method.call"] = { link = "@method" }, -- method calls
 
 		["@constructor"] = { fg = cp.base13 }, -- constructor calls and definitions
-		["@parameter"] = { fg = cp.base12, italic = utils.italics }, -- parameters of a function
+		["@parameter"] = { fg = cp.base09, italic = utils.italics }, -- parameters of a function
 
 		-- Keywords
 		["@keyword"] = { fg = cp.base14, italic = utils.italics }, -- various keywords
@@ -88,7 +88,7 @@ M.get_hl_groups = function(cp)
 		["@text.emphasis"] = { fg = cp.base07, italic = utils.italics }, -- text with emphasis
 		["@text.underline"] = { fg = cp.base07, underline = true }, -- underlined text
 		["@text.strike"] = { fg = cp.base07, strikethrough = true }, -- strikethrough text
-		["@text.title"] = { fg = cp.base15, bold = true }, -- text that is part of a title
+		["@text.title"] = { fg = cp.base07 }, -- text that is part of a title
 		["@text.literal"] = { fg = cp.base05 }, -- literal or verbatim text
 		["@text.uri"] = { fg = cp.base06, underline = true }, -- URIs (e.g. hyperlinks)
 		["@text.math"] = { fg = cp.base18 }, -- math environments (e.g. `$ ... $` in LaTeX)
