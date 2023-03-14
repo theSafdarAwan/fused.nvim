@@ -4,6 +4,10 @@ local M = {}
 --- configuration for theme.
 ---@table Config
 ---@field flavour string name of the theme.
+---@field override table|function should give a table of themes name as key name and table of
+--- Highlight groups to override - to override plugin highlight add highlight in a table with
+--- the plugin name as - `["name"] = {}` find name. Syntax or editor highlights then add in a
+--- table called - `builtin = {}`.
 ---@field italics boolean to enable or disable italic font.
 ---@field bg_transparent boolean to enable or disable transparent background.
 ---@field custom table|function returns table of custom higlight groups.
@@ -61,10 +65,26 @@ M.setup = function(user_configuration)
 	opts.colors = colors
 	-- polish function to override some highlights
 	if theme.polish then
-		opts.polish = theme.polish
+		opts.polish = function()
+			local polished = theme.polish()
+			local override_hl_groups
+			if type(config.override) == "function" then
+				override_hl_groups = config.override()[config.flavour]
+			else
+				override_hl_groups = config.override[config.flavour]
+			end
+			for group_name, group_val in pairs(override_hl_groups) do
+				polished[group_name] = vim.tbl_deep_extend("force", polished[group_name], group_val)
+			end
+			return polished
+		end
 	else
 		opts.polish = function()
-			return {}
+			local polished = {}
+			for group_name, group_val in pairs(config.override[config.flavour]) do
+				polished[group_name] = vim.tbl_deep_extend("force", polished[group_name], group_val)
+			end
+			return polished
 		end
 	end
 	require("fused.utils").export_opts(opts)
