@@ -12,6 +12,12 @@ local M = {}
 -- use the string key like (["nvim-tree"] = true).
 local default_config = {
 	flavour = "catppuccin-mocha",
+	override = {
+		["catppuccin-mocha"] = {},
+		["catppuccin-dark"] = {},
+		["ayu-mirage"] = {},
+		["palenight-operator"] = {},
+	},
 	italics = true,
 	bg_transparent = false,
 	custom = {},
