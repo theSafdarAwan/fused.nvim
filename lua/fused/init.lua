@@ -4,7 +4,7 @@ local M = {}
 --- setup function to load the theme on startup.
 ---@param user_configuration table|nil configuration for theme.
 M.setup = function(user_configuration)
-	require("fused.load").__load(user_configuration)
+	require("fused.setup").__setup(user_configuration)
 end
 
 --- This function lets you Load single plugin specified as parameter after the theme
@@ -17,7 +17,7 @@ M.load_plugin = function(name)
 	end)
 end
 
---- Adds hook for theme
+--- allows you to add hook's which execute on theme change.
 ---@param hooks table `{ foo = function() end }`. Hook function will be executed on theme
 --- change - when theme was set using the command line or using telescope theme picker. If
 --- you want to - execute it on setup then set the `execute_hooks` in setup table to `true`.

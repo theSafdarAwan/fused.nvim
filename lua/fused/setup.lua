@@ -49,7 +49,7 @@ local default_config = {
 
 --- loads theme
 ---@param user_configuration table|nil configuration for the theme.
-function M.__load(user_configuration)
+function M.__setup(user_configuration)
 	--- to export the opts like bg_transparent, italics, etc.
 	local opts = {}
 
