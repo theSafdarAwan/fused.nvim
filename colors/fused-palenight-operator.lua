@@ -6,4 +6,7 @@ end
 
 vim.o.termguicolors = true
 
-require("fused").setup({ flavour = "palenight-operator" })
+require("fused").setup({
+	flavour = "palenight-operator",
+	execute_hooks = true,
+})

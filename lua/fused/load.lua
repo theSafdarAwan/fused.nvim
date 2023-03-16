@@ -9,6 +9,7 @@ local M = {}
 --- table called - `builtin = {}`.
 ---@field italics boolean to enable or disable italic font.
 ---@field bg_transparent boolean to enable or disable transparent background.
+--- Which can be used by user to reload modules or configs like status line, etc.
 ---@field custom table|function returns table of custom higlight groups.
 ---@field plugins table of plugin names (name = boolean) .Accepts full
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
@@ -24,6 +25,7 @@ local default_config = {
 	italics = true,
 	bg_transparent = false,
 	custom = {},
+	execute_hooks = false,
 	plugins = {
 		harpoon = true,
 		neogit = true,
@@ -86,6 +88,7 @@ function M.__load(user_configuration)
 			return polished
 		end
 	end
+	-- export the opts to the utils module for later easy access and use.
 	require("fused.utils").export_opts(opts)
 
 	-- plugins table to load
@@ -111,6 +114,14 @@ function M.__load(user_configuration)
 				hl_opts.styles = nil
 			end
 			hl(hl_group_name, hl_opts)
+		end
+	end
+
+	-- execute hooks
+	if not user_configuration or config.execute_hooks then
+		local hook_names = require("fused.utils").hooks_names
+		for hook_name, _ in pairs(hook_names) do
+			vim.cmd("do User " .. hook_name)
 		end
 	end
 end

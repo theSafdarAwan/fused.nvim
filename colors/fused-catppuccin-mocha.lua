@@ -6,4 +6,7 @@ end
 
 vim.o.termguicolors = true
 
-require("fused").setup({ flavour = "catppuccin-mocha" })
+require("fused").setup({
+	flavour = "catppuccin-mocha",
+	execute_hooks = true,
+})

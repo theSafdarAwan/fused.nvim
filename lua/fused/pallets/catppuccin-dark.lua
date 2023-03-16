@@ -78,7 +78,7 @@ M.polish = function()
 			-- css
 			["@css.query"] = { fg = M.pallet.base13 },
 			["@css.keyword"] = { fg = M.pallet.base14 },
-			["@css.unit"] = { fg = M.pallet.base15 },
+			["@css.unit"] = { fg = M.pallet.base12 },
 			-- html
 			["@html.doctype"] = { link = "@tag" },
 		},

@@ -18,6 +18,24 @@ M.export_opts = function(opts)
 	end
 end
 
+---@table hooks names. To be used later for executing autocmds when theme changes.
+M.hooks_names = {}
+
+--- Adds hooks to the stack
+---@param hooks table
+M.__add_hooks = function(hooks)
+	for hook_name, callback in pairs(hooks) do
+		hook_name = tostring(hook_name)
+		-- add hook name to the stack
+		M.hooks_names[hook_name] = {}
+		vim.api.nvim_create_autocmd("User", {
+			group = vim.api.nvim_create_augroup("fused hook: " .. hook_name, { clear = true }),
+			pattern = hook_name,
+			callback = callback,
+		})
+	end
+end
+
 --- Converts styles from a string to a table and returns it.
 ---@return table of styles
 M.format_styles = function(styles_str)

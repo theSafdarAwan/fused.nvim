@@ -6,4 +6,7 @@ end
 
 vim.o.termguicolors = true
 
-require("fused").setup({ flavour = "ayu-mirage" })
+require("fused").setup({
+	flavour = "ayu-mirage",
+	execute_hooks = true,
+})

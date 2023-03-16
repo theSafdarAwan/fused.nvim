@@ -17,4 +17,12 @@ M.load_plugin = function(name)
 	end)
 end
 
+--- Adds hook for theme
+---@param hooks table `{ foo = function() end }`. Hook function will be executed on theme
+--- change - when theme was set using the command line or using telescope theme picker. If
+--- you want to - execute it on setup then set the `execute_hooks` in setup table to `true`.
+M.add_hooks = function(hooks)
+	require("fused.utils").__add_hooks(hooks)
+end
+
 return M
