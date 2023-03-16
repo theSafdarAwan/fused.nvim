@@ -118,7 +118,7 @@ function M.__setup(user_configuration)
 	end
 
 	-- execute hooks
-	if not user_configuration or config.execute_hooks then
+	if config.execute_hooks then
 		local hook_names = require("fused.utils").hooks_names
 		for hook_name, _ in pairs(hook_names) do
 			vim.cmd("do User " .. hook_name)
