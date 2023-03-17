@@ -40,16 +40,15 @@ M.load_plugins_hl = function(plugins_tbl)
 
 	local plugins_hl_tbls = {}
 	for plugin_name, _ in pairs(plugins_tbl) do
-		local previous_name = nil
+		local fmt_plugin_name = nil
 		-- replace the . char with _
 		if type(plugin_name) == "string" then
-			previous_name = plugin_name
-			plugin_name = require("fused.utils").format_plugin_name(plugin_name)
+			fmt_plugin_name = require("fused.utils").format_plugin_name(plugin_name)
 		end
-		local hl_tbl = require("fused.groups.plugins." .. plugin_name).get_hl_groups(colors)
+		local hl_tbl = require("fused.groups.plugins." .. fmt_plugin_name or plugin_name).get_hl_groups(colors)
 		plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, hl_tbl)
-		if utils.polish and utils.polish()[previous_name] then
-			plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, utils.polish()[previous_name])
+		if utils.polish and utils.polish()[plugin_name] then
+			plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, utils.polish()[plugin_name])
 		end
 	end
 
