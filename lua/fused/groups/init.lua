@@ -58,7 +58,7 @@ M.load_plugins_hl = function(plugins_tbl)
 		hl_name = tostring(hl_name)
 		-- NOTE> this is to not use italics for plugins highlights only remove italic style from
 		-- linked value and only do that if its not a treesitter hl_group
-		if hl_val.link and available_hl_groups[hl_name] and not string.find(hl_name, "@") then
+		if hl_val.link and available_hl_groups[hl_val.link] and not string.find(hl_name, "@") then
 			hl_val = available_hl_groups[hl_val.link]
 			if hl_val and hl_val.italic then
 				hl_val.italic = false
