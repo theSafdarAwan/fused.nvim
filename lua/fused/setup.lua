@@ -3,10 +3,10 @@ local M = {}
 --- Configuration for theme.
 ---@table Default_Config
 ---@field flavour string name of the theme.
----@field override table|function should give a table of themes name as key name and table of
---- Highlight groups to override - to override plugin highlight add highlight in a table with
---- the plugin name as - `["name"] = {}` find name. Syntax or editor highlights then add in a
---- table called - `builtin = {}`.
+---@field override table|function should return a table. With theme name as key and table
+--- as value with highlight groups to override plugin's highlight groups. Syntax and
+--- editor highlights have a special field called `builtin` other fields are same as
+--- the `plugins` table field's names.
 ---@field italics boolean to enable or disable italic font.
 ---@field bg_transparent boolean to enable or disable transparent background.
 --- Which can be used by user to reload modules or configs like status line, etc.
@@ -14,8 +14,10 @@ local M = {}
 ---@field plugins table of plugin names (name = boolean) .Accepts full
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
 -- use the string key like (["nvim-tree"] = true).
----@private force_load_plugins boolean to force load plugins when loading from
--- the colors/flavour.
+---@private force_load_plugins boolean to force load plugins when loading theme
+--- using command line.
+--- @private execute_hooks boolean to execute hooks. When theme was changed after
+--- the startup.
 local default_config = {
 	flavour = "catppuccin-mocha",
 	override = {
@@ -27,7 +29,6 @@ local default_config = {
 	italics = true,
 	bg_transparent = false,
 	custom = {},
-	execute_hooks = false,
 	plugins = {
 		harpoon = true,
 		neogit = true,
@@ -48,6 +49,7 @@ local default_config = {
 		["renamer.nvim"] = true,
 	},
 	force_load_plugins = false,
+	execute_hooks = false,
 }
 
 --- loads theme
