@@ -17,6 +17,7 @@ M.get_hl_groups = function(cp)
 		NvimTreeOpenedFolderName = { link = "NvimTreeFolderName" },
 		NvimTreeExecFile = { fg = cp.base15 },
 		NvimtreeFileStaged = { fg = cp.base15 },
+		NvimTreeSpecialFile = { link = "@field" },
 	}
 	-- NvimTreeGitMerge
 	-- NvimTreeFileDirty
@@ -27,7 +28,6 @@ M.get_hl_groups = function(cp)
 	-- NvimTreeFileNew
 	-- NvimTreeFileDeleted
 	-- NvimTreeOpenedFile
-	-- NvimTreeSpecialFile
 	-- NvimTreeImageFile
 	-- NvimTreeMarkdownFile
 	-- NvimTreeLicenseIcon

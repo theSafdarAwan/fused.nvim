@@ -22,7 +22,6 @@ local colors = {
 	blue = "#89B4FA", -- for variable name etc.
 	lavender = "#B4BEFE", -- color for string
 	-- ts-rainbow brackets pair colors
-	-- TODO: add new colors for ts-rainbow
 	ts_rainbow_aqua = "#8ec07c",
 	ts_rainbow_pruple = "#d3869b",
 	ts_rainbow_blue = "#83a598",
