@@ -98,10 +98,7 @@ function M.__setup(user_configuration)
 	require("fused.groups").load_builtin_hl()
 
 	-- load highlights for the plugins
-	if
-		user_configuration and user_configuration.force_load_plugins
-		or user_configuration and user_configuration.plugins
-	then
+	if config.force_load_plugins or user_configuration and user_configuration.plugins then
 		require("fused.groups").load_plugins_hl(config.plugins)
 	end
 
