@@ -8,5 +8,6 @@ vim.o.termguicolors = true
 
 require("fused").setup({
 	flavour = "ayu-mirage",
+	force_load_plugins = true,
 	execute_hooks = true,
 })

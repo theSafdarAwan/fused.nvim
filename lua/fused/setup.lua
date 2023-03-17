@@ -14,6 +14,8 @@ local M = {}
 ---@field plugins table of plugin names (name = boolean) .Accepts full
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
 -- use the string key like (["nvim-tree"] = true).
+---@private force_load_plugins boolean to force load plugins when loading from
+-- the colors/flavour.
 local default_config = {
 	flavour = "catppuccin-mocha",
 	override = {
@@ -45,6 +47,7 @@ local default_config = {
 		["nvim-ts-rainbow"] = true,
 		["renamer.nvim"] = true,
 	},
+	force_load_plugins = false,
 }
 
 --- loads theme
@@ -91,15 +94,15 @@ function M.__setup(user_configuration)
 	-- export the opts to the utils module for later easy access and use.
 	require("fused.utils").export_opts(opts)
 
-	-- plugins table to load
-	local plugins = config.plugins
-
 	-- set normal highlights
 	require("fused.groups").load_builtin_hl()
 
 	-- load highlights for the plugins
-	if not user_configuration or user_configuration and not user_configuration.plugins then
-		require("fused.groups").load_plugins_hl(plugins)
+	if
+		user_configuration and user_configuration.force_load_plugins
+		or user_configuration and user_configuration.plugins
+	then
+		require("fused.groups").load_plugins_hl(config.plugins)
 	end
 
 	-- set highlights for custom groups set by user

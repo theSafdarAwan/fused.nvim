@@ -8,5 +8,6 @@ vim.o.termguicolors = true
 
 require("fused").setup({
 	flavour = "palenight-operator",
+	force_load_plugins = true,
 	execute_hooks = true,
 })
