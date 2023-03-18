@@ -80,6 +80,8 @@ M.polish = function()
 			["@css.unit"] = { fg = M.pallet.base12 },
 			-- html
 			["@html.doctype"] = { link = "@tag" },
+			-- javascript
+			["@js.constructor"] = { fg = M.pallet.base14 },
 		},
 	}
 end

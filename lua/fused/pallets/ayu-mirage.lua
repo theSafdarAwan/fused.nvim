@@ -96,6 +96,8 @@ M.polish = function()
 			["@css.unit"] = { fg = M.pallet.base14 },
 			["@css.query"] = { fg = M.pallet.base17 },
 			["@html.paren"] = { fg = "#216977" },
+			-- javascript
+			["@js.constructor"] = { fg = M.pallet.base14 },
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallet.base16 },
