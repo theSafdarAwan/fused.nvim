@@ -45,7 +45,7 @@ local default_config = {
 		["telescope.nvim"] = true,
 		["todo-comments.nvim"] = true,
 		["trouble.nvim"] = true,
-		["nvim-ts-rainbow"] = true,
+		["nvim-ts-rainbow2"] = true,
 		["renamer.nvim"] = true,
 	},
 	force_load_plugins = false,
