@@ -2,9 +2,9 @@
 local colors = {
 	color_1 = "#1E1E1E",
 	color_2 = "#252526",
-	color_3 = "#252526",
-	color_4 = "#2D2D2D",
-	color_5 = "#808080",
+	color_3 = "#2D2D2D",
+	color_4 = "#373737",
+	color_5 = "#636369",
 	color_6 = "#AEAFAD",
 	color_7 = "#BBBBBB",
 
@@ -67,8 +67,13 @@ M.polish = function()
 	local utils = require("fused.utils")
 	return {
 		builtin = {
-			MatchParen = { bg = M.pallet.base02 },
-			WinSeparator = { fg = M.pallet.base02 },
+			Pmenu = { fg = M.pallet.base06, bg = M.pallet.base02 },
+			-- Popup menu: selected item.
+			PmenuSel = { fg = M.pallet.base07, bg = "#264f78" },
+			-- Popup menu: scrollbar.
+			PmenuSbar = { bg = M.pallet.base02 },
+			-- Popup menu: Thumb of the scrollbar.
+			PmenuThumb = { bg = M.pallet.base05 },
 		},
 		["nvim-treesitter"] = {
 			["@comment"] = { fg = M.pallet.base19 }, -- line and block comments
@@ -109,7 +114,7 @@ M.polish = function()
 			["@include.path"] = { link = "@string" },
 		},
 		["nvim-web-devicons"] = {
-			["DevIconcss"] = { fg = M.pallet.base16 },
+			["DevIconcss"] = { fg = M.pallet.base14 },
 		},
 		["nvim-navic"] = {
 			NavicText = { link = "@variable" },
