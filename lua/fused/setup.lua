@@ -72,9 +72,9 @@ function M.__setup(user_configuration)
 	-- override default highlight groups
 	local override_hl_groups
 	if type(config.override) == "function" then
-		override_hl_groups = config.override()[config.flavour]
+		override_hl_groups = config.override()[config.flavour] or {}
 	else
-		override_hl_groups = config.override[config.flavour]
+		override_hl_groups = config.override[config.flavour] or {}
 	end
 	if theme.polish then
 		opts.polish = function()
