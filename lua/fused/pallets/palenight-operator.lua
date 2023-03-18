@@ -98,6 +98,8 @@ M.polish = function()
 			-- c lang
 			["@include"] = { link = "@keyword" },
 			["@include.path"] = { fg = M.pallet.base15, italic = utils.italics },
+			-- javascript
+			["@js.constructor"] = { fg = M.pallet.base16 },
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallet.base16 },
