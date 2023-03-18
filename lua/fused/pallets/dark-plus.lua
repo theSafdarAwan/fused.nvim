@@ -102,9 +102,11 @@ M.polish = function()
 			["@css.unit"] = { link = "@number" }, -- type or class definitions and annotations
 			["@css.value"] = { fg = M.pallet.base17 },
 			["@css.query"] = { link = "@css.value" }, -- type or class definitions and annotations
+			-- javascript
+			["@js.constructor"] = { fg = M.pallet.base14 },
 			-- c lang
-			["@include"] = { link = "@keyword" },
-			["@include.path"] = { fg = M.pallet.base15 },
+			["@include"] = { fg = M.pallet.base16 },
+			["@include.path"] = { link = "@string" },
 		},
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallet.base16 },
