@@ -1,16 +1,16 @@
 --- palenight theme
 
 local colors = {
-	color_1 = "#292D3E",
-	color_2 = "#333748",
-	color_3 = "#3c4051",
-	color_4 = "#394b70",
-	color_5 = "#606475",
-	color_6 = "#929ac9",
-	color_7 = "#bfc7d5",
+	color_01 = "#292D3E",
+	color_02 = "#333748",
+	color_03 = "#3c4051",
+	color_04 = "#394b70",
+	color_05 = "#606475",
+	color_06 = "#929ac9",
+	color_07 = "#bfc7d5",
 
-	color_8 = "#f07178",
-	color_9 = "#FFCB6B",
+	color_08 = "#f07178",
+	color_09 = "#FFCB6B",
 	color_10 = "#89ffe6",
 
 	color_11 = "#ff5572",
@@ -33,16 +33,16 @@ local colors = {
 local M = {}
 
 M.pallet = {
-	base01 = colors.color_1,
-	base02 = colors.color_2,
-	base03 = colors.color_3,
-	base04 = colors.color_4,
-	base05 = colors.color_5,
-	base06 = colors.color_6,
-	base07 = colors.color_7,
+	base01 = colors.color_01,
+	base02 = colors.color_02,
+	base03 = colors.color_03,
+	base04 = colors.color_04,
+	base05 = colors.color_05,
+	base06 = colors.color_06,
+	base07 = colors.color_07,
 
-	base08 = colors.color_8,
-	base09 = colors.color_9,
+	base08 = colors.color_08,
+	base09 = colors.color_09,
 	base10 = colors.color_10,
 
 	base11 = colors.color_11,

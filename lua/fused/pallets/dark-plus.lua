@@ -1,15 +1,15 @@
 --- vscode Dark+
 local colors = {
-	color_1 = "#1E1E1E",
-	color_2 = "#252526",
-	color_3 = "#2D2D2D",
-	color_4 = "#373737",
-	color_5 = "#636369",
-	color_6 = "#AEAFAD",
-	color_7 = "#BBBBBB",
+	color_01 = "#1E1E1E",
+	color_02 = "#252526",
+	color_03 = "#2D2D2D",
+	color_04 = "#373737",
+	color_05 = "#636369",
+	color_06 = "#AEAFAD",
+	color_07 = "#BBBBBB",
 
-	color_8 = "#FB0101",
-	color_9 = "#e2c08d",
+	color_08 = "#FB0101",
+	color_09 = "#e2c08d",
 	color_10 = "#9CDCFE",
 
 	color_11 = "#e4676b",
@@ -32,16 +32,16 @@ local colors = {
 local M = {}
 
 M.pallet = {
-	base01 = colors.color_1,
-	base02 = colors.color_2,
-	base03 = colors.color_3,
-	base04 = colors.color_4,
-	base05 = colors.color_5,
-	base06 = colors.color_6,
-	base07 = colors.color_7,
+	base01 = colors.color_01,
+	base02 = colors.color_02,
+	base03 = colors.color_03,
+	base04 = colors.color_04,
+	base05 = colors.color_05,
+	base06 = colors.color_06,
+	base07 = colors.color_07,
 
-	base08 = colors.color_8,
-	base09 = colors.color_9,
+	base08 = colors.color_08,
+	base09 = colors.color_09,
 	base10 = colors.color_10,
 
 	base11 = colors.color_11,
