@@ -47,6 +47,7 @@ M.get_hl_groups = function(cp)
 		["@lsp.type.type"] = { link = "@type" },
 		["@lsp.type.typeParameter"] = { link = "Identifier" },
 		["@lsp.type.variable"] = { link = "@variable" },
+		["@lsp.type.keyword"] = { link = "@keyword" },
 	}
 end
 

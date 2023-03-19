@@ -16,7 +16,7 @@ local M = {}
 -- use the string key like (["nvim-tree"] = true).
 ---@private force_load_plugins boolean to force load plugins when loading theme
 --- using command line.
---- @private execute_hooks boolean to execute hooks. When theme was changed after
+---@private execute_hooks boolean to execute hooks. When theme was changed after
 --- the startup.
 local default_config = {
 	flavour = "catppuccin-mocha",

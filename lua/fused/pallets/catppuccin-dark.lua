@@ -71,17 +71,17 @@ M.polish = function()
 			["@tag.attribute"] = { fg = M.pallet.base09, italic = utils.italics }, -- XML tag attributes
 			["@variable"] = { fg = M.pallet.base17 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallet.base17 }, -- builtin variable
-			-- c lang
-			["@include"] = { link = "@keyword" },
-			["@include.path"] = { fg = M.pallet.base15, italic = utils.italics },
+			-- html
+			["@html.doctype"] = { link = "@tag" },
 			-- css
 			["@css.query"] = { fg = M.pallet.base13 },
 			["@css.keyword"] = { fg = M.pallet.base14 },
 			["@css.unit"] = { fg = M.pallet.base12 },
-			-- html
-			["@html.doctype"] = { link = "@tag" },
 			-- javascript
 			["@js.constructor"] = { fg = M.pallet.base14 },
+			-- c lang
+			["@include"] = { link = "@keyword" },
+			["@include.path"] = { fg = M.pallet.base15, italic = utils.italics },
 		},
 	}
 end
