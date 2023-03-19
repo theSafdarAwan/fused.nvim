@@ -9,15 +9,15 @@ local M = {}
 --- the `plugins` table field's names.
 ---@field italics boolean to enable or disable italic font.
 ---@field bg_transparent boolean to enable or disable transparent background.
---- Which can be used by user to reload modules or configs like status line, etc.
 ---@field custom table|function returns table of custom higlight groups.
 ---@field plugins table of plugin names (name = boolean) .Accepts full
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
--- use the string key like (["nvim-tree"] = true).
+-- use the string key like `["nvim-tree"] = true`.
 ---@private force_load_plugins boolean to force load plugins when loading theme
 --- using command line.
 ---@private execute_hooks boolean to execute hooks. When theme was changed after
 --- the startup.
+--- This can be used by user to reload modules or configs like status line, etc.
 local default_config = {
 	flavour = "tokyonight",
 	override = {

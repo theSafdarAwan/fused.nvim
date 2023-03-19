@@ -9,7 +9,7 @@ M.set_hl = function(group, hls)
 	vim.api.nvim_set_hl(0, group, hls)
 end
 
---- Exports the opts which can be used outside of the module.
+--- Exports the opts which are utilised when setting opts for highlight groups.
 ---@param opts table opts like bg_transparent, italics, etc.
 M.export_opts = function(opts)
 	-- need to get rid of previous pallet polished config
