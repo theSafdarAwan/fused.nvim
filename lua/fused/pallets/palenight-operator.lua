@@ -104,9 +104,6 @@ M.polish = function()
 		["nvim-web-devicons"] = {
 			["DevIconcss"] = { fg = M.pallet.base16 },
 		},
-		["nvim-navic"] = {
-			NavicText = { link = "@variable" },
-		},
 	}
 end
 

@@ -70,51 +70,30 @@ M.polish = function()
 			PmenuSbar = { bg = M.pallet.base02 },
 			-- Popup menu: Thumb of the scrollbar.
 			PmenuThumb = { bg = M.pallet.base05 },
+			MatchParen = { bg = "#3b4261" },
+			Label = { fg = M.pallet.base13 },
+			-- windows seperator color
+			WinSeparator = { fg = M.pallet.base02 },
 		},
 		["nvim-treesitter"] = {
-			-- ["@comment"] = { fg = M.pallet.base19 }, -- line and block comments
-			-- ["@function"] = { fg = M.pallet.base12 }, -- function definitions
-			-- ["@string"] = { fg = M.pallet.base17 }, -- string
-			-- ["@variable"] = { fg = M.pallet.base10 }, -- builtin variable
-			-- ["@variable.builtin"] = { fg = M.pallet.base10 }, -- builtin variable
-			-- ["@parameter"] = { fg = M.pallet.base10, italic = utils.italics }, -- parameters of a function
-			-- ["@property"] = { fg = M.pallet.base10 }, -- similar to `@field`
-			-- ["@type"] = { fg = M.pallet.base13 }, -- type or class definitions and annotations
-			-- ["@method"] = { fg = M.pallet.base12 }, -- method definitions
-			-- ["@method.call"] = { fg = M.pallet.base12 }, -- method calls
-			-- ["@field"] = { fg = M.pallet.base10 }, -- object and struct fields
-			-- ["@number"] = { fg = M.pallet.base12 }, -- numeric literals
-			-- ["@property.class"] = { fg = M.pallet.base09 }, -- similar to `@field` for css class etc
-			-- ["@boolean"] = { fg = M.pallet.base14 }, -- boolean literals
-			-- ["@operator"] = { link = "@punctuation.delimiter" }, -- numeric literals
-			-- ["@text.title"] = { fg = M.pallet.base07 }, -- text that is part of a title
-			-- ["@punctuation.delimiter"] = { fg = "#D4D4D4" }, -- delimiters (e.g. `;` / `.` / `,`)
-			-- ["@punctuation.special"] = { fg = M.pallet.base17 }, -- special symbols (e.g. `{}` in string interpolation)
-			-- ["@string.plain"] = { link = "@css.value" }, -- css property, etcc
-			-- ["@keyword"] = { fg = M.pallet.base14 }, -- various keywords
-			-- ["@keyword.return"] = { fg = M.pallet.base16 },
-			-- -- html
-			-- ["@tag"] = { fg = M.pallet.base14 }, -- XML tag names
-			-- ["@tag.attribute"] = { fg = M.pallet.base10 }, -- XML tag attributes
-			-- ["@html.doctype"] = { link = "@tag" },
-			-- ["@html.paren"] = { fg = M.pallet.base05 },
-			-- -- css
-			-- ["@type.tag"] = { fg = M.pallet.base18 }, -- type or class definitions and annotations
-			-- ["@css.unit"] = { link = "@number" }, -- type or class definitions and annotations
-			-- ["@css.value"] = { fg = M.pallet.base17 },
-			-- ["@css.query"] = { link = "@css.value" }, -- type or class definitions and annotations
-			-- -- javascript
-			-- ["@js.constructor"] = { fg = M.pallet.base14 },
-			-- -- c lang
-			-- ["@include"] = { fg = M.pallet.base16 },
-			-- ["@include.path"] = { link = "@string" },
+			["@function"] = { fg = M.pallet.base11 }, -- function definitions
+			["@label"] = { fg = M.pallet.base12, bold = true },
+			["@string"] = { fg = M.pallet.base15 }, -- string
+			["@method"] = { fg = M.pallet.base11 }, -- method definitions
+			["@method.call"] = { link = "@method" }, -- method calls
+			["@variable"] = { fg = M.pallet.base17 }, -- builtin variable
+			["@variable.builtin"] = { link = "@variable" }, -- builtin variable
+			["@parameter"] = { fg = M.pallet.base12, italic = utils.italics }, -- parameters of a function
+			["@boolean"] = { fg = M.pallet.base12 }, -- boolean literals
+			["@keyword.return"] = { fg = M.pallet.base11 },
+			-- css
+			["@css.query"] = { link = "@type" }, -- type or class definitions and annotations
+			-- javascript
+			["@js.constructor"] = { fg = M.pallet.base14 },
+			-- c lang
+			["@include"] = { fg = M.pallet.base16 },
+			["@include.path"] = { link = "@string" },
 		},
-		-- ["nvim-web-devicons"] = {
-		-- 	["DevIconcss"] = { fg = M.pallet.base14 },
-		-- },
-		-- ["nvim-navic"] = {
-		-- 	NavicText = { link = "@variable" },
-		-- },
 	}
 end
 

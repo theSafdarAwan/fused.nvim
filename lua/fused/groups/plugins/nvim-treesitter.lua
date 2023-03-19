@@ -69,6 +69,7 @@ M.get_hl_groups = function(cp)
 		["@field"] = { link = "@property" }, -- object and struct fields
 		["@field.key"] = { link = "@property" },
 		["@property.class"] = { fg = cp.base12 }, -- similar to `@field` for css class etc
+		["@property.id"] = { fg = cp.base13 }, -- css id,etc.
 
 		-- #### Identifiers
 		["@variable"] = { fg = cp.base17 }, -- various variable names

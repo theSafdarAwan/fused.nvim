@@ -24,7 +24,7 @@ M.get_hl_groups = function(_)
 		NavicIconsEvent = { link = "CmpItemKindEvent" },
 		NavicIconsOperator = { link = "CmpItemKindOperator" },
 		NavicIconsTypeParameter = { link = "CmpItemKindTypeParameter" },
-		NavicText = { link = "String" },
+		NavicText = { link = "@variable" },
 		NavicIconsNamespace = { link = "NavicText" },
 		NavicIconsString = { link = "NavicIconsNamespace" },
 		NavicIconsNull = { link = "NavicIconsString" },
