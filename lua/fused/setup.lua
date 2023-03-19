@@ -19,7 +19,7 @@ local M = {}
 ---@private execute_hooks boolean to execute hooks. When theme was changed after
 --- the startup.
 local default_config = {
-	flavour = "catppuccin-mocha",
+	flavour = "tokyonight",
 	override = {
 		["catppuccin-mocha"] = {},
 		["catppuccin-dark"] = {},
