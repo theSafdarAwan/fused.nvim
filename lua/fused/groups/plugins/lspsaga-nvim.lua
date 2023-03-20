@@ -4,7 +4,7 @@ M.get_hl_groups = function(cp)
 	local utils = require("fused.utils")
 	-- general
 	return {
-		TitleString = { bg = cp.base06, fg = cp.base04, bold = true },
+		TitleString = { fg = cp.base07 },
 		TitleSymbol = { fg = cp.base06, bg = cp.base04 },
 		TitleIcon = { fg = cp.base04, bg = cp.base06 },
 		TitleFileIcon = { fg = cp.base04, bg = cp.base06 },

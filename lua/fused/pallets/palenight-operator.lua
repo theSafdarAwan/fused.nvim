@@ -68,7 +68,16 @@ M.polish = function()
 	local utils = require("fused.utils")
 	return {
 		builtin = {
-			MatchParen = { bg = M.pallet.base02 },
+			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base01 },
+			-- Popup menu: selected item.
+			PmenuSel = { fg = M.pallet.base03, bg = M.pallet.base09 },
+			-- Popup menu: scrollbar.
+			PmenuSbar = { bg = M.pallet.base02 },
+			-- Popup menu: Thumb of the scrollbar.
+			PmenuThumb = { bg = M.pallet.base09 },
+			MatchParen = { bg = "#3b4261" },
+			Label = { fg = M.pallet.base13 },
+			-- windows seperator color
 			WinSeparator = { fg = M.pallet.base02 },
 		},
 		["nvim-treesitter"] = {
