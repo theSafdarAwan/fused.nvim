@@ -100,9 +100,9 @@ M.get_hl_groups = function(cp)
 		-- status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 		StatusLineNC = { fg = cp.base07, bg = cp.base04 },
 		-- tab pages line, not active tab page label
-		TabLine = { bg = cp.base04, fg = cp.base18 },
+		TabLine = { fg = cp.base06, bg = cp.base03 },
 		-- tab pages line, where there are no labels
-		TabLineFill = { bg = cp.base04 },
+		TabLineFill = { link = "TabLine" },
 		-- tab pages line, active tab page label
 		TabLineSel = { bg = cp.base05 },
 		-- titles for output from ":set all", ":autocmd" etcp.
