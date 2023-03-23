@@ -1,7 +1,7 @@
 --- tokyonight
 local colors = {
-	color_01 = "#1f2335",
-	color_02 = "#292e42",
+	color_01 = "#24273A",
+	color_02 = "#2f334d",
 	color_03 = "#414868",
 	color_04 = "#565f89",
 	color_05 = "#545c7e",
@@ -23,6 +23,8 @@ local colors = {
 	color_21 = "#6183bb",
 	color_22 = "#449dab",
 	color_23 = "#914c54",
+
+	color_24 = "#1f2335",
 }
 
 local M = {}
@@ -55,6 +57,7 @@ M.pallet = {
 	base21 = colors.color_21,
 	base22 = colors.color_22,
 	base23 = colors.color_23,
+	base24 = colors.color_24,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
@@ -62,8 +65,13 @@ M.pallet = {
 M.polish = function()
 	local utils = require("fused.utils")
 	return {
+		["nvim-tree.lua"] = {
+			NvimTreeNormal = { link = "NormalFloat" },
+		},
 		builtin = {
-			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base01 },
+			NormalFloat = { bg = M.pallet.base24 },
+			FloatBorder = { fg = M.pallet.base04 },
+			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base24 },
 			-- Popup menu: selected item.
 			PmenuSel = { fg = M.pallet.base06, bg = M.pallet.base03 },
 			-- Popup menu: scrollbar.
