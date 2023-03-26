@@ -1,9 +1,9 @@
 local M = {}
 
-M.get_hl_groups = function(_)
+M.get_hl_groups = function(cp)
 	return {
-		HarpoonBorder = { link = "TelescopeBorder" },
-		HarpoonWindow = { link = "@string" },
+		HarpoonBorder = { link = "FloatBorder" },
+		HarpoonWindow = { fg = cp.base06 },
 	}
 end
 
