@@ -10,12 +10,12 @@ M.get_hl_groups = function(cp)
 		--                         terminal colors                          --
 		----------------------------------------------------------------------
 		-- dark
-		vim.g.terminal_color_0 = tr_bg or cp.base01
-		vim.g.terminal_color_8 = cp.base02
+		vim.g.terminal_color_0 = tr_bg or cp.base011
+		vim.g.terminal_color_8 = cp.base05
 
 		-- light
-		vim.g.terminal_color_7 = cp.base06
-		vim.g.terminal_color_15 = cp.base06
+		vim.g.terminal_color_7 = cp.base07
+		vim.g.terminal_color_15 = cp.base07
 
 		-- colors
 		vim.g.terminal_color_1 = cp.base11
@@ -25,10 +25,10 @@ M.get_hl_groups = function(cp)
 		vim.g.terminal_color_10 = cp.base15
 
 		vim.g.terminal_color_3 = cp.base09
-		vim.g.terminal_color_11 = cp.base09
+		vim.g.terminal_color_11 = cp.base12
 
 		vim.g.terminal_color_4 = cp.base10
-		vim.g.terminal_color_12 = cp.base10
+		vim.g.terminal_color_12 = cp.base13
 
 		vim.g.terminal_color_5 = cp.base14
 		vim.g.terminal_color_13 = cp.base14
