@@ -1,10 +1,41 @@
 local M = {}
 
-local utils = require("fused.utils")
-
 M.get_hl_groups = function(cp)
+	local utils = require("fused.utils")
+
 	-- get the background setting
 	local tr_bg = require("fused.utils").bg_transparent
+	if utils.terminal_colors then
+		----------------------------------------------------------------------
+		--                         terminal colors                          --
+		----------------------------------------------------------------------
+		-- dark
+		vim.g.terminal_color_0 = tr_bg or cp.base01
+		vim.g.terminal_color_8 = cp.base02
+
+		-- light
+		vim.g.terminal_color_7 = cp.base06
+		vim.g.terminal_color_15 = cp.base06
+
+		-- colors
+		vim.g.terminal_color_1 = cp.base11
+		vim.g.terminal_color_9 = cp.base11
+
+		vim.g.terminal_color_2 = cp.base15
+		vim.g.terminal_color_10 = cp.base15
+
+		vim.g.terminal_color_3 = cp.base09
+		vim.g.terminal_color_11 = cp.base09
+
+		vim.g.terminal_color_4 = cp.base10
+		vim.g.terminal_color_12 = cp.base10
+
+		vim.g.terminal_color_5 = cp.base14
+		vim.g.terminal_color_13 = cp.base14
+
+		vim.g.terminal_color_6 = cp.base10
+		vim.g.terminal_color_14 = cp.cyan10
+	end
 	return {
 		-- used for the columns set with 'colorcolumn'
 		ColorColumn = { bg = cp.base18 },

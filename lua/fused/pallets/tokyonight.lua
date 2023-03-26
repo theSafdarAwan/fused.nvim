@@ -25,6 +25,7 @@ local colors = {
 	color_23 = "#914c54",
 
 	color_24 = "#1f2335",
+	color_25 = "#2496ac",
 }
 
 local M = {}
@@ -58,6 +59,7 @@ M.pallet = {
 	base22 = colors.color_22,
 	base23 = colors.color_23,
 	base24 = colors.color_24,
+	base25 = colors.color_25,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
@@ -68,9 +70,17 @@ M.polish = function()
 		["nvim-tree.lua"] = {
 			NvimTreeNormal = { link = "NormalFloat" },
 		},
+		["telescope.nvim"] = {
+			TelescopeNormal = { bg = M.pallet.base24 },
+			TelescopeBorder = { fg = M.pallet.base24, bg = M.pallet.base24 },
+			TelescopePreviewTitle = { fg = M.pallet.base01, bg = M.pallet.base13, bold = true },
+			TelescopePromptPrefix = { fg = M.pallet.base12 },
+			TelescopePromptTitle = { fg = M.pallet.base01, bg = M.pallet.base11, bold = true },
+			TelescopeResultsTitle = { fg = M.pallet.base09 },
+		},
 		builtin = {
 			NormalFloat = { bg = M.pallet.base24 },
-			FloatBorder = { fg = M.pallet.base04 },
+			FloatBorder = { fg = M.pallet.base25 },
 			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base24 },
 			-- Popup menu: selected item.
 			PmenuSel = { fg = M.pallet.base06, bg = M.pallet.base03 },

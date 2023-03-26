@@ -2,8 +2,6 @@ local M = {}
 
 M.get_hl_groups = function(cp)
 	return {
-		-- FIX: telescope border is being used by cmp fix this
-		TelescopeBorder = { fg = cp.base04 },
 		CmpItemAbbr = { fg = cp.base06 },
 		CmpItemAbbrDeprecated = { fg = cp.base06 },
 		CmpItemAbbrMatch = { fg = cp.base15 },

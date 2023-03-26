@@ -9,7 +9,8 @@ local M = {}
 --- the `plugins` table field's names.
 ---@field italics boolean to enable or disable italic font.
 ---@field bg_transparent boolean to enable or disable transparent background.
----@field custom table|function returns table of custom higlight groups.
+---@field terminal_colors boolean to enable terminal colors highlights.
+---@field custom table|function returns table of custom highlight groups.
 ---@field plugins table of plugin names (name = boolean) .Accepts full
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
 -- use the string key like `["nvim-tree"] = true`.
@@ -27,6 +28,7 @@ local default_config = {
 		["palenight-operator"] = {},
 	},
 	italics = true,
+	terminal_colors = true,
 	bg_transparent = false,
 	custom = {},
 	plugins = {
@@ -69,6 +71,8 @@ function M.__setup(user_configuration)
 	-- italic opt
 	opts.italics = config.italics
 	opts.colors = colors
+	-- terminal colors
+	opts.terminal_colors = config.terminal_colors
 	-- override default highlight groups
 	local override_hl_groups
 	if type(config.override) == "function" then
