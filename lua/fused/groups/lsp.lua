@@ -1,45 +1,54 @@
 local M = {}
 
-M.load_hl = function(hl, cp)
-	hl("LspReferenceText", { fg = cp.white, italic = true, underline =true }) -- used for highlighting "text" references
-	hl("LspReferenceRead", { fg = cp.warn, italic = true, underline = true }) -- used for highlighting "read" references
-	hl("LspReferenceWrite", { fg = cp.err, italic = true, underline = true }) -- used for highlighting "write" references
+M.get_hl_groups = function(cp)
+	local utils = require("fused.utils")
+	return {
+		LspReferenceText = { fg = cp.base06, italic = utils.italics, underline = true }, -- used for highlighting "text" references
+		LspReferenceRead = { fg = cp.base09, italic = utils.italics, underline = true }, -- used for highlighting "read" references
+		LspReferenceWrite = { fg = cp.base11, italic = utils.italics, underline = true }, -- used for highlighting "write" references
 
-	hl("DiagnosticVirtualTextError", { fg = cp.err_sev, bg = cp.bg_windows2 })
-	hl("DiagnosticVirtualTextWarn", { fg = cp.warn, bg = cp.bg_windows2 })
-	hl("DiagnosticVirtualTextHint", { fg = cp.blue, bg = cp.bg_windows2 })
-	hl("DiagnosticVirtualTextInfo", { fg = cp.property, bg = cp.bg_windows2 })
+		DiagnosticVirtualTextError = { fg = cp.base08, bg = cp.base02 },
+		DiagnosticVirtualTextWarn = { fg = cp.base09, bg = cp.base02 },
+		DiagnosticVirtualTextHint = { fg = cp.base10, bg = cp.base02 },
+		DiagnosticVirtualTextInfo = { fg = cp.base10, bg = cp.base02 },
 
-	hl("DiagnosticFloatingError", { fg = cp.err_sev, bg = cp.bg_windows2 })
-	hl("DiagnosticFloatingWarn", { fg = cp.warn, bg = cp.bg_windows2 })
-	hl("DiagnosticFloatingHint", { fg = cp.blue, bg = cp.bg_windows2 })
-	hl("DiagnosticFloatingInfo", { fg = cp.property, bg = cp.bg_windows2 })
+		DiagnosticFloatingError = { fg = cp.base08, bg = cp.base02 },
+		DiagnosticFloatingWarn = { fg = cp.base09, bg = cp.base02 },
+		DiagnosticFloatingHint = { fg = cp.base10, bg = cp.base02 },
+		DiagnosticFloatingInfo = { fg = cp.base10, bg = cp.base02 },
 
-	hl("DiagnosticSignError", { fg = cp.err_sev })
-	hl("DiagnosticSignWarn", { fg = cp.warn })
-	hl("DiagnosticSignHint", { fg = cp.blue })
-	hl("DiagnosticSignInfo", { link = "@field" })
+		DiagnosticSignError = { fg = cp.base08 },
+		DiagnosticSignWarn = { fg = cp.base09 },
+		DiagnosticSignHint = { fg = cp.base10 },
+		DiagnosticSignInfo = { link = "@field" },
 
-	hl(
-		"DiagnosticUnderlineError",
+		DiagnosticUnderlineError = { undercurl = true },
 		-- { fg = Colors.error_red, bg = Colors.color_2, underline = true }
-		{ undercurl = true }
-	)
-	hl(
-		"DiagnosticUnderlineWarn",
+		DiagnosticUnderlineWarn = { undercurl = true },
 		-- { fg = Colors.color_20, bg = Colors.color_2, underline = true }
-		{ undercurl = true }
-	)
-	hl(
-		"DiagnosticUnderlineInfo",
+		DiagnosticUnderlineInfo = { undercurl = true },
 		-- { fg = Colors.color_21, bg = Colors.color_2, underline = true }
-		{ undercurl = true }
-	)
-	hl(
-		"DiagnosticUnderlineHint",
+		DiagnosticUnderlineHint = { underline = true },
 		-- { fg = Colors.fl_color_6, bg = Colors.color_2, underline = true }
-		{ underline = true }
-	)
+
+		-- syntax tokens
+		["@lsp.type.class"] = { link = "@type" },
+		["@lsp.type.decorator"] = { link = "@function" },
+		["@lsp.type.enum"] = { link = "Structure" },
+		["@lsp.type.enumMember"] = { link = "Constant" },
+		["@lsp.type.function"] = { link = "@function" },
+		["@lsp.type.interface"] = { link = "Structure" },
+		["@lsp.type.macro"] = { link = "Macro" },
+		["@lsp.type.method"] = { link = "@method" },
+		["@lsp.type.namespace"] = { link = "Structure" },
+		["@lsp.type.parameter"] = { link = "@parameter" },
+		["@lsp.type.property"] = { link = "@property" },
+		["@lsp.type.struct"] = { link = "@structure" },
+		["@lsp.type.type"] = { link = "@type" },
+		["@lsp.type.typeParameter"] = { link = "Identifier" },
+		["@lsp.type.variable"] = { link = "@variable" },
+		["@lsp.type.keyword"] = { link = "@keyword" },
+	}
 end
 
 return M

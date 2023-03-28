@@ -1,0 +1,4 @@
+- [ ] change the popup and sidebar windows background colors.
+- [ ] add the markdown treesitter highlights
+- [ ] add a key to the config so that auto loading colors for plugins is disabled
+  and only enabled when we lazy_load the config

@@ -1,40 +1,31 @@
--- TODO: custom highlights is not working
-
--- TODO: add the previews
-
--- TODO: change the plugins names to the names of the plugins from todocomments todo-comments.nvim
-
--- TODO: add the option for adding the autocmds that are defined in after
-
--- TODO: work on the onedark and aquarium theme colors
-
--- TODO: add the markdown treesitter highlights
+--- Expose's function api's to load theme in multiple ways.
 local M = {}
 
--- HACK:  add a key to the config so that auto loading colors for plugins is disabled
--- and only enabled when we lazy_load the config
-
-local defaults = require("fused.utils").default_config
-
-M.setup = function(tbl)
-	if tbl then
-		for k, _ in pairs(tbl) do
-			if defaults[k] then
-				require("fused.utils").set_theme(tbl)
-				return
-			end
-		end
-	else
-		require("fused.utils").set_theme(defaults)
-	end
+--- setup function to load the theme.
+---@param user_configuration table|nil configuration for theme.
+M.setup = function(user_configuration)
+	require("fused.setup").__setup(user_configuration)
 end
 
-M.lazy_load = function(name)
-	require("fused.utils").load_plugin_hl(name)
+--- This function lets you load single plugin specified as parameter after the theme
+--- is loaded. After setting `plugins = nil|false` in the `user_configuration` this can be
+--- used in plugin configuration to load plugin highlight groups only when plugin is loaded.
+--- Can act as a lazy loader. Decrease startup loading time.
+---@param name string name of the plugin.
+M.load_plugin = function(name)
+	-- need to schedule it so it loads the highlights after all the theme modules
+	-- have been loaded.
+	vim.schedule(function()
+		require("fused.groups").load_plugins_hl({ [name] = true })
+	end)
 end
 
-M.load_theme = function()
-	require("fused.utils").set_theme(defaults)
+--- Allows you to add hook's which execute on theme change by command line or if you use
+--- telescope to change theme. This lets you reload config.
+---@param hooks table `{ foo = function() end }`. Hook function will be executed on theme
+--- change.
+M.add_hooks = function(hooks)
+	require("fused.utils").__add_hooks(hooks)
 end
 
 return M
