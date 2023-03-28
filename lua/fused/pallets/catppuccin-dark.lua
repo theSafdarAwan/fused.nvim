@@ -64,6 +64,31 @@ M.pallet = {
 M.polish = function()
 	local utils = require("fused.utils")
 	return {
+		["nvim-tree.lua"] = {
+			NvimTreeNormal = { link = "NormalFloat" },
+		},
+		["telescope.nvim"] = {
+			TelescopeNormal = { bg = M.pallet.base03 },
+			TelescopeBorder = { fg = M.pallet.base03, bg = M.pallet.base03 },
+			TelescopePreviewTitle = { fg = M.pallet.base01, bg = M.pallet.base13, bold = true },
+			TelescopePromptPrefix = { fg = M.pallet.base12 },
+			TelescopePromptTitle = { fg = M.pallet.base01, bg = M.pallet.base11, bold = true },
+			TelescopeResultsTitle = { fg = M.pallet.base09 },
+		},
+		builtin = {
+			NormalFloat = { bg = M.pallet.base03 },
+			FloatBorder = { fg = M.pallet.base25 },
+			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base03 },
+			-- Popup menu: selected item.
+			PmenuSel = { fg = M.pallet.base06, bg = M.pallet.base03 },
+			-- Popup menu: scrollbar.
+			PmenuSbar = { bg = M.pallet.base02 },
+			-- Popup menu: Thumb of the scrollbar.
+			PmenuThumb = { bg = M.pallet.base05 },
+			Label = { fg = M.pallet.base13 },
+			-- windows seperator color
+			WinSeparator = { fg = M.pallet.base02 },
+		},
 		["nvim-treesitter"] = {
 			["@method"] = { fg = M.pallet.base12 }, -- method definitions
 			["@method.call"] = { link = "@method" }, -- method calls
