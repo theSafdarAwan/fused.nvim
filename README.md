@@ -1,4 +1,5 @@
 # fused.nvim
+## ⚠️ Currently i am working on color scheme its not yet ready for stable usage.
 
 🌈 Colorscheme collection fused between different color schemes
 
