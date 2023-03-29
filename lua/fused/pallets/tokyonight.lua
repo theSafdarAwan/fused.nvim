@@ -92,6 +92,8 @@ M.polish = function()
 			Label = { fg = M.pallet.base13 },
 			-- windows seperator color
 			WinSeparator = { fg = M.pallet.base02 },
+			-- status line of current window
+			StatusLine = { fg = M.pallet.base07, bg = M.pallet.base02 },
 		},
 		["nvim-treesitter"] = {
 			["@function"] = { fg = M.pallet.base11 }, -- function definitions
