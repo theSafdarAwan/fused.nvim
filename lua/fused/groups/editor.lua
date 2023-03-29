@@ -4,7 +4,7 @@ M.get_hl_groups = function(cp)
 	local utils = require("fused.utils")
 
 	-- get the background setting
-	local tr_bg = require("fused.utils").bg_transparent
+	local tr_bg = require("fused.utils").background_transparent
 	if utils.terminal_colors then
 		----------------------------------------------------------------------
 		--                         terminal colors                          --

@@ -8,7 +8,7 @@ local M = {}
 --- editor highlights have a special field called `builtin` other fields are same as
 --- the `plugins` table field's names.
 ---@field italics boolean to enable or disable italic font.
----@field bg_transparent boolean to enable or disable transparent background.
+---@field background_transparent boolean to enable or disable transparent background.
 ---@field terminal_colors boolean to enable terminal colors highlights.
 ---@field custom table|function returns table of custom highlight groups.
 ---@field plugins table of plugin names (name = boolean) .Accepts full
@@ -29,7 +29,7 @@ local default_config = {
 	},
 	italics = true,
 	terminal_colors = true,
-	bg_transparent = false,
+	background_transparent = false,
 	custom = {},
 	plugins = {
 		harpoon = true,
@@ -57,7 +57,7 @@ local default_config = {
 --- loads theme
 ---@param user_configuration table|nil configuration for the theme.
 function M.__setup(user_configuration)
-	--- to export the opts like bg_transparent, italics, etc.
+	--- to export the opts like background_transparent, italics, etc.
 	local opts = {}
 
 	--- merge default_config and user_configuration
@@ -67,7 +67,7 @@ function M.__setup(user_configuration)
 	-- theme colors
 	local colors = theme.pallet
 	-- transparent background opt
-	opts.bg_transparent = config.bg_transparent
+	opts.background_transparent = config.background_transparent
 	-- italic opt
 	opts.italics = config.italics
 	opts.colors = colors

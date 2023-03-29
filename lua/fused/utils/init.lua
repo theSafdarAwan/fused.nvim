@@ -10,7 +10,7 @@ M.set_hl = function(group, hls)
 end
 
 --- Exports the opts which are utilised when setting opts for highlight groups.
----@param opts table opts like bg_transparent, italics, etc.
+---@param opts table opts like background_transparent, italics, etc.
 M.export_opts = function(opts)
 	-- need to get rid of previous pallet polished config
 	for opt, val in pairs(opts) do
