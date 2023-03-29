@@ -70,10 +70,10 @@ M.polish = function()
 		["telescope.nvim"] = {
 			TelescopeNormal = { bg = M.pallet.base03 },
 			TelescopeBorder = { fg = M.pallet.base03, bg = M.pallet.base03 },
-			TelescopePreviewTitle = { fg = M.pallet.base01, bg = M.pallet.base13, bold = true },
+			TelescopePreviewTitle = { fg = M.pallet.base01, bg = M.pallet.base12, bold = true },
 			TelescopePromptPrefix = { fg = M.pallet.base12 },
 			TelescopePromptTitle = { fg = M.pallet.base01, bg = M.pallet.base11, bold = true },
-			TelescopeResultsTitle = { fg = M.pallet.base09 },
+			TelescopeResultsTitle = { fg = M.pallet.base17 },
 		},
 		builtin = {
 			NormalFloat = { bg = M.pallet.base03 },
