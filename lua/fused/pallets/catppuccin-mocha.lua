@@ -110,6 +110,11 @@ M.polish = function()
 			["@include"] = { link = "@keyword" },
 			["@include.path"] = { fg = M.pallet.base15, italic = utils.italics },
 		},
+		["indent-blankline.nvim"] = {
+			IndentBlanklineChar = { fg = M.pallet.base04 },
+			IndentBlanklineContextChar = { fg = M.pallet.base05 },
+			IndentBlanklineContextStart = { bg = M.pallet.base06 },
+		},
 	}
 end
 

@@ -4,27 +4,27 @@ local function get_hl_groups(cp)
 		NotifyLogTime = { fg = cp.base08 },
 
 		NotifyINFOTitle = { fg = cp.base15, bold = true },
-		NotifyINFOBody = { fg = cp.base06 },
+		NotifyINFOBody = { bg = cp.base02 },
 		NotifyINFOIcon = { link = "NotifyINFOTitle" },
 		NotifyINFOBorder = { link = "NotifyINFOTitle" },
 
 		NotifyWARNTitle = { fg = cp.base09 },
-		NotifyWARNBody = { fg = cp.base06 },
+		NotifyWARNBody = { bg = cp.base02 },
 		NotifyWARNIcon = { link = "NotifyWARNTitle" },
 		NotifyWARNBorder = { link = "NotifyWARNTitle" },
 
 		NotifyDEBUGTitle = { fg = cp.base17 },
-		NotifyDEBUGBody = { fg = cp.base06 },
+		NotifyDEBUGBody = { bg = cp.base02 },
 		NotifyDEBUGIcon = { link = "NotifyDEBUGTitle" },
 		NotifyDEBUGBorder = { link = "NotifyDEBUGTitle" },
 
 		NotifyERRORTitle = { fg = cp.base11 },
-		NotifyERRORBody = { fg = cp.base06 },
+		NotifyERRORBody = { bg = cp.base02 },
 		NotifyERRORIcon = { link = "NotifyERRORTitle" },
 		NotifyERRORBorder = { link = "NotifyERRORTitle" },
 
 		NotifyTRACETitle = { fg = cp.base10 },
-		NotifyTRACEBody = { fg = cp.base06 },
+		NotifyTRACEBody = { bg = cp.base02 },
 		NotifyTRACEIcon = { link = "NotifyTRACETitle" },
 		NotifyTRACEBorder = { link = "NotifyTRACETitle" },
 	}

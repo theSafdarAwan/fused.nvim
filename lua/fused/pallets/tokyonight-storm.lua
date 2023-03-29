@@ -114,6 +114,13 @@ M.polish = function()
 			["@include"] = { fg = M.pallet.base16 },
 			["@include.path"] = { link = "@string" },
 		},
+		["nvim-notify"] = {
+			NotifyINFOBody = { bg = M.pallet.base24 },
+			NotifyWARNBody = { bg = M.pallet.base24 },
+			NotifyDEBUGBody = { bg = M.pallet.base24 },
+			NotifyERRORBody = { bg = M.pallet.base24 },
+			NotifyTRACEBody = { bg = M.pallet.base24 },
+		},
 	}
 end
 
