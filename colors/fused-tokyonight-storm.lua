@@ -7,7 +7,7 @@ end
 vim.o.termguicolors = true
 
 require("fused").setup({
-	flavour = "tokyonight",
+	flavour = "tokyonight-storm",
 	force_load_plugins = true,
 	execute_hooks = true,
 })

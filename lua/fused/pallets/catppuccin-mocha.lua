@@ -1,7 +1,7 @@
 local colors = {
 	crust = "#1E1E2E",
-	mantle = "#181825",
-	base = "#232634",
+	mantle = "#24273A",
+	base = "#181926",
 	surface0 = "#313244",
 	overlay1 = "#44475a",
 	white = "#abb2bf",
@@ -21,6 +21,7 @@ local colors = {
 	orange_light = "#FFB86C",
 	blue = "#89B4FA", -- for variable name etc.
 	lavender = "#B4BEFE", -- color for string
+	border = "#7287FD",
 	-- ts-rainbow brackets pair colors
 	ts_rainbow_aqua = "#8ec07c",
 	ts_rainbow_pruple = "#d3869b",
@@ -57,6 +58,7 @@ M.pallet = {
 	base21 = colors.ts_rainbow_purple,
 	base22 = colors.yellow,
 	base23 = colors.sky,
+	base24 = colors.border,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
@@ -70,14 +72,14 @@ M.polish = function()
 		["telescope.nvim"] = {
 			TelescopeNormal = { bg = M.pallet.base03 },
 			TelescopeBorder = { fg = M.pallet.base03, bg = M.pallet.base03 },
-			TelescopePreviewTitle = { fg = M.pallet.base01, bg = M.pallet.base12, bold = true },
+			TelescopePreviewTitle = { fg = M.pallet.base01, bg = M.pallet.base10, bold = true },
 			TelescopePromptPrefix = { fg = M.pallet.base12 },
 			TelescopePromptTitle = { fg = M.pallet.base01, bg = M.pallet.base11, bold = true },
-			TelescopeResultsTitle = { fg = M.pallet.base17 },
+			TelescopeResultsTitle = { fg = M.pallet.base16 },
 		},
 		builtin = {
 			NormalFloat = { bg = M.pallet.base03 },
-			FloatBorder = { fg = M.pallet.base25 },
+			FloatBorder = { fg = M.pallet.base24 },
 			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base03 },
 			-- Popup menu: selected item.
 			PmenuSel = { fg = M.pallet.base06, bg = M.pallet.base03 },

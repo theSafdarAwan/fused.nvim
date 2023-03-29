@@ -20,12 +20,10 @@ local M = {}
 --- the startup.
 --- This can be used by user to reload modules or configs like status line, etc.
 local default_config = {
-	flavour = "tokyonight",
+	flavour = "tokyonight-storm",
 	override = {
 		["catppuccin-mocha"] = {},
-		["catppuccin-dark"] = {},
-		["ayu-mirage"] = {},
-		["palenight-operator"] = {},
+		["tokyonight-storm"] = {},
 	},
 	italics = true,
 	terminal_colors = true,
