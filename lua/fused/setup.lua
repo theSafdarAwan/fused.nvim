@@ -69,12 +69,12 @@ function M.__setup(user_configuration)
 	-- Export opts for latter use
 	opts.colors = flavour.pallet -- flavour colors
 	opts.background_transparent = config.background_transparent -- transparent background opt
-	opts.italics = config.italics -- italic opt
+	opts.italics = config.italics -- italic font
 	opts.terminal_colors = config.terminal_colors -- enable terminal colors
 	-- TODO: implement styles for different plugins
 	opts.styles = flavour_settings.styles or {} -- get the styles for plugins
 	-- polish the highlights for flavours, this includes user overridden highlights
-	-- and the flavours.polish.
+	-- and the flavour.polish.
 	local override_hl_groups = flavour_settings.hl_override or {}
 	opts.polish = function()
 		local polished = flavour.polish and flavour.polish() or {}
@@ -84,10 +84,10 @@ function M.__setup(user_configuration)
 		polished = vim.tbl_deep_extend("force", polished, flavour_settings.hl_override or {})
 		return polished
 	end
-	-- export the opts to the utils module for later easy access and use.
+	-- export the opts to the utils module for later easy access and usage.
 	require("fused.utils").export_opts(opts)
 
-	-- set normal highlights
+	-- set normal highlights for editor, syntax, and lsp.
 	require("fused.groups").load_builtin_hl()
 
 	-- load highlights for the plugins
