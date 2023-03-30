@@ -1,5 +1,5 @@
 local colors = {
-	color_01 = "#1E1E2E",
+	color_01 = "#1E2030",
 	color_02 = "#24273A",
 	color_03 = "#181926",
 	color_04 = "#313244",
@@ -8,10 +8,10 @@ local colors = {
 	color_07 = "#CDD6F4",
 	color_08 = "#EBA0AC",
 	color_09 = "#F9E2AF",
-	color_10 = "#89DCEB",
+	color_10 = "#94E2D5",
 	color_11 = "#ED8796",
 	color_12 = "#FAB387",
-	color_13 = "#94E2D5",
+	color_13 = "#73daca",
 	color_14 = "#CBA6F7",
 	color_15 = "#A6E3A1",
 	color_16 = "#FFB86C",
@@ -73,6 +73,9 @@ M.polish = function()
 			TelescopeResultsTitle = { fg = M.pallet.base16 },
 		},
 		builtin = {
+			-- syntax
+			Type = { fg = M.pallet.base10 }, -- (preferred) int, long, char, etc.
+			-- editor
 			NormalFloat = { bg = M.pallet.base03 },
 			FloatBorder = { fg = M.pallet.base24 },
 			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base03 },
@@ -87,6 +90,7 @@ M.polish = function()
 			WinSeparator = { fg = M.pallet.base02 },
 		},
 		["nvim-treesitter"] = {
+			["@property"] = { fg = M.pallet.base13 }, -- similar to `@field`
 			["@method"] = { fg = M.pallet.base12 }, -- method definitions
 			["@method.call"] = { link = "@method" }, -- method calls
 			["@function"] = { fg = M.pallet.base08 }, -- function definitions
@@ -99,6 +103,9 @@ M.polish = function()
 			["@css.query"] = { fg = M.pallet.base13 },
 			["@css.keyword"] = { fg = M.pallet.base14 },
 			["@css.unit"] = { fg = M.pallet.base12 },
+			["@css.query"] = { link = "@type" }, -- type or class definitions and annotations
+			["@css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
+			["@css.id"] = { link = "@keyword" }, -- css id
 			-- javascript
 			["@js.constructor"] = { fg = M.pallet.base14 },
 			-- c lang
