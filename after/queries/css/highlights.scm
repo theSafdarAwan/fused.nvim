@@ -5,4 +5,5 @@
 (plain_value) @css.value
 (id_selector (id_name) @css.id)
 (selectors (tag_name) @css.tag)
+(selectors (class_selector) @css.class (#set! "priority" 105))
 "and" @css.keyword

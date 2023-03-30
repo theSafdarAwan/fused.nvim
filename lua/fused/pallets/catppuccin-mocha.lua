@@ -21,6 +21,7 @@ local colors = {
 	color_20 = "#8ec07c",
 	color_21 = "#d3869b",
 	color_22 = "#83a598",
+	color_23 = "#8f98FD",
 }
 
 local M = {}
@@ -48,12 +49,11 @@ M.pallet = {
 	base17 = colors.color_17,
 	base18 = colors.color_18,
 
-	base19 = colors.color_20,
-	base20 = colors.color_16,
-	base21 = colors.ts_rainbow_purple,
-	base22 = colors.color_09,
-	base23 = colors.color_10,
-	base24 = colors.color_19,
+	base19 = colors.color_19,
+	base20 = colors.color_20,
+	base21 = colors.color_21,
+	base22 = colors.color_22,
+	base23 = colors.color_23,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
@@ -74,10 +74,10 @@ M.polish = function()
 		},
 		builtin = {
 			-- syntax
-			Type = { fg = M.pallet.base10 }, -- (preferred) int, long, char, etc.
+			Type = { fg = M.pallet.base09 }, -- (preferred) int, long, char, etc.
 			-- editor
 			NormalFloat = { bg = M.pallet.base03 },
-			FloatBorder = { fg = M.pallet.base24 },
+			FloatBorder = { fg = M.pallet.base19 },
 			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base03 },
 			-- Popup menu: selected item.
 			PmenuSel = { fg = M.pallet.base06, bg = M.pallet.base03 },
@@ -98,18 +98,20 @@ M.polish = function()
 			["@method"] = { fg = M.pallet.base12 }, -- method definitions
 			["@method.call"] = { link = "@method" }, -- method calls
 			["@function"] = { fg = M.pallet.base08 }, -- function definitions
-			["@tag.attribute"] = { fg = M.pallet.base09, italic = utils.italics }, -- XML tag attributes
+			["@parameter"] = { fg = M.pallet.base12, italic = utils.italics }, -- parameters of a function
+			["@tag.attribute"] = { fg = M.pallet.base19 }, -- XML tag attributes
 			["@variable"] = { fg = M.pallet.base17 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallet.base17 }, -- builtin variable
 			-- html
 			["@html.doctype"] = { link = "@tag" },
 			-- css
-			["@css.query"] = { fg = M.pallet.base13 },
 			["@css.keyword"] = { fg = M.pallet.base14 },
 			["@css.unit"] = { fg = M.pallet.base12 },
-			["@css.query"] = { link = "@type" }, -- type or class definitions and annotations
+			["@css.property"] = { fg = M.pallet.base13 },
+			["@css.query"] = { link = "@css.property" }, -- type or class definitions and annotations
 			["@css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
-			["@css.id"] = { link = "@keyword" }, -- css id
+			["@css.id"] = { fg = M.pallet.base13 }, -- css id
+			["@css.class"] = { fg = M.pallet.base17 }, -- css id
 			-- javascript
 			["@js.constructor"] = { fg = M.pallet.base14 },
 			-- c lang
