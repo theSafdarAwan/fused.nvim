@@ -1,3 +1,3 @@
 ;; extends
-(doctype) @html.doctype
-["<!" "<" "</" ">" "/>"] @html.paren
+(doctype) @fused_html.doctype
+["<!" "<" "</" ">" "/>"] @fused_html.paren

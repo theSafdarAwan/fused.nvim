@@ -103,21 +103,21 @@ M.polish = function()
 			["@variable"] = { fg = M.pallet.base17 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallet.base17 }, -- builtin variable
 			-- html
-			["@html.doctype"] = { link = "@tag" },
-			["@html.paren"] = { fg = "#626880" },
+			["@fused_html.doctype"] = { link = "@tag" },
+			["@fused_html.paren"] = { fg = "#626880" },
 			-- css
-			["@css.keyword"] = { fg = M.pallet.base14 },
-			["@css.unit"] = { fg = M.pallet.base12 },
-			["@css.property"] = { fg = M.pallet.base13 },
-			["@css.query"] = { link = "@css.property" }, -- type or class definitions and annotations
-			["@css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
-			["@css.id"] = { fg = M.pallet.base13 }, -- css id
-			["@css.class"] = { fg = M.pallet.base17 }, -- css id
+			["@fused_css.keyword"] = { fg = M.pallet.base14 },
+			["@fused_css.unit"] = { fg = M.pallet.base12 },
+			["@fused_css.property"] = { fg = M.pallet.base13 },
+			["@fused_css.query"] = { link = "@fused_css.property" }, -- type or class definitions and annotations
+			["@fused_css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
+			["@fused_css.id"] = { fg = M.pallet.base13 }, -- css id
+			["@fused_css.class"] = { fg = M.pallet.base17 }, -- css id
 			-- javascript
-			["@js.constructor"] = { fg = M.pallet.base14 },
+			["@fused_js.constructor"] = { fg = M.pallet.base14 },
 			-- c lang
 			["@include"] = { link = "@keyword" },
-			["@c.include.path"] = { fg = M.pallet.base15, italic = utils.italics },
+			["@fused_c.include.path"] = { fg = M.pallet.base15, italic = utils.italics },
 		},
 		["indent-blankline.nvim"] = {
 			IndentBlanklineChar = { fg = M.pallet.base04 },

@@ -1,4 +1,4 @@
 ;; extends
 (class_body 
   (method_definition
-	(property_identifier) @js.constructor (#set! "priority" 105)))
+	(property_identifier) @fused_js.constructor (#set! "priority" 105)))

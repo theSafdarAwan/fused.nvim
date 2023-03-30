@@ -171,12 +171,12 @@ M.get_hl_groups = function(cp)
 
 		-- ### Injections
 		-- Some captures are related to language injection (like markdown code blocks). They are used in `injections.scm`.
-		-- You can directly use the name of the language that you want to inject (e.g. `@html` to inject html).
+		-- You can directly use the name of the language that you want to inject (e.g. `@fused_html. to inject html).
 
 		-- If you want to dynamically detect the language (e.g. for Markdown blocks) use the `@language` to capture
 		-- the node describing the language and `@content` to describe the injection region.
 
-		-- @{lang}   ; e.g. @html to describe a html region
+		-- @{lang}   ; e.g. @fused_html.to describe a html region
 
 		-- @language -- dynamic detection of the injection language (i.e. the text of the captured node describes the language)
 		-- @content  -- region for the dynamically detected language

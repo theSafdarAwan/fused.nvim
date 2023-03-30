@@ -111,14 +111,14 @@ M.polish = function()
 			["@boolean"] = { fg = M.pallet.base12 }, -- boolean literals
 			["@keyword.return"] = { fg = M.pallet.base11 },
 			-- css
-			["@css.query"] = { link = "@type" }, -- type or class definitions and annotations
-			["@css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
-			["@css.id"] = { link = "@type" }, -- css id
+			["@fused_css.query"] = { link = "@type" }, -- type or class definitions and annotations
+			["@fused_css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
+			["@fused_css.id"] = { link = "@type" }, -- css id
 			-- javascript
-			["@js.constructor"] = { fg = M.pallet.base14 },
+			["@fused_js.constructor"] = { fg = M.pallet.base14 },
 			-- c lang
 			["@include"] = { fg = M.pallet.base16 },
-			["@c.include.path"] = { link = "@string" },
+			["@fused_c.include.path"] = { link = "@string" },
 		},
 		["nvim-notify"] = {
 			NotifyINFOBody = { bg = M.pallet.base24 },
