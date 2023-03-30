@@ -18,7 +18,7 @@ M.export_opts = function(opts)
 	end
 end
 
----@table hooks names. To be used later for executing autocmds when theme changes.
+---@table hooks names. To be used later for executing autocmds when theme flavour changes.
 M.hooks_names = {}
 
 --- Adds hooks to the stack

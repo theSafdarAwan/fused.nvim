@@ -7,8 +7,6 @@ M.setup = function(user_configuration)
 	require("fused.setup").__setup(user_configuration)
 end
 
--- TODO: remove the catppuccin-dark and only add catppuccin
-
 --- This function lets you load single plugin specified as parameter after the theme
 --- is loaded. After setting `plugins = nil|false` in the `user_configuration` this can be
 --- used in plugin configuration to load plugin highlight groups only when plugin is loaded.
@@ -22,10 +20,10 @@ M.load_plugin = function(name)
 	end)
 end
 
---- Allows you to add hook's which execute on theme change by command line or if you use
---- telescope to change theme. This lets you reload config.
+--- Allows you to add hooks which execute on theme flavour change by command line orif you use
+--- telescope to change theme flavour. This lets you reload config.
 ---@param hooks table `{ foo = function() end }`. Hook function will be executed on theme
---- change.
+--- flavour change.
 M.add_hooks = function(hooks)
 	require("fused.utils").__add_hooks(hooks)
 end

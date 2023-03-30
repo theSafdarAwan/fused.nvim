@@ -1,64 +1,59 @@
 local colors = {
-	crust = "#1E1E2E",
-	mantle = "#24273A",
-	base = "#181926",
-	surface0 = "#313244",
-	overlay1 = "#44475a",
-	white = "#abb2bf",
-	text = "#CDD6F4",
-	-- lsp diagnostics colors
-	red_washed = "#EBA0AC",
-	yellow = "#F9E2AF",
-	sky = "#89DCEB",
-	-- add next pair of dark colors wit the lsp diagnostics but in same order
-	red = "#ED8796",
-	peach = "#FAB387",
-	teal = "#94E2D5",
-	-- now replace these colors with the colors that you want these colors to be
-	-- replaced with
-	mauve = "#CBA6F7", -- for things like keywords,etc.
-	green = "#A6E3A1", -- for search, match, title, etc
-	orange_light = "#FFB86C",
-	blue = "#89B4FA", -- for variable name etc.
-	lavender = "#B4BEFE", -- color for string
-	border = "#7287FD",
-	-- ts-rainbow brackets pair colors
-	ts_rainbow_aqua = "#8ec07c",
-	ts_rainbow_pruple = "#d3869b",
-	ts_rainbow_blue = "#83a598",
+	color_01 = "#1E1E2E",
+	color_02 = "#24273A",
+	color_03 = "#181926",
+	color_04 = "#313244",
+	color_05 = "#44475a",
+	color_06 = "#abb2bf",
+	color_07 = "#CDD6F4",
+	color_08 = "#EBA0AC",
+	color_09 = "#F9E2AF",
+	color_10 = "#89DCEB",
+	color_11 = "#ED8796",
+	color_12 = "#FAB387",
+	color_13 = "#94E2D5",
+	color_14 = "#CBA6F7",
+	color_15 = "#A6E3A1",
+	color_16 = "#FFB86C",
+	color_17 = "#89B4FA",
+	color_18 = "#B4BEFE",
+	color_19 = "#7287FD",
+	color_20 = "#8ec07c",
+	color_21 = "#d3869b",
+	color_22 = "#83a598",
 }
 
 local M = {}
 
 M.pallet = {
-	base01 = colors.crust,
-	base02 = colors.mantle,
-	base03 = colors.base,
-	base04 = colors.surface0,
-	base05 = colors.overlay1,
-	base06 = colors.white,
-	base07 = colors.text,
+	base01 = colors.color_01,
+	base02 = colors.color_02,
+	base03 = colors.color_03,
+	base04 = colors.color_04,
+	base05 = colors.color_05,
+	base06 = colors.color_06,
+	base07 = colors.color_07,
 
-	base08 = colors.red_washed,
-	base09 = colors.yellow,
-	base10 = colors.sky,
+	base08 = colors.color_08,
+	base09 = colors.color_09,
+	base10 = colors.color_10,
 
-	base11 = colors.red,
-	base12 = colors.peach,
-	base13 = colors.teal,
+	base11 = colors.color_11,
+	base12 = colors.color_12,
+	base13 = colors.color_13,
 
-	base14 = colors.mauve,
-	base15 = colors.green,
-	base16 = colors.orange_light,
-	base17 = colors.blue,
-	base18 = colors.lavender,
+	base14 = colors.color_14,
+	base15 = colors.color_15,
+	base16 = colors.color_16,
+	base17 = colors.color_17,
+	base18 = colors.color_18,
 
-	base19 = colors.ts_rainbow_aqua,
-	base20 = colors.orange_light,
+	base19 = colors.color_20,
+	base20 = colors.color_16,
 	base21 = colors.ts_rainbow_purple,
-	base22 = colors.yellow,
-	base23 = colors.sky,
-	base24 = colors.border,
+	base22 = colors.color_09,
+	base23 = colors.color_10,
+	base24 = colors.color_19,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
