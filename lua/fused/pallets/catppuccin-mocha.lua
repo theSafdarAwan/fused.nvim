@@ -99,11 +99,12 @@ M.polish = function()
 			["@method.call"] = { link = "@method" }, -- method calls
 			["@function"] = { fg = M.pallet.base08 }, -- function definitions
 			["@parameter"] = { fg = M.pallet.base12, italic = utils.italics }, -- parameters of a function
-			["@tag.attribute"] = { fg = M.pallet.base19 }, -- XML tag attributes
+			["@tag.attribute"] = { fg = M.pallet.base13 }, -- XML tag attributes
 			["@variable"] = { fg = M.pallet.base17 }, -- builtin variable
 			["@variable.builtin"] = { fg = M.pallet.base17 }, -- builtin variable
 			-- html
 			["@html.doctype"] = { link = "@tag" },
+			["@html.paren"] = { fg = "#626880" },
 			-- css
 			["@css.keyword"] = { fg = M.pallet.base14 },
 			["@css.unit"] = { fg = M.pallet.base12 },
