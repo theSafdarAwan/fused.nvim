@@ -1,2 +1,2 @@
 ;; extends
-(system_lib_string) @include.path
+(system_lib_string) @c.include.path

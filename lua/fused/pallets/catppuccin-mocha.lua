@@ -103,7 +103,7 @@ M.polish = function()
 			["@js.constructor"] = { fg = M.pallet.base14 },
 			-- c lang
 			["@include"] = { link = "@keyword" },
-			["@include.path"] = { fg = M.pallet.base15, italic = utils.italics },
+			["@c.include.path"] = { fg = M.pallet.base15, italic = utils.italics },
 		},
 		["indent-blankline.nvim"] = {
 			IndentBlanklineChar = { fg = M.pallet.base04 },

@@ -112,7 +112,7 @@ M.polish = function()
 			["@js.constructor"] = { fg = M.pallet.base14 },
 			-- c lang
 			["@include"] = { fg = M.pallet.base16 },
-			["@include.path"] = { link = "@string" },
+			["@c.include.path"] = { link = "@string" },
 		},
 		["nvim-notify"] = {
 			NotifyINFOBody = { bg = M.pallet.base24 },
