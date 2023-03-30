@@ -108,6 +108,8 @@ M.polish = function()
 			["@keyword.return"] = { fg = M.pallet.base11 },
 			-- css
 			["@css.query"] = { link = "@type" }, -- type or class definitions and annotations
+			["@css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
+			["@css.id"] = { link = "@type" }, -- css id
 			-- javascript
 			["@js.constructor"] = { fg = M.pallet.base14 },
 			-- c lang
