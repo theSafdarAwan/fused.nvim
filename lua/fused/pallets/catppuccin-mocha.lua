@@ -88,6 +88,10 @@ M.polish = function()
 			Label = { fg = M.pallet.base13 },
 			-- windows seperator color
 			WinSeparator = { fg = M.pallet.base02 },
+			-- tab pages line, not active tab page label
+			TabLine = { fg = M.pallet.base06, bg = M.pallet.base02 },
+			-- tab pages line, active tab page label
+			TabLineSel = { fg = M.pallet.base07, bg = M.pallet.base04 },
 		},
 		["nvim-treesitter"] = {
 			["@property"] = { fg = M.pallet.base13 }, -- similar to `@field`

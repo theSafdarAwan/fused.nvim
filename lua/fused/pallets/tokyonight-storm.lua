@@ -94,6 +94,10 @@ M.polish = function()
 			WinSeparator = { fg = M.pallet.base02 },
 			-- status line of current window
 			StatusLine = { fg = M.pallet.base07, bg = M.pallet.base02 },
+			-- tab pages line, not active tab page label
+			TabLine = { fg = M.pallet.base06, bg = M.pallet.base02 },
+			-- tab pages line, active tab page label
+			TabLineSel = { fg = M.pallet.base07, bg = M.pallet.base03 },
 		},
 		["nvim-treesitter"] = {
 			["@function"] = { fg = M.pallet.base11 }, -- function definitions
