@@ -2,11 +2,8 @@
 local M = {}
 --- Configuration for theme.
 ---@table Default_Config
----@field flavour string name of the theme.
----@field override table|function should return a table. With theme name as key and table
---- as value with highlight groups to override plugin's highlight groups. Syntax and
---- editor highlights have a special field called `builtin` other fields are same as
---- the `plugins` table field's names.
+---@field theme string name of the theme theme.
+---@field settings table With theme name as key.
 ---@field italics boolean to enable or disable italic font.
 ---@field background_transparent boolean to enable or disable transparent background.
 ---@field terminal_colors boolean to enable terminal colors highlights.
@@ -20,10 +17,14 @@ local M = {}
 --- the startup.
 --- This can be used by user to reload modules or configs like status line, etc.
 local default_config = {
-	flavour = "tokyonight-storm",
-	override = {
-		["catppuccin-mocha"] = {},
-		["tokyonight-storm"] = {},
+	theme = "tokyonight-storm",
+	settings = {
+		["tokyonight-storm"] = {
+			styles = {
+				["telescope.nvim"] = "minimal",
+			},
+			hl_override = {},
+		},
 	},
 	italics = true,
 	terminal_colors = true,
@@ -61,23 +62,20 @@ function M.__setup(user_configuration)
 	--- merge default_config and user_configuration
 	local config = vim.tbl_deep_extend("force", default_config, user_configuration or {})
 
-	local theme = require("fused.pallets." .. config["flavour"])
-	-- theme colors
-	local colors = theme.pallet
-	-- transparent background opt
-	opts.background_transparent = config.background_transparent
-	-- italic opt
-	opts.italics = config.italics
-	opts.colors = colors
-	-- terminal colors
-	opts.terminal_colors = config.terminal_colors
-	-- override default highlight groups
-	local override_hl_groups
-	if type(config.override) == "function" then
-		override_hl_groups = config.override()[config.flavour] or {}
-	else
-		override_hl_groups = config.override[config.flavour] or {}
-	end
+	local theme = require("fused.pallets." .. config.theme)
+	-- current theme theme settings
+	local theme_settings = config.settings[config.theme] or {}
+	-- Export opts for latter use
+	opts.colors = theme.pallet -- theme colors
+	opts.background_transparent = config.background_transparent -- transparent background opt
+	opts.italics = config.italics -- italic opt
+	opts.terminal_colors = config.terminal_colors -- enable terminal colors
+	-- TODO: implement styles for different plugins
+	opts.styles = theme_settings.styles or {} -- get the styles for plugins
+	-- polish the highlights for themes, this includes user overridden highlights
+	-- and the themes.polish.
+	local override_hl_groups = theme_settings.hl_override or {}
+	-- TODO: this is wrong
 	if theme.polish then
 		opts.polish = function()
 			local polished = theme.polish()
@@ -89,7 +87,7 @@ function M.__setup(user_configuration)
 	else
 		opts.polish = function()
 			local polished = {}
-			for group_name, group_val in pairs(config.override[config.flavour]) do
+			for group_name, group_val in pairs(config.settings[config.theme]) do
 				polished[group_name] = vim.tbl_deep_extend("force", polished[group_name], group_val)
 			end
 			return polished
@@ -121,7 +119,6 @@ function M.__setup(user_configuration)
 		end
 	end
 
-	-- execute hooks
 	if config.execute_hooks then
 		local hook_names = require("fused.utils").hooks_names
 		for hook_name, _ in pairs(hook_names) do

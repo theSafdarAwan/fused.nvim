@@ -7,7 +7,7 @@ end
 vim.o.termguicolors = true
 
 require("fused").setup({
-	flavour = "catppuccin-mocha",
+	theme = "catppuccin-mocha",
 	force_load_plugins = true,
 	execute_hooks = true,
 })
