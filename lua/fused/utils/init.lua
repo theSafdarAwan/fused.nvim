@@ -54,6 +54,14 @@ M.format_styles = function(styles_str)
 	return styles
 end
 
+--- get the colors for given flavour
+---@param flavour string theme flavour name.
+---@return table colors pallet.
+M.get_colors = function (flavour)
+	local pallet = require("fused.pallets." .. flavour).pallet
+	return pallet
+end
+
 --- Replaces the `.` char in plugin name with `-`
 ---@param name string plugin name to format
 ---@return string formatted plugin name.
