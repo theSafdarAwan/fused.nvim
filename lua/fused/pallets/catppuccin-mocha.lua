@@ -108,8 +108,8 @@ M.polish = function()
 			-- css
 			["@fused_css.keyword"] = { fg = M.pallet.base14 },
 			["@fused_css.unit"] = { fg = M.pallet.base12 },
-			["@fused_css.property"] = { fg = M.pallet.base13 },
-			["@fused_css.query"] = { link = "@fused_css.property" }, -- type or class definitions and annotations
+			["@property.css"] = { fg = M.pallet.base13 },
+			["@fused_css.query"] = { link = "@property.css" }, -- type or class definitions and annotations
 			["@fused_css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
 			["@fused_css.id"] = { fg = M.pallet.base13 }, -- css id
 			["@fused_css.class"] = { fg = M.pallet.base17 }, -- css id
