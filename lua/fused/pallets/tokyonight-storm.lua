@@ -84,9 +84,9 @@ M.polish = function()
 		builtin = {
 			NormalFloat = { bg = M.pallet.base24 },
 			FloatBorder = { fg = M.pallet.base25 },
-			Pmenu = { fg = M.pallet.base07, bg = M.pallet.base24 },
+			Pmenu = { fg = M.pallet.base06, bg = M.pallet.base24 },
 			-- Popup menu: selected item.
-			PmenuSel = { fg = M.pallet.base06, bg = M.pallet.base03 },
+			PmenuSel = { bg = M.pallet.base03 },
 			-- Popup menu: scrollbar.
 			PmenuSbar = { bg = M.pallet.base02 },
 			-- Popup menu: Thumb of the scrollbar.

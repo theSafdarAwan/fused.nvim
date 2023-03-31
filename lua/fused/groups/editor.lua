@@ -99,7 +99,7 @@ M.get_hl_groups = function(cp)
 		-- Normal text in floating windows.
 		FloatBorder = { fg = cp.base04 },
 		-- Popup menu: normal item.
-		Pmenu = { bg = cp.base02, fg = cp.base18 },
+		Pmenu = { fg = cp.base18, bg = cp.base02 },
 		-- Popup menu: selected item.
 		PmenuSel = { fg = cp.base04, bg = cp.base12, bold = true },
 		-- Popup menu: scrollbar.
