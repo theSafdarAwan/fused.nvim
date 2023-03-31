@@ -5,7 +5,7 @@ M.get_hl_groups = function(cp)
 	return {
 		NoiceCmdline = { fg = cp.base07, bg = cp.base02 }, -- Normal for the classic cmdline area at the bottom"
 		NoiceCmdlineIcon = { fg = cp.base13 }, -- Cmdline icon
-		NoiceCmdlineIconSearch = { fg = cp.base08 }, -- Cmdline search icon (`/` and `?`)
+		NoiceCmdlineIconSearch = { fg = cp.base12 }, -- Cmdline search icon (`/` and `?`)
 		NoiceCmdlinePrompt = { link = "Title" }, -- prompt for input()
 		NoiceCmdlinePopup = { link = "NormalFloat" }, -- Normal for the cmdline popup
 		NoiceCmdlinePopupBorder = { link = "FloatBorder" }, -- Cmdline popup border
