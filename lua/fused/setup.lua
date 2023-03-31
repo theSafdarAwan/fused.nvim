@@ -17,17 +17,20 @@ local M = {}
 --- the startup.
 --- This can be used by user to reload modules or configs like status line, etc.
 
+-- TODO: transparent background
+
 local default_config = {
 	flavour = "tokyonight-storm",
 	settings = {
 		["tokyonight-storm"] = {
-			style = {
-				["telescope.nvim"] = "slim", -- slim, bordered
+			border = {
+				["telescope.nvim"] = false, -- slim, bordered
+				builtins = true
 			},
 			hl_override = {},
 		},
 	},
-	style = "slim",
+	border = false,
 	italics = true,
 	terminal_colors = true,
 	background_transparent = false,
@@ -73,9 +76,8 @@ function M.__setup(user_configuration)
 	opts.background_transparent = config.background_transparent -- transparent background opt
 	opts.italics = config.italics -- italic font
 	opts.terminal_colors = config.terminal_colors -- enable terminal colors
-	opts.styles = flavour_settings.styles or {} -- get the styles for plugins
-	-- polish the highlights for flavours, this includes user overridden highlights
-	-- and the flavour.polish.
+	opts.global_border = config.border -- global border
+	opts.local_border = flavour_settings.border or {} -- border local to plugin
 	local override_hl_groups = flavour_settings.hl_override or {}
 	opts.polish = function()
 		local polished = flavour.polish and flavour.polish() or {}
@@ -89,7 +91,7 @@ function M.__setup(user_configuration)
 	require("fused.utils").export_opts(opts)
 
 	-- set normal highlights for editor, syntax, and lsp.
-	require("fused.groups").load_builtin_hl()
+	require("fused.groups").load_builtins_hl()
 
 	-- load highlights for the plugins
 	if config.force_load_plugins or user_configuration and user_configuration.plugins then

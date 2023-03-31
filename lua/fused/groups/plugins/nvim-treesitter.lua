@@ -32,7 +32,7 @@ M.get_hl_groups = function(cp)
 
 		-- Functions
 		["@function"] = { link = "Function" }, -- function definitions
-		["@function.builtin"] = { link = "@function" }, -- built-in functions
+		["@function.builtins"] = { link = "@function" }, -- built-in functions
 		["@function.call"] = { link = "@function" }, -- function calls
 		["@function.macro"] = { fg = cp.base13 }, -- preprocessor macros
 
@@ -58,7 +58,7 @@ M.get_hl_groups = function(cp)
 		-- Types
 		["@type"] = { link = "Type" }, -- type or class definitions and annotations
 		["@type.tag"] = { fg = cp.base11 }, -- type or class definitions and annotations
-		["@type.builtin"] = { link = "@keyword" }, -- built-in types
+		["@type.builtins"] = { link = "@keyword" }, -- built-in types
 		["@type.definition"] = { link = "Type" }, -- type definitions (e.g. `typedef` in C)
 		["@type.qualifier"] = { link = "Type" }, -- type qualifiers (e.g. `const`)
 
@@ -73,10 +73,10 @@ M.get_hl_groups = function(cp)
 
 		-- #### Identifiers
 		["@variable"] = { fg = cp.base17 }, -- various variable names
-		["@variable.builtin"] = { fg = cp.base20 }, -- built-in variable names (e.g. `this`)
+		["@variable.builtins"] = { fg = cp.base20 }, -- built-in variable names (e.g. `this`)
 
 		["@constant"] = { link = "Constant" }, -- constant identifiers
-		["@constant.builtin"] = { fg = cp.base14 }, -- built-in constant values
+		["@constant.builtins"] = { fg = cp.base14 }, -- built-in constant values
 		["@constant.macro"] = { link = "@define" }, -- constants defined by the preprocessor
 
 		-- @namespace        -- modules or namespaces

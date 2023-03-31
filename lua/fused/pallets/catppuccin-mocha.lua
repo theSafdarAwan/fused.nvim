@@ -72,7 +72,7 @@ M.polish = function()
 			TelescopePromptTitle = { fg = M.pallet.base01, bg = M.pallet.base11, bold = true },
 			TelescopeResultsTitle = { fg = M.pallet.base16 },
 		},
-		builtin = {
+		builtins = {
 			-- syntax
 			Type = { fg = M.pallet.base09 }, -- (preferred) int, long, char, etc.
 			-- editor
@@ -100,8 +100,8 @@ M.polish = function()
 			["@function"] = { fg = M.pallet.base08 }, -- function definitions
 			["@parameter"] = { fg = M.pallet.base12, italic = utils.italics }, -- parameters of a function
 			["@tag.attribute"] = { fg = M.pallet.base13 }, -- XML tag attributes
-			["@variable"] = { fg = M.pallet.base17 }, -- builtin variable
-			["@variable.builtin"] = { fg = M.pallet.base17 }, -- builtin variable
+			["@variable"] = { fg = M.pallet.base17 }, -- builtins variable
+			["@variable.builtins"] = { fg = M.pallet.base17 }, -- builtins variable
 			-- html
 			["@fused_html.doctype"] = { link = "@tag" },
 			["@fused_html.paren"] = { fg = "#626880" },

@@ -11,8 +11,8 @@ local utils = require("fused.utils")
 ---@table available_hl_groups
 local available_hl_groups = {}
 
---- loads higlights for editor builtin highlight groups including editor, syntax and lsp
-M.load_builtin_hl = function()
+--- loads higlights for editor builtins highlight groups including editor, syntax and lsp
+M.load_builtins_hl = function()
 	--- table of colors
 	---@table colors
 	local colors = utils.colors
@@ -22,8 +22,8 @@ M.load_builtin_hl = function()
 	hls = vim.tbl_extend("force", hls, require("fused.groups.syntax").get_hl_groups(colors))
 
 	hls = vim.tbl_extend("force", hls, require("fused.groups.lsp").get_hl_groups(colors))
-	if utils.polish and utils.polish().builtin then
-		hls = vim.tbl_extend("force", hls, utils.polish().builtin)
+	if utils.polish and utils.polish().builtins then
+		hls = vim.tbl_extend("force", hls, utils.polish().builtins)
 	end
 	available_hl_groups = vim.tbl_extend("force", available_hl_groups, hls)
 	for hl_name, hl_val in pairs(hls) do
