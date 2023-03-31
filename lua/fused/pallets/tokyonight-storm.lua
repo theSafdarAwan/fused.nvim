@@ -84,7 +84,7 @@ M.polish = function()
 		},
 		builtins = {
 			NormalFloat = { bg = M.pallet.base24 },
-			FloatBorder = { fg = M.pallet.base25 },
+			FloatBorder = { fg = M.pallet.base24, bg = M.pallet.base24 },
 			Pmenu = { fg = M.pallet.base06, bg = M.pallet.base24 },
 			-- Popup menu: selected item.
 			PmenuSel = { bg = M.pallet.base03 },
@@ -140,6 +140,10 @@ M.polish = function()
 			NoiceCmdlinePopupBorder = { fg = M.pallet.base24, bg = M.pallet.base24 }, -- Cmdline popup border
 		},
 	}
+end
+
+M.polish_border = function()
+	return {}
 end
 
 return M
