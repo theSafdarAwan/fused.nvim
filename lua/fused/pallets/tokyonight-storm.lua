@@ -70,6 +70,9 @@ M.polish = function()
 		["nvim-tree.lua"] = {
 			NvimTreeNormal = { link = "NormalFloat" },
 		},
+		["indent-blankline.nvim"] = {
+			IndentBlanklineContextChar = { fg = M.pallet.base25 },
+		},
 		["telescope.nvim"] = {
 			TelescopeNormal = { bg = M.pallet.base24 },
 			TelescopeBorder = { fg = M.pallet.base24, bg = M.pallet.base24 },
