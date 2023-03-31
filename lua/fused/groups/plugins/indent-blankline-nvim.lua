@@ -7,7 +7,7 @@ M.get_hl_groups = function(cp)
 		IndentBlanklineSpaceCharBlankline = { link = "IndentBlanklineChar" },
 		IndentBlanklineContextChar = { fg = cp.base04 },
 		IndentBlanklineContextSpaceChar = { link = "IndentBlanklineChar" },
-		IndentBlanklineContextStart = { bg = cp.base05 },
+		IndentBlanklineContextStart = { bg = cp.base03 },
 	}
 end
 

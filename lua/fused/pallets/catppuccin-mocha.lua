@@ -122,7 +122,7 @@ M.polish = function()
 		["indent-blankline.nvim"] = {
 			IndentBlanklineChar = { fg = M.pallet.base04 },
 			IndentBlanklineContextChar = { fg = M.pallet.base05 },
-			IndentBlanklineContextStart = { bg = M.pallet.base06 },
+			IndentBlanklineContextStart = { bg = M.pallet.base05 },
 		},
 	}
 end
