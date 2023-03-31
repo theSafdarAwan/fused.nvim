@@ -38,6 +38,7 @@ local default_config = {
 		["nvim-cmp"] = true,
 		["nvim-navic"] = true,
 		["nvim-notify"] = true,
+		["noice.nvim"] = true,
 		["nvim-treesitter"] = true,
 		["diffview.nvim"] = true,
 		["indent-blankline.nvim"] = true,
