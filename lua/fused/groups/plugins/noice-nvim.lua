@@ -1,70 +1,71 @@
 local M = {}
 
 M.get_hl_groups = function(cp)
+	local border = "NoiceCmdlinePopupBorder"
 	return {
-		Cmdline = { link = "MsgArea" }, -- Normal for the classic cmdline area at the bottom"
-		CmdlineIcon = { link = "FloatBorder" }, -- Cmdline icon
-		CmdlineIconSearch = { link = "DiagnosticSignWarn" }, -- Cmdline search icon (`/` and `?`)
-		CmdlinePrompt = { link = "Title" }, -- prompt for input()
-		CmdlinePopup = { link = "Normal" }, -- Normal for the cmdline popup
-		CmdlinePopupBorder = { link = "DiagnosticSignInfo" }, -- Cmdline popup border
-		CmdlinePopupBorderSearch = { link = "DiagnosticSignWarn" }, -- Cmdline popup border for search
-		Confirm = { link = "Normal" }, -- Normal for the confirm view
-		ConfirmBorder = { link = "DiagnosticSignInfo" }, -- Border for the confirm view
-		Cursor = { link = "Cursor" }, -- Fake Cursor
-		Mini = { link = "MsgArea" }, -- Normal for mini view
-		Popup = { link = "NormalFloat" }, -- Normal for popup views
-		PopupBorder = { link = "FloatBorder" }, -- Border for popup views
-		Popupmenu = { link = "Pmenu" }, -- Normal for the popupmenu
-		PopupmenuBorder = { link = "FloatBorder" }, -- Popupmenu border
-		PopupmenuMatch = { link = "Special" }, -- Part of the item that matches the input
-		PopupmenuSelected = { link = "PmenuSel" }, -- Selected item in the popupmenu
-		Scrollbar = { link = "PmenuSbar" }, -- Normal for scrollbar
-		ScrollbarThumb = { link = "PmenuThumb" }, -- Scrollbar thumb
-		Split = { link = "NormalFloat" }, -- Normal for split views
-		SplitBorder = { link = "FloatBorder" }, -- Border for split views
-		VirtualText = { link = "DiagnosticVirtualTextInfo" }, -- Default hl group for virtualtext views
-		FormatProgressDone = { link = "Search" }, -- Progress bar done
-		FormatProgressTodo = { link = "CursorLine" }, -- progress bar todo
-		FormatEvent = { link = "NonText" },
-		FormatKind = { link = "NonText" },
-		FormatDate = { link = "Special" },
-		FormatConfirm = { link = "CursorLine" },
-		FormatConfirmDefault = { link = "Visual" },
-		FormatTitle = { link = "Title" },
-		FormatLevelDebug = { link = "NonText" },
-		FormatLevelTrace = { link = "NonText" },
-		FormatLevelOff = { link = "NonText" },
-		FormatLevelInfo = { link = "DiagnosticVirtualTextInfo" },
-		FormatLevelWarn = { link = "DiagnosticVirtualTextWarn" },
-		FormatLevelError = { link = "DiagnosticVirtualTextError" },
-		LspProgressSpinner = { link = "Constant" }, -- Lsp progress spinner
-		LspProgressTitle = { link = "NonText" }, -- Lsp progress title
-		LspProgressClient = { link = "Title" }, -- Lsp progress client name
-		CompletionItemMenu = { link = "none" }, -- Normal for the popupmenu
-		CompletionItemWord = { link = "none" }, -- Normal for the popupmenu
-		CompletionItemKindDefault = { link = "Special" },
-		CompletionItemKindColor = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindFunction = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindClass = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindMethod = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindConstructor = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindInterface = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindModule = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindStruct = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindKeyword = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindValue = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindProperty = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindConstant = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindSnippet = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindFolder = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindText = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindEnumMember = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindUnit = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindField = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindFile = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindVariable = { link = "NoiceCompletionItemKindDefault" },
-		CompletionItemKindEnum = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCmdline = { fg = cp.base07, bg = cp.base02 }, -- Normal for the classic cmdline area at the bottom"
+		NoiceCmdlineIcon = { fg = cp.base13 }, -- Cmdline icon
+		NoiceCmdlineIconSearch = { fg = cp.base08 }, -- Cmdline search icon (`/` and `?`)
+		NoiceCmdlinePrompt = { link = "Title" }, -- prompt for input()
+		NoiceCmdlinePopup = { link = "NormalFloat" }, -- Normal for the cmdline popup
+		NoiceCmdlinePopupBorder = { link = "FloatBorder" }, -- Cmdline popup border
+		NoiceCmdlinePopupBorderSearch = { link = border }, -- Cmdline popup border for search
+		NoiceConfirm = { link = "Normal" }, -- Normal for the confirm view
+		NoiceConfirmBorder = { link = border }, -- Border for the confirm view
+		NoiceCursor = { bg = cp.base07 }, -- Fake Cursor
+		NoiceMini = { link = "Normal" }, -- Normal for mini view
+		NoicePopup = { link = "NormalFloat" }, -- Normal for popup views
+		NoicePopupBorder = { link = border }, -- Border for popup views
+		NoicePopupmenu = { link = "Pmenu" }, -- Normal for the popupmenu
+		NoicePopupmenuBorder = { link = border }, -- Popupmenu border
+		NoicePopupmenuMatch = { fg = cp.base15 }, -- Part of the item that matches the input
+		NoicePopupmenuSelected = { link = "PmenuSel" }, -- Selected item in the popupmenu
+		NoiceScrollbar = { link = "PmenuSbar" }, -- Normal for scrollbar
+		NoiceScrollbarThumb = { link = "PmenuThumb" }, -- Scrollbar thumb
+		NoiceSplit = { link = "NormalFloat" }, -- Normal for split views
+		NoiceSplitBorder = { link = border }, -- Border for split views
+		NoiceVirtualText = { link = "DiagnosticVirtualTextInfo" }, -- Default hl group for virtualtext views
+		NoiceFormatProgressDone = { link = "Search" }, -- Progress bar done
+		NoiceFormatProgressTodo = { link = "CursorLine" }, -- progress bar todo
+		NoiceFormatEvent = { link = "NonText" },
+		NoiceFormatKind = { link = "NonText" },
+		NoiceFormatDate = { link = "Special" },
+		NoiceFormatConfirm = { link = "CursorLine" },
+		NoiceFormatConfirmDefault = { link = "Visual" },
+		NoiceFormatTitle = { link = "Title" },
+		NoiceFormatLevelDebug = { link = "NonText" },
+		NoiceFormatLevelTrace = { link = "NonText" },
+		NoiceFormatLevelOff = { link = "NonText" },
+		NoiceFormatLevelInfo = { link = "DiagnosticVirtualTextInfo" },
+		NoiceFormatLevelWarn = { link = "DiagnosticVirtualTextWarn" },
+		NoiceFormatLevelError = { link = "DiagnosticVirtualTextError" },
+		NoiceLspProgressSpinner = { link = "Constant" }, -- Lsp progress spinner
+		NoiceLspProgressTitle = { link = "NonText" }, -- Lsp progress title
+		NoiceLspProgressClient = { link = "Title" }, -- Lsp progress client name
+		NoiceCompletionItemMenu = { link = "none" }, -- Normal for the popupmenu
+		NoiceCompletionItemWord = { link = "none" }, -- Normal for the popupmenu
+		NoiceCompletionItemKindDefault = { link = "Special" },
+		NoiceCompletionItemKindColor = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindFunction = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindClass = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindMethod = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindConstructor = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindInterface = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindModule = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindStruct = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindKeyword = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindValue = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindProperty = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindConstant = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindSnippet = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindFolder = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindText = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindEnumMember = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindUnit = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindField = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindFile = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindVariable = { link = "NoiceCompletionItemKindDefault" },
+		NoiceCompletionItemKindEnum = { link = "NoiceCompletionItemKindDefault" },
 	}
 end
 

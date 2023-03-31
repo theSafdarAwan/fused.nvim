@@ -130,6 +130,9 @@ M.polish = function()
 			NotifyERRORBody = { bg = M.pallet.base24 },
 			NotifyTRACEBody = { bg = M.pallet.base24 },
 		},
+		["noice.nvim"] = {
+			NoiceCmdlinePopupBorder = { fg = M.pallet.base24, bg = M.pallet.base24 }, -- Cmdline popup border
+		},
 	}
 end
 
