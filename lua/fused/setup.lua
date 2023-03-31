@@ -22,11 +22,12 @@ local default_config = {
 	settings = {
 		["tokyonight-storm"] = {
 			style = {
-				["telescope.nvim"] = "minimal", -- minimal, bordered
+				["telescope.nvim"] = "slim", -- slim, bordered
 			},
 			hl_override = {},
 		},
 	},
+	style = "slim",
 	italics = true,
 	terminal_colors = true,
 	background_transparent = false,
@@ -72,7 +73,6 @@ function M.__setup(user_configuration)
 	opts.background_transparent = config.background_transparent -- transparent background opt
 	opts.italics = config.italics -- italic font
 	opts.terminal_colors = config.terminal_colors -- enable terminal colors
-	-- TODO: implement styles for different plugins
 	opts.styles = flavour_settings.styles or {} -- get the styles for plugins
 	-- polish the highlights for flavours, this includes user overridden highlights
 	-- and the flavour.polish.
