@@ -136,6 +136,9 @@ M.polish = function()
 		["neo-minimap"] = {
 			NeoMinimapBackground = { link = "FloatBorder" },
 		},
+		["harpoon"] = {
+			HarpoonWindow = { fg = M.pallet.base06, bg = M.pallet.base24 },
+		},
 	}
 end
 
