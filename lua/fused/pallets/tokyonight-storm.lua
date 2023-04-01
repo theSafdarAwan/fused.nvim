@@ -139,6 +139,9 @@ M.polish = function()
 		["noice.nvim"] = {
 			NoiceCmdlinePopupBorder = { fg = M.pallet.base24, bg = M.pallet.base24 }, -- Cmdline popup border
 		},
+		["neo-minimap"] = {
+			NeoMinimapBackground = { link = "FloatBorder" },
+		},
 	}
 end
 
