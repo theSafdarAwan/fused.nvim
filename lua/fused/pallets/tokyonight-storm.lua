@@ -138,6 +138,8 @@ M.polish = function()
 		},
 		["harpoon"] = {
 			HarpoonWindow = { fg = M.pallet.base06, bg = M.pallet.base24 },
+			-- TODO: move this to fused_custom and add the styles now
+			SlimNormalFloat = { bg = M.pallet.base24 },
 		},
 	}
 end
