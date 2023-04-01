@@ -1,4 +1,8 @@
-- [ ] change the popup and sidebar windows background colors.
+** Add highlights for these plugins or improve previous
+   - Lazy.nvim
+   - nvim-tree.lua
+   - diffview, neogit.
+
 - [ ] add the markdown treesitter highlights
-- [ ] add a key to the config so that auto loading colors for plugins is disabled
-  and only enabled when we lazy_load the config
+- [ ] find a way to load highlights for the plugin automatically if the plugins
+  is loaded. Add `smart_load` key in setup tbl.
