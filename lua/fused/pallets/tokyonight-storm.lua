@@ -83,25 +83,19 @@ M.polish = function()
 			TelescopeResultsTitle = { fg = M.pallet.base09 },
 		},
 		builtins = {
-			NormalFloat = { bg = M.pallet.base24 },
+			NormalFloat = { fg = M.pallet.base06, bg = M.pallet.base24 },
 			FloatBorder = { fg = M.pallet.base24, bg = M.pallet.base24 },
 			Pmenu = { fg = M.pallet.base06, bg = M.pallet.base24 },
-			-- Popup menu: selected item.
-			PmenuSel = { bg = M.pallet.base03 },
-			-- Popup menu: scrollbar.
-			PmenuSbar = { bg = M.pallet.base02 },
-			-- Popup menu: Thumb of the scrollbar.
-			PmenuThumb = { bg = M.pallet.base05 },
+			PmenuSel = { bg = M.pallet.base03 }, -- Popup menu: selected item.
+			PmenuSbar = { bg = M.pallet.base02 }, -- Popup menu: scrollbar.
+			PmenuThumb = { bg = M.pallet.base05 }, -- Popup menu: Thumb of the scrollbar.
 			MatchParen = { bg = "#3b4261" },
 			Label = { fg = M.pallet.base13 },
-			-- windows seperator color
-			WinSeparator = { fg = M.pallet.base02 },
-			-- status line of current window
-			StatusLine = { fg = M.pallet.base07, bg = M.pallet.base02 },
-			-- tab pages line, not active tab page label
-			TabLine = { fg = M.pallet.base06, bg = M.pallet.base02 },
-			-- tab pages line, active tab page label
-			TabLineSel = { fg = M.pallet.base07, bg = M.pallet.base03 },
+			WinSeparator = { fg = M.pallet.base02 }, -- windows seperator color
+			StatusLine = { fg = M.pallet.base07, bg = M.pallet.base02 }, -- status line of current window
+			TabLine = { fg = M.pallet.base06, bg = M.pallet.base02 }, -- tab pages line, not active tab page label
+			TabLineSel = { fg = M.pallet.base07, bg = M.pallet.base03 }, -- tab pages line, active tab page label
+			Identifier = { fg = M.pallet.base14 }, -- (preferred) any variable name
 		},
 		["nvim-treesitter"] = {
 			["@function"] = { fg = M.pallet.base11 }, -- function definitions
