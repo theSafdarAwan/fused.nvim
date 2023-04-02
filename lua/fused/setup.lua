@@ -101,6 +101,9 @@ function M.__setup(user_configuration)
 
 	-- set highlights for custom groups set by user
 	if config.custom then
+		if type(config.custom) == "function" then
+			config.custom = config.custom(opts.colors)
+		end
 		local hl = require("fused.utils").set_hl
 		for hl_group_name, hl_opts in pairs(config.custom) do
 			hl_group_name = tostring(hl_group_name)
