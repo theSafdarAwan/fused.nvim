@@ -37,7 +37,7 @@ M.get_hl_groups = function(cp)
 		vim.g.terminal_color_14 = cp.cyan10
 	end
 	return {
-		ColorColumn = { bg = cp.base18 }, -- used for the columns set with 'colorcolumn'
+		ColorColumn = { bg = cp.base03 }, -- used for the columns set with 'colorcolumn'
 		Comment = { fg = cp.base05, italic = utils.italics }, -- comments
 		Conceal = { fg = cp.base18 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 		Cursor = { fg = cp.base, bg = cp.base07 }, -- character under the cursor
