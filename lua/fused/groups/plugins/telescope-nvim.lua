@@ -2,8 +2,8 @@ local M = {}
 
 M.get_hl_groups = function(cp)
 	return {
-		TelescopeNormal = { bg = cp.base01 },
-		TelescopeSelection = { bg = cp.base02 },
+		TelescopeNormal = { bg = cp.bg },
+		TelescopeSelection = { bg = cp.popup_bg },
 		TelescopeSelectionCaret = { fg = cp.base09 },
 		TelescopeMultiSelection = { fg = cp.base04 },
 		TelescopeMatching = { fg = cp.base15 },

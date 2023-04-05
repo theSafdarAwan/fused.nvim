@@ -27,8 +27,8 @@ local colors = {
 local M = {}
 
 M.pallet = {
-	base01 = colors.color_01,
-	base02 = colors.color_02,
+	bg = colors.color_01,
+	popup_bg = colors.color_02,
 	base03 = colors.color_03,
 	base04 = colors.color_04,
 	base05 = colors.color_05,
@@ -67,9 +67,9 @@ M.polish = function()
 		["telescope.nvim"] = {
 			TelescopeNormal = { bg = M.pallet.base03 },
 			TelescopeBorder = { fg = M.pallet.base03, bg = M.pallet.base03 },
-			TelescopePreviewTitle = { fg = M.pallet.base01, bg = M.pallet.base10, bold = true },
+			TelescopePreviewTitle = { fg = M.pallet.bg, bg = M.pallet.base10, bold = true },
 			TelescopePromptPrefix = { fg = M.pallet.base12 },
-			TelescopePromptTitle = { fg = M.pallet.base01, bg = M.pallet.base11, bold = true },
+			TelescopePromptTitle = { fg = M.pallet.bg, bg = M.pallet.base11, bold = true },
 			TelescopeResultsTitle = { fg = M.pallet.base16 },
 		},
 		builtins = {
@@ -82,14 +82,14 @@ M.polish = function()
 			-- Popup menu: selected item.
 			PmenuSel = { fg = M.pallet.base06, bg = M.pallet.base03 },
 			-- Popup menu: scrollbar.
-			PmenuSbar = { bg = M.pallet.base02 },
+			PmenuSbar = { bg = M.pallet.popup_bg },
 			-- Popup menu: Thumb of the scrollbar.
 			PmenuThumb = { bg = M.pallet.base05 },
 			Label = { fg = M.pallet.base13 },
 			-- windows seperator color
-			WinSeparator = { fg = M.pallet.base02 },
+			WinSeparator = { fg = M.pallet.popup_bg },
 			-- tab pages line, not active tab page label
-			TabLine = { fg = M.pallet.base06, bg = M.pallet.base02 },
+			TabLine = { fg = M.pallet.base06, bg = M.pallet.popup_bg },
 			-- tab pages line, active tab page label
 			TabLineSel = { fg = M.pallet.base07, bg = M.pallet.base04 },
 		},

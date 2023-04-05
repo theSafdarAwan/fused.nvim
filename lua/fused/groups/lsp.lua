@@ -7,15 +7,15 @@ M.get_hl_groups = function(cp)
 		LspReferenceRead = { fg = cp.base09, italic = utils.italics, underline = true }, -- used for highlighting "read" references
 		LspReferenceWrite = { fg = cp.base11, italic = utils.italics, underline = true }, -- used for highlighting "write" references
 
-		DiagnosticVirtualTextError = { fg = cp.base08, bg = cp.base02 },
-		DiagnosticVirtualTextWarn = { fg = cp.base09, bg = cp.base02 },
-		DiagnosticVirtualTextHint = { fg = cp.base10, bg = cp.base02 },
-		DiagnosticVirtualTextInfo = { fg = cp.base10, bg = cp.base02 },
+		DiagnosticVirtualTextError = { fg = cp.base08, bg = cp.popup_bg },
+		DiagnosticVirtualTextWarn = { fg = cp.base09, bg = cp.popup_bg },
+		DiagnosticVirtualTextHint = { fg = cp.base10, bg = cp.popup_bg },
+		DiagnosticVirtualTextInfo = { fg = cp.base10, bg = cp.popup_bg },
 
-		DiagnosticFloatingError = { fg = cp.base08, bg = cp.base02 },
-		DiagnosticFloatingWarn = { fg = cp.base09, bg = cp.base02 },
-		DiagnosticFloatingHint = { fg = cp.base10, bg = cp.base02 },
-		DiagnosticFloatingInfo = { fg = cp.base10, bg = cp.base02 },
+		DiagnosticFloatingError = { fg = cp.base08, bg = cp.popup_bg },
+		DiagnosticFloatingWarn = { fg = cp.base09, bg = cp.popup_bg },
+		DiagnosticFloatingHint = { fg = cp.base10, bg = cp.popup_bg },
+		DiagnosticFloatingInfo = { fg = cp.base10, bg = cp.popup_bg },
 
 		DiagnosticSignError = { fg = cp.base08 },
 		DiagnosticSignWarn = { fg = cp.base09 },

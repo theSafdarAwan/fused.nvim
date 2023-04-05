@@ -3,7 +3,7 @@ local M = {}
 
 M.get_hl_groups = function(cp)
 	return {
-		NvimTreeNormal = { bg = cp.base01 },
+		NvimTreeNormal = { bg = cp.bg },
 		NvimTreeGitDirty = { fg = cp.base11 },
 		NvimTreeGitStaged = { fg = cp.base15 },
 		NvimTreeGitNew = { fg = cp.base11 },

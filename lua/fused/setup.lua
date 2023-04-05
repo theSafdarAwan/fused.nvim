@@ -1,3 +1,4 @@
+---@diagnostic disable: param-type-mismatch
 --- Loads theme
 local M = {}
 --- Configuration for theme flavour.
@@ -24,9 +25,12 @@ local default_config = {
 	settings = {
 		["tokyonight-storm"] = {
 			border = {
-				["telescope.nvim"] = false, -- slim, bordered
-				builtins = true
+				-- TODO: add border styles
+				["telescope.nvim"] = false,
+				---@type boolean
+				builtins = true,
 			},
+			---@type function|table
 			hl_override = {},
 		},
 	},
@@ -80,6 +84,10 @@ function M.__setup(user_configuration)
 	opts.global_border = config.border -- global border
 	opts.local_border = flavour_settings.border or {} -- border local to plugin
 	local override_hl_groups = flavour_settings.hl_override or {}
+	-- if function then pass the colors pallet to it
+	if type(override_hl_groups) == "function" then
+		override_hl_groups = override_hl_groups(flavour.pallet)
+	end
 	opts.polish = function()
 		local polished = flavour.polish and flavour.polish() or {}
 		for group_name, group_val in pairs(override_hl_groups) do

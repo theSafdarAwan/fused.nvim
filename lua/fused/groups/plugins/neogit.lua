@@ -11,13 +11,13 @@ M.get_hl_groups = function(cp)
 		NeogitDiffAddHighlight = { fg = cp.base15 },
 		NeogitDiffDeleteHighlight = { bg = cp.base08 },
 		-- highlights current highlights
-		NeogitDiffContextHighlight = { bg = cp.base02 },
+		NeogitDiffContextHighlight = { bg = cp.popup_bg },
 		-- hunk information header like `@@ -5,7 +5,7`
-		NeogitHunkHeader = { fg = cp.base01, bg = cp.base06 },
+		NeogitHunkHeader = { fg = cp.bg, bg = cp.base06 },
 		-- highlight for for neogit folds
 		NeogitFold = { link = "Folded" },
 		-- highlight for the neogit in diff comment header
-		NeogitCommitViewHeader = { fg = cp.base02, bg = cp.base06 },
+		NeogitCommitViewHeader = { fg = cp.popup_bg, bg = cp.base06 },
 		-- branch name header
 		NeogitBranch = { fg = cp.base11 },
 		-- remote branch name
@@ -29,7 +29,7 @@ M.get_hl_groups = function(cp)
 		-- comment id or object id whatever
 		NeogitObjectId = { fg = cp.base17, italic = utils.italics },
 		-- file names
-		NeogitDiffHeader = { fg = cp.base06, bg = cp.base02 },
+		NeogitDiffHeader = { fg = cp.base06, bg = cp.popup_bg },
 		-- recent commit header
 		NeogitRecentcommits = { fg = cp.base14 },
 		-- Staged Changes Header

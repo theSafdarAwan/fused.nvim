@@ -2,11 +2,11 @@ local M = {}
 
 M.get_hl_groups = function(cp)
 	return {
-		DiffviewNormal = { fg = cp.base10, bg = cp.base01 },
+		DiffviewNormal = { fg = cp.base10, bg = cp.bg },
 		-- like the > marker for folder
 		DiffviewNonText = { fg = cp.base06 },
 		-- current line hig ,
-		DiffviewCursorLine = { bg = cp.base02 },
+		DiffviewCursorLine = { bg = cp.popup_bg },
 
 		DiffviewDiffDelete = { link = "DiffDelete" },
 		-- folders names
@@ -55,7 +55,7 @@ M.get_hl_groups = function(cp)
 	}
 
 	-- TODO: figure out these highlights
-	-- local curse = { fg = cp.base01 bg = cp.base06 }
+	-- local curse = { fg = cp.bg bg = cp.base06 }
 	-- hl("DiffviewStatusBroken", curse)
 	-- hl("DiffviewStatusIgnored", curse)
 	-- hl("DiffviewSignColumn", curse)

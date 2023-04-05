@@ -17,7 +17,7 @@ M.get_hl_groups = function(cp)
 		DevIconmp3 = { fg = cp.base06 },
 		DevIconmp4 = { fg = cp.base06 },
 		DevIconout = { fg = cp.base06 },
-		DevIconpng = { fg = cp.base21 },
+		DevIconpng = { fg = cp.base15 },
 		DevIconpy = { fg = cp.base10 },
 		DevIcontoml = { fg = cp.base10 },
 		DevIconts = { fg = cp.base13 },
