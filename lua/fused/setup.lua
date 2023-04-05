@@ -1,7 +1,6 @@
 --- Loads theme
 local M = {}
--- TODO: add option to enable transparent background for plugins also
---
+
 --- Configuration for theme flavour.
 ---@table Default_Config
 -- TODO: remove these private keys and do something else rather then polluting
@@ -27,8 +26,13 @@ local DEFAULT_CONFIG = {
 			style = "slim",
 			---@type boolean enable italics for theme.
 			italics = true,
-			---@type boolean set background to transparent
-			background_transparent = false,
+			---@type table set background to transparent
+			background_transparent = {
+				editor = false,
+				floating_windows = false,
+				["telescope.nvim"] = false,
+				["nvim-cmp"] = false,
+			},
 			---@type boolean use the theme colors for the terminal colors
 			terminal_colors = true,
 		},
@@ -37,6 +41,7 @@ local DEFAULT_CONFIG = {
 			---@type string|table style string for flavour or table with
 			--- individual plugin style.
 			style = {
+				-- TODO: only add the plugins that support the style
 				["telescope.nvim"] = "slim",
 			},
 			---@type function|table override the default highlights if function should
@@ -84,21 +89,30 @@ local DEFAULT_CONFIG = {
 function M.__setup(user_configuration)
 	local config = vim.tbl_deep_extend("force", DEFAULT_CONFIG, user_configuration or {})
 	local flavour_mod = require("fused.pallets." .. config.use)
+
 	local colors = flavour_mod.pallet
 	local flavour_settings = config.settings[config.use] or {}
+	local global_settings = config.settings.global
+
 	local override_hl = flavour_settings.override_hl or {}
 	if type(override_hl) == "function" then
 		override_hl = override_hl(colors)
 	end
+
 	local opts = {}
 	opts.polish = function()
 		local polished = flavour_mod.polish and flavour_mod.polish() or {}
 		polished = vim.tbl_deep_extend("force", polished, override_hl or {})
 		return polished
 	end
-	-- TODO: create a table which holds info about individual plugin opts. In the
-	-- utils module.
-	opts.colors = colors -- flavour colors
+	opts.terminal_colors = flavour_settings.terminal_colors
+		or global_settings.terminal_colors and flavour_settings.terminal_colors == nil
+	opts.background_transparent = vim.tbl_extend(
+		"force",
+		global_settings.background_transparent,
+		flavour_settings.background_transparent or {}
+	)
+	opts.colors = colors
 	-- export common opts table for easy access
 	require("fused.utils").export_opts(opts)
 
@@ -110,12 +124,13 @@ function M.__setup(user_configuration)
 	end
 
 	-- set highlights for custom groups set by user
-	if config.custom_hl then
-		if type(config.custom_hl) == "function" then
-			config.custom_hl = config.custom_hl(opts.colors)
+	local custom_hl = config.settings.custom_hl
+	if custom_hl then
+		if type(custom_hl) == "function" then
+			custom_hl = custom_hl(opts.colors)
 		end
 		local hl = require("fused.utils").set_hl
-		for hl_group_name, hl_opts in pairs(config.custom_hl) do
+		for hl_group_name, hl_opts in pairs(custom_hl) do
 			hl_group_name = tostring(hl_group_name)
 			if hl_opts.styles then
 				local styles = hl_opts.styles
