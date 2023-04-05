@@ -77,23 +77,21 @@ M.polish = function(colors)
 			TelescopePromptTitle = { fg = colors.base09, bold = true },
 			TelescopeResultsTitle = { fg = colors.base07 },
 		},
-		builtins = {
-			editor = {
-				NormalFloat = { fg = colors.base04, bg = colors.base19 },
-				Pmenu = { fg = colors.base04, bg = colors.base19 },
-				PmenuSel = { bg = colors.base01 }, -- Popup menu: selected item.
-				PmenuSbar = { bg = colors.popup_bg }, -- Popup menu: scrollbar.
-				PmenuThumb = { bg = colors.base03 }, -- Popup menu: Thumb of the scrollbar.
-				MatchParen = { bg = colors.base21 },
-				WinSeparator = { fg = colors.popup_bg }, -- windows seperator color
-				StatusLine = { fg = colors.base05, bg = colors.popup_bg }, -- status line of current window
-				TabLine = { fg = colors.base04, bg = colors.popup_bg }, -- tab pages line, not active tab page label
-				TabLineSel = { fg = colors.base05, bg = colors.base01 }, -- tab pages line, active tab page label
-			},
-			syntax = {
-				Label = { fg = colors.base11 },
-				Identifier = { fg = colors.base12 }, -- (preferred) any variable name
-			},
+		editor = {
+			NormalFloat = { fg = colors.base04, bg = colors.base19 },
+			Pmenu = { fg = colors.base04, bg = colors.base19 },
+			PmenuSel = { bg = colors.base01 }, -- Popup menu: selected item.
+			PmenuSbar = { bg = colors.popup_bg }, -- Popup menu: scrollbar.
+			PmenuThumb = { bg = colors.base03 }, -- Popup menu: Thumb of the scrollbar.
+			MatchParen = { bg = colors.base21 },
+			WinSeparator = { fg = colors.popup_bg }, -- windows seperator color
+			StatusLine = { fg = colors.base05, bg = colors.popup_bg }, -- status line of current window
+			TabLine = { fg = colors.base04, bg = colors.popup_bg }, -- tab pages line, not active tab page label
+			TabLineSel = { fg = colors.base05, bg = colors.base01 }, -- tab pages line, active tab page label
+		},
+		syntax = {
+			Label = { fg = colors.base11 },
+			Identifier = { fg = colors.base12 }, -- (preferred) any variable name
 		},
 		["nvim-treesitter"] = {
 			["@function"] = { fg = colors.base09 }, -- function definitions
@@ -150,10 +148,8 @@ M.style = function(colors)
 			["harpoon"] = {
 				HarpoonWindow = { fg = colors.base04, bg = colors.base19 },
 			},
-			builtins = {
-				editor = {
-					FloatBorder = { fg = colors.base19, bg = colors.base19 },
-				},
+			editor = {
+				FloatBorder = { fg = colors.base19, bg = colors.base19 },
 			},
 		},
 	}

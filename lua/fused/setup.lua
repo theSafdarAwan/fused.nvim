@@ -42,11 +42,9 @@ local DEFAULT_CONFIG = {
 			override_hl = function(colors)
 				return {
 					["telescope.nvim"] = {},
-					builtins = {
-						syntax = {},
-						editor = {},
-						lsp = {},
-					},
+					syntax = {},
+					editor = {},
+					lsp = {},
 				}
 			end,
 		},
@@ -105,13 +103,12 @@ function M.__setup(user_configuration)
 			flavour_styles = flavour_styles(colors)
 			for plugin_name, style_name in pairs(style_setting) do
 				local _style = flavour_styles[style_name] or {}
-				_styled_plugins[plugin_name] = _style[plugin_name]
+				_styled_plugins[plugin_name] = _style[plugin_name] or {}
 			end
 			-- if the any plugin was left out from the style table then add that plugin
 			-- from the global style.
 			local _get_global_styled_plugins = flavour_styles[global_settings.style] or {}
-			local s = vim.tbl_deep_extend("force", _styled_plugins, _get_global_styled_plugins)
-			_styled_plugins = s
+			_styled_plugins = vim.tbl_deep_extend("force", _get_global_styled_plugins, _styled_plugins)
 		end
 		polished = vim.tbl_deep_extend("force", polished, _styled_plugins)
 		return polished
