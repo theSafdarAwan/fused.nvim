@@ -41,7 +41,7 @@ local DEFAULT_CONFIG = {
 			},
 			---@type function|table override the default highlights if function should
 			--- return a table
-			---@param colors table colors table for the flavour
+			---@param colors table|function colors table for the flavour
 			override_hl = function(colors)
 				return {
 					["telescope.nvim"] = {},
@@ -82,41 +82,28 @@ local DEFAULT_CONFIG = {
 --- loads flavour
 ---@param user_configuration table|nil configuration for the flavour.
 function M.__setup(user_configuration)
-	--- to export the opts like background_transparent, italics, etc.
-	local opts = {}
-
-	--- merge default_config and user_configuration
 	local config = vim.tbl_deep_extend("force", DEFAULT_CONFIG, user_configuration or {})
-
-	local flavour = require("fused.pallets." .. config.use)
-	-- Export opts for latter use
-	opts.colors = flavour.pallet -- flavour colors
-	-- current flavour flavour settings
-	--- FIX: currently i am just throwing this away enable this when you
-	--- re-designed the structure of the config.
-	-- local flavour_settings = config.settings[config.use] or {}
-	local flavour_settings = {}
-	-- TODO: after designing the setting hierarchy add the italics,
-	-- background_transparent, etc. to opts and export them.
-	local override_hl_groups = flavour_settings.hl_override or {}
-	-- if function then pass the colors pallet to it
-	if type(override_hl_groups) == "function" then
-		override_hl_groups = override_hl_groups(flavour.pallet)
+	local flavour_mod = require("fused.pallets." .. config.use)
+	local colors = flavour_mod.pallet
+	local flavour_settings = config.settings[config.use] or {}
+	local override_hl = flavour_settings.override_hl or {}
+	if type(override_hl) == "function" then
+		override_hl = override_hl(colors)
 	end
+	local opts = {}
 	opts.polish = function()
-		local polished = flavour.polish and flavour.polish() or {}
-		for group_name, group_val in pairs(override_hl_groups) do
-			polished[group_name] = vim.tbl_deep_extend("force", polished[group_name], group_val)
-		end
-		polished = vim.tbl_deep_extend("force", polished, flavour_settings.hl_override or {})
+		local polished = flavour_mod.polish and flavour_mod.polish() or {}
+		polished = vim.tbl_deep_extend("force", polished, override_hl or {})
 		return polished
 	end
-	-- export the opts to the utils module for later easy access and usage.
+	-- TODO: create a table which holds info about individual plugin opts. In the
+	-- utils module.
+	opts.colors = colors -- flavour colors
+	-- export common opts table for easy access
 	require("fused.utils").export_opts(opts)
 
 	-- set normal highlights for editor, syntax, and lsp.
 	require("fused.groups").load_builtins_hl()
-
 	-- load highlights for the plugins
 	if config.force_load_plugins or user_configuration and user_configuration.plugins then
 		require("fused.groups").load_plugins_hl(config.plugins)
