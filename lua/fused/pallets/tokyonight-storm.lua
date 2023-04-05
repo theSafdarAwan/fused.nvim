@@ -1,5 +1,5 @@
 --- tokyonight
-local colors = {
+local theme_colors = {
 	-- 18 base colors required by theme
 	bg = "#21273A", -- background color.
 	popup_bg = "#2f334d", -- floating windows, etc.
@@ -30,114 +30,123 @@ local colors = {
 local M = {}
 
 M.pallet = {
-	bg = colors.bg,
-	popup_bg = colors.popup_bg,
-	base01 = colors.color_01,
-	base02 = colors.color_02,
-	base03 = colors.color_03,
-	base04 = colors.color_04,
-	base05 = colors.color_05,
+	bg = theme_colors.bg,
+	popup_bg = theme_colors.popup_bg,
+	base01 = theme_colors.color_01,
+	base02 = theme_colors.color_02,
+	base03 = theme_colors.color_03,
+	base04 = theme_colors.color_04,
+	base05 = theme_colors.color_05,
 
-	base06 = colors.color_06,
-	base07 = colors.color_07,
-	base08 = colors.color_08,
+	base06 = theme_colors.color_06,
+	base07 = theme_colors.color_07,
+	base08 = theme_colors.color_08,
 
-	base09 = colors.color_09,
-	base10 = colors.color_10,
-	base11 = colors.color_11,
+	base09 = theme_colors.color_09,
+	base10 = theme_colors.color_10,
+	base11 = theme_colors.color_11,
 
-	base12 = colors.color_12,
-	base13 = colors.color_13,
-	base14 = colors.color_14,
-	base15 = colors.color_15,
-	base16 = colors.color_16,
+	base12 = theme_colors.color_12,
+	base13 = theme_colors.color_13,
+	base14 = theme_colors.color_14,
+	base15 = theme_colors.color_15,
+	base16 = theme_colors.color_16,
 
-	base17 = colors.color_17,
-	base18 = colors.color_18,
-	base19 = colors.color_19,
-	base20 = colors.color_20,
-	base21 = colors.color_21,
+	base17 = theme_colors.color_17,
+	base18 = theme_colors.color_18,
+	base19 = theme_colors.color_19,
+	base20 = theme_colors.color_20,
+	base21 = theme_colors.color_21,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
 ---@return table
-M.polish = function()
+M.polish = function(colors)
 	local utils = require("fused.utils")
 	return {
 		["nvim-tree.lua"] = {
 			NvimTreeNormal = { link = "NormalFloat" },
 		},
 		["indent-blankline.nvim"] = {
-			IndentBlanklineContextChar = { fg = M.pallet.base20 },
+			IndentBlanklineContextChar = { fg = colors.base20 },
 		},
 		["telescope.nvim"] = {
-			TelescopeNormal = { bg = M.pallet.base19 },
-			TelescopeBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
-			TelescopePreviewTitle = { fg = M.pallet.bg, bg = M.pallet.base11, bold = true },
-			TelescopePromptPrefix = { fg = M.pallet.base10 },
-			TelescopePromptTitle = { fg = M.pallet.bg, bg = M.pallet.base09, bold = true },
-			TelescopeResultsTitle = { fg = M.pallet.base07 },
+			TelescopeNormal = { bg = colors.base19 },
+			TelescopeBorder = { fg = colors.base19, bg = colors.base19 },
+			TelescopePreviewTitle = { fg = colors.bg, bg = colors.base11, bold = true },
+			TelescopePromptPrefix = { fg = colors.base10 },
+			TelescopePromptTitle = { fg = colors.bg, bg = colors.base09, bold = true },
+			TelescopeResultsTitle = { fg = colors.base07 },
 		},
 		builtins = {
 			editor = {
-				NormalFloat = { fg = M.pallet.base04, bg = M.pallet.base19 },
-				FloatBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
-				Pmenu = { fg = M.pallet.base04, bg = M.pallet.base19 },
-				PmenuSel = { bg = M.pallet.base01 }, -- Popup menu: selected item.
-				PmenuSbar = { bg = M.pallet.popup_bg }, -- Popup menu: scrollbar.
-				PmenuThumb = { bg = M.pallet.base03 }, -- Popup menu: Thumb of the scrollbar.
-				MatchParen = { bg = M.pallet.base21 },
-				WinSeparator = { fg = M.pallet.popup_bg }, -- windows seperator color
-				StatusLine = { fg = M.pallet.base05, bg = M.pallet.popup_bg }, -- status line of current window
-				TabLine = { fg = M.pallet.base04, bg = M.pallet.popup_bg }, -- tab pages line, not active tab page label
-				TabLineSel = { fg = M.pallet.base05, bg = M.pallet.base01 }, -- tab pages line, active tab page label
+				NormalFloat = { fg = colors.base04, bg = colors.base19 },
+				FloatBorder = { fg = colors.base19, bg = colors.base19 },
+				Pmenu = { fg = colors.base04, bg = colors.base19 },
+				PmenuSel = { bg = colors.base01 }, -- Popup menu: selected item.
+				PmenuSbar = { bg = colors.popup_bg }, -- Popup menu: scrollbar.
+				PmenuThumb = { bg = colors.base03 }, -- Popup menu: Thumb of the scrollbar.
+				MatchParen = { bg = colors.base21 },
+				WinSeparator = { fg = colors.popup_bg }, -- windows seperator color
+				StatusLine = { fg = colors.base05, bg = colors.popup_bg }, -- status line of current window
+				TabLine = { fg = colors.base04, bg = colors.popup_bg }, -- tab pages line, not active tab page label
+				TabLineSel = { fg = colors.base05, bg = colors.base01 }, -- tab pages line, active tab page label
 			},
 			syntax = {
-				Label = { fg = M.pallet.base11 },
-				Identifier = { fg = M.pallet.base12 }, -- (preferred) any variable name
+				Label = { fg = colors.base11 },
+				Identifier = { fg = colors.base12 }, -- (preferred) any variable name
 			},
 		},
 		["nvim-treesitter"] = {
-			["@function"] = { fg = M.pallet.base09 }, -- function definitions
-			["@label"] = { fg = M.pallet.base10, bold = true },
-			["@string"] = { fg = M.pallet.base13 }, -- string
-			["@method"] = { fg = M.pallet.base09 }, -- method definitions
+			["@function"] = { fg = colors.base09 }, -- function definitions
+			["@label"] = { fg = colors.base10, bold = true },
+			["@string"] = { fg = colors.base13 }, -- string
+			["@method"] = { fg = colors.base09 }, -- method definitions
 			["@method.call"] = { link = "@method" }, -- method calls
-			["@variable"] = { fg = M.pallet.base15 }, -- builtins variable
+			["@variable"] = { fg = colors.base15 }, -- builtins variable
 			["@variable.builtins"] = { link = "@variable" }, -- builtins variable
-			["@parameter"] = { fg = M.pallet.base10, italic = utils.italics }, -- parameters of a function
-			["@boolean"] = { fg = M.pallet.base10 }, -- boolean literals
-			["@keyword.return"] = { fg = M.pallet.base09 },
+			["@parameter"] = { fg = colors.base10, italic = utils.italics }, -- parameters of a function
+			["@boolean"] = { fg = colors.base10 }, -- boolean literals
+			["@keyword.return"] = { fg = colors.base09 },
 			-- css
 			["@fused_css.query"] = { link = "@type" }, -- type or class definitions and annotations
-			["@fused_css.tag"] = { fg = M.pallet.base15 }, -- css html tag name
+			["@fused_css.tag"] = { fg = colors.base15 }, -- css html tag name
 			["@fused_css.id"] = { link = "@type" }, -- css id
 			-- javascript
-			["@fused_js.constructor"] = { fg = M.pallet.base12 },
+			["@fused_js.constructor"] = { fg = colors.base12 },
 			-- c lang
-			["@include"] = { fg = M.pallet.base14 },
+			["@include"] = { fg = colors.base14 },
 			["@fused_c.include.path"] = { link = "@string" },
 		},
 		["nvim-notify"] = {
-			NotifyINFOBody = { bg = M.pallet.base19 },
-			NotifyWARNBody = { bg = M.pallet.base19 },
-			NotifyDEBUGBody = { bg = M.pallet.base19 },
-			NotifyERRORBody = { bg = M.pallet.base19 },
-			NotifyTRACEBody = { bg = M.pallet.base19 },
-			NotifyWARNBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
-			NotifyINFOBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
-			NotifyDEBUGBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
-			NotifyERRORBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
-			NotifyTRACEBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
+			NotifyINFOBody = { bg = colors.base19 },
+			NotifyWARNBody = { bg = colors.base19 },
+			NotifyDEBUGBody = { bg = colors.base19 },
+			NotifyERRORBody = { bg = colors.base19 },
+			NotifyTRACEBody = { bg = colors.base19 },
 		},
 		["noice.nvim"] = {
-			NoiceCmdlinePopupBorder = { fg = M.pallet.base19, bg = M.pallet.base19 }, -- Cmdline popup border
+			NoiceCmdlinePopupBorder = { fg = colors.base19, bg = colors.base19 }, -- Cmdline popup border
 		},
 		["neo-minimap"] = {
 			NeoMinimapBackground = { link = "FloatBorder" },
 		},
 		["harpoon"] = {
-			HarpoonWindow = { fg = M.pallet.base04, bg = M.pallet.base19 },
+			HarpoonWindow = { fg = colors.base04, bg = colors.base19 },
+		},
+	}
+end
+
+M.style = function(colors)
+	return {
+		["slim"] = {
+			["nvim-notify"] = {
+				NotifyWARNBorder = { fg = colors.base19, bg = colors.base19 },
+				NotifyINFOBorder = { fg = colors.base19, bg = colors.base19 },
+				NotifyDEBUGBorder = { fg = colors.base19, bg = colors.base19 },
+				NotifyERRORBorder = { fg = colors.base19, bg = colors.base19 },
+				NotifyTRACEBorder = { fg = colors.base19, bg = colors.base19 },
+			},
 		},
 	}
 end
