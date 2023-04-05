@@ -3,23 +3,23 @@ local M = {}
 M.get_hl_groups = function(cp)
 	local utils = require("fused.utils")
 	return {
-		LspReferenceText = { fg = cp.base06, italic = utils.italics, underline = true }, -- used for highlighting "text" references
-		LspReferenceRead = { fg = cp.base09, italic = utils.italics, underline = true }, -- used for highlighting "read" references
-		LspReferenceWrite = { fg = cp.base11, italic = utils.italics, underline = true }, -- used for highlighting "write" references
+		LspReferenceText = { fg = cp.base04, italic = utils.italics, underline = true }, -- used for highlighting "text" references
+		LspReferenceRead = { fg = cp.base07, italic = utils.italics, underline = true }, -- used for highlighting "read" references
+		LspReferenceWrite = { fg = cp.base09, italic = utils.italics, underline = true }, -- used for highlighting "write" references
 
-		DiagnosticVirtualTextError = { fg = cp.base08, bg = cp.popup_bg },
-		DiagnosticVirtualTextWarn = { fg = cp.base09, bg = cp.popup_bg },
-		DiagnosticVirtualTextHint = { fg = cp.base10, bg = cp.popup_bg },
-		DiagnosticVirtualTextInfo = { fg = cp.base10, bg = cp.popup_bg },
+		DiagnosticVirtualTextError = { fg = cp.base06, bg = cp.popup_bg },
+		DiagnosticVirtualTextWarn = { fg = cp.base07, bg = cp.popup_bg },
+		DiagnosticVirtualTextHint = { fg = cp.base08, bg = cp.popup_bg },
+		DiagnosticVirtualTextInfo = { fg = cp.base08, bg = cp.popup_bg },
 
-		DiagnosticFloatingError = { fg = cp.base08, bg = cp.popup_bg },
-		DiagnosticFloatingWarn = { fg = cp.base09, bg = cp.popup_bg },
-		DiagnosticFloatingHint = { fg = cp.base10, bg = cp.popup_bg },
-		DiagnosticFloatingInfo = { fg = cp.base10, bg = cp.popup_bg },
+		DiagnosticFloatingError = { fg = cp.base06, bg = cp.popup_bg },
+		DiagnosticFloatingWarn = { fg = cp.base07, bg = cp.popup_bg },
+		DiagnosticFloatingHint = { fg = cp.base08, bg = cp.popup_bg },
+		DiagnosticFloatingInfo = { fg = cp.base08, bg = cp.popup_bg },
 
-		DiagnosticSignError = { fg = cp.base08 },
-		DiagnosticSignWarn = { fg = cp.base09 },
-		DiagnosticSignHint = { fg = cp.base10 },
+		DiagnosticSignError = { fg = cp.base06 },
+		DiagnosticSignWarn = { fg = cp.base07 },
+		DiagnosticSignHint = { fg = cp.base08 },
 		DiagnosticSignInfo = { link = "@field" },
 
 		DiagnosticUnderlineError = { undercurl = true },

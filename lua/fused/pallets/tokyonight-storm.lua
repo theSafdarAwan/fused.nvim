@@ -31,30 +31,30 @@ local M = {}
 M.pallet = {
 	bg = colors.color_01,
 	popup_bg = colors.color_02,
-	base03 = colors.color_03,
-	base04 = colors.color_04,
-	base05 = colors.color_05,
-	base06 = colors.color_06,
-	base07 = colors.color_07,
+	base01 = colors.color_03,
+	base02 = colors.color_04,
+	base03 = colors.color_05,
+	base04 = colors.color_06,
+	base05 = colors.color_07,
 
-	base08 = colors.color_08,
-	base09 = colors.color_09,
-	base10 = colors.color_10,
+	base06 = colors.color_08,
+	base07 = colors.color_09,
+	base08 = colors.color_10,
 
-	base11 = colors.color_11,
-	base12 = colors.color_12,
-	base13 = colors.color_13,
+	base09 = colors.color_11,
+	base10 = colors.color_12,
+	base11 = colors.color_13,
 
-	base14 = colors.color_14,
-	base15 = colors.color_15,
-	base16 = colors.color_16,
-	base17 = colors.color_17,
-	base20 = colors.color_20,
+	base12 = colors.color_14,
+	base13 = colors.color_15,
+	base14 = colors.color_16,
+	base15 = colors.color_17,
+	base18 = colors.color_20,
 
-	base19 = colors.color_19,
-	base18 = colors.color_18,
-	base21 = colors.color_21,
-	base22 = colors.color_22,
+	base17 = colors.color_19,
+	base16 = colors.color_18,
+	base19 = colors.color_21,
+	base20 = colors.color_22,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
@@ -66,72 +66,72 @@ M.polish = function()
 			NvimTreeNormal = { link = "NormalFloat" },
 		},
 		["indent-blankline.nvim"] = {
-			IndentBlanklineContextChar = { fg = M.pallet.base22 },
+			IndentBlanklineContextChar = { fg = M.pallet.base20 },
 		},
 		["telescope.nvim"] = {
-			TelescopeNormal = { bg = M.pallet.base21 },
-			TelescopeBorder = { fg = M.pallet.base21, bg = M.pallet.base21 },
-			TelescopePreviewTitle = { fg = M.pallet.bg, bg = M.pallet.base13, bold = true },
-			TelescopePromptPrefix = { fg = M.pallet.base12 },
-			TelescopePromptTitle = { fg = M.pallet.bg, bg = M.pallet.base11, bold = true },
-			TelescopeResultsTitle = { fg = M.pallet.base09 },
+			TelescopeNormal = { bg = M.pallet.base19 },
+			TelescopeBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
+			TelescopePreviewTitle = { fg = M.pallet.bg, bg = M.pallet.base11, bold = true },
+			TelescopePromptPrefix = { fg = M.pallet.base10 },
+			TelescopePromptTitle = { fg = M.pallet.bg, bg = M.pallet.base09, bold = true },
+			TelescopeResultsTitle = { fg = M.pallet.base07 },
 		},
 		builtins = {
-			NormalFloat = { fg = M.pallet.base06, bg = M.pallet.base21 },
-			FloatBorder = { fg = M.pallet.base21, bg = M.pallet.base21 },
-			Pmenu = { fg = M.pallet.base06, bg = M.pallet.base21 },
-			PmenuSel = { bg = M.pallet.base03 }, -- Popup menu: selected item.
+			NormalFloat = { fg = M.pallet.base04, bg = M.pallet.base19 },
+			FloatBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
+			Pmenu = { fg = M.pallet.base04, bg = M.pallet.base19 },
+			PmenuSel = { bg = M.pallet.base01 }, -- Popup menu: selected item.
 			PmenuSbar = { bg = M.pallet.popup_bg }, -- Popup menu: scrollbar.
-			PmenuThumb = { bg = M.pallet.base05 }, -- Popup menu: Thumb of the scrollbar.
+			PmenuThumb = { bg = M.pallet.base03 }, -- Popup menu: Thumb of the scrollbar.
 			MatchParen = { bg = "#3b4261" },
-			Label = { fg = M.pallet.base13 },
+			Label = { fg = M.pallet.base11 },
 			WinSeparator = { fg = M.pallet.popup_bg }, -- windows seperator color
-			StatusLine = { fg = M.pallet.base07, bg = M.pallet.popup_bg }, -- status line of current window
-			TabLine = { fg = M.pallet.base06, bg = M.pallet.popup_bg }, -- tab pages line, not active tab page label
-			TabLineSel = { fg = M.pallet.base07, bg = M.pallet.base03 }, -- tab pages line, active tab page label
-			Identifier = { fg = M.pallet.base14 }, -- (preferred) any variable name
+			StatusLine = { fg = M.pallet.base05, bg = M.pallet.popup_bg }, -- status line of current window
+			TabLine = { fg = M.pallet.base04, bg = M.pallet.popup_bg }, -- tab pages line, not active tab page label
+			TabLineSel = { fg = M.pallet.base05, bg = M.pallet.base01 }, -- tab pages line, active tab page label
+			Identifier = { fg = M.pallet.base12 }, -- (preferred) any variable name
 		},
 		["nvim-treesitter"] = {
-			["@function"] = { fg = M.pallet.base11 }, -- function definitions
-			["@label"] = { fg = M.pallet.base12, bold = true },
-			["@string"] = { fg = M.pallet.base15 }, -- string
-			["@method"] = { fg = M.pallet.base11 }, -- method definitions
+			["@function"] = { fg = M.pallet.base09 }, -- function definitions
+			["@label"] = { fg = M.pallet.base10, bold = true },
+			["@string"] = { fg = M.pallet.base13 }, -- string
+			["@method"] = { fg = M.pallet.base09 }, -- method definitions
 			["@method.call"] = { link = "@method" }, -- method calls
-			["@variable"] = { fg = M.pallet.base17 }, -- builtins variable
+			["@variable"] = { fg = M.pallet.base15 }, -- builtins variable
 			["@variable.builtins"] = { link = "@variable" }, -- builtins variable
-			["@parameter"] = { fg = M.pallet.base12, italic = utils.italics }, -- parameters of a function
-			["@boolean"] = { fg = M.pallet.base12 }, -- boolean literals
-			["@keyword.return"] = { fg = M.pallet.base11 },
+			["@parameter"] = { fg = M.pallet.base10, italic = utils.italics }, -- parameters of a function
+			["@boolean"] = { fg = M.pallet.base10 }, -- boolean literals
+			["@keyword.return"] = { fg = M.pallet.base09 },
 			-- css
 			["@fused_css.query"] = { link = "@type" }, -- type or class definitions and annotations
-			["@fused_css.tag"] = { fg = M.pallet.base17 }, -- css html tag name
+			["@fused_css.tag"] = { fg = M.pallet.base15 }, -- css html tag name
 			["@fused_css.id"] = { link = "@type" }, -- css id
 			-- javascript
-			["@fused_js.constructor"] = { fg = M.pallet.base14 },
+			["@fused_js.constructor"] = { fg = M.pallet.base12 },
 			-- c lang
-			["@include"] = { fg = M.pallet.base16 },
+			["@include"] = { fg = M.pallet.base14 },
 			["@fused_c.include.path"] = { link = "@string" },
 		},
 		["nvim-notify"] = {
-			NotifyINFOBody = { bg = M.pallet.base21 },
-			NotifyWARNBody = { bg = M.pallet.base21 },
-			NotifyDEBUGBody = { bg = M.pallet.base21 },
-			NotifyERRORBody = { bg = M.pallet.base21 },
-			NotifyTRACEBody = { bg = M.pallet.base21 },
-			NotifyWARNBorder = { fg = M.pallet.base21, bg = M.pallet.base21 },
-			NotifyINFOBorder = { fg = M.pallet.base21, bg = M.pallet.base21 },
-			NotifyDEBUGBorder = { fg = M.pallet.base21, bg = M.pallet.base21 },
-			NotifyERRORBorder = { fg = M.pallet.base21, bg = M.pallet.base21 },
-			NotifyTRACEBorder = { fg = M.pallet.base21, bg = M.pallet.base21 },
+			NotifyINFOBody = { bg = M.pallet.base19 },
+			NotifyWARNBody = { bg = M.pallet.base19 },
+			NotifyDEBUGBody = { bg = M.pallet.base19 },
+			NotifyERRORBody = { bg = M.pallet.base19 },
+			NotifyTRACEBody = { bg = M.pallet.base19 },
+			NotifyWARNBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
+			NotifyINFOBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
+			NotifyDEBUGBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
+			NotifyERRORBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
+			NotifyTRACEBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
 		},
 		["noice.nvim"] = {
-			NoiceCmdlinePopupBorder = { fg = M.pallet.base21, bg = M.pallet.base21 }, -- Cmdline popup border
+			NoiceCmdlinePopupBorder = { fg = M.pallet.base19, bg = M.pallet.base19 }, -- Cmdline popup border
 		},
 		["neo-minimap"] = {
 			NeoMinimapBackground = { link = "FloatBorder" },
 		},
 		["harpoon"] = {
-			HarpoonWindow = { fg = M.pallet.base06, bg = M.pallet.base21 },
+			HarpoonWindow = { fg = M.pallet.base04, bg = M.pallet.base19 },
 		},
 	}
 end

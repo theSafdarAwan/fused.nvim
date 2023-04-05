@@ -3,22 +3,22 @@ local M = {}
 M.get_hl_groups = function(cp)
 	local border = "NoiceCmdlinePopupBorder"
 	return {
-		NoiceCmdline = { fg = cp.base07, bg = cp.popup_bg }, -- Normal for the classic cmdline area at the bottom"
-		NoiceCmdlineIcon = { fg = cp.base13 }, -- Cmdline icon
-		NoiceCmdlineIconSearch = { fg = cp.base12 }, -- Cmdline search icon (`/` and `?`)
+		NoiceCmdline = { fg = cp.base05, bg = cp.popup_bg }, -- Normal for the classic cmdline area at the bottom"
+		NoiceCmdlineIcon = { fg = cp.base11 }, -- Cmdline icon
+		NoiceCmdlineIconSearch = { fg = cp.base10 }, -- Cmdline search icon (`/` and `?`)
 		NoiceCmdlinePrompt = { link = "Title" }, -- prompt for input()
 		NoiceCmdlinePopup = { link = "NormalFloat" }, -- Normal for the cmdline popup
 		NoiceCmdlinePopupBorder = { link = "FloatBorder" }, -- Cmdline popup border
 		NoiceCmdlinePopupBorderSearch = { link = border }, -- Cmdline popup border for search
 		NoiceConfirm = { link = "Normal" }, -- Normal for the confirm view
 		NoiceConfirmBorder = { link = border }, -- Border for the confirm view
-		NoiceCursor = { bg = cp.base07 }, -- Fake Cursor
+		NoiceCursor = { bg = cp.base05 }, -- Fake Cursor
 		NoiceMini = { link = "Normal" }, -- Normal for mini view
 		NoicePopup = { link = "NormalFloat" }, -- Normal for popup views
 		NoicePopupBorder = { link = border }, -- Border for popup views
 		NoicePopupmenu = { link = "Pmenu" }, -- Normal for the popupmenu
 		NoicePopupmenuBorder = { link = border }, -- Popupmenu border
-		NoicePopupmenuMatch = { fg = cp.base15 }, -- Part of the item that matches the input
+		NoicePopupmenuMatch = { fg = cp.base13 }, -- Part of the item that matches the input
 		NoicePopupmenuSelected = { link = "PmenuSel" }, -- Selected item in the popupmenu
 		NoiceScrollbar = { link = "PmenuSbar" }, -- Normal for scrollbar
 		NoiceScrollbarThumb = { link = "PmenuThumb" }, -- Scrollbar thumb
