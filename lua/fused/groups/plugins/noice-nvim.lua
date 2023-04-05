@@ -1,6 +1,6 @@
 local M = {}
 
-M.get_hl_groups = function(cp)
+M.load_hl = function(cp)
 	local border = "NoiceCmdlinePopupBorder"
 	return {
 		NoiceCmdline = { fg = cp.base05, bg = cp.popup_bg }, -- Normal for the classic cmdline area at the bottom"

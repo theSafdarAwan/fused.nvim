@@ -1,4 +1,4 @@
-local function get_hl_groups(cp)
+local function load_hl(cp)
 	return {
 		NotifyLogTitle = { fg = cp.base04 },
 		NotifyLogTime = { fg = cp.base06 },
@@ -30,4 +30,4 @@ local function get_hl_groups(cp)
 	}
 end
 
-return { get_hl_groups = get_hl_groups }
+return { load_hl = load_hl }

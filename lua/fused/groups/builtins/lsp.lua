@@ -1,6 +1,6 @@
 local M = {}
 
-M.get_hl_groups = function(cp)
+M.load_hl = function(cp)
 	local utils = require("fused.utils")
 	return {
 		LspReferenceText = { fg = cp.base04, italic = utils.italics, underline = true }, -- used for highlighting "text" references

@@ -16,17 +16,16 @@ M.load_builtins_hl = function()
 	--- table of colors
 	---@table colors
 	local colors = utils.colors
+	local builtins = require("fused.groups.builtins").load_builtins(colors)
+	local builtin_hl_groups = {}
+	builtin_hl_groups = vim.tbl_deep_extend("force", builtin_hl_groups, builtins)
 
-	local hls = {}
-	hls = vim.tbl_extend("force", hls, require("fused.groups.editor").get_hl_groups(colors))
-	hls = vim.tbl_extend("force", hls, require("fused.groups.syntax").get_hl_groups(colors))
-
-	hls = vim.tbl_extend("force", hls, require("fused.groups.lsp").get_hl_groups(colors))
 	if utils.polish and utils.polish().builtins then
-		hls = vim.tbl_extend("force", hls, utils.polish().builtins)
+		builtin_hl_groups = vim.tbl_extend("force", builtin_hl_groups, utils.polish().builtins)
 	end
-	available_hl_groups = vim.tbl_extend("force", available_hl_groups, hls)
-	for hl_name, hl_val in pairs(hls) do
+	available_hl_groups = vim.tbl_extend("force", available_hl_groups, builtin_hl_groups)
+
+	for hl_name, hl_val in pairs(builtin_hl_groups) do
 		hl(tostring(hl_name), hl_val)
 	end
 end
@@ -38,26 +37,26 @@ M.load_plugins_hl = function(plugins_tbl)
 	---@table colors
 	local colors = utils.colors
 
-	local plugins_hl_tbls = {}
-	for plugin_name, status_ok in pairs(plugins_tbl) do
-		if status_ok then
-			local fmt_plugin_name = nil
-			-- replace the . char with _
-			if type(plugin_name) == "string" then
-				fmt_plugin_name = require("fused.utils").format_plugin_name(plugin_name)
+	local plugins_hl_groups = {}
+	for name_orig, enabled in pairs(plugins_tbl) do
+		if enabled then
+			-- formatted plugin name by replacing the . char with _ in plugin name.
+			local name_formatted = nil
+			if type(name_orig) == "string" then
+				name_formatted = require("fused.utils").format_plugin_name(name_orig)
 			end
-			local hl_tbl =
-				require("fused.groups.plugins." .. fmt_plugin_name or plugin_name).get_hl_groups(colors)
-			plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, hl_tbl)
-			if utils.polish and utils.polish()[plugin_name] then
-				plugins_hl_tbls = vim.tbl_extend("force", plugins_hl_tbls, utils.polish()[plugin_name])
+			local hl_tbl = require("fused.groups.plugins." .. name_formatted or name_orig).load_hl(colors)
+			plugins_hl_groups = vim.tbl_extend("force", plugins_hl_groups, hl_tbl)
+			if utils.polish and utils.polish()[name_orig] then
+				plugins_hl_groups =
+					vim.tbl_extend("force", plugins_hl_groups, utils.polish()[name_orig])
 			end
 		end
 	end
 
-	available_hl_groups = vim.tbl_extend("force", available_hl_groups, plugins_hl_tbls)
+	available_hl_groups = vim.tbl_extend("force", available_hl_groups, plugins_hl_groups)
 
-	for hl_name, hl_val in pairs(plugins_hl_tbls) do
+	for hl_name, hl_val in pairs(plugins_hl_groups) do
 		hl_name = tostring(hl_name)
 		-- NOTE> this is to not use italics for plugins highlights only remove italic style from
 		-- linked value and only do that if its not a treesitter hl_group

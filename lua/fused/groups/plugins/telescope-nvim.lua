@@ -1,6 +1,6 @@
 local M = {}
 
-M.get_hl_groups = function(cp)
+M.load_hl = function(cp)
 	return {
 		TelescopeNormal = { bg = cp.bg },
 		TelescopeSelection = { bg = cp.popup_bg },

@@ -1,6 +1,6 @@
 local M = {}
 
-M.get_hl_groups = function(cp)
+M.load_hl = function(cp)
 	return {
 		["@todocomment.error"] = { fg = cp.base09 },
 		["@todocomment.warn"] = { fg = cp.base10 },

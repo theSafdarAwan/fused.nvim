@@ -1,6 +1,6 @@
 local M = {}
 
-M.get_hl_groups = function(_)
+M.load_hl = function(_)
 	return {
 		NavicIconsFile = { link = "CmpItemKindFile" },
 		NavicIconsModule = { link = "CmpItemKindModule" },

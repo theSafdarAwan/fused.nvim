@@ -24,6 +24,7 @@ local colors = {
 	color_18 = "#89ddff",
 	color_19 = "#1f2335",
 	color_20 = "#2196ac",
+	color_21 = "#3b4261",
 }
 
 local M = {}
@@ -55,6 +56,7 @@ M.pallet = {
 	base18 = colors.color_18,
 	base19 = colors.color_19,
 	base20 = colors.color_20,
+	base21 = colors.color_21,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
@@ -76,21 +78,24 @@ M.polish = function()
 			TelescopePromptTitle = { fg = M.pallet.bg, bg = M.pallet.base09, bold = true },
 			TelescopeResultsTitle = { fg = M.pallet.base07 },
 		},
-		-- TODO: move from this to use individual groups like editor, lsp and syntax.
 		builtins = {
-			NormalFloat = { fg = M.pallet.base04, bg = M.pallet.base19 },
-			FloatBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
-			Pmenu = { fg = M.pallet.base04, bg = M.pallet.base19 },
-			PmenuSel = { bg = M.pallet.base01 }, -- Popup menu: selected item.
-			PmenuSbar = { bg = M.pallet.popup_bg }, -- Popup menu: scrollbar.
-			PmenuThumb = { bg = M.pallet.base03 }, -- Popup menu: Thumb of the scrollbar.
-			MatchParen = { bg = "#3b4261" },
-			Label = { fg = M.pallet.base11 },
-			WinSeparator = { fg = M.pallet.popup_bg }, -- windows seperator color
-			StatusLine = { fg = M.pallet.base05, bg = M.pallet.popup_bg }, -- status line of current window
-			TabLine = { fg = M.pallet.base04, bg = M.pallet.popup_bg }, -- tab pages line, not active tab page label
-			TabLineSel = { fg = M.pallet.base05, bg = M.pallet.base01 }, -- tab pages line, active tab page label
-			Identifier = { fg = M.pallet.base12 }, -- (preferred) any variable name
+			editor = {
+				NormalFloat = { fg = M.pallet.base04, bg = M.pallet.base19 },
+				FloatBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },
+				Pmenu = { fg = M.pallet.base04, bg = M.pallet.base19 },
+				PmenuSel = { bg = M.pallet.base01 }, -- Popup menu: selected item.
+				PmenuSbar = { bg = M.pallet.popup_bg }, -- Popup menu: scrollbar.
+				PmenuThumb = { bg = M.pallet.base03 }, -- Popup menu: Thumb of the scrollbar.
+				MatchParen = { bg = M.pallet.base21 },
+				WinSeparator = { fg = M.pallet.popup_bg }, -- windows seperator color
+				StatusLine = { fg = M.pallet.base05, bg = M.pallet.popup_bg }, -- status line of current window
+				TabLine = { fg = M.pallet.base04, bg = M.pallet.popup_bg }, -- tab pages line, not active tab page label
+				TabLineSel = { fg = M.pallet.base05, bg = M.pallet.base01 }, -- tab pages line, active tab page label
+			},
+			syntax = {
+				Label = { fg = M.pallet.base11 },
+				Identifier = { fg = M.pallet.base12 }, -- (preferred) any variable name
+			},
 		},
 		["nvim-treesitter"] = {
 			["@function"] = { fg = M.pallet.base09 }, -- function definitions
@@ -135,10 +140,6 @@ M.polish = function()
 			HarpoonWindow = { fg = M.pallet.base04, bg = M.pallet.base19 },
 		},
 	}
-end
-
-M.style_border = function()
-	return {}
 end
 
 return M

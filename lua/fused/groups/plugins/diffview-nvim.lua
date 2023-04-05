@@ -1,6 +1,6 @@
 local M = {}
 
-M.get_hl_groups = function(cp)
+M.load_hl = function(cp)
 	return {
 		DiffviewNormal = { fg = cp.base08, bg = cp.bg },
 		-- like the > marker for folder

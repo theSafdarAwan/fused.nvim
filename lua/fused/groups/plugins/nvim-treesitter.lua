@@ -1,7 +1,7 @@
 local M = {}
 local utils = require("fused.utils")
 
-M.get_hl_groups = function(cp)
+M.load_hl = function(cp)
 	-- Misc
 	return {
 		["@comment"] = { link = "Comment" }, -- line and block comments

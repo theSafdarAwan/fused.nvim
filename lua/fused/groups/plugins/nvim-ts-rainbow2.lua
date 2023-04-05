@@ -1,6 +1,6 @@
 local M = {}
 
-M.get_hl_groups = function(cp)
+M.load_hl = function(cp)
 	return {
 		TSRainbowRed = { fg = cp.base09 },
 		TSRainbowBlue = { fg = cp.base12 },

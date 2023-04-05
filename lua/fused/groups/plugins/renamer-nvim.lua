@@ -1,7 +1,7 @@
 -- TODO: add the remaining highlights
 local M = {}
 
-M.get_hl_groups = function(cp)
+M.load_hl = function(cp)
 	return {
 		RenamerNormal = { fg = cp.base09 },
 		RenamerBorder = { fg = cp.base02 },

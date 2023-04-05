@@ -1,5 +1,7 @@
 --- Loads theme
 local M = {}
+-- TODO: add option to enable transparent background for plugins also
+--
 --- Configuration for theme flavour.
 ---@table Default_Config
 -- TODO: remove these private keys and do something else rather then polluting
@@ -11,16 +13,18 @@ local M = {}
 --- the startup.
 --- This can be used by user to reload modules or configs like status line, etc.
 
--- TODO: transparent background
-
-local default_config = {
+local DEFAULT_CONFIG = {
 	use = "tokyonight-storm",
 	settings = {
+		---@type table|function if function then should return a table
+		custom_hl = function(colors)
+			return {}
+		end,
 		---@type table there are four options available for setting globally.
 		global = {
-			---@type string global border style for all flavours. Has less precedence
-			--- then the {flavour}.border_style
-			border_style = "slim",
+			---@type string global style for all flavours. Has less precedence
+			--- then the {flavour}.style
+			style = "slim",
 			---@type boolean enable italics for theme.
 			italics = true,
 			---@type boolean set background to transparent
@@ -30,29 +34,26 @@ local default_config = {
 		},
 		---@type table setting for individual theme flavour there are
 		["tokyonight-storm"] = {
-			---@type string|table border style string for flavour or table with
-			--- individual plugin border style.
-			border_style = {
+			---@type string|table style string for flavour or table with
+			--- individual plugin style.
+			style = {
 				["telescope.nvim"] = "slim",
 			},
 			---@type function|table override the default highlights if function should
 			--- return a table
 			---@param colors table colors table for the flavour
-			hl_override = function(colors)
+			override_hl = function(colors)
 				return {
 					["telescope.nvim"] = {},
-					syntax = {},
-					editor = {},
-					lsp = {},
+					builtins = {
+						syntax = {},
+						editor = {},
+						lsp = {},
+					},
 				}
 			end,
-			---@type boolean enable italics
-			italics = true,
-			terminal_colors = true,
-			background_transparent = false,
 		},
 	},
-	custom = {},
 	plugins = {
 		harpoon = true,
 		neogit = true,
@@ -85,7 +86,7 @@ function M.__setup(user_configuration)
 	local opts = {}
 
 	--- merge default_config and user_configuration
-	local config = vim.tbl_deep_extend("force", default_config, user_configuration or {})
+	local config = vim.tbl_deep_extend("force", DEFAULT_CONFIG, user_configuration or {})
 
 	local flavour = require("fused.pallets." .. config.use)
 	-- Export opts for latter use
@@ -122,12 +123,12 @@ function M.__setup(user_configuration)
 	end
 
 	-- set highlights for custom groups set by user
-	if config.custom then
-		if type(config.custom) == "function" then
-			config.custom = config.custom(opts.colors)
+	if config.custom_hl then
+		if type(config.custom_hl) == "function" then
+			config.custom_hl = config.custom_hl(opts.colors)
 		end
 		local hl = require("fused.utils").set_hl
-		for hl_group_name, hl_opts in pairs(config.custom) do
+		for hl_group_name, hl_opts in pairs(config.custom_hl) do
 			hl_group_name = tostring(hl_group_name)
 			if hl_opts.styles then
 				local styles = hl_opts.styles
