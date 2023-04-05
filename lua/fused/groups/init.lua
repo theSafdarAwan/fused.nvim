@@ -17,16 +17,17 @@ M.load_builtins_hl = function()
 	---@table colors
 	local colors = utils.colors
 	local builtins = require("fused.groups.builtins").load_builtins(colors)
-	local builtin_hl_groups = {}
-	builtin_hl_groups = vim.tbl_deep_extend("force", builtin_hl_groups, builtins)
 
 	if utils.polish and utils.polish().builtins then
-		builtin_hl_groups = vim.tbl_extend("force", builtin_hl_groups, utils.polish().builtins)
+		builtins = vim.tbl_deep_extend("force", builtins, utils.polish().builtins)
 	end
-	available_hl_groups = vim.tbl_extend("force", available_hl_groups, builtin_hl_groups)
+	-- add the builtin group tables to the available_hl_groups
+	available_hl_groups = vim.tbl_deep_extend("force", available_hl_groups, builtins)
 
-	for hl_name, hl_val in pairs(builtin_hl_groups) do
-		hl(tostring(hl_name), hl_val)
+	for _, hl_tbl in pairs(builtins) do
+		for hl_name, hl_val in pairs(hl_tbl) do
+			hl(tostring(hl_name), hl_val)
+		end
 	end
 end
 

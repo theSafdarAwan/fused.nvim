@@ -6,7 +6,7 @@ local function load_builtins(colors)
 		"lsp",
 	}
 	for _, group in ipairs(groups) do
-		hls = vim.tbl_extend("force", hls, require("fused.groups." .. group).load_hl(colors))
+		hls[group] = require("fused.groups.builtins." .. group).load_hl(colors)
 	end
 	return hls
 end
