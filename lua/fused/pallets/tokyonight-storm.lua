@@ -72,16 +72,14 @@ M.polish = function(colors)
 		},
 		["telescope.nvim"] = {
 			TelescopeNormal = { bg = colors.base19 },
-			TelescopeBorder = { fg = colors.base19, bg = colors.base19 },
-			TelescopePreviewTitle = { fg = colors.bg, bg = colors.base11, bold = true },
 			TelescopePromptPrefix = { fg = colors.base10 },
-			TelescopePromptTitle = { fg = colors.bg, bg = colors.base09, bold = true },
+			TelescopePreviewTitle = { fg = colors.base11, bold = true },
+			TelescopePromptTitle = { fg = colors.base09, bold = true },
 			TelescopeResultsTitle = { fg = colors.base07 },
 		},
 		builtins = {
 			editor = {
 				NormalFloat = { fg = colors.base04, bg = colors.base19 },
-				FloatBorder = { fg = colors.base19, bg = colors.base19 },
 				Pmenu = { fg = colors.base04, bg = colors.base19 },
 				PmenuSel = { bg = colors.base01 }, -- Popup menu: selected item.
 				PmenuSbar = { bg = colors.popup_bg }, -- Popup menu: scrollbar.
@@ -125,15 +123,6 @@ M.polish = function(colors)
 			NotifyERRORBody = { bg = colors.base19 },
 			NotifyTRACEBody = { bg = colors.base19 },
 		},
-		["noice.nvim"] = {
-			NoiceCmdlinePopupBorder = { fg = colors.base19, bg = colors.base19 }, -- Cmdline popup border
-		},
-		["neo-minimap"] = {
-			NeoMinimapBackground = { link = "FloatBorder" },
-		},
-		["harpoon"] = {
-			HarpoonWindow = { fg = colors.base04, bg = colors.base19 },
-		},
 	}
 end
 
@@ -146,6 +135,25 @@ M.style = function(colors)
 				NotifyDEBUGBorder = { fg = colors.base19, bg = colors.base19 },
 				NotifyERRORBorder = { fg = colors.base19, bg = colors.base19 },
 				NotifyTRACEBorder = { fg = colors.base19, bg = colors.base19 },
+			},
+			["neo-minimap"] = {
+				NeoMinimapBackground = { link = "FloatBorder" },
+			},
+			["telescope.nvim"] = {
+				TelescopeBorder = { fg = colors.base19, bg = colors.base19 },
+				TelescopePreviewTitle = { fg = colors.bg, bg = colors.base11, bold = true },
+				TelescopePromptTitle = { fg = colors.bg, bg = colors.base09, bold = true },
+			},
+			["noice.nvim"] = {
+				NoiceCmdlinePopupBorder = { fg = colors.base19, bg = colors.base19 }, -- Cmdline popup border
+			},
+			["harpoon"] = {
+				HarpoonWindow = { fg = colors.base04, bg = colors.base19 },
+			},
+			builtins = {
+				editor = {
+					FloatBorder = { fg = colors.base19, bg = colors.base19 },
+				},
 			},
 		},
 	}

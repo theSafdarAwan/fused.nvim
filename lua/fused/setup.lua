@@ -21,7 +21,7 @@ local DEFAULT_CONFIG = {
 		end,
 		---@type table there are four options available for setting globally.
 		global = {
-			---@type string|table global style for all flavours. Has less precedence
+			---@type string global style for all flavours. Has less precedence
 			--- then the {flavour}.style
 			style = "bordered",
 			---@type boolean enable italics for theme.
@@ -85,7 +85,7 @@ function M.__setup(user_configuration)
 	local colors = flavour_mod.pallet
 	local flavour_settings = config.settings[config.use] or {}
 	local global_settings = config.settings.global
-	local style = flavour_settings.style or global_settings.style
+	local style_setting = flavour_settings.style or global_settings.style
 
 	local override_hl = flavour_settings.override_hl or {}
 	if type(override_hl) == "function" then
@@ -96,17 +96,24 @@ function M.__setup(user_configuration)
 	opts.polish = function()
 		local polished = flavour_mod.polish and flavour_mod.polish(colors) or {}
 		polished = vim.tbl_deep_extend("force", polished, override_hl or {})
-		local style_hl_groups = flavour_mod.style or {}
-		if type(style) == "string" then
-			style_hl_groups = style_hl_groups(colors)[style] or {}
+		-- style the plugins
+		local _styled_plugins = {}
+		local flavour_styles = flavour_mod.style or {}
+		if type(style_setting) == "string" then
+			_styled_plugins = flavour_styles(colors)[style_setting] or {}
 		else
-			style_hl_groups = style_hl_groups(colors)
-			local styled_plugin_goups = {}
-			for plugin, _style in pairs(style) do
-				styled_plugin_goups[plugin] = (style_hl_groups[_style])[plugin] or {}
+			flavour_styles = flavour_styles(colors)
+			for plugin_name, style_name in pairs(style_setting) do
+				local _style = flavour_styles[style_name] or {}
+				_styled_plugins[plugin_name] = _style[plugin_name]
 			end
+			-- if the any plugin was left out from the style table then add that plugin
+			-- from the global style.
+			local _get_global_styled_plugins = flavour_styles[global_settings.style] or {}
+			local s = vim.tbl_deep_extend("force", _styled_plugins, _get_global_styled_plugins)
+			_styled_plugins = s
 		end
-		polished = vim.tbl_deep_extend("force", polished, style_hl_groups or {})
+		polished = vim.tbl_deep_extend("force", polished, _styled_plugins)
 		return polished
 	end
 	opts.terminal_colors = flavour_settings.terminal_colors
