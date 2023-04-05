@@ -105,10 +105,14 @@ function M.__setup(user_configuration)
 				local _style = flavour_styles[style_name] or {}
 				_styled_plugins[plugin_name] = _style[plugin_name] or {}
 			end
-			-- if the any plugin was left out from the style table then add that plugin
+			-- if any plugin was left out from the style table then add that plugin
 			-- from the global style.
 			local _get_global_styled_plugins = flavour_styles[global_settings.style] or {}
-			_styled_plugins = vim.tbl_deep_extend("force", _get_global_styled_plugins, _styled_plugins)
+			for group, hl_tbl in pairs(_get_global_styled_plugins) do
+				if not _styled_plugins[group] then
+					_styled_plugins[group] = hl_tbl
+				end
+			end
 		end
 		polished = vim.tbl_deep_extend("force", polished, _styled_plugins)
 		return polished
