@@ -3,15 +3,6 @@
 local M = {}
 --- Configuration for theme flavour.
 ---@table Default_Config
----@field flavour string name of the theme flavour.
----@field settings table With flavour name as key.
----@field italics boolean to enable or disable italic font.
----@field background_transparent boolean to enable or disable transparent background.
----@field terminal_colors boolean to enable terminal colors highlights.
----@field custom table|function returns table of custom highlight groups.
----@field plugins table of plugin names (name = boolean) .Accepts full
--- names of the plugins. If plugin name includes characters like `.` or `-` then
--- use the string key like `["nvim-tree"] = true`.
 ---@private force_load_plugins boolean to force load plugins when loading theme
 --- using command line.
 ---@private execute_hooks boolean to execute hooks. When theme flavour was changed after
@@ -23,21 +14,26 @@ local M = {}
 local default_config = {
 	flavour = "tokyonight-storm",
 	settings = {
+		global = {
+			border_style = "slim", -- global border style individual plugin border style can be overridden in flavour settings
+			italics = true,
+			background_transparent = false,
+		},
 		["tokyonight-storm"] = {
-			border = {
-				-- TODO: add border styles
-				["telescope.nvim"] = false,
-				---@type boolean
-				builtins = true,
+			---@type table border style configuration for individual theme flavour.
+			border_style = {
+				["telescope.nvim"] = "bordered",
 			},
 			---@type function|table
 			hl_override = {},
+			---@type string set border type globally
+			border_style = "slim", -- slim, bordered
+			---@type boolean enable italics
+			italics = true,
+			terminal_colors = true,
+			background_transparent = false,
 		},
 	},
-	border = false,
-	italics = true,
-	terminal_colors = true,
-	background_transparent = false,
 	custom = {},
 	plugins = {
 		harpoon = true,
@@ -81,8 +77,6 @@ function M.__setup(user_configuration)
 	opts.background_transparent = config.background_transparent -- transparent background opt
 	opts.italics = config.italics -- italic font
 	opts.terminal_colors = config.terminal_colors -- enable terminal colors
-	opts.global_border = config.border -- global border
-	opts.local_border = flavour_settings.border or {} -- border local to plugin
 	local override_hl_groups = flavour_settings.hl_override or {}
 	-- if function then pass the colors pallet to it
 	if type(override_hl_groups) == "function" then
