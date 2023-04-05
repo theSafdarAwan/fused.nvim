@@ -76,6 +76,7 @@ M.polish = function()
 			TelescopePromptTitle = { fg = M.pallet.bg, bg = M.pallet.base09, bold = true },
 			TelescopeResultsTitle = { fg = M.pallet.base07 },
 		},
+		-- TODO: move from this to use individual groups like editor, lsp and syntax.
 		builtins = {
 			NormalFloat = { fg = M.pallet.base04, bg = M.pallet.base19 },
 			FloatBorder = { fg = M.pallet.base19, bg = M.pallet.base19 },

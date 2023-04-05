@@ -1,4 +1,5 @@
 {
   "diagnostics.disable": ["doc-field-no-class",
-        "duplicate-index"]
+        "duplicate-index",
+        "unused-local"]
 }

@@ -1,8 +1,10 @@
----@diagnostic disable: param-type-mismatch
 --- Loads theme
 local M = {}
 --- Configuration for theme flavour.
 ---@table Default_Config
+-- TODO: remove these private keys and do something else rather then polluting
+-- the config table with private information.
+--
 ---@private force_load_plugins boolean to force load plugins when loading theme
 --- using command line.
 ---@private execute_hooks boolean to execute hooks. When theme flavour was changed after
@@ -12,22 +14,38 @@ local M = {}
 -- TODO: transparent background
 
 local default_config = {
-	flavour = "tokyonight-storm",
+	use = "tokyonight-storm",
 	settings = {
+		---@type table there are four options available for setting globally.
 		global = {
-			border_style = "slim", -- global border style individual plugin border style can be overridden in flavour settings
+			---@type string global border style for all flavours. Has less precedence
+			--- then the {flavour}.border_style
+			border_style = "slim",
+			---@type boolean enable italics for theme.
 			italics = true,
+			---@type boolean set background to transparent
 			background_transparent = false,
+			---@type boolean use the theme colors for the terminal colors
+			terminal_colors = true,
 		},
+		---@type table setting for individual theme flavour there are
 		["tokyonight-storm"] = {
-			---@type table border style configuration for individual theme flavour.
+			---@type string|table border style string for flavour or table with
+			--- individual plugin border style.
 			border_style = {
-				["telescope.nvim"] = "bordered",
+				["telescope.nvim"] = "slim",
 			},
-			---@type function|table
-			hl_override = {},
-			---@type string set border type globally
-			border_style = "slim", -- slim, bordered
+			---@type function|table override the default highlights if function should
+			--- return a table
+			---@param colors table colors table for the flavour
+			hl_override = function(colors)
+				return {
+					["telescope.nvim"] = {},
+					syntax = {},
+					editor = {},
+					lsp = {},
+				}
+			end,
 			---@type boolean enable italics
 			italics = true,
 			terminal_colors = true,
@@ -69,14 +87,16 @@ function M.__setup(user_configuration)
 	--- merge default_config and user_configuration
 	local config = vim.tbl_deep_extend("force", default_config, user_configuration or {})
 
-	local flavour = require("fused.pallets." .. config.flavour)
-	-- current flavour flavour settings
-	local flavour_settings = config.settings[config.flavour] or {}
+	local flavour = require("fused.pallets." .. config.use)
 	-- Export opts for latter use
 	opts.colors = flavour.pallet -- flavour colors
-	opts.background_transparent = config.background_transparent -- transparent background opt
-	opts.italics = config.italics -- italic font
-	opts.terminal_colors = config.terminal_colors -- enable terminal colors
+	-- current flavour flavour settings
+	--- FIX: currently i am just throwing this away enable this when you
+	--- re-designed the structure of the config.
+	-- local flavour_settings = config.settings[config.use] or {}
+	local flavour_settings = {}
+	-- TODO: after designing the setting hierarchy add the italics,
+	-- background_transparent, etc. to opts and export them.
 	local override_hl_groups = flavour_settings.hl_override or {}
 	-- if function then pass the colors pallet to it
 	if type(override_hl_groups) == "function" then
