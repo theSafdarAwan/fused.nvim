@@ -83,7 +83,6 @@ function M._setup(user_configuration, _args)
 	local colors = flavour_mod.pallet
 	local flavour_settings = config.settings[config.use] or {}
 	local global_settings = config.settings.global
-	local style_setting = flavour_settings.style or global_settings.style
 
 	local override_hl = flavour_settings.override_hl or {}
 	if type(override_hl) == "function" then
@@ -93,29 +92,47 @@ function M._setup(user_configuration, _args)
 	local opts = {}
 	opts.polish = function()
 		local polished = flavour_mod.polish and flavour_mod.polish(colors) or {}
+		local style = flavour_settings.style or global_settings.style
 		-- style the plugins
-		local _styled_plugins = {}
 		local flavour_styles = flavour_mod.style or {}
-		if type(style_setting) == "string" then
-			_styled_plugins = flavour_styles(colors)[style_setting] or {}
+		local flavour_styled_plugins = {}
+		local override_style = flavour_settings.override_style or {}
+		if type(override_style) == "function" then
+			override_style = override_style(colors)
+		end
+		if type(style) == "string" then
+			flavour_styled_plugins = flavour_styles(colors)[style] or {}
+			flavour_styled_plugins =
+				vim.tbl_deep_extend("force", flavour_styled_plugins, override_style[style] or {})
 		else
 			flavour_styles = flavour_styles(colors)
-			for plugin_name, style_name in pairs(style_setting) do
-				local _style = flavour_styles[style_name] or {}
-				_styled_plugins[plugin_name] = _style[plugin_name] or {}
+			for plugin_name, style_name in pairs(style) do
+				local _plugin_style = flavour_styles[style_name] or {}
+				local plugin = _plugin_style[plugin_name] or {}
+				local override_plugin = override_style[style_name]
+				plugin = vim.tbl_deep_extend(
+					"force",
+					plugin,
+					override_plugin and override_plugin[plugin_name] or {}
+				)
+				flavour_styled_plugins[plugin_name] = plugin
 			end
 			-- if any plugin was left out from the style table then add that plugin
 			-- from the global style.
-			local _get_global_styled_plugins = flavour_styles[global_settings.style] or {}
+			local _global_styled_plugins = flavour_styles[global_settings.style] or {}
+			-- TODO: test this theory
 			-- WARN: don't use vim.tbl_deep_extend it merges two map like tables in
 			-- this case we have two different tables.
-			for group, hl_tbl in pairs(_get_global_styled_plugins) do
-				if not _styled_plugins[group] then
-					_styled_plugins[group] = hl_tbl
+			for group, hl_tbl in pairs(_global_styled_plugins) do
+				if not flavour_styled_plugins[group] then
+					flavour_styled_plugins[group] = hl_tbl
 				end
 			end
+			if type(override_style) == "function" then
+				--
+			end
 		end
-		polished = vim.tbl_deep_extend("force", polished, _styled_plugins)
+		polished = vim.tbl_deep_extend("force", polished, flavour_styled_plugins)
 		-- need to extend this only after the theme default config for highlight
 		-- groups has been added to table then we can override highlights.
 		polished = vim.tbl_deep_extend("force", polished, override_hl or {})
