@@ -16,9 +16,6 @@ M.__setup = function(theme_config, _args)
 	require("fused.setup")._setup(theme_config, _args)
 end
 
--- TODO: remove the custom highlight queries for the punctuations and use
--- @punctuation.lang instead
-
 --- This function lets you load single plugin specified as parameter after the theme
 --- is loaded. After setting `plugins = nil|false` in the `user_configuration` this can be
 --- used in plugin configuration to load plugin highlight groups only when plugin is loaded.
