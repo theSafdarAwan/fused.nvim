@@ -80,7 +80,7 @@ M.polish = function(colors)
 		editor = {
 			NormalFloat = { fg = colors.base04, bg = colors.base19 },
 			Pmenu = { fg = colors.base04, bg = colors.base19 },
-			PmenuSel = { bg = colors.base01 }, -- Popup menu: selected item.
+			PmenuSel = { fg = colors.base04, bg = colors.base01 }, -- Popup menu: selected item.
 			PmenuSbar = { bg = colors.popup_bg }, -- Popup menu: scrollbar.
 			PmenuThumb = { bg = colors.base03 }, -- Popup menu: Thumb of the scrollbar.
 			MatchParen = { bg = colors.base21 },
