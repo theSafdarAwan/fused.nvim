@@ -117,19 +117,12 @@ function M._setup(user_configuration, _args)
 				)
 				flavour_styled_plugins[plugin_name] = plugin
 			end
-			-- if any plugin was left out from the style table then add that plugin
-			-- from the global style.
+			-- add the remaining plugins style highlight groups.
 			local _global_styled_plugins = flavour_styles[global_settings.style] or {}
-			-- TODO: test this theory
-			-- WARN: don't use vim.tbl_deep_extend it merges two map like tables in
-			-- this case we have two different tables.
 			for group, hl_tbl in pairs(_global_styled_plugins) do
 				if not flavour_styled_plugins[group] then
-					flavour_styled_plugins[group] = hl_tbl
+					flavour_styled_plugins[group] = _global_styled_plugins[group]
 				end
-			end
-			if type(override_style) == "function" then
-				--
 			end
 		end
 		polished = vim.tbl_deep_extend("force", polished, flavour_styled_plugins)
