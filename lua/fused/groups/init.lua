@@ -17,9 +17,17 @@ M.load_builtins_hl = function()
 	---@table colors
 	local colors = utils.colors
 	local builtins = require("fused.groups.builtins").load_builtins(colors)
-
-	if utils.polish and utils.polish().builtins then
-		builtins = vim.tbl_deep_extend("force", builtins, utils.polish(colors) or {})
+	if utils.polish then
+		local groups_tbl = {
+			"editor",
+			"syntax",
+			"lsp",
+		}
+		-- TODO: idiot you are requiring polish function every where.
+		local polished = utils.polish(colors)
+		for _, group in ipairs(groups_tbl) do
+			builtins[group] = vim.tbl_deep_extend("force", builtins[group], polished[group] or {})
+		end
 	end
 	-- add the builtin group tables to the available_hl_groups
 	available_hl_groups = vim.tbl_deep_extend("force", available_hl_groups, builtins or {})

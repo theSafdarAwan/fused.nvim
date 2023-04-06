@@ -127,16 +127,17 @@ function M._setup(user_configuration, _args)
 					styled_plugins[plugin_name] = vim.tbl_deep_extend(
 						"force",
 						styled_plugins[plugin_name],
-						_override_style[plugin_name]
+						_override_style[plugin_name] or {}
 					)
-					print(vim.inspect(styled_plugins[plugin_name]))
 				end
 			end
 		end
 		polished = vim.tbl_deep_extend("force", polished, styled_plugins)
+		-- vim.defer_fn(function()
+		-- 	print(vim.inspect(polished.editor))
+		-- end, 1000)
 		-- need to extend this only after the theme default config for highlight
 		-- groups has been added to table then we can override highlights.
-		polished = vim.tbl_deep_extend("force", polished, override_hl or {})
 		return polished
 	end
 	opts.terminal_colors = flavour_settings.terminal_colors
