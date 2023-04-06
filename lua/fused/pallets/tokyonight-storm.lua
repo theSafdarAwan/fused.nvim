@@ -126,7 +126,7 @@ end
 
 M.style = function(colors)
 	return {
-		["slim"] = {
+		slim = {
 			["nvim-notify"] = {
 				NotifyWARNBorder = { fg = colors.base19, bg = colors.base19 },
 				NotifyINFOBorder = { fg = colors.base19, bg = colors.base19 },
