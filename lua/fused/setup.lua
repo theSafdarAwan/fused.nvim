@@ -124,11 +124,6 @@ function M._setup(user_configuration, _args)
 				if not styled_plugins[plugin_name] then
 					styled_plugins[plugin_name] = plugin_hls
 					local _override_style = override_style[global_settings.style] or {}
-					local plugin = vim.tbl_deep_extend(
-						"force",
-						styled_plugins[plugin_name],
-						_override_style[plugin_name] or {}
-					)
 					styled_plugins[plugin_name] = vim.tbl_deep_extend(
 						"force",
 						styled_plugins[plugin_name],
