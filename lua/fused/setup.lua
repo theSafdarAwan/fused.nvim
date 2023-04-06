@@ -59,6 +59,7 @@ local DEFAULT_CONFIG = {
 		["nvim-notify"] = true,
 		["noice.nvim"] = true,
 		["neo-minimap"] = true,
+		["nvim-scrollbar"] = true,
 		["nvim-treesitter"] = true,
 		["diffview.nvim"] = true,
 		["indent-blankline.nvim"] = true,
@@ -124,9 +125,9 @@ function M._setup(user_configuration, _args)
 			end
 			-- add the remaining plugins style highlight groups.
 			local _global_styled_plugins = default_styles[global_settings.style] or {}
-			for plugin_name, plugin_hls in pairs(_global_styled_plugins) do
+			for plugin_name, plugin_highlights in pairs(_global_styled_plugins) do
 				if not styled_plugins[plugin_name] then
-					styled_plugins[plugin_name] = plugin_hls
+					styled_plugins[plugin_name] = plugin_highlights
 					local _override_style = override_style[global_settings.style] or {}
 					styled_plugins[plugin_name] = vim.tbl_deep_extend(
 						"force",
