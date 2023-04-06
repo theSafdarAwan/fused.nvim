@@ -87,39 +87,43 @@ function M._setup(user_configuration, _args)
 	-- global setting for all themes has less precedence then the flavour_settings
 	local global_settings = config.settings.global
 
-	local override_hl = flavour_settings.override_hl or {}
+	-- override the default highlights
+	local override_hl = flavour_settings.override_hl
 	if type(override_hl) == "function" then
 		override_hl = override_hl(colors)
 	end
 
+	-- override the default style's
+	local override_style = flavour_settings.override_style
+	if type(override_style) == "function" then
+		override_style = override_style(colors)
+	end
+
+	-- polish the theme
+	local polish = flavour_mod.polish and flavour_mod.polish(colors) or {}
+
 	local opts = {}
 	opts.polish = function()
-		local polished = flavour_mod.polish and flavour_mod.polish(colors) or {}
-		local style_setting = flavour_settings.style
-		-- style the plugins
-		local theme_styles = flavour_mod.style or {}
+		local user_styles_config = flavour_settings.style
+		local default_styles = flavour_mod.style or {}
 		local styled_plugins = {}
 		-- override the default setting for styles
-		local override_style = flavour_settings.override_style or {}
-		if type(override_style) == "function" then
-			override_style = override_style(colors)
-		end
-		if type(style_setting) == "string" then
-			styled_plugins = theme_styles(colors)[style_setting] or {}
+		if type(user_styles_config) == "string" then
+			styled_plugins = default_styles(colors)[user_styles_config] or {}
 			styled_plugins =
-				vim.tbl_deep_extend("force", styled_plugins, override_style[style_setting] or {})
+				vim.tbl_deep_extend("force", styled_plugins, override_style[user_styles_config] or {})
 		else
-			theme_styles = theme_styles(colors)
-			for plugin_name, style_name in pairs(style_setting) do
-				local style = theme_styles[style_name] or {}
-				local plugin = style[plugin_name] or {}
-				-- override the default style
+			default_styles = default_styles(colors)
+			for group_name, style_name in pairs(user_styles_config) do
+				local group_style = default_styles[style_name] or {}
+				local plugin = group_style[group_name] or {}
+				-- override the default style with the user specified
 				local _override_style = override_style[style_name] or {}
-				plugin = vim.tbl_deep_extend("force", plugin, _override_style[plugin_name] or {})
-				styled_plugins[plugin_name] = plugin
+				plugin = vim.tbl_deep_extend("force", plugin, _override_style[group_name] or {})
+				styled_plugins[group_name] = plugin
 			end
 			-- add the remaining plugins style highlight groups.
-			local _global_styled_plugins = theme_styles[global_settings.style] or {}
+			local _global_styled_plugins = default_styles[global_settings.style] or {}
 			for plugin_name, plugin_hls in pairs(_global_styled_plugins) do
 				if not styled_plugins[plugin_name] then
 					styled_plugins[plugin_name] = plugin_hls
@@ -132,10 +136,10 @@ function M._setup(user_configuration, _args)
 				end
 			end
 		end
-		polished = vim.tbl_deep_extend("force", polished, styled_plugins)
+		polish = vim.tbl_deep_extend("force", polish, styled_plugins)
 		-- need to extend this only after the theme default config for highlight
 		-- groups has been added to table then we can override highlights.
-		return polished
+		return polish
 	end
 	opts.terminal_colors = flavour_settings.terminal_colors
 		or global_settings.terminal_colors and flavour_settings.terminal_colors == nil

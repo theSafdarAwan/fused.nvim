@@ -8,12 +8,15 @@ local theme_colors = {
 	color_03 = "#545c7e",
 	color_04 = "#a9b1d6", -- used for text, etc.
 	color_05 = "#c0caf5", -- used for highlighting fg of Popup menus, etc.
+
 	color_06 = "#db4b4b", -- used for diagnostic Error, etc.
 	color_07 = "#e0af68", -- used for diagnostic Warn, etc.
 	color_08 = "#7dcfff", -- used for diagnostic Hint, git diff added, property, etc.
+
 	color_09 = "#f7768e", -- used for git diff removed, func names, etc.
 	color_10 = "#ff9e64", -- used for parameter, boolean, numbers, etc.
 	color_11 = "#73daca", -- used for diagnostic Info, Label, Class, etc.
+
 	color_12 = "#bb9af7", -- used for keywords, etc.
 	color_13 = "#9ece6a", -- used for search match including Telescope, cmp, etc.
 	color_14 = "#2ac3de", -- used for border, etc.
