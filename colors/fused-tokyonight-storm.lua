@@ -6,8 +6,6 @@ end
 
 vim.o.termguicolors = true
 
-require("fused").setup({
+require("fused").__setup({
 	use = "tokyonight-storm",
-	force_load_plugins = true,
-	execute_hooks = true,
-})
+}, { force_load_plugins = true, execute_hooks = true })

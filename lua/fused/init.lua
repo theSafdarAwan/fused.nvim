@@ -3,8 +3,17 @@ local M = {}
 
 --- setup function to load the theme.
 ---@param user_configuration table|nil configuration for theme.
+---@private _args table configuration for theme.
 M.setup = function(user_configuration)
-	require("fused.setup").__setup(user_configuration)
+	require("fused.setup")._setup(user_configuration)
+end
+
+--- setup function used by the colors/* theme modules to force load theme.
+---@param theme_config table theme configuration
+---@param _args table includes options for force reloading theme, includes reload
+-- hooks.
+M.__setup = function(theme_config, _args)
+	require("fused.setup")._setup(theme_config, _args)
 end
 
 -- TODO: remove the custom highlight queries for the punctuations and use

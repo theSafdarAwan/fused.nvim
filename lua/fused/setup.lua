@@ -3,14 +3,6 @@ local M = {}
 
 --- Configuration for theme flavour.
 ---@table Default_Config
--- TODO: remove these private keys and do something else rather then polluting
--- the config table with private information.
---
----@private force_load_plugins boolean to force load plugins when loading theme
---- using command line.
----@private execute_hooks boolean to execute hooks. When theme flavour was changed after
---- the startup.
---- This can be used by user to reload modules or configs like status line, etc.
 
 local DEFAULT_CONFIG = {
 	use = "tokyonight-storm",
@@ -36,6 +28,15 @@ local DEFAULT_CONFIG = {
 			---@type string|table style string for flavour or table with
 			--- individual plugin style.
 			style = "slim",
+			---@type table|function override the default setting for a style if
+			--function should return a table
+			---@param colors table current flavour colors table
+			override_style = function(colors)
+				return {
+					slim = {},
+					bordered = {},
+				}
+			end,
 			---@type function|table override the default highlights if function should
 			--- return a table
 			---@param colors table|function colors table for the flavour
@@ -70,13 +71,12 @@ local DEFAULT_CONFIG = {
 		["nvim-ts-rainbow2"] = true,
 		["renamer.nvim"] = true,
 	},
-	force_load_plugins = false,
-	execute_hooks = false,
 }
 
 --- loads flavour
 ---@param user_configuration table|nil configuration for the flavour.
-function M.__setup(user_configuration)
+---@param _args table|nil arguments needed when loading theme using cmdline.
+function M._setup(user_configuration, _args)
 	local config = vim.tbl_deep_extend("force", DEFAULT_CONFIG, user_configuration or {})
 	local flavour_mod = require("fused.pallets." .. config.use)
 
@@ -93,7 +93,6 @@ function M.__setup(user_configuration)
 	local opts = {}
 	opts.polish = function()
 		local polished = flavour_mod.polish and flavour_mod.polish(colors) or {}
-		polished = vim.tbl_deep_extend("force", polished, override_hl or {})
 		-- style the plugins
 		local _styled_plugins = {}
 		local flavour_styles = flavour_mod.style or {}
@@ -108,6 +107,8 @@ function M.__setup(user_configuration)
 			-- if any plugin was left out from the style table then add that plugin
 			-- from the global style.
 			local _get_global_styled_plugins = flavour_styles[global_settings.style] or {}
+			-- WARN: don't use vim.tbl_deep_extend it merges two map like tables in
+			-- this case we have two different tables.
 			for group, hl_tbl in pairs(_get_global_styled_plugins) do
 				if not _styled_plugins[group] then
 					_styled_plugins[group] = hl_tbl
@@ -115,6 +116,9 @@ function M.__setup(user_configuration)
 			end
 		end
 		polished = vim.tbl_deep_extend("force", polished, _styled_plugins)
+		-- need to extend this only after the theme default config for highlight
+		-- groups has been added to table then we can override highlights.
+		polished = vim.tbl_deep_extend("force", polished, override_hl or {})
 		return polished
 	end
 	opts.terminal_colors = flavour_settings.terminal_colors
@@ -128,7 +132,7 @@ function M.__setup(user_configuration)
 	-- set normal highlights for editor, syntax, and lsp.
 	require("fused.groups").load_builtins_hl()
 	-- load highlights for the plugins
-	if config.force_load_plugins or user_configuration and user_configuration.plugins then
+	if _args and _args.force_load_plugins or user_configuration and user_configuration.plugins then
 		require("fused.groups").load_plugins_hl(config.plugins)
 	end
 
@@ -151,7 +155,7 @@ function M.__setup(user_configuration)
 		end
 	end
 
-	if config.execute_hooks then
+	if _args and _args.execute_hooks then
 		local hook_names = require("fused.utils").hooks_names
 		for hook_name, _ in pairs(hook_names) do
 			vim.cmd("do User " .. hook_name)
