@@ -5,6 +5,19 @@ local M = {}
 ---@table DEFAULT_CONFIG
 
 -- TODO: add option like sidebars by tokyonight.nvim
+--   styles = {
+--     -- Style to be applied to different syntax groups
+--     -- Value is any valid attr-list value for `:help nvim_set_hl`
+--     comments = { italic = true },
+--     keywords = { italic = true },
+--     functions = {},
+--     variables = {},
+--     -- Background styles. Can be "dark", "transparent" or "normal"
+--     sidebars = "dark", -- style for sidebars, see below
+--     floats = "dark", -- style for floating windows
+--   },
+--   sidebars = { "qf", "help" }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
+
 -- TODO: add common options like making comments italics, etc.
 
 local DEFAULT_CONFIG = {
@@ -48,6 +61,11 @@ local DEFAULT_CONFIG = {
 					slim = {},
 					bordered = {},
 				}
+			end,
+			--- add your own styles
+			---@param colors table
+			extend_styles = function(colors)
+				return {}
 			end,
 			--- override the default highlights if function should return a table
 			---@param colors table
