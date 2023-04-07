@@ -3,9 +3,9 @@ local M = {}
 M.load_hl = function(cp)
 	local utils = require("fused.utils")
 	return {
-		LspReferenceText = { fg = cp.base04, italic = utils.italics, underline = true }, -- used for highlighting "text" references
-		LspReferenceRead = { fg = cp.base07, italic = utils.italics, underline = true }, -- used for highlighting "read" references
-		LspReferenceWrite = { fg = cp.base09, italic = utils.italics, underline = true }, -- used for highlighting "write" references
+		LspReferenceText = { fg = cp.base04, italic = utils.italics, undercurl = true }, -- used for highlighting "text" references
+		LspReferenceRead = { fg = cp.base07, italic = utils.italics, undercurl = true }, -- used for highlighting "read" references
+		LspReferenceWrite = { fg = cp.base09, italic = utils.italics, undercurl = true }, -- used for highlighting "write" references
 
 		DiagnosticVirtualTextError = { fg = cp.base06, bg = cp.popup_bg },
 		DiagnosticVirtualTextWarn = { fg = cp.base07, bg = cp.popup_bg },
@@ -23,13 +23,13 @@ M.load_hl = function(cp)
 		DiagnosticSignInfo = { link = "@field" },
 
 		DiagnosticUnderlineError = { undercurl = true },
-		-- { fg = Colors.error_red, bg = Colors.color_2, underline = true }
+		-- { fg = Colors.error_red, bg = Colors.color_2, undercurl = true }
 		DiagnosticUnderlineWarn = { undercurl = true },
-		-- { fg = Colors.color_20, bg = Colors.color_2, underline = true }
+		-- { fg = Colors.color_20, bg = Colors.color_2, undercurl = true }
 		DiagnosticUnderlineInfo = { undercurl = true },
-		-- { fg = Colors.color_21, bg = Colors.color_2, underline = true }
-		DiagnosticUnderlineHint = { underline = true },
-		-- { fg = Colors.fl_color_6, bg = Colors.color_2, underline = true }
+		-- { fg = Colors.color_21, bg = Colors.color_2, undercurl = true }
+		DiagnosticUnderlineHint = { undercurl = true },
+		-- { fg = Colors.fl_color_6, bg = Colors.color_2, undercurl = true }
 
 		-- syntax tokens
 		["@lsp.type.class"] = { link = "@type" },

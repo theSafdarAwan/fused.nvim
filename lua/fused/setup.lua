@@ -4,10 +4,18 @@ local M = {}
 --- Configuration for theme.
 ---@table DEFAULT_CONFIG
 
+-- TODO: add option like sidebars by tokyonight.nvim
+-- TODO: add common options like making comments italics, etc.
+
 local DEFAULT_CONFIG = {
 	use = "tokyonight-storm",
 	settings = {
-		---@type table|function if function then should return a table
+		--- aliases to common highlight groups like comments, param, function, string, etc
+		aliases = {
+			comment = {},
+		},
+		--- custom highlights or highlights of plugins that aren't supported by fused.nvim
+		---@param colors table
 		custom_highlights = function(colors)
 			return {}
 		end,
@@ -28,14 +36,21 @@ local DEFAULT_CONFIG = {
 			style = "slim",
 			---@type table style for individual plugins.
 			style_groups = {},
-			---@type table|function override the default setting for a style if function should return a table
+			--- override the default theme color pallete
+			---@param colors table
+			override_colors = function(colors)
+				return {}
+			end,
+			--- override the default setting for a style if function should return a table
+			---@param colors table
 			override_style_highlights = function(colors)
 				return {
 					slim = {},
 					bordered = {},
 				}
 			end,
-			---@type table|function override the default highlights if function should return a table
+			--- override the default highlights if function should return a table
+			---@param colors table
 			override_group_highlights = function(colors)
 				return {
 					["telescope.nvim"] = {},
