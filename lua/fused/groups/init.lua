@@ -23,8 +23,7 @@ M.load_builtins_hl = function()
 			"syntax",
 			"lsp",
 		}
-		-- TODO: idiot you are requiring polish function every where.
-		local polished = utils.polish(colors)
+		local polished = utils.polish
 		for _, group in ipairs(groups_tbl) do
 			builtins[group] = vim.tbl_deep_extend("force", builtins[group], polished[group] or {})
 		end
@@ -56,9 +55,8 @@ M.load_plugins_hl = function(plugins_tbl)
 			end
 			local hl_tbl = require("fused.groups.plugins." .. name_formatted or name_orig).load_hl(colors)
 			plugins_hl_groups = vim.tbl_extend("force", plugins_hl_groups, hl_tbl)
-			if utils.polish and utils.polish()[name_orig] then
-				plugins_hl_groups =
-					vim.tbl_extend("force", plugins_hl_groups, utils.polish()[name_orig])
+			if utils.polish and utils.polish[name_orig] then
+				plugins_hl_groups = vim.tbl_extend("force", plugins_hl_groups, utils.polish[name_orig])
 			end
 		end
 	end
@@ -66,16 +64,7 @@ M.load_plugins_hl = function(plugins_tbl)
 	available_hl_groups = vim.tbl_extend("force", available_hl_groups, plugins_hl_groups)
 
 	for hl_name, hl_val in pairs(plugins_hl_groups) do
-		hl_name = tostring(hl_name)
-		-- NOTE> this is to not use italics for plugins highlights only remove italic style from
-		-- linked value and only do that if its not a treesitter hl_group
-		if hl_val.link and available_hl_groups[hl_val.link] and not string.find(hl_name, "@") then
-			hl_val = available_hl_groups[hl_val.link]
-			if hl_val and hl_val.italic then
-				hl_val.italic = false
-			end
-		end
-		hl(hl_name, hl_val)
+		hl(tostring(hl_name), hl_val)
 	end
 end
 

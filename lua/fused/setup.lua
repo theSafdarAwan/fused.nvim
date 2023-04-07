@@ -29,15 +29,13 @@ local DEFAULT_CONFIG = {
 			---@type table style for individual plugins.
 			style_groups = {},
 			---@type table|function override the default setting for a style if function should return a table
-			---@param colors table current flavour colors table
 			override_style_hl = function(colors)
 				return {
 					slim = {},
 					bordered = {},
 				}
 			end,
-			---@type function|table override the default highlights if function should return a table
-			---@param colors table colors table for the flavour
+			---@type table|function override the default highlights if function should return a table
 			override_group_hl = function(colors)
 				return {
 					["telescope.nvim"] = {},
@@ -102,7 +100,7 @@ function M._setup(user_configuration, _args)
 	local polish = flavour_mod.polish and flavour_mod.polish(colors) or {}
 
 	local opts = {}
-	opts.polish = function()
+	opts.polish = (function()
 		-- plugins style information
 		local style_groups = flavour_settings.style_groups
 		-- global or local style to be applied to plugins that are not located in style_groups
@@ -143,7 +141,7 @@ function M._setup(user_configuration, _args)
 		-- need to extend this only after the theme default config for highlight
 		-- groups has been added to table then we can override highlights.
 		return polish
-	end
+	end)()
 	opts.terminal_colors = flavour_settings.terminal_colors
 		or global_settings.terminal_colors and flavour_settings.terminal_colors == nil
 	opts.background_transparent = flavour_settings.background_transparent
