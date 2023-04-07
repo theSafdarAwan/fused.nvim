@@ -32,9 +32,10 @@ local DEFAULT_CONFIG = {
 		custom_highlights = function(colors)
 			return {}
 		end,
+		--- Fallback options for flavours that didn't specify any option
 		---@type table
 		global = {
-			---@type string global style for all flavours. Has less precedence then the {flavour}.style
+			---@type string global style for all flavours. Has less precedence then the [flavour].style
 			style = "slim",
 			---@type boolean enable italics for theme.
 			italics = true,
