@@ -100,11 +100,11 @@ function M._setup(user_configuration, _args)
 	local polish = flavour_mod.polish and flavour_mod.polish(colors) or {}
 
 	local opts = {}
-	opts.polish = (function()
+	opts.polished = (function()
+		-- global or local style to be applied to plugins that are not located in style_groups
+		local flavour_style = flavour_settings.style or global_settings.style
 		-- plugins style information
 		local style_groups = flavour_settings.style_groups
-		-- global or local style to be applied to plugins that are not located in style_groups
-		local style = flavour_settings.style or global_settings.style
 		-- flavour default styles
 		local flavour_default_styles = flavour_mod.style or {}
 		-- styled plugins table
@@ -125,7 +125,7 @@ function M._setup(user_configuration, _args)
 				styled_plugins[group_name] = plugin
 			end
 			-- add the remaining plugins style highlight groups.
-			for plugin_name, plugin_highlights in pairs(flavour_default_styles[style] or {}) do
+			for plugin_name, plugin_highlights in pairs(flavour_default_styles[flavour_style] or {}) do
 				if not styled_plugins[plugin_name] then
 					styled_plugins[plugin_name] = plugin_highlights
 					local _override_style = override_style[global_settings.style] or {}
@@ -149,9 +149,8 @@ function M._setup(user_configuration, _args)
 	opts.colors = colors
 	-- export common opts table for easy access
 	require("fused.utils").export_opts(opts)
-
 	-- set normal highlights for editor, syntax, and lsp.
-	require("fused.groups").load_builtins_hl()
+	require("fused.groups").load_builtin_hls()
 	-- load highlights for the plugins
 	if _args and _args.force_load_plugins or user_configuration and user_configuration.plugins then
 		require("fused.groups").load_plugins_hl(config.load_plugins)
