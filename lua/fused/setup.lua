@@ -1,8 +1,8 @@
 --- Loads theme
 local M = {}
 
---- Configuration for theme flavour.
----@table Default_Config
+--- Configuration for theme.
+---@table DEFAULT_CONFIG
 
 local DEFAULT_CONFIG = {
 	use = "tokyonight-storm",
@@ -32,7 +32,7 @@ local DEFAULT_CONFIG = {
 			---@type table|function override the default setting for a style if
 			--function should return a table
 			---@param colors table current flavour colors table
-			override_style = function(colors)
+			override_style_hl = function(colors)
 				return {
 					slim = {},
 					bordered = {},
@@ -95,7 +95,7 @@ function M._setup(user_configuration, _args)
 	end
 
 	-- override the default style's
-	local override_style = flavour_settings.override_style
+	local override_style = flavour_settings.override_style_hl
 	if type(override_style) == "function" then
 		override_style = override_style(colors)
 	end
