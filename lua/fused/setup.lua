@@ -11,11 +11,11 @@ local DEFAULT_CONFIG = {
 		custom_hl = function(colors)
 			return {}
 		end,
-		---@type table there are four options available for setting globally.
+		---@type table
 		global = {
 			---@type string global style for all flavours. Has less precedence
 			--- then the {flavour}.style
-			style = "bordered",
+			style = "slim",
 			---@type boolean enable italics for theme.
 			italics = true,
 			---@type boolean set background to transparent
@@ -25,9 +25,10 @@ local DEFAULT_CONFIG = {
 		},
 		---@type table setting for individual theme flavour there are
 		["tokyonight-storm"] = {
-			---@type string|table style string for flavour or table with
-			--- individual plugin style.
+			---@type string style for flavour
 			style = "slim",
+			---@type table style for individual plugins.
+			style_groups = {},
 			---@type table|function override the default setting for a style if
 			--function should return a table
 			---@param colors table current flavour colors table
@@ -37,10 +38,9 @@ local DEFAULT_CONFIG = {
 					bordered = {},
 				}
 			end,
-			---@type function|table override the default highlights if function should
-			--- return a table
+			---@type function|table override the default highlights if function should return a table
 			---@param colors table|function colors table for the flavour
-			override_hl = function(colors)
+			override_group_hl = function(colors)
 				return {
 					["telescope.nvim"] = {},
 					syntax = {},
@@ -50,7 +50,7 @@ local DEFAULT_CONFIG = {
 			end,
 		},
 	},
-	plugins = {
+	load_plugins = {
 		harpoon = true,
 		neogit = true,
 		neorg = true,
@@ -89,7 +89,7 @@ function M._setup(user_configuration, _args)
 	local global_settings = config.settings.global
 
 	-- override the default highlights
-	local override_hl = flavour_settings.override_hl
+	local override_hl = flavour_settings.override_group_hl
 	if type(override_hl) == "function" then
 		override_hl = override_hl(colors)
 	end
@@ -105,18 +105,23 @@ function M._setup(user_configuration, _args)
 
 	local opts = {}
 	opts.polish = function()
-		local user_styles_config = flavour_settings.style
-		local default_styles = flavour_mod.style or {}
+		-- plugins style information
+		local style_groups = flavour_settings.style_groups
+		-- global or local style to be applied to plugins that are not located in style_groups
+		local style = flavour_settings.style or global_settings.style
+		-- flavour default styles
+		local flavour_default_styles = flavour_mod.style or {}
+		-- styled plugins table
 		local styled_plugins = {}
 		-- override the default setting for styles
-		if type(user_styles_config) == "string" then
-			styled_plugins = default_styles(colors)[user_styles_config] or {}
+		if type(style_groups) == "string" then
+			styled_plugins = flavour_default_styles(colors)[style_groups] or {}
 			styled_plugins =
-				vim.tbl_deep_extend("force", styled_plugins, override_style[user_styles_config] or {})
+				vim.tbl_deep_extend("force", styled_plugins, override_style[style_groups] or {})
 		else
-			default_styles = default_styles(colors)
-			for group_name, style_name in pairs(user_styles_config) do
-				local group_style = default_styles[style_name] or {}
+			flavour_default_styles = flavour_default_styles(colors)
+			for group_name, style_name in pairs(style_groups) do
+				local group_style = flavour_default_styles[style_name] or {}
 				local plugin = group_style[group_name] or {}
 				-- override the default style with the user specified
 				local _override_style = override_style[style_name] or {}
@@ -124,8 +129,7 @@ function M._setup(user_configuration, _args)
 				styled_plugins[group_name] = plugin
 			end
 			-- add the remaining plugins style highlight groups.
-			local _global_styled_plugins = default_styles[global_settings.style] or {}
-			for plugin_name, plugin_highlights in pairs(_global_styled_plugins) do
+			for plugin_name, plugin_highlights in pairs(flavour_default_styles[style] or {}) do
 				if not styled_plugins[plugin_name] then
 					styled_plugins[plugin_name] = plugin_highlights
 					local _override_style = override_style[global_settings.style] or {}
@@ -154,7 +158,7 @@ function M._setup(user_configuration, _args)
 	require("fused.groups").load_builtins_hl()
 	-- load highlights for the plugins
 	if _args and _args.force_load_plugins or user_configuration and user_configuration.plugins then
-		require("fused.groups").load_plugins_hl(config.plugins)
+		require("fused.groups").load_plugins_hl(config.load_plugins)
 	end
 
 	-- set highlights for custom groups set by user
