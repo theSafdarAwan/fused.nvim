@@ -8,7 +8,7 @@ local DEFAULT_CONFIG = {
 	use = "tokyonight-storm",
 	settings = {
 		---@type table|function if function then should return a table
-		custom_hl = function(colors)
+		custom_highlights = function(colors)
 			return {}
 		end,
 		---@type table
@@ -29,14 +29,14 @@ local DEFAULT_CONFIG = {
 			---@type table style for individual plugins.
 			style_groups = {},
 			---@type table|function override the default setting for a style if function should return a table
-			override_style_hl = function(colors)
+			override_style_highlights = function(colors)
 				return {
 					slim = {},
 					bordered = {},
 				}
 			end,
 			---@type table|function override the default highlights if function should return a table
-			override_group_hl = function(colors)
+			override_group_highlights = function(colors)
 				return {
 					["telescope.nvim"] = {},
 					syntax = {},
@@ -85,13 +85,13 @@ function M._setup(user_configuration, _args)
 	local global_settings = config.settings.global
 
 	-- override the default highlights
-	local override_group_hl = flavour_settings.override_group_hl
+	local override_group_hl = flavour_settings.override_group_highlights
 	if type(override_group_hl) == "function" then
 		override_group_hl = override_group_hl(colors)
 	end
 
 	-- override the default style's
-	local override_style = flavour_settings.override_style_hl
+	local override_style = flavour_settings.override_style_highlights
 	if type(override_style) == "function" then
 		override_style = override_style(colors)
 	end
@@ -157,15 +157,15 @@ function M._setup(user_configuration, _args)
 	end
 
 	-- set highlights for custom groups set by user
-	local custom_hl = config.settings.custom_hl
-	if custom_hl then
-		if type(custom_hl) == "function" then
-			custom_hl = custom_hl(colors)
+	local custom_highlights = config.settings.custom_highlights
+	if custom_highlights then
+		if type(custom_highlights) == "function" then
+			custom_highlights = custom_highlights(colors)
 		end
-		local hl = require("fused.utils").set_hl
-		for hl_group_name, hl_opts in pairs(custom_hl) do
+		local set_hl = require("fused.utils").set_hl
+		for hl_group_name, hl_opts in pairs(custom_highlights) do
 			hl_group_name = tostring(hl_group_name)
-			hl(hl_group_name, hl_opts)
+			set_hl(hl_group_name, hl_opts)
 		end
 	end
 
