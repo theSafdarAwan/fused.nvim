@@ -46,7 +46,7 @@ M.load_hl = function(cp)
 		CursorLine = { bg = cp.popup_bg }, -- Screen-line at the cursor, when 'cursorline' is secp.  Low-priority if forecrust (ctermfg OR guifg) is not secp.
 		Directory = { fg = cp.base08 }, -- directory names (and other special names in listings)
 		EndOfBuffer = { fg = cp.base }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
-		ErrorMsg = { fg = cp.base09, bold = true }, -- error messages on the command line
+		ErrorMsg = { fg = cp.base09, styles = "bold" }, -- error messages on the command line
 		VertSplit = { fg = cp.base05 }, -- the column separating vertically split windows
 		Folded = { fg = cp.base16, bg = cp.popup_bg }, -- line used for closed folds
 		FoldColumn = { link = "Folded" }, -- 'foldcolumn'
@@ -56,7 +56,7 @@ M.load_hl = function(cp)
 		LineNr = { fg = cp.base03 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is secp.
 		CursorLineNr = { fg = cp.base16 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line. highlights the number in numberline.
 		MatchParen = { bg = cp.base02 }, -- The character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-		ModeMsg = { fg = cp.base05, bold = true }, -- 'showmode' message (e.g., "-- INSERT -- ")
+		ModeMsg = { fg = cp.base05, styles = "bold" }, -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea = { fg = cp.base05 }, -- Area for messages and cmdline
 		MsgSeparator = {}, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg = { fg = cp.base07 }, -- |more-prompt|
@@ -67,11 +67,11 @@ M.load_hl = function(cp)
 		NormalFloat = { fg = cp.base04, bg = cp.bg }, -- Normal text in floating windows.
 		FloatBorder = { fg = cp.base02 }, -- Normal text in floating windows.
 		Pmenu = { fg = cp.base16, bg = cp.popup_bg }, -- Popup menu: normal item.
-		PmenuSel = { fg = cp.base02, bg = cp.base10, bold = true }, -- Popup menu: selected item.
+		PmenuSel = { fg = cp.base02, bg = cp.base10, styles = "bold" }, -- Popup menu: selected item.
 		PmenuSbar = { bg = cp.popup_bg }, -- Popup menu: scrollbar.
 		PmenuThumb = { bg = cp.base07 }, -- Popup menu: Thumb of the scrollbar.
 		Question = { fg = cp.base12 }, -- |hit-enter| prompt and yes/no questions
-		QuickFixLine = { bg = cp.base02, bold = true }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+		QuickFixLine = { bg = cp.base02, styles = "bold" }, -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search = { fg = cp.base13, bg = cp.popup_bg }, -- Last search pattern highlighting (see 'hlsearch').  Also used for similar items that need to stand oucp.
 		IncSearch = { bg = cp.base02 }, -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
 		CurSearch = { fg = cp.base13, bg = cp.base02 }, -- 'cursearch' highlighting: highlights the current search you're on differently
@@ -85,7 +85,7 @@ M.load_hl = function(cp)
 		TabLine = { fg = cp.base04, bg = cp.base01 }, -- tab pages line, not active tab page label
 		TabLineFill = { link = "TabLine" }, -- tab pages line, where there are no labels
 		TabLineSel = { bg = cp.base03 }, -- tab pages line, active tab page label
-		Title = { fg = cp.base07, bold = true }, -- titles for output from ":set all", ":autocmd" etcp.
+		Title = { fg = cp.base07, styles = "bold" }, -- titles for output from ":set all", ":autocmd" etcp.
 		Visual = { bg = cp.popup_bg }, -- Visual mode selection
 		VisualNOS = { bg = cp.base02 }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = cp.base07 }, -- warning messages

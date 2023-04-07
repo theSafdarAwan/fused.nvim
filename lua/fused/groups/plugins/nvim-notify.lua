@@ -3,7 +3,7 @@ local function load_hl(cp)
 		NotifyLogTitle = { fg = cp.base04 },
 		NotifyLogTime = { fg = cp.base06 },
 
-		NotifyINFOTitle = { fg = cp.base13, bold = true },
+		NotifyINFOTitle = { fg = cp.base13, styles = "bold" },
 		NotifyINFOBody = { bg = cp.popup_bg },
 		NotifyINFOIcon = { link = "NotifyINFOTitle" },
 		NotifyINFOBorder = { link = "NotifyINFOTitle" },

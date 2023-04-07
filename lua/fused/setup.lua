@@ -13,8 +13,7 @@ local DEFAULT_CONFIG = {
 		end,
 		---@type table
 		global = {
-			---@type string global style for all flavours. Has less precedence
-			--- then the {flavour}.style
+			---@type string global style for all flavours. Has less precedence then the {flavour}.style
 			style = "slim",
 			---@type boolean enable italics for theme.
 			italics = true,
@@ -29,8 +28,7 @@ local DEFAULT_CONFIG = {
 			style = "slim",
 			---@type table style for individual plugins.
 			style_groups = {},
-			---@type table|function override the default setting for a style if
-			--function should return a table
+			---@type table|function override the default setting for a style if function should return a table
 			---@param colors table current flavour colors table
 			override_style_hl = function(colors)
 				return {
@@ -39,7 +37,7 @@ local DEFAULT_CONFIG = {
 				}
 			end,
 			---@type function|table override the default highlights if function should return a table
-			---@param colors table|function colors table for the flavour
+			---@param colors table colors table for the flavour
 			override_group_hl = function(colors)
 				return {
 					["telescope.nvim"] = {},
@@ -89,9 +87,9 @@ function M._setup(user_configuration, _args)
 	local global_settings = config.settings.global
 
 	-- override the default highlights
-	local override_hl = flavour_settings.override_group_hl
-	if type(override_hl) == "function" then
-		override_hl = override_hl(colors)
+	local override_group_hl = flavour_settings.override_group_hl
+	if type(override_group_hl) == "function" then
+		override_group_hl = override_group_hl(colors)
 	end
 
 	-- override the default style's
@@ -165,17 +163,11 @@ function M._setup(user_configuration, _args)
 	local custom_hl = config.settings.custom_hl
 	if custom_hl then
 		if type(custom_hl) == "function" then
-			custom_hl = custom_hl(opts.colors)
+			custom_hl = custom_hl(colors)
 		end
 		local hl = require("fused.utils").set_hl
 		for hl_group_name, hl_opts in pairs(custom_hl) do
 			hl_group_name = tostring(hl_group_name)
-			if hl_opts.styles then
-				local styles = hl_opts.styles
-				styles = require("fused.utils").format_styles(styles)
-				hl_opts = vim.tbl_extend("force", hl_opts, styles)
-				hl_opts.styles = nil
-			end
 			hl(hl_group_name, hl_opts)
 		end
 	end

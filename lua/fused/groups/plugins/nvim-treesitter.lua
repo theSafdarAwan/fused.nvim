@@ -86,7 +86,7 @@ M.load_hl = function(cp)
 		-- #### Text
 		-- Mainly for markup languages.
 		["@text"] = { fg = cp.base05 }, -- non-structured text
-		["@text.strong"] = { fg = cp.base05, bold = true }, -- bold text
+		["@text.strong"] = { fg = cp.base05, styles = "bold" }, -- bold text
 		["@text.emphasis"] = { fg = cp.base05, italic = utils.italics }, -- text with emphasis
 		["@text.underline"] = { fg = cp.base05, underline = true }, -- underlined text
 		["@text.strike"] = { fg = cp.base05, strikethrough = true }, -- strikethrough text

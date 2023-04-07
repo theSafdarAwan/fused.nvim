@@ -67,9 +67,9 @@ M.polish = function()
 		["telescope.nvim"] = {
 			TelescopeNormal = { bg = M.pallet.base01 },
 			TelescopeBorder = { fg = M.pallet.base01, bg = M.pallet.base01 },
-			TelescopePreviewTitle = { fg = M.pallet.bg, bg = M.pallet.base08, bold = true },
+			TelescopePreviewTitle = { fg = M.pallet.bg, bg = M.pallet.base08, styles = "bold" },
 			TelescopePromptPrefix = { fg = M.pallet.base10 },
-			TelescopePromptTitle = { fg = M.pallet.bg, bg = M.pallet.base09, bold = true },
+			TelescopePromptTitle = { fg = M.pallet.bg, bg = M.pallet.base09, styles = "bold" },
 			TelescopeResultsTitle = { fg = M.pallet.base14 },
 		},
 		builtins = {

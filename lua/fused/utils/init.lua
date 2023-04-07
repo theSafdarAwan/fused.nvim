@@ -6,6 +6,12 @@ local M = {}
 ---@param group string name of the highlight group to load.
 ---@param hls table opts for the highlight group.
 M.set_hl = function(group, hls)
+	if hls.styles then
+		local styles = hls.styles
+		styles = require("fused.utils").format_styles(styles)
+		hls = vim.tbl_extend("force", hls, styles)
+		hls.styles = nil
+	end
 	vim.api.nvim_set_hl(0, group, hls)
 end
 
@@ -57,7 +63,7 @@ end
 --- get the colors for given flavour
 ---@param flavour string theme flavour name.
 ---@return table colors pallet.
-M.get_colors = function (flavour)
+M.get_colors = function(flavour)
 	local pallet = require("fused.pallets." .. flavour).pallet
 	return pallet
 end

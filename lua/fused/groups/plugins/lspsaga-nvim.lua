@@ -27,8 +27,8 @@ M.load_hl = function(cp)
 		FinderIcon = { fg = cp.base09 },
 		FinderType = { fg = cp.base10 },
 		--finder spinner
-		FinderSpinnerTitle = { fg = cp.base10, bold = true },
-		FinderSpinner = { fg = cp.base10, bold = true },
+		FinderSpinnerTitle = { fg = cp.base10, styles = "bold" },
+		FinderSpinner = { fg = cp.base10, styles = "bold" },
 		FinderPreviewSearch = { link = "Search" },
 		FinderVirtText = { fg = cp.base09 },
 		FinderNormal = { fg = cp.base04 },

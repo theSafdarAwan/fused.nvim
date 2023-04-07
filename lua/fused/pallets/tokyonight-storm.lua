@@ -76,8 +76,8 @@ M.polish = function(colors)
 		["telescope.nvim"] = {
 			TelescopeNormal = { bg = colors.base19 },
 			TelescopePromptPrefix = { fg = colors.base10 },
-			TelescopePreviewTitle = { fg = colors.base11, bold = true },
-			TelescopePromptTitle = { fg = colors.base09, bold = true },
+			TelescopePreviewTitle = { fg = colors.base11, styles = "bold" },
+			TelescopePromptTitle = { fg = colors.base09, styles = "bold"},
 			TelescopeResultsTitle = { fg = colors.base07 },
 		},
 		editor = {
@@ -98,7 +98,7 @@ M.polish = function(colors)
 		},
 		["nvim-treesitter"] = {
 			["@function"] = { fg = colors.base09 }, -- function definitions
-			["@label"] = { fg = colors.base10, bold = true },
+			["@label"] = { fg = colors.base10, styles = "bold" },
 			["@string"] = { fg = colors.base13 }, -- string
 			["@method"] = { fg = colors.base09 }, -- method definitions
 			["@method.call"] = { link = "@method" }, -- method calls
@@ -142,8 +142,8 @@ M.style = function(colors)
 			},
 			["telescope.nvim"] = {
 				TelescopeBorder = { fg = colors.base19, bg = colors.base19 },
-				TelescopePreviewTitle = { fg = colors.bg, bg = colors.base11, bold = true },
-				TelescopePromptTitle = { fg = colors.bg, bg = colors.base09, bold = true },
+				TelescopePreviewTitle = { fg = colors.bg, bg = colors.base11, styles = "bold" },
+				TelescopePromptTitle = { fg = colors.bg, bg = colors.base09, styles = "bold" },
 			},
 			["noice.nvim"] = {
 				NoiceCmdlinePopupBorder = { fg = colors.base19, bg = colors.base19 }, -- Cmdline popup border

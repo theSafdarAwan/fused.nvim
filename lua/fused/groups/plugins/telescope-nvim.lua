@@ -12,10 +12,10 @@ M.load_hl = function(cp)
 		TelescopePromptBorder = { link = "TelescopeBorder" },
 		TelescopeResultsBorder = { link = "TelescopeBorder" },
 		TelescopePreviewBorder = { link = "TelescopeBorder" },
-		TelescopeTitle = { fg = cp.base09, bold = true },
-		TelescopePromptTitle = { fg = cp.base07, bold = true },
-		TelescopeResultsTitle = { fg = cp.base12, bold = true },
-		TelescopePreviewTitle = { fg = cp.base09, bold = true },
+		TelescopeTitle = { fg = cp.base09, styles = "bold" },
+		TelescopePromptTitle = { fg = cp.base07, styles = "bold" },
+		TelescopeResultsTitle = { fg = cp.base12, styles = "bold" },
+		TelescopePreviewTitle = { fg = cp.base09, styles = "bold" },
 	}
 end
 return M
