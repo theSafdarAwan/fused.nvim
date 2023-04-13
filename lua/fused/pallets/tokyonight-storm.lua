@@ -1,6 +1,10 @@
--- https://github.com/enkia/tokyo-night-vscode-theme
+-- License for the colors only:
+
 -- The MIT License (MIT)
 -- Copyright (c) 2018-present Enkia
+
+-- for more info refer to this repo:
+-- https://github.com/enkia/tokyo-night-vscode-theme/blob/master/LICENSE.txt
 
 --- tokyonight
 local theme_colors = {
