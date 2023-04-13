@@ -1,3 +1,7 @@
+-- https://github.com/enkia/tokyo-night-vscode-theme
+-- The MIT License (MIT)
+-- Copyright (c) 2018-present Enkia
+
 --- tokyonight
 local theme_colors = {
 	-- 18 base colors required by theme
@@ -77,7 +81,7 @@ M.polish = function(colors)
 			TelescopeNormal = { bg = colors.base19 },
 			TelescopePromptPrefix = { fg = colors.base10 },
 			TelescopePreviewTitle = { fg = colors.base11, styles = "bold" },
-			TelescopePromptTitle = { fg = colors.base09, styles = "bold"},
+			TelescopePromptTitle = { fg = colors.base09, styles = "bold" },
 			TelescopeResultsTitle = { fg = colors.base07 },
 		},
 		editor = {
