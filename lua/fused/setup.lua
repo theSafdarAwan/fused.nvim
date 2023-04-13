@@ -1,6 +1,13 @@
 --- Loads theme
 local M = {}
 
+-- NEW syntax for flavours settings
+-- {
+--	ui = {
+--		default = "slim"
+--	}
+-- }
+
 --- Configuration for theme.
 ---@table DEFAULT_CONFIG
 
@@ -35,6 +42,8 @@ local DEFAULT_CONFIG = {
 		--- Fallback options for flavours that didn't specify any option
 		---@type table
 		global = {
+			-- TODO:allow this to have global ui set for individual plugins as well
+			--
 			---@type string global style for all flavours. Has less precedence then the [flavour].style
 			style = "slim",
 			---@type boolean enable italics for theme.
