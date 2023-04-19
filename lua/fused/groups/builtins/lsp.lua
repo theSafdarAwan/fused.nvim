@@ -31,6 +31,9 @@ M.load_hl = function(cp)
 		DiagnosticUnderlineHint = { undercurl = true },
 		-- { fg = Colors.fl_color_6, bg = Colors.color_2, undercurl = true }
 
+		-- don't dim the unnecessary code
+		DiagnosticUnnecessary = {},
+
 		-- syntax tokens
 		["@lsp.type.class"] = { link = "@type" },
 		["@lsp.type.decorator"] = { link = "@function" },
