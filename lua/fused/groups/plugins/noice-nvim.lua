@@ -42,8 +42,8 @@ M.get_hl_groups = function(cp)
 		NoiceLspProgressSpinner = { link = "Constant" }, -- Lsp progress spinner
 		NoiceLspProgressTitle = { link = "NonText" }, -- Lsp progress title
 		NoiceLspProgressClient = { link = "Title" }, -- Lsp progress client name
-		NoiceCompletionItemMenu = { link = "none" }, -- Normal for the popupmenu
-		NoiceCompletionItemWord = { link = "none" }, -- Normal for the popupmenu
+		NoiceCompletionItemMenu = {}, -- Normal for the popupmenu
+		NoiceCompletionItemWord = {}, -- Normal for the popupmenu
 		NoiceCompletionItemKindDefault = { link = "Special" },
 		NoiceCompletionItemKindColor = { link = "NoiceCompletionItemKindDefault" },
 		NoiceCompletionItemKindFunction = { link = "NoiceCompletionItemKindDefault" },

@@ -34,7 +34,7 @@ M.get_hl_groups = function(cp)
 		CmpItemKindEvent = { fg = cp.base10 },
 		CmpItemKindOperator = { fg = cp.base06 },
 		CmpItemKindTypeParameter = { fg = cp.base12 },
-		CmpItemKindCopilot = { fg = cp.base102 },
+		CmpItemKindCopilot = { fg = cp.base15 },
 	}
 end
 

@@ -54,6 +54,8 @@ M.pallet = {
 	base21 = colors.color_21,
 	base22 = colors.color_22,
 	base23 = colors.color_23,
+	base24 = colors.color_03, -- background of floating windows
+	base25 = colors.color_22, -- scope / context highlights
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
@@ -101,7 +103,7 @@ M.polish = function()
 			["@parameter"] = { fg = M.pallet.base12, italic = utils.italics }, -- parameters of a function
 			["@tag.attribute"] = { fg = M.pallet.base13 }, -- XML tag attributes
 			["@variable"] = { fg = M.pallet.base17 }, -- builtins variable
-			["@variable.builtins"] = { fg = M.pallet.base17 }, -- builtins variable
+			["@variable.builtin"] = { fg = M.pallet.base17 }, -- builtins variable
 			-- html
 			["@fused_html.doctype"] = { link = "@tag" },
 			["@fused_html.paren"] = { fg = "#626880" },

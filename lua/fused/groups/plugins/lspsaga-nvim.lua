@@ -46,7 +46,7 @@ M.get_hl_groups = function(cp)
 		RenameNormal = { fg = cp.base12, bg = cp.base01 },
 		RenameMatch = { link = "Search" },
 		-- diagnostic
-		DiagnosticSource = { fg = "gray" },
+		DiagnosticSource = { fg = cp.base05 },
 		DiagnosticNormal = { link = "SagaBorder" },
 		DiagnosticBorder = { link = "SagaBorder" },
 		DiagnosticErrorBorder = { link = "SagaBorder" },

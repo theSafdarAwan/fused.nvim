@@ -60,7 +60,6 @@ M.pallet = {
 	base23 = colors.color_23,
 	base24 = colors.color_24,
 	base25 = colors.color_25,
-	base26 = colors.color_26,
 }
 
 --- Returns a table which contains tables of highlight groups for plugins.
@@ -73,6 +72,7 @@ M.polish = function()
 		},
 		["indent-blankline.nvim"] = {
 			IndentBlanklineContextChar = { fg = M.pallet.base25 },
+			IblScope = { fg = M.pallet.base25 },
 		},
 		["telescope.nvim"] = {
 			TelescopeNormal = { bg = M.pallet.base24 },
@@ -104,7 +104,7 @@ M.polish = function()
 			["@method"] = { fg = M.pallet.base11 }, -- method definitions
 			["@method.call"] = { link = "@method" }, -- method calls
 			["@variable"] = { fg = M.pallet.base17 }, -- builtins variable
-			["@variable.builtins"] = { link = "@variable" }, -- builtins variable
+			["@variable.builtin"] = { link = "@variable" }, -- builtins variable
 			["@parameter"] = { fg = M.pallet.base12, italic = utils.italics }, -- parameters of a function
 			["@boolean"] = { fg = M.pallet.base12 }, -- boolean literals
 			["@keyword.return"] = { fg = M.pallet.base11 },

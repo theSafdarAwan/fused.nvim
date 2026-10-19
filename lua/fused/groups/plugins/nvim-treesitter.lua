@@ -32,7 +32,7 @@ M.get_hl_groups = function(cp)
 
 		-- Functions
 		["@function"] = { link = "Function" }, -- function definitions
-		["@function.builtins"] = { link = "@function" }, -- built-in functions
+		["@function.builtin"] = { link = "@function" }, -- built-in functions
 		["@function.call"] = { link = "@function" }, -- function calls
 		["@function.macro"] = { fg = cp.base13 }, -- preprocessor macros
 
@@ -46,7 +46,7 @@ M.get_hl_groups = function(cp)
 		["@keyword"] = { fg = cp.base14, italic = utils.italics }, -- various keywords
 		["@keyword.function"] = { fg = cp.base14 }, -- keywords that define a function (e.g. `func` in Go, `def` in Python)
 		["@keyword.operator"] = { link = "@keyword" }, -- operators that are English words (e.g. `and` / `or`)
-		["@keyword.return"] = { link = "@keyword.function" }, -- operators that are English words (e.g. `and` / `or`) hl("@keyword.return", { fg = cp.wred }) -- keywords like `return` and `yield`
+		["@keyword.return"] = { link = "@keyword.function" }, -- keywords like `return` and `yield`
 
 		["@conditional"] = { link = "@keyword" }, -- keywords related to conditionals (e.g. `if` / `else`)
 		["@repeat"] = { link = "@keyword" }, -- keywords related to loops (e.g. `for` / `while`)
@@ -58,7 +58,7 @@ M.get_hl_groups = function(cp)
 		-- Types
 		["@type"] = { link = "Type" }, -- type or class definitions and annotations
 		["@type.tag"] = { fg = cp.base11 }, -- type or class definitions and annotations
-		["@type.builtins"] = { link = "@keyword" }, -- built-in types
+		["@type.builtin"] = { link = "@keyword" }, -- built-in types
 		["@type.definition"] = { link = "Type" }, -- type definitions (e.g. `typedef` in C)
 		["@type.qualifier"] = { link = "Type" }, -- type qualifiers (e.g. `const`)
 
@@ -73,10 +73,10 @@ M.get_hl_groups = function(cp)
 
 		-- #### Identifiers
 		["@variable"] = { fg = cp.base17 }, -- various variable names
-		["@variable.builtins"] = { fg = cp.base20 }, -- built-in variable names (e.g. `this`)
+		["@variable.builtin"] = { fg = cp.base20 }, -- built-in variable names (e.g. `this`)
 
 		["@constant"] = { link = "Constant" }, -- constant identifiers
-		["@constant.builtins"] = { fg = cp.base14 }, -- built-in constant values
+		["@constant.builtin"] = { fg = cp.base14 }, -- built-in constant values
 		["@constant.macro"] = { link = "@define" }, -- constants defined by the preprocessor
 
 		-- @namespace        -- modules or namespaces
@@ -112,6 +112,19 @@ M.get_hl_groups = function(cp)
 		["@tag.attribute"] = { fg = cp.base16 }, -- XML tag attributes
 		["@tag.delimiter"] = { fg = cp.base05 }, -- XML tag delimiters
 
+		-- #### Captures of the custom queries in after/queries
+		["@fused_css.unit"] = { fg = cp.base12 }, -- 10px: the px
+		["@fused_css.value"] = { fg = cp.base13 }, -- plain values like `flex`
+		["@fused_css.class"] = { link = "@property.class" },
+		["@fused_css.keyword"] = { link = "@keyword" },
+		["@fused_css.query"] = { link = "@type" },
+		["@fused_css.tag"] = { fg = cp.base17 },
+		["@fused_css.id"] = { link = "@type" },
+		["@fused_html.doctype"] = { fg = cp.base14 },
+		["@fused_html.paren"] = { link = "@tag.delimiter" },
+		["@fused_js.constructor"] = { fg = cp.base14 },
+		["@fused_c.include.path"] = { link = "@string" },
+
 		-- #### Conceal
 		["@conceal"] = { fg = cp.base04 }, -- for captures that are only used for concealing
 
@@ -121,7 +134,7 @@ M.get_hl_groups = function(cp)
 		-- ["@spell"] = {}, -- for defining regions to be spellchecked
 
 		-- #### Non-standard
-		-- These captures are used by some languages but don't have any default hig] =,hts.
+		-- These captures are used by some languages but don't have any default highlights.
 		-- They fall back to the parent capture if they are not manually defined.
 		-- @variable.global
 

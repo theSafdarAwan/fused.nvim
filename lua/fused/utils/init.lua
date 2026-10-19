@@ -1,5 +1,4 @@
 --- Adds Utility functions.
-local vim = vim
 local M = {}
 
 --- Loads the highlight group.
@@ -12,11 +11,15 @@ end
 --- Exports the opts which are utilised when setting opts for highlight groups.
 ---@param opts table opts like background_transparent, italics, etc.
 M.export_opts = function(opts)
-	-- need to get rid of previous pallet polished config
 	for opt, val in pairs(opts) do
 		M[opt] = val
 	end
 end
+
+---@table plugins asked for with `require("fused").load_plugin(name)`. They are kept so
+--- the highlights of these plugins are also loaded when the theme is (re)loaded later,
+--- for example when you change the colorscheme, no matter in which order things ran.
+M.requested_plugins = {}
 
 ---@table hooks names. To be used later for executing autocmds when theme flavour changes.
 M.hooks_names = {}
@@ -36,20 +39,21 @@ M.__add_hooks = function(hooks)
 	end
 end
 
---- Converts styles from a string to a table and returns it.
+--- Converts styles from a string like `"bold,noitalic"` to a table and returns it.
+--- Names are trimmed and a leading `no` turns the style off. `nocombine` is a real style
+--- of its own and is kept as it is.
 ---@return table of styles
 M.format_styles = function(styles_str)
-	local styles_strs = vim.split(styles_str, ",", { plain = true, trimempty = true })
 	local styles = {}
-	for idx, style in ipairs(styles_strs) do
-		local is_false = string.find(style, "no")
-		if is_false then
-			style = string.sub(style, 3, -1)
-			styles[style] = false
-		elseif not is_false then
-			styles[style] = true
+	for _, style in ipairs(vim.split(styles_str, ",", { plain = true, trimempty = true })) do
+		style = style:match("^%s*(.-)%s*$")
+		if style ~= "" then
+			if style ~= "nocombine" and style:sub(1, 2) == "no" then
+				styles[style:sub(3)] = false
+			else
+				styles[style] = true
+			end
 		end
-		styles_strs[idx] = nil
 	end
 	return styles
 end
@@ -57,26 +61,16 @@ end
 --- get the colors for given flavour
 ---@param flavour string theme flavour name.
 ---@return table colors pallet.
-M.get_colors = function (flavour)
-	local pallet = require("fused.pallets." .. flavour).pallet
-	return pallet
+M.get_colors = function(flavour)
+	return require("fused.pallets." .. flavour).pallet
 end
 
---- Replaces the `.` char in plugin name with `-`
+--- Replaces the `.` char in plugin name with `-`, this is how the files for the plugins
+--- are named (`nvim-tree.lua` -> `nvim-tree-lua`).
 ---@param name string plugin name to format
 ---@return string formatted plugin name.
 M.format_plugin_name = function(name)
-	local idx = 1
-	while true do
-		idx = string.find(name, "[.]", idx + 1)
-		if not idx then
-			break
-		end
-		local str_start = string.sub(name, 1, idx - 1)
-		local str_finish = string.sub(name, idx + 1, -1)
-		name = str_start .. "-" .. str_finish
-	end
-	return name
+	return (name:gsub("%.", "-"))
 end
 
 return M

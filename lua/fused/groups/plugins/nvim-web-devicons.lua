@@ -6,7 +6,7 @@ M.get_hl_groups = function(cp)
 		DevIconc = { fg = cp.base10 },
 		DevIconcss = { fg = cp.base17 },
 		DevIcondeb = { fg = cp.base10 },
-		DevIconDockerfile = { fg = cp.cyan },
+		DevIconDockerfile = { fg = cp.base10 },
 		DevIconhtml = { fg = cp.base11 },
 		DevIconjpeg = { fg = cp.base11 },
 		DevIconjpg = { fg = cp.base11 },

@@ -5,12 +5,14 @@ M.get_hl_groups = function(cp)
 
 	-- get the background setting
 	local tr_bg = require("fused.utils").background_transparent
+	-- background of the editor, stays clear when the background is transparent
+	local bg = tr_bg and "NONE" or cp.base01
 	if utils.terminal_colors then
 		----------------------------------------------------------------------
 		--                         terminal colors                          --
 		----------------------------------------------------------------------
 		-- dark
-		vim.g.terminal_color_0 = tr_bg or cp.base011
+		vim.g.terminal_color_0 = cp.base01
 		vim.g.terminal_color_8 = cp.base05
 
 		-- light
@@ -34,25 +36,25 @@ M.get_hl_groups = function(cp)
 		vim.g.terminal_color_13 = cp.base14
 
 		vim.g.terminal_color_6 = cp.base10
-		vim.g.terminal_color_14 = cp.cyan10
+		vim.g.terminal_color_14 = cp.base10
 	end
 	return {
 		ColorColumn = { bg = cp.base03 }, -- used for the columns set with 'colorcolumn'
 		Comment = { fg = cp.base05, italic = utils.italics }, -- comments
 		Conceal = { fg = cp.base18 }, -- placeholder characters substituted for concealed text (see 'conceallevel')
-		Cursor = { fg = cp.base, bg = cp.base07 }, -- character under the cursor
-		lCursor = { fg = cp.base, bg = cp.base07 }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
-		CursorIM = { fg = cp.base, bg = cp.base07 }, -- like Cursor, but used when in IME mode |CursorIM|
+		Cursor = { fg = cp.base01, bg = cp.base07 }, -- character under the cursor
+		lCursor = { fg = cp.base01, bg = cp.base07 }, -- the character under the cursor when |language-mapping| is used (see 'guicursor')
+		CursorIM = { fg = cp.base01, bg = cp.base07 }, -- like Cursor, but used when in IME mode |CursorIM|
 		CursorColumn = { bg = cp.base18 }, -- Screen-column at the cursor, when 'cursorcolumn' is secp.
 		CursorLine = { bg = cp.base02 }, -- Screen-line at the cursor, when 'cursorline' is secp.  Low-priority if forecrust (ctermfg OR guifg) is not secp.
 		Directory = { fg = cp.base10 }, -- directory names (and other special names in listings)
-		EndOfBuffer = { fg = cp.base }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
+		EndOfBuffer = { fg = cp.base01 }, -- filler lines (~) after the end of the buffer.  By default, this is highlighted like |hl-NonText|.
 		ErrorMsg = { fg = cp.base11, bold = true }, -- error messages on the command line
 		VertSplit = { fg = cp.base07 }, -- the column separating vertically split windows
 		Folded = { fg = cp.base18, bg = cp.base02 }, -- line used for closed folds
 		FoldColumn = { link = "Folded" }, -- 'foldcolumn'
-		SignColumn = { bg = cp.base01 }, -- column where |signs| are displayed
-		SignColumnSB = { bg = cp.base01 }, -- column where |signs| are displayed
+		SignColumn = { bg = bg }, -- column where |signs| are displayed
+		SignColumnSB = { bg = bg }, -- column where |signs| are displayed
 		Substitute = { bg = cp.base04, fg = cp.base12 }, -- |:substitute| replacement text highlighting
 		LineNr = { fg = cp.base05 }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is secp.
 		CursorLineNr = { fg = cp.base18 }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line. highlights the number in numberline.
@@ -62,8 +64,8 @@ M.get_hl_groups = function(cp)
 		MsgSeparator = {}, -- Separator for scrolled messages, `msgsep` flag of 'display'
 		MoreMsg = { fg = cp.base09 }, -- |more-prompt|
 		NonText = { fg = cp.base03 }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-		Normal = { fg = cp.base07, bg = tr_bg and "NONE" or cp.base01 }, -- normal text
-		NormalNC = { fg = cp.base07 }, -- normal text
+		Normal = { fg = cp.base07, bg = bg }, -- normal text
+		NormalNC = { fg = cp.base07, bg = bg }, -- normal text in not focused windows
 		NormalSB = { fg = cp.base07, bg = cp.base04 }, -- normal text
 		NormalFloat = { fg = cp.base06, bg = cp.base01 }, -- Normal text in floating windows.
 		FloatBorder = { fg = cp.base04 }, -- Normal text in floating windows.
@@ -90,7 +92,7 @@ M.get_hl_groups = function(cp)
 		Visual = { bg = cp.base02 }, -- Visual mode selection
 		VisualNOS = { bg = cp.base04 }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { fg = cp.base09 }, -- warning messages
-		space = { fg = cp.base05 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+		Whitespace = { fg = cp.base05 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
 		WildMenu = { bg = cp.base04 }, -- current match in 'wildmenu' completion
 		WinBar = { fg = cp.base06 }, --
 		WinSeparator = { fg = cp.base04 }, -- windows seperator color
@@ -98,6 +100,10 @@ M.get_hl_groups = function(cp)
 		DiffAdd = { fg = cp.base15 }, -- diff mode: Added line |diff.txt|
 		DiffChange = { fg = cp.base10 }, -- diff mode: Changed line |diff.txt|
 		DiffDelete = { fg = cp.base11 }, -- diff mode: Deleted line |diff.txt|
+		DiffText = { bg = cp.base04 }, -- diff mode: Changed text within a changed line |diff.txt|
+		Underlined = { fg = cp.base10, underline = true }, -- text that stands out, HTML links
+		FloatTitle = { fg = cp.base09, bold = true }, -- title of floating windows
+		WinBarNC = { fg = cp.base05 }, -- window bar of not focused windows
 	}
 end
 

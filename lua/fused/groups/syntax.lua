@@ -41,9 +41,9 @@ M.get_hl_groups = function(cp)
 		-- ("Ignore", below, may be invisible...)
 		-- Ignore         { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-		Error = { fg = cp.base08, bg = cp.base, bold = true }, -- (preferred) any erroneous construct
+		Error = { fg = cp.base08, bold = true }, -- (preferred) any erroneous construct
 
-		Todo = { fg = cp.base09, bg = cp.base, bold = true }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+		Todo = { fg = cp.base09, bold = true }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 	}
 end
 return M

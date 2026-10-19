@@ -1,31 +1,30 @@
 --- Loads theme
 local M = {}
+
 --- Configuration for theme flavour.
 ---@table Default_Config
 ---@field flavour string name of the theme flavour.
----@field settings table With flavour name as key.
+---@field apply boolean `false` to only store the configuration in `setup()` and not apply
+--- the theme yet. It is then applied by `:colorscheme fused-<flavour>`.
+---@field settings table With flavour name as key. `{ hl_override = { ["telescope.nvim"] = { TelescopeNormal = {...} } } }`
 ---@field italics boolean to enable or disable italic font.
 ---@field background_transparent boolean to enable or disable transparent background.
 ---@field terminal_colors boolean to enable terminal colors highlights.
 ---@field custom table|function returns table of custom highlight groups.
----@field plugins table of plugin names (name = boolean) .Accepts full
+---@field plugins table|false of plugin names (name = boolean). Accepts full
 -- names of the plugins. If plugin name includes characters like `.` or `-` then
--- use the string key like `["nvim-tree"] = true`.
----@private force_load_plugins boolean to force load plugins when loading theme
---- using command line.
----@private execute_hooks boolean to execute hooks. When theme flavour was changed after
---- the startup.
---- This can be used by user to reload modules or configs like status line, etc.
-
--- TODO: transparent background
+-- use the string key like `["nvim-tree.lua"] = true`. Set to `false` to load no plugin
+-- highlights up front and use `require("fused").load_plugin(name)` in the plugin config.
+---@field execute_hooks boolean to execute the hooks (see `add_hooks`) after loading.
 
 local default_config = {
 	flavour = "tokyonight-storm",
+	apply = true,
 	settings = {
 		["tokyonight-storm"] = {
 			border = {
 				["telescope.nvim"] = false, -- slim, bordered
-				builtins = true
+				builtins = true,
 			},
 			hl_override = {},
 		},
@@ -54,14 +53,20 @@ local default_config = {
 		["todo-comments.nvim"] = true,
 		["trouble.nvim"] = true,
 		["nvim-ts-rainbow2"] = true,
+		["rainbow-delimiters.nvim"] = true,
 		["renamer.nvim"] = true,
 	},
-	force_load_plugins = false,
 	execute_hooks = false,
 }
 
+M.default_config = default_config
+
+--- names of the flavours that exist
+M.flavours = { "tokyonight-storm", "catppuccin-mocha" }
+
 --- loads flavour
 ---@param user_configuration table|nil configuration for the flavour.
+---@return string|nil name of the flavour that was loaded.
 function M.__setup(user_configuration)
 	--- to export the opts like background_transparent, italics, etc.
 	local opts = {}
@@ -69,9 +74,22 @@ function M.__setup(user_configuration)
 	--- merge default_config and user_configuration
 	local config = vim.tbl_deep_extend("force", default_config, user_configuration or {})
 
-	local flavour = require("fused.pallets." .. config.flavour)
+	local ok, flavour = pcall(require, "fused.pallets." .. tostring(config.flavour))
+	if not ok then
+		vim.notify(
+			("fused.nvim: could not load flavour %q (available: %s)\n%s"):format(
+				tostring(config.flavour),
+				table.concat(M.flavours, ", "),
+				tostring(flavour)
+			),
+			vim.log.levels.ERROR
+		)
+		return nil
+	end
 	-- current flavour flavour settings
 	local flavour_settings = config.settings[config.flavour] or {}
+	local override_hl_groups = flavour_settings.hl_override or {}
+
 	-- Export opts for latter use
 	opts.colors = flavour.pallet -- flavour colors
 	opts.background_transparent = config.background_transparent -- transparent background opt
@@ -79,50 +97,64 @@ function M.__setup(user_configuration)
 	opts.terminal_colors = config.terminal_colors -- enable terminal colors
 	opts.global_border = config.border -- global border
 	opts.local_border = flavour_settings.border or {} -- border local to plugin
-	local override_hl_groups = flavour_settings.hl_override or {}
+
+	-- The polished groups of the flavour with the groups from `hl_override` on top. It is built
+	-- once for every load because the group modules ask for it again and again.
+	local polished
 	opts.polish = function()
-		local polished = flavour.polish and flavour.polish() or {}
-		for group_name, group_val in pairs(override_hl_groups) do
-			polished[group_name] = vim.tbl_deep_extend("force", polished[group_name], group_val)
+		if not polished then
+			polished = flavour.polish and flavour.polish() or {}
+			for group_name, group_val in pairs(override_hl_groups) do
+				polished[group_name] = vim.tbl_deep_extend("force", polished[group_name] or {}, group_val)
+			end
 		end
-		polished = vim.tbl_deep_extend("force", polished, flavour_settings.hl_override or {})
 		return polished
 	end
+
 	-- export the opts to the utils module for later easy access and usage.
-	require("fused.utils").export_opts(opts)
+	local utils = require("fused.utils")
+	utils.export_opts(opts)
 
 	-- set normal highlights for editor, syntax, and lsp.
 	require("fused.groups").load_builtins_hl()
 
-	-- load highlights for the plugins
-	if config.force_load_plugins or user_configuration and user_configuration.plugins then
-		require("fused.groups").load_plugins_hl(config.plugins)
+	-- load highlights for the plugins: the ones listed in `plugins` and the ones that asked
+	-- for them with `require("fused").load_plugin()`.
+	local plugins_to_load = {}
+	if type(config.plugins) == "table" then
+		plugins_to_load = vim.deepcopy(config.plugins)
+	end
+	for name in pairs(utils.requested_plugins) do
+		plugins_to_load[name] = true
+	end
+	if next(plugins_to_load) then
+		require("fused.groups").load_plugins_hl(plugins_to_load)
 	end
 
 	-- set highlights for custom groups set by user
 	if config.custom then
-		if type(config.custom) == "function" then
-			config.custom = config.custom(opts.colors)
+		local custom = config.custom
+		if type(custom) == "function" then
+			custom = custom(opts.colors)
 		end
-		local hl = require("fused.utils").set_hl
-		for hl_group_name, hl_opts in pairs(config.custom) do
+		for hl_group_name, hl_opts in pairs(custom or {}) do
 			hl_group_name = tostring(hl_group_name)
 			if hl_opts.styles then
-				local styles = hl_opts.styles
-				styles = require("fused.utils").format_styles(styles)
+				local styles = utils.format_styles(hl_opts.styles)
 				hl_opts = vim.tbl_extend("force", hl_opts, styles)
 				hl_opts.styles = nil
 			end
-			hl(hl_group_name, hl_opts)
+			utils.set_hl(hl_group_name, hl_opts)
 		end
 	end
 
 	if config.execute_hooks then
-		local hook_names = require("fused.utils").hooks_names
-		for hook_name, _ in pairs(hook_names) do
-			vim.cmd("do User " .. hook_name)
+		for hook_name, _ in pairs(utils.hooks_names) do
+			vim.api.nvim_exec_autocmds("User", { pattern = hook_name })
 		end
 	end
+
+	return config.flavour
 end
 
 return M
